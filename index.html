@@ -5,172 +5,146 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TAREQ  STORE</title>
 <style>
+  
   @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
-@keyframes gradientAnimation {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-body {
-  font-family: 'Cairo', sans-serif;
-  margin: 0; padding: 0;
-  direction: rtl;
-  color: #fff;
-  background: linear-gradient(135deg, #6B5B7B, #C06C84);
-  min-height: 100vh;
-}
-
-header {
-  text-align: center;
-  padding: 25px 10px;
-  font-size: 30px;
-  font-weight: 700;
-  background: rgba(0,0,0,0.4);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  background: rgba(0,0,0,0.3);
-  padding: 12px 0;
-}
-
-.menu button {
-  background: #0073e6;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 15px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 3px 8px rgba(0, 115, 230, 0.4);
-}
-
-.menu button:hover,
-.menu button:focus {
-  background-color: #005bb5;
-  outline: none;
-  box-shadow: 0 5px 12px rgba(0, 91, 181, 0.7);
-}
-
-.section {
-  display: none;
-  padding: 25px 15px;
-  max-width: 1100px;
-  margin: 30px auto 80px;
-  background: rgba(0,0,0,0.4);
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.section.active {
-  display: block;
-}
-
-.products {
-  display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-}
-
-/* كمبيوتر: أكبر شاشة، 5 منتجات في الصف */
-@media (min-width: 992px) {
-  .products {
-    grid-template-columns: repeat(5, 1fr);
+  @keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
   }
-  .product {
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0; padding: 0;
+    direction: rtl;
+    color: #fff;
+    /* الخلفية الجديدة الهادية الموفية */
+    background: linear-gradient(135deg, #6B5B7B, #C06C84);
+    /* بدلاً من التدرج المتحرك */
+    /* background-size: 400% 400%; */
+    /* animation: gradientAnimation 15s ease infinite; */
+    min-height: 100vh;
+  }
+
+  header {
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 30px;
+    font-weight: 700;
+    background: rgba(38, 173, 241, 0.4);
+    box-shadow: 0 2px 8px rgba(208, 249, 46, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(47, 204, 244, 0.456);
+    padding: 12px 0;
+  }
+
+  .menu button {
+    background: #219ef2;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 700;
     font-size: 16px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 8px rgba(208, 244, 49, 0.4);
   }
-}
 
-/* آيباد: 3 منتجات في الصف */
-@media (min-width: 600px) and (max-width: 991px) {
-  .products {
-    grid-template-columns: repeat(3, 1fr);
+  .menu button:hover,
+  .menu button:focus {
+    background-color: #54d6f7;
+    outline: none;
+    box-shadow: 0 5px 12px rgba(72, 241, 201, 0.7);
   }
-  .product {
-    font-size: 14px;
-  }
-}
 
-/* موبايل: 2 منتجات في الصف */
-@media (max-width: 599px) {
+  .section {
+    display: none;
+    padding: 25px 15px;
+    max-width: 1100px;
+    margin: 30px auto 80px;
+    background: rgba(57, 240, 237, 0.4);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(64, 240, 117, 0.5);
+  }
+
+  .section.active {
+    display: block;
+  }
+
   .products {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 25px;
   }
+
   .product {
-    font-size: 12px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(50, 198, 251, 0.2);
+    background: #f7faffcc;
+    text-align: center;
+    padding-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
   }
+
+  .product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 115, 230, 0.5);
+  }
+
   .product img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    border-radius: 15px 15px 0 0;
   }
-}
 
-.product {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  background: #f7faffcc;
-  text-align: center;
-  padding-bottom: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
+  .product h3 {
+    margin: 12px 0 8px;
+    color: #004080;
+    font-weight: 700;
+    font-size: 18px;
+  }
 
-.product:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0, 115, 230, 0.5);
-}
+  .product .price {
+    color: #0073e6;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
 
-.product img {
-  width: 100%;
-  height: 170px;
-  object-fit: contain;
-  background: white;
-  border-bottom: 1px solid #ddd;
-  border-radius: 15px 15px 0 0;
-}
-
-.product h3 {
-  margin: 12px 0 8px;
-  color: #004080;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.product .price {
-  color: #0073e6;
-  font-weight: 700;
-  font-size: 17px;
-  margin-bottom: 10px;
-}
-
-.size-options {
+  .size-options {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 10px 0;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 8px 0;
 }
 
 .size-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  min-width: 30px;
   background-color: #0073e6;
   border: none;
-  border-radius: 10px;
   color: white;
   font-weight: 700;
   cursor: pointer;
-  padding: 8px 15px;
   transition: background-color 0.3s ease;
   user-select: none;
 }
@@ -180,64 +154,285 @@ header {
   background-color: #005bb5;
 }
 
-.add-to-cart-btn {
-  background-color: #0073e6;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  padding: 10px 18px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 3px 8px rgba(0, 115, 230, 0.5);
-  transition: background-color 0.3s ease;
-}
 
-/* تعديل السلة على الأجهزة الصغيرة */
-@media (max-width: 768px) {
-  .cart-item {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #ffffffcc;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 12px;
+  .add-to-cart-btn {
+    background-color: #0073e6;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 10px 18px;
+    font-weight: 700;
     font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 115, 230, 0.5);
+    transition: background-color 0.3s ease;
   }
 
-  .cart-item-details {
-    width: 70%;
+  .add-to-cart-btn:hover {
+    background-color: #005bb5;
   }
 
-  .remove-btn {
-    width: 25%;
-    font-size: 12px;
-    padding: 6px;
-    margin-top: 5px;
+  /* زر السلة العلوي */
+  #cart-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #0073e6cc;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 3px 8px rgba(0, 115, 230, 0.7);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    z-index: 1000;
   }
 
-  .cart-item-details > div {
-    width: 48%;
-    display: inline-block;
-    margin-bottom: 6px;
+  #cart-count {
+    background: #004080;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 14px;
+    color: white;
   }
 
-  #cart-items p {
-    font-size: 16px !important;
+  /* نافذة السلة */
+  #cart-modal {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.95);
+    color: #004080;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    padding: 20px 25px;
+    z-index: 2000;
+  }
+
+  #cart-modal h2 {
+    text-align: center;
+    margin-top: 0;
   }
 
   #cart-items {
-    padding: 10px;
+    margin: 15px 0;
   }
+
+  .cart-item {
+    border-bottom: 1px solid #ccc;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+
+  .cart-item-details {
+    max-width: 70%;
+  }
+
+  .cart-item-name {
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .cart-item-size,
+  .cart-item-price {
+    font-size: 14px;
+    color: #0073e6;
+  }
+
+  .remove-btn {
+    background: #e63946;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .remove-btn:hover {
+    background: #b22222;
+  }
+
+  /* نموذج تأكيد الطلب */
+  #order-form {
+    display: none;
+    margin-top: 15px;
+    border-top: 2px solid #0073e6;
+    padding-top: 15px;
+  }
+
+  #order-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #004080;
+  }
+
+  #order-form input, #order-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+
+  #order-form button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 3px 8px rgba(0, 115, 230, 0.5);
+    transition: background-color 0.3s ease;
+  }
+
+  #order-form button:hover {
+    background-color: #005bb5;
+  }
+
+  /* رسالة تأكيد الطلب */
+  #order-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e0ffe0;
+    border-radius: 15px;
+    color: #004080;
+    font-weight: 700;
+    white-space: pre-wrap;
+  }
+
+  /* فقرة الاتصال تحت الموقع */
+  #contact-info {
+    max-width: 1100px;
+    margin: 20px auto 40px;
+    padding: 15px 20px;
+    background: rgba(35, 184, 119, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+  }
+
+  /* للجوال */
+  @media (max-width: 600px) {
+    .menu {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .menu button {
+      width: 90%;
+      font-size: 18px;
+    }
+    .products {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+    .product img {
+      height: 140px;
+    }
+    #cart-modal {
+      width: 95%;
+      max-height: 70vh;
+    }
+  }
+  #inquiry-tab {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.2); /* شفافية */
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: none; /* مخفي بالبداية */
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  font-weight: 700;
+  z-index: 1000;
 }
+#inquiry-tab:hover {
+  background: rgba(255, 255, 255, 0.4);
+  color: #000;
+}
+
+#inquiry-tab {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: none; /* مخفي افتراضي */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  z-index: 9999;
+  /* direction: rtl; */ /* جرب تحذفه أو تغيره الى ltr */
+}
+
+#inquiry-tab .left-side {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+#inquiry-tab .left-side i {
+  font-size: 24px;
+  color: #E1306C;
+}
+
+#inquiry-tab .left-side a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#inquiry-tab .right-side {
+  font-weight: bold;
+  white-space: nowrap;
+}
+</style>
+
 
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 <body>
 
-<header>🛍️ TAREQ  STOR</header>
+
+<header>🛍️ TAREQ  STORE</header>
 
 <div class="menu">
   <button onclick="showSection('men')">👕 ملابس رجالي</button>
@@ -246,14 +441,13 @@ header {
   <button onclick="showSection('offers')">🔥 تخفيضات</button>
 </div>
 
-<!-- أقسام المنتجات -->
+<!-- قسم ملابس رجالي -->
 <div class="section" id="men">
   <h2 style="text-align:center">👕 ملابس رجالي</h2>
   <div class="products">
     <div class="product" data-name="Louis Vuitton" data-price="95" data-category="men">
-      <img src="data:image/jpeg;base64,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
-      " alt="تيشيرت">
-      <h3> Louis Vuitton</h3>
+      <img src="https://i.imgur.com/9Q7f1Ii.jpg" alt="تيشيرت Louis Vuitton" />
+      <h3>Louis Vuitton</h3>
       <div class="price">95 د.ل</div>
       <div class="size-options">
         <button class="size-btn">S</button>
@@ -263,6 +457,55 @@ header {
       </div>
       <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
     </div>
+
+    <div class="product" data-name="Adidas" data-price="75" data-category="men">
+      <img src="https://i.imgur.com/1iJwPzR.jpg" alt="تيشيرت Adidas" />
+      <h3>Adidas</h3>
+      <div class="price">75 د.ل</div>
+      <div class="size-options">
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
+    </div>
+    <div class="product" data-name="Nike" data-price="85" data-category="men">
+      <img src="https://i.imgur.com/6UqTK6N.jpg" alt="تيشيرت Nike" />
+      <h3>Nike</h3>
+      <div class="price">85 د.ل</div>
+      <div class="size-options">
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
+    </div>
+    <div class="product" data-name="Nike" data-price="85" data-category="men">
+      <img src="https://i.imgur.com/6UqTK6N.jpg" alt="تيشيرت Nike" />
+      <h3>Nike</h3>
+      <div class="price">85 د.ل</div>
+      <div class="size-options">
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
+    </div>
+    <div class="product" data-name="Nike" data-price="85" data-category="men">
+      <img src="https://i.imgur.com/6UqTK6N.jpg" alt="تيشيرت Nike" />
+      <h3>Nike</h3>
+      <div class="price">85 د.ل</div>
+      <div class="size-options">
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
+      </div>
     <div class="product" data-name="قميص رجالي" data-price="150" data-category="men">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpGVz4hYH5cLJsY-de_jhNAzFyW-mPFpV9fQ&s" alt="قميص">
       <h3>قميص رجالي</h3>
@@ -275,7 +518,29 @@ header {
       </div>
       <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
     </div>
+  <div class="product" data-name="قميص رجالي" data-price="150" data-category="men">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpGVz4hYH5cLJsY-de_jhNAzFyW-mPFpV9fQ&s" alt="قميص">
+      <h3>قميص رجالي</h3>
+      <div class="price">150 د.ل</div>
+      <div class="size-options">
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
   </div>
+  <div class="product" data-name="قميص رجالي" data-price="150" data-category="men">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpGVz4hYH5cLJsY-de_jhNAzFyW-mPFpV9fQ&s" alt="قميص">
+      <h3>قميص رجالي</h3>
+      <div class="price">150 د.ل</div>
+      <div class="size-options">
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
 </div>
 
 <div class="section" id="women">
@@ -380,11 +645,6 @@ header {
   </form>
 
   <div id="order-summary" style="display:none;"></div>
-</div>
-
-<!-- معلومات الاتصال أسفل الصفحة -->
-<div id="contact-info">
-  للاستفسار الاتصال على الرقم: <strong>0920988008</strong>
 </div>
 
 <script>
@@ -573,8 +833,125 @@ orderForm.addEventListener('submit', e => {
   orderForm.style.display = 'none';
   showOrderFormBtn.style.display = 'none';
 });
+window.addEventListener('scroll', () => {
+  const inquiryTab = document.getElementById('inquiry-tab');
+  // طول الصفحة كلها - طول نافذة العرض - مقدار النزول الحالي
+  const scrollTop = window.scrollY || window.pageYOffset;
+  const windowHeight = window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+
+  // إذا المستخدم قرب نهاية الصفحة (مثلاً آخر 100 بكسل)
+  if (scrollTop + windowHeight >= docHeight - 100) {
+    inquiryTab.style.display = 'flex';
+  } else {
+    inquiryTab.style.display = 'none';
+  }
+});
 
 </script>
+</body>
+<<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>شريط استفسار ثابت بالأسفل</title>
+
+  <!-- رابط مكتبة FontAwesome لأيقونات الانستقرام وسناب -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #222;
+      color: white;
+      min-height: 200vh; /* عشان تقدر تجرب النزول للصفحة */
+    }
+
+    #inquiry-tab {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4); /* خلفية شفافة */
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      z-index: 9999;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    #inquiry-tab > div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    #inquiry-tab .left-side i {
+      font-size: 24px;
+      color: #E1306C; /* لون إنستقرام */
+    }
+
+    #inquiry-tab .center-side i {
+      font-size: 28px;
+      color: #FFFC00; /* لون أصفر سناب */
+    }
+
+    #inquiry-tab a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #inquiry-tab a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- شريط الاستفسار -->
+  <div id="inquiry-tab">
+    <div class="left-side">
+      <i class="fab fa-instagram"></i>
+      <a href="https://instagram.com/tro8qa" target="_blank">@tro8qa</a>
+    </div>
+    <div class="center-side">
+      <i class="fab fa-snapchat-ghost"></i>
+      <a href="https://snapchat.com/add/tro8qa" target="_blank">@tro8qa</a>
+    </div>
+    <div class="right-side">
+      الاتصال للاستفسار: 0920988008
+    </div>
+  </div>
 
 </body>
+</div>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+
+    const inquiryTab = document.getElementById('inquiry-tab');
+
+    if (scrollTop + windowHeight >= docHeight - 10) {
+      inquiryTab.style.display = 'flex';
+    } else {
+      inquiryTab.style.display = 'none';
+    }
+  });
+</script>
+
+</div>
+</body>
 </html>
+
+
