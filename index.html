@@ -51,12 +51,12 @@
 
     #shops-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
       padding: 16px;
       justify-content: center;
       max-width: 960px;
-      margin: 0 auto 40px;
+      margin: 0 auto 60px;
     }
     .shop-card {
       background-color: white;
@@ -88,6 +88,9 @@
       text-align: center;
       color: #002A6C;
     }
+#shops-container {
+  margin-top: 20px; /* يضيف مسافة 20 بكسل فوق الأقسام */
+}
 
     #products-page {
       display: none;
@@ -225,14 +228,14 @@
 
     #cart-btn {
       position: fixed;
-      top: 16px;
-      left: 16px;
+      top: 13px;
+      left: 13px;
       background-color: #2e4dff;
-      width: 54px;
-      height: 54px;
+      width: 40px;
+      height: 40px;
       border-radius: 14px;
       color: white;
-      font-size: 30px;
+      font-size: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -466,16 +469,39 @@
         justify-content: flex-start;
         align-items: flex-start;
       }
+      #cart-btn {
+  font-size: 10px; /* حجم رمز السلة */
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  padding: 4px 8px;
+}
+
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  font-size: 12px; /* حجم رقم عدد المنتجات */
+  font-weight: bold;
+  border-radius: 35%;
+  padding: 2px 5px;
+  min-width: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
       
     }
     
   </style>
 </head>
 <body>
-  <header>
-  ZAWIA STORE
-  <button id="home-btn" onclick="backToMain()" style="display:none; margin-right:10px; padding:6px 14px; font-weight:bold; cursor:pointer; border-radius:12px; border:none; background:#002A6C; color:#fff; user-select:none;">
-    العودة للرئيسية
+  
+
+  <header>ZAWIA STORE </header>
+
   </button>
 </header>
 
@@ -488,7 +514,7 @@
   <div id="shops-container"></div>
 
   <div id="products-page">
-    <button onclick="backToMain()" style="margin: 0 auto 20px; display: block; padding: 6px 18px; background:#002A6C; color:#fff; border:none; border-radius:12px; cursor:pointer; user-select:none;">العودة للرئيسية</button>
+    <button onclick="backToMain()" style="margin: 0 auto 60px; display: block; padding: 6px 18px; background:#002A6C; color:#fff; border:none; border-radius:12px; cursor:pointer; user-select:none;">العودة للرئيسية</button>
     <div id="shop-title"></div>
     <div id="subcategories"></div>
     <div id="products-container"></div>
@@ -496,6 +522,7 @@
 
   <div id="cart-btn" title="السلة" onclick="showCart()">
     🛒
+    
     <div id="cart-count">0</div>
   </div>
 
@@ -1093,6 +1120,8 @@ ${itemsText}
 
     renderTabs();
     renderShops();
+    
   </script>
 </body>
+
 </html>
