@@ -225,6 +225,19 @@
       font-size: 22px;
       pointer-events: none;
     }
+#cart-btn {
+  font-size: 28px; /* الحجم الافتراضي للكبير */
+  /* إعدادات أخرى */
+}
+
+@media (max-width: 480px) {
+  #cart-btn {
+    font-size: 22px; /* حجم أصغر للتلفون */
+    top: 10px;        /* تحكم بموقع السلة من الأعلى */
+    left: 10px;       /* تحكم بموقع السلة من اليسار */
+    padding: 5px 8px; /* تعديل الحشوة */
+  }
+}
 
     #cart-btn {
       position: fixed;
@@ -235,7 +248,7 @@
       height: 40px;
       border-radius: 14px;
       color: white;
-      font-size: 20px;
+      font-size: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
