@@ -361,7 +361,78 @@
       max-height: 70vh;
     }
   }
-  
+  /* تصميم الهاتف الأساسي */
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* للأزرار داخل المنتج */
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.size-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+/* شاشة أكبر من 600px - آيباد */
+@media (min-width: 600px) {
+  .products {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .product {
+    width: calc(50% - 10px);
+  }
+}
+
+/* شاشة أكبر من 1024px - كمبيوتر */
+@media (min-width: 1024px) {
+  .product {
+    width: calc(33.33% - 15px);
+  }
+}
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.size-options .size-btn {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.size-options .size-btn:hover,
+.size-options .size-btn.selected {
+  background-color: #005bb5;
+}
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
