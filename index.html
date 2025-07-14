@@ -20,7 +20,7 @@
     direction: rtl;
     color: #fff;
     /* الخلفية الجديدة الهادية الموفية */
-    background: linear-gradient(135deg, #6B5B7B, #C06C84);
+    background: linear-gradient(135deg, #813072, #c649ef);
     /* بدلاً من التدرج المتحرك */
     /* background-size: 400% 400%; */
     /* animation: gradientAnimation 15s ease infinite; */
@@ -32,8 +32,8 @@
     padding: 25px 10px;
     font-size: 30px;
     font-weight: 700;
-    background: rgba(38, 173, 241, 0.4);
-    box-shadow: 0 2px 8px rgba(208, 249, 46, 0.3);
+    background: rgba(0,0,0,0.4);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -44,12 +44,12 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
-    background: rgba(47, 204, 244, 0.456);
+    background: rgba(0,0,0,0.3);
     padding: 12px 0;
   }
 
   .menu button {
-    background: #219ef2;
+    background: #0073e6;
     color: white;
     border: none;
     padding: 12px 25px;
@@ -58,14 +58,14 @@
     font-weight: 700;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    box-shadow: 0 3px 8px rgba(208, 244, 49, 0.4);
+    box-shadow: 0 3px 8px rgba(0, 115, 230, 0.4);
   }
 
   .menu button:hover,
   .menu button:focus {
-    background-color: #54d6f7;
+    background-color: #005bb5;
     outline: none;
-    box-shadow: 0 5px 12px rgba(72, 241, 201, 0.7);
+    box-shadow: 0 5px 12px rgba(0, 91, 181, 0.7);
   }
 
   .section {
@@ -73,9 +73,9 @@
     padding: 25px 15px;
     max-width: 1100px;
     margin: 30px auto 80px;
-    background: rgba(57, 240, 237, 0.4);
+    background: rgba(0,0,0,0.4);
     border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(64, 240, 117, 0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
   .section.active {
@@ -91,7 +91,7 @@
   .product {
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(50, 198, 251, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     background: #f7faffcc;
     text-align: center;
     padding-bottom: 15px;
@@ -127,31 +127,32 @@
     margin-bottom: 10px;
   }
 
-  .size-options {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin: 8px 0;
-}
-
-.size-btn {
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 6px;
-  min-width: 30px;
-  background-color: #0073e6;
+  .size-btn {
+  background-color: #ee39bb;
   border: none;
+  border-radius: 10px;
   color: white;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 6px 10px;  /* حجم مناسب */
+  font-size: 14px;    /* حجم خط معقول */
   user-select: none;
+  transition: background-color 0.3s ease;
+  min-width: 32px;    /* عرض صغير مناسب */
+  text-align: center;
 }
 
 .size-btn.selected,
 .size-btn:hover {
   background-color: #005bb5;
+}
+
+/* لجعل الأزرار متجاورة ومتناسقة */
+.size-options {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* مسافة بين الأزرار */
+  margin: 10px 0;
 }
 
 
@@ -329,7 +330,7 @@
     max-width: 1100px;
     margin: 20px auto 40px;
     padding: 15px 20px;
-    background: rgba(35, 184, 119, 0.4);
+    background: rgba(0,0,0,0.4);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     font-size: 18px;
@@ -360,77 +361,12 @@
       max-height: 70vh;
     }
   }
-  #inquiry-tab {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.2); /* شفافية */
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  display: none; /* مخفي بالبداية */
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease, opacity 0.3s ease;
-  font-weight: 700;
-  z-index: 1000;
-}
-#inquiry-tab:hover {
-  background: rgba(255, 255, 255, 0.4);
-  color: #000;
-}
-
-#inquiry-tab {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  display: none; /* مخفي افتراضي */
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 16px;
-  box-sizing: border-box;
-  z-index: 9999;
-  /* direction: rtl; */ /* جرب تحذفه أو تغيره الى ltr */
-}
-
-#inquiry-tab .left-side {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-#inquiry-tab .left-side i {
-  font-size: 24px;
-  color: #E1306C;
-}
-
-#inquiry-tab .left-side a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-#inquiry-tab .right-side {
-  font-weight: bold;
-  white-space: nowrap;
-}
+  
 </style>
-
-
-</style>
-</head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
+</head>
 <body>
-
 
 <header>🛍️ TAREQ  STORE</header>
 
@@ -446,7 +382,7 @@
   <h2 style="text-align:center">👕 ملابس رجالي</h2>
   <div class="products">
     <div class="product" data-name="Louis Vuitton" data-price="95" data-category="men">
-      <img src="https://i.imgur.com/9Q7f1Ii.jpg" alt="تيشيرت Louis Vuitton" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXl1WHEY4mGuH4I4j--TCVNcG5YPyA32qcg&s" alt="تيشيرت Louis Vuitton" />
       <h3>Louis Vuitton</h3>
       <div class="price">95 د.ل</div>
       <div class="size-options">
@@ -459,7 +395,8 @@
     </div>
 
     <div class="product" data-name="Adidas" data-price="75" data-category="men">
-      <img src="https://i.imgur.com/1iJwPzR.jpg" alt="تيشيرت Adidas" />
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhERERAVEhUVFhUXGBUSEBUQEhcVFxUWFxcVFxYYHSggGBolGxUWITEhJSkrLi4uFx8zODMsNygtLy0BCgoKDg0OGxAQFy0lHSUrLTcvLS0rLSs3LS0tLy0tLS0tMistLS0rKy0tLS0wLS0rLS0tKy8rLS0tKy0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABgIDBAUHAQj/xABFEAACAQIDAwkDBwkIAwAAAAAAAQIDEQQSIQUxQQYHEyJRYXGBkaGxwTJCUnKSotEUNENic4KywvAjJDNTo7Ph8RU1k//EABkBAQADAQEAAAAAAAAAAAAAAAABAgQDBf/EACMRAQEAAgEEAgIDAAAAAAAAAAABAhEDEiExMgQiQWETI1H/2gAMAwEAAhEDEQA/AO4gAAAAAAAAAAAAAAAAjfKnlnhsFF9JPNO6XRwy59U9bSaVtDle2ud7FTm3h4qjDck1GpL6zut/hp4kbTp3gHCeTnO7iKdSTxsXXptaKnGEJRab63BPf7F3s29TntWZZME8nHNVWfysrdg2adfBBNjc6uArZFUk8POSd1UTyxt+ulZ34bia4TF06sVOlOM4tJqUZKSae5prgSheAAAAAAAAAAAAAAAAAAAAAAAAAAAAADG2jjI0aVStP5MIuT3vRK/AySN84tacNnYqdOpGm1DWUldKLaT4Oz1320A+c9ubWlXrVK9STlKpJyd3dq+5diSWnkjX7n3vcrlvotXrouPaZUKV7XTjeyTcXZvxKLxbWjt5+LKVdPQ3u0tiOnT6RPMllvK9lma1t5mprwyxVndtX03rXiRMpVrjYttvf2Er5DcqauGxVFurLo7xhOLcpx6O+toxTbaTlYiK8d6/79xVTk0009Vqncsq+ucNiI1IRqQkpRklKMlqnFq6a7mi6ajkjGCwWG6J3g6cZRsmklJZkkm3lSva19LWNuWUAAAAAAAAAAAAAAAAAAAAAAAAAAAKalNSTjJJpppppNNPemnvRUAPmTlJyQrYarUVRSlTvPLKCytq9oSaatZSlBSUb2zJaX0ycJsSbhnbTurRTk1l3WlZb2uzvO88rdiRxeGq0ckHNwl0cpxTyTaaUoys3F96OMRdqc6Mp9HJScG1vTTadvTeceW2a078Ml3ttdtbDqTwtKlDWahFtNLrPjv4kcr8mJ2SlRs+j1lbLaSvfc9VoTDZVfrKX5TKrpZxdktN0kt603l7amMvF2fAzddx7NFwl8uO4zDODUWrta9uhTQpOTUIxbbtZJNyu9LJLVvuROtm7OdVWhSlUnUlltFXTtK1m+CSvr3nQ+SvNfRwtWVetVdeV04RydHCC36q7zO6TT0tY1YZdTNyYzFveQWypYbB06U8131mpQjTytpaRhH5K0vq73buSI8irJJbkenVxAAAAAAAAAAAAAAAAAAAAAAAAAAABbnXit7+L9EWni1wTfll9+oGScP27CH/AJDFRoOyjWd78JNXlb95y9Cfc4mNxcMI6uFq9DOE4ybjGM246pxedNWu1wON051OknUzvPOTlJ/Sbbbb82zly38O3DLvaW9DKylKqp2vvik0a3GYzRxTMV1ptayLeFoSqSjG2spKK8W0l7zLru1brtPITZyo4KgkrSqR6STtZtz62vgrLyJAUUKSjGMFuikl4JWRWbpNRgt3dgAJQAAAAAAAAAAAAAAAAAAAAAAB5KSSbeiWr8AMLaGLt/ZxdpNXv2L8dC1ShotTWUqrnJ1H8538uC9DY0p6F9aF3KLBM9IFFajGcZU5xUoyTTT3NPejlfKTkjUw9SUoRdSi3dSiryiuySXv3eB1g9zFM8Jl5XwzuPhw2jTUtzubDYuy5161OEE1GMk5SWmVJ3vfg9NO86xV2dRk80qFNt8XTi362LlOjCCtCKiuxJJLyRyx4NXdrrefc1IycPiNEpPXtelzKNVKPgV0cRKOj1XtXgzRpnbIFulWUtz/ABLhUAAAAAAAAAAAAAAAAAAAAAA123sQo0ZLjPqJeO/2XNiRzbVbpK0Ka3Q3vv0v6aL1Jk7j3BUuqi/CdnYrgrJIxHK82u7+vcXGziVFijMvoqAB4wPSlmhr7WqNprq23xsnqt8W35rSxvIVFJKS3NJrwepfLC4+VZlL4elLR6ymb0uUWUxnllFrts/Bm2NDN3V/TwN7F3SfaRR6ACAAAAAAAAAAAAAAAAAAAFrFVskXL08XovaR/A0etKb1e7zerftLPOVtqWFweanbpJ1IRhdKSWuaTs/1IyXmixyf5UYTERiqdZRm/wBHUtTqX7LPSXlcmWeE6uttxVka7CS60pPja3hqZO0KmVeLjFcPlSS+Jj0YOSzaWtuT9hdDMw9TWxnRZrsPvLuLxMEpQlUyNpq6vdXW+63do1ui/WxcE1DOlJ6Jb9Xuvbd5kcxVecn131ov0kn+K4aaFyWBbSkq1Kz3NzcONtNO32lmrJ1anUi3KW+1rOUUs0k3822Xf2mnjxxxcc7auY13y1EtKiu+6a0mvX3my2DiLwlDjB6fVlr77+w1cqcoQlTqRcW5KVPTNeS6sorLfemvMt7ExVq8YvTMpRaejWmZXT7428ycserCz/ES6yn7SqTMfGRuopcWXJSPJVOHHUyO6zJG3wj6kfBL00NWluRsdnvqW7G17b/EijJABUAAAAAAAAAAAAAAAAAAByDnmx2fEUKCelODk/rVH71GH3iFYalHil5m/wBsJYvE4mtm+VVnle9ZYvJDyyxRqsPgJutCla2ecI5luWaSjf2mTLLqum3DHpxdF5L4KX5B0tRuV55qSk21GFPS6vuu09N2iN/TkrOUdM1vC/E2WLwsYwhRgssYwcUluUUkkajA/IinwNuE1NMeV3dsmlvRralKUHXjKg5ubbjUUXKybbvonqt/j5M2lBcTNpnTHPpVs2itLLBv8ohJqUU4LWO/W29a6+Tv2mNRrSV5Re6Dba13yyt+b0JpM8cU07pO+jVtGuw6Tn/Sn8f7RTE5YSh0NRyu11pboyk2m9y7nYoqbVqUpSg5RrZW1FtJa79Hv3Jq13rxN/X2XRlFx6KCT06sVB+qNVjOT0HKOWclH50WlJtXVlF/N3b9+rLTkwvk6cp4bfD1bxi2nFtJ2e9XV7M8hLNOXckvj+BTVlZXPNm0205drMzozIoy9nP5S70/X/osQh/VjIwdOSk3aya49t9PiRRmAAqAAAAAAAAAAAAAAAABhbaxPRYevV+hSqS+zFv4GaRvnFr5NnYp/SjGH26kYe6RF7RMm65PsGNopPsNzsnD58ZhYr/OhL/5vO/ZFmt2auqSXkPSzY6D+hTqS9bQ/nMGHfN6GfbCuiYtdb934v8AA0D6k5rg7+032IfWl3WXx+Jq8VRzanpx5y5TWiMqBZoLqrwLqAqmeLcevcU02QKHuMes9UX+DMbEEjR8r8b0eFqyTs2sqadmnJ5brvV2/IgVavUdKKdWpe3GrJr0uSTnBk3HD0l86bk/3VZL71/IjsKDk9VojH8jL7aa+DHtt1Hm2hbZ2HvxdV679asyTkd5ATTwNFfRdSPpUl+JIjvj4jNn7UABZUAAAAAAAAAAAAAAAAIhzqP+4tdtWkvvX+BLyH86v5g32VaX8VviVy9ath7Rz3BLqsmnNhhryxNd7urSXiutL3wIXhv8NvuOnc32FyYGk7a1HOo+/NJ5X9lRMvBPttr+RdYaZ6qZulf68l9nq/AtQMfY1TPQz/Tc5fak38TJpbl4G9iVxRUjwAVxLW5lyLKaiApe8xKxlXLNanfTtAiXKulmlRl2Z7ePV/rzNW4pJsk/K+klGjZWSc0vNJ/D2EVxsrRPO+R71u4PSJtzayvhJ/tqnuiSwi3NrTtgKb4ynVl/qSXuiiUmvD1jJye1AAXUAAAAAAAAAAAAAAAACH86n5g++rS/jJgQrnYnbCUl9KvD2U6kvfFFc/Wr4e0c8w91CoraWfrY7Ph6XQ4SMV+jopfZh/wcjwaWWXgdc2jiE8LUnHVSpOz+tHT3nD4/mtHyfw1ewI2w1JdkUjNitEYWxv8AAgu74mc2bGSvWEDxMIVJiZ4ehK2hIqaPKgGj5aL+7qXGE4P16v8AMQfaNbqeRN+V2mDqaXcpU14LOn8Dn22JWo+KZh+TPu2/H9XW+RNHLgMIu2lGXnPrv+I3Zj7Ow/R0qVP6EIR+zFL4GQap4Y7d0ABKAAAAAAAAAAAAAAAAAjPOPg+kwFZ8aeWov3Xr91yJMYG3sO6mGxFNLM5UqkUu1uDSXqRe8TjdVxDAVW1v8USzk1iajnUpKUlTdKUnBu8b3STV9z14EGw0nB2kmmt6as/QnPIqTm8Q+yEF6uT+Bm48f7I28l+iWbHf9ml2NmezB2bTaijPXebWF4UlbiUNhD25UmeRPVEJeyPLHkro9i7gWa1OM+pOKlFp3TV00c+2psvLjcPhVqnWpvXjTupP7qa8ie47aWHodaviKdL69SMW/BN3ZE9jbfw+P2tQdDM1Qp1ZZ5LLGemVZYvXTpHq7bzlyYdWq6cefTt0wAFnMAAAAAAAAAAAAAAAAAAAAAR/lHyRoYu85J06trdLDfZcJRekl7dN5xjldsXH7MqRmqsoxbywr0puKnveSUb77XdmmvE+hzmHPpQSwlCVrt4lXb1duiq9Vdi7l7xJN7W6rrSG7H50MZTSjUjSrd8oZJPzg0vYSLC87i3VcFb6le/slFHJ0osrvw1OirtOH51ME/l0q9Pv6OM192V/YZtLnI2VLfiXF/r4bER9uS3tOFX7C3Ny7LjQ+gJcvtl7/wAtj5U6zfooGFiOdDZkVeNWrV7oYepH/cUTg7mvo/AozEDre0+eJWaw2D/erz/khv8AtEaxPOftCaazUad/nU6LTX2pNeqIdCoXb3JFzFVZ1ZupVqSqSlvlJ3b8yVc1FGb2nhnC9oqq52+h0Ulr3ZnHzaIetDrnMRhdcbWa/wAqCdvrykk/sewi+B1sAFAAAAAAAAAAAAAAAAAAAAAACFc8GGjLZlWUrXpzpSjftc1D3TZNSF88GGlU2ViVBXs6Un4RqwbfsJg+fpQXYFdd5TTndFVzoHmeTqJf8HlxKC7NSBi1azbtwKYxPLavxL0WQPFSK4wa4np6mBUpPid+5nsD0eCcsykpzbvHWLa0dnxSfVv+qzgMbvRavgu8+qdg7PWHw1Cgv0dOEPNRV35u78yMhngAqAAAAAAAAAAAAAAAAAAAAAAR/nA/9bjv2E/cAIPmf5zPT0HQeFSAAwYfKf8AXEvSAIFUQASM7Yv5xh/21L/cifVoBXIAAVAAAAAAAAAAAAAB/9k=
+      " alt="تيشيرت Adidas" />
       <h3>Adidas</h3>
       <div class="price">75 د.ل</div>
       <div class="size-options">
@@ -470,8 +407,8 @@
       </div>
       <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
     </div>
-    <div class="product" data-name="Nike" data-price="85" data-category="men">
-      <img src="https://i.imgur.com/6UqTK6N.jpg" alt="تيشيرت Nike" />
+    <div class="product" data-name="Nike " data-price="85" data-category="men">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdgjyjYO2ghkBLROafQRrB9k9L23dUGKvQpg&s" alt="تيشيرت Nike" />
       <h3>Nike</h3>
       <div class="price">85 د.ل</div>
       <div class="size-options">
@@ -482,8 +419,8 @@
       </div>
       <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
     </div>
-    <div class="product" data-name="Nike" data-price="85" data-category="men">
-      <img src="https://i.imgur.com/6UqTK6N.jpg" alt="تيشيرت Nike" />
+    <div class="product" data-name="Nike SPORT" data-price="85" data-category="men">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs9DCRkIufKOJbcsI0fsL0ylj8CIdn0cgS7w&s" alt="تيشيرت Nike" />
       <h3>Nike</h3>
       <div class="price">85 د.ل</div>
       <div class="size-options">
@@ -494,8 +431,8 @@
       </div>
       <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
     </div>
-    <div class="product" data-name="Nike" data-price="85" data-category="men">
-      <img src="https://i.imgur.com/6UqTK6N.jpg" alt="تيشيرت Nike" />
+    <div class="product" data-name="Nike teshert" data-price="85" data-category="men">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3dfot-lq3PHSJV7VGQQoe4tJ6qKFBhhgCZQ&s" alt="تيشيرت Nike" />
       <h3>Nike</h3>
       <div class="price">85 د.ل</div>
       <div class="size-options">
@@ -518,29 +455,7 @@
       </div>
       <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
     </div>
-  <div class="product" data-name="قميص رجالي" data-price="150" data-category="men">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpGVz4hYH5cLJsY-de_jhNAzFyW-mPFpV9fQ&s" alt="قميص">
-      <h3>قميص رجالي</h3>
-      <div class="price">150 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
   </div>
-  <div class="product" data-name="قميص رجالي" data-price="150" data-category="men">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpGVz4hYH5cLJsY-de_jhNAzFyW-mPFpV9fQ&s" alt="قميص">
-      <h3>قميص رجالي</h3>
-      <div class="price">150 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
 </div>
 
 <div class="section" id="women">
@@ -645,6 +560,11 @@
   </form>
 
   <div id="order-summary" style="display:none;"></div>
+</div>
+
+<!-- معلومات الاتصال أسفل الصفحة -->
+<div id="contact-info">
+  للاستفسار الاتصال على الرقم: <strong>0920988008</strong>
 </div>
 
 <script>
@@ -833,125 +753,21 @@ orderForm.addEventListener('submit', e => {
   orderForm.style.display = 'none';
   showOrderFormBtn.style.display = 'none';
 });
-window.addEventListener('scroll', () => {
-  const inquiryTab = document.getElementById('inquiry-tab');
-  // طول الصفحة كلها - طول نافذة العرض - مقدار النزول الحالي
-  const scrollTop = window.scrollY || window.pageYOffset;
-  const windowHeight = window.innerHeight;
-  const docHeight = document.documentElement.scrollHeight;
-
-  // إذا المستخدم قرب نهاية الصفحة (مثلاً آخر 100 بكسل)
-  if (scrollTop + windowHeight >= docHeight - 100) {
-    inquiryTab.style.display = 'flex';
-  } else {
-    inquiryTab.style.display = 'none';
-  }
-});
 
 </script>
-</body>
-<<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>شريط استفسار ثابت بالأسفل</title>
-
-  <!-- رابط مكتبة FontAwesome لأيقونات الانستقرام وسناب -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <style>
-    body {
-      margin: 0; padding: 0;
-      font-family: 'Cairo', sans-serif;
-      background: #222;
-      color: white;
-      min-height: 200vh; /* عشان تقدر تجرب النزول للصفحة */
-    }
-
-    #inquiry-tab {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.4); /* خلفية شفافة */
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      box-sizing: border-box;
-      z-index: 9999;
-      font-size: 16px;
-      user-select: none;
-    }
-
-    #inquiry-tab > div {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-    }
-
-    #inquiry-tab .left-side i {
-      font-size: 24px;
-      color: #E1306C; /* لون إنستقرام */
-    }
-
-    #inquiry-tab .center-side i {
-      font-size: 28px;
-      color: #FFFC00; /* لون أصفر سناب */
-    }
-
-    #inquiry-tab a {
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    #inquiry-tab a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-
-
-  <!-- شريط الاستفسار -->
-  <div id="inquiry-tab">
-    <div class="left-side">
-      <i class="fab fa-instagram"></i>
-      <a href="https://instagram.com/tro8qa" target="_blank">@tro8qa</a>
-    </div>
-    <div class="center-side">
-      <i class="fab fa-snapchat-ghost"></i>
-      <a href="https://snapchat.com/add/tro8qa" target="_blank">@tro8qa</a>
-    </div>
-    <div class="right-side">
-      الاتصال للاستفسار: 0920988008
-    </div>
+<div id="inquiry-tab">
+  <div class="left-side">
+    <i class="fab fa-instagram"></i>
+    <a href="https://instagram.com/tro8qa" target="_blank">@tro8qa</a>
   </div>
-
-</body>
+  <div class="center-side">
+    <i class="fab fa-snapchat-ghost"></i>
+    <a href="https://snapchat.com/add/tro8qa" target="_blank">@tro8qa</a>
+  </div>
+  <div class="right-side">
+    الاتصال للاستفسار: 0920988008
+  </div>
 </div>
 
-<script>
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const windowHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
-
-    const inquiryTab = document.getElementById('inquiry-tab');
-
-    if (scrollTop + windowHeight >= docHeight - 10) {
-      inquiryTab.style.display = 'flex';
-    } else {
-      inquiryTab.style.display = 'none';
-    }
-  });
-</script>
-
-</div>
 </body>
 </html>
-
-
