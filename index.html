@@ -89,8 +89,12 @@
       color: #002A6C;
     }
 #shops-container {
-  margin-top: 20px; /* يضيف مسافة 20 بكسل فوق الأقسام */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 16px;
 }
+
 
     #products-page {
       display: none;
@@ -155,13 +159,15 @@
       transform: scale(1.05);
     }
     .product-card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-bottom: 12px;
-    }
+  width: 100%;
+  height: auto;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 12px;
+}
+
     .product-name {
       font-size: 16px;
       font-weight: bold;
@@ -436,7 +442,7 @@
 
     @media (max-width: 480px) {
       header {
-        font-size: 20px;
+        font-size: 18px;
       }
       #shops-container {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -472,6 +478,13 @@
         height: 36px;
         font-size: 18px;
       }
+      .section-title {
+    font-size: 18px;
+  }
+  .subcategory {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
       #cart-content {
         width: 95vw;
         padding: 14px;
@@ -517,6 +530,7 @@
 
   </button>
 </header>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <div id="tabs"></div>  <!-- هنا الأقسام (التابات) -->
 <div id="shops"></div> <!-- هنا عرض المحلات -->
