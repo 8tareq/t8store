@@ -529,7 +529,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: #f128a7;
+    position: relative;
+    background-color: #846cf9;
     color: white;
     border-radius: 30px;
     padding: 8px 16px;
@@ -540,16 +541,25 @@
     user-select: none;
   ">
     🛒 <span>السلة</span>
+
+    <!-- عدد السلة يظهر فوق -->
     <div id="cart-count" style="
+      position: absolute;
+      top: -8px;
+      right: -8px;
       background-color: red;
       color: white;
       font-size: 12px;
       font-weight: bold;
       border-radius: 50%;
-      padding: 2px 6px;
-      margin-right: 6px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     ">0</div>
   </div>
+
 </header>
 
 
@@ -562,7 +572,7 @@
 
   </button>
 </header>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 
 <div id="tabs"></div>  <!-- هنا الأقسام (التابات) -->
 <div id="shops"></div> <!-- هنا عرض المحلات -->
@@ -579,10 +589,6 @@
     <div id="products-container"></div>
   </div>
 
-  
-
-    
-    <div id="cart-count">0</div>
   </div>
 
   <div id="cart-overlay" onclick="closeCart(event)">
@@ -1110,11 +1116,105 @@ ${itemsText}
 💰 إجمالي السعر: ${totalPrice.toFixed(2)} د.ل
         `;
 
-        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+const telegramToken = "7860582198:AAHRrpCCr83B1X1O7BGHebRUc-5h9VaPDBk"; // توكن البوت
+const telegramChatId = "355888174"; // رقم حسابك في تيليجرام
+
+async function testSendTelegramMessage() {
+  const telegramToken = "7860582198:AAHRrpCCr83B1X1O7BGHebRUc-5h9VaPDBk";
+  const telegramChatId = "355888174";
+  const message = "رسالة اختبار من المتجر";
+
+  try {
+    const response = await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        chat_id: telegramChatId,
+        text: message
+      })
+    });
+
+    const data = await response.json();
+    console.log("Response from Telegram (test):", data);
+
+    if (!data.ok) {
+      alert("خطأ في إرسال الرسالة التجريبية: " + data.description);
+      return false;
+    }
+    alert("تم إرسال رسالة اختبار بنجاح");
+    return true;
+  } catch (error) {
+    alert("فشل إرسال الرسالة التجريبية: " + error.message);
+    return false;
+  }
+}
+
+
+
+async function confirmOrder(customerData, cartItems) {
+  if (!customerData.name || !customerData.phone || !customerData.city || !customerData.address) {
+    alert("يرجى تعبئة جميع الحقول المطلوبة");
+    return;
+  }
+  if (cartItems.length === 0) {
+    alert("السلة فارغة");
+    return;
+  }
+
+  let message = `🛒 <b>طلب جديد</b>\n\n`;
+  message += `<b>الاسم:</b> ${customerData.name}\n`;
+  message += `<b>الهاتف:</b> ${customerData.phone}\n`;
+  message += `<b>المدينة:</b> ${customerData.city}\n`;
+  message += `<b>العنوان:</b> ${customerData.address}\n`;
+  message += `<b>ملاحظات:</b> ${customerData.notes || "لا توجد"}\n\n`;
+
+  message += `<b>تفاصيل الطلب:</b>\n`;
+  let total = 0;
+  cartItems.forEach((item, idx) => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+    message += `${idx + 1}. ${item.productName} - المقاس: ${item.size} - الكمية: ${item.quantity} - السعر: ${item.price} د.ل - المجموع: ${itemTotal} د.ل\n`;
+  });
+  message += `\n<b>الإجمالي الكلي:</b> ${total} د.ل`;
+
+  const success = await sendTelegramMessage(message);
+  if(success) {
+    alert("تم إرسال الطلب بنجاح");
+    // امسح السلة هنا أو قم بإعادة تحميل الصفحة أو تحديث الواجهة حسب الحاجة
+  }
+}
+
+// مثال استخدام عند الضغط على زر "تأكيد الطلب":
+document.getElementById("order-form").onsubmit = async function(e) {
+  e.preventDefault();
+
+  if (Object.keys(cart).length === 0) {
+    alert("السلة فارغة");
+    return;
+  }
+  const customerData = {
+    name: document.getElementById("name").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    city: document.getElementById("city").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    notes: document.getElementById("notes").value.trim()
+  };
+  
+  
+  // cartItems: مصفوفة من المنتجات في السلة، مثال:
+  // [{productName: "تيشيرت", size: "M", quantity: 2, price: 120}, ...]
+  const cartItems = getCartItemsSomehow(); // لازم تعرّف كيف تجيب بيانات السلة عندك
+
+  confirmOrder(customerData, cartItems);
+}
+
 
         // نرسل طلب http
         await fetch(url);
       }
+      
     }
 
     document.getElementById("order-form").onsubmit = async function(e) {
@@ -1141,17 +1241,13 @@ ${itemsText}
 
       // تقسيم الطلب حسب المحلات
       const orderData = {};
-      for (const key in cart) {
-        const item = cart[key];
-        if (!orderData[item.shopKey]) {
-          orderData[item.shopKey] = {
-            customer,
-            items: []
-          };
-        }
-        orderData[item.shopKey].items.push(item);
-      }
-
+  for (const key in cart) {
+    const item = cart[key];
+    if (!orderData[item.shopKey]) {
+      orderData[item.shopKey] = { customer, items: [] };
+    }
+    orderData[item.shopKey].items.push(item);
+  }
       try {
         await sendTelegramMessages(orderData);
         alert(`تم إرسال الطلب بنجاح. رقم الطلب: ${orderNumber}`);
@@ -1168,7 +1264,9 @@ ${itemsText}
         alert("حدث خطأ أثناء إرسال الطلب");
         console.error(err);
       }
+      
     };
+    
 
     // البداية
     function showMainPage() {
@@ -1180,7 +1278,63 @@ ${itemsText}
     renderTabs();
     renderShops();
     
+    
   </script>
+  
+
+<script>
+// بيانات تيليجرام الموحدة مؤقتاً (بدّلهم لاحقاً لكل محل)
+const shopsTokens = {
+  "محل 1": "YOUR_BOT_TOKEN",
+  "محل 2": "YOUR_BOT_TOKEN",
+  "محل 3": "YOUR_BOT_TOKEN"
+};
+const chatIds = {
+  "محل 1": "YOUR_CHAT_ID",
+  "محل 2": "YOUR_CHAT_ID",
+  "محل 3": "YOUR_CHAT_ID"
+};
+
+// دالة إرسال الطلب لكل محل
+async function sendTelegramMessages(orderData, orderNumber) {
+  for (const shop in orderData) {
+    const items = orderData[shop].items;
+    const customer = orderData[shop].customer;
+    const token = shopsTokens[shop] || "7860582198:AAHRrpCCr83B1X1O7BGHebRUc-5h9VaPDBk";
+    const chatId = chatIds[shop] || "355888174";
+
+    const itemsText = items.map(item => 
+      `- ${item.productName} | مقاس: ${item.size} | كمية: ${item.quantity} | سعر: ${item.price} د.ل`
+    ).join("\n");
+
+    const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    const message = 
+`🛍️ طلب جديد من ${shop}
+📦 رقم الطلب: ${orderNumber}
+👤 الاسم: ${customer.name}
+📞 الهاتف: ${customer.phone}
+🏙️ المدينة: ${customer.city}
+🏠 العنوان: ${customer.address}
+📝 ملاحظات: ${customer.notes || "لا توجد"}
+
+المنتجات:
+${itemsText}
+
+💰 الإجمالي: ${total} د.ل`;
+
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message
+      })
+    });
+  }
+}
+</script>
+
 </body>
 
 </html>
