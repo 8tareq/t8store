@@ -282,7 +282,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(71, 21, 237, 0.5);
       display: none;
       justify-content: flex-start;
       align-items: flex-start;
@@ -521,33 +521,38 @@
 <body>
   
 
-<header>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 20px; padding-top: 20px;">
-    <div class="site-title" style="font-size: 22px; font-weight: bold; color: #002A6C;">
-      ZAWIA STORE
-    </div>
-    <div id="cart-btn" title="السلة" onclick="showCart()" style="
-      background-color: #846cf9;
+<header style="text-align: center; padding-top: 20px;">
+  <div class="site-title" style="font-size: 26px; font-weight: bold; color: #002A6C;">ZAWIA STORE</div>
+
+  <div onclick="showCart()" title="السلة" style="
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f128a7;
+    color: white;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+    user-select: none;
+  ">
+    🛒 <span>السلة</span>
+    <div id="cart-count" style="
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
       border-radius: 50%;
-      padding: 8px;
-      font-size: 22px;
-      box-shadow: 0 1px 4px rgba(252, 252, 252, 0.1);
-      cursor: pointer;
-      position: relative;
-      ">
-      🛒
-      <div id="cart-count" style="
-        position: absolute;
-        top: -6px;
-        right: -6px;
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        padding: 2px 6px;
-        font-size: 12px;
-        ">
-        0
-      </div>
+      padding: 2px 6px;
+      margin-right: 6px;
+    ">0</div>
+  </div>
+</header>
+
+
     </div>
   </div>
 </header>
