@@ -238,7 +238,7 @@
 
 @media (max-width: 480px) {
   #cart-btn {
-    font-size: 20px; /* حجم أصغر للتلفون */
+    font-size: 40px; /* حجم أصغر للتلفون */
     top: 14px;        /* تحكم بموقع السلة من الأعلى */
     left: 14px;       /* تحكم بموقع السلة من اليسار */
     padding: 5px 8px; /* تعديل الحشوة */
@@ -248,7 +248,7 @@
     #cart-btn {
   position: relative;
   margin-right: 12px; /* بدل left */
-  background-color: #846cf9;
+  background-color: #6349f8;
   border-radius: 50%;
   padding: 8px;
   font-size: 22px;
@@ -524,12 +524,35 @@
   
 
 <header>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-    <div class="site-title">ZAWIA STORE</div>
-    <div id="cart-btn" title="السلة" onclick="showCart()">🛒<div id="cart-count">0</div></div>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 20px; padding-top: 20px;">
+    <div class="site-title" style="font-size: 22px; font-weight: bold; color: #002A6C;">
+      ZAWIA STORE
+    </div>
+    <div id="cart-btn" title="السلة" onclick="showCart()" style="
+      background-color: #846cf9;
+      border-radius: 50%;
+      padding: 8px;
+      font-size: 22px;
+      box-shadow: 0 1px 4px rgba(252, 252, 252, 0.1);
+      cursor: pointer;
+      position: relative;
+      ">
+      🛒
+      <div id="cart-count" style="
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        ">
+        0
+      </div>
+    </div>
   </div>
 </header>
-
 
 
 
