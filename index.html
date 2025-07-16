@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> ZAWIA STORE </title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title> ZAWIA STORE </title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
     body {
       font-family: 'Tajawal', sans-serif;
       margin: 0;
@@ -517,14 +518,28 @@
     }
     
   </style>
+
+<style>
+  .customer-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  #cart-overlay {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+</style>
+
 </head>
 <body>
-  
-
 <header style="text-align: center; padding-top: 20px;">
-  <div class="site-title" style="font-size: 26px; font-weight: bold; color: #002A6C;">ZAWIA STORE</div>
-
-  <div onclick="showCart()" title="السلة" style="
+<div class="site-title" style="font-size: 26px; font-weight: bold; color: #002A6C;">ZAWIA STORE</div>
+<div onclick="showCart()" style="
     margin-top: 14px;
     display: inline-flex;
     align-items: center;
@@ -539,11 +554,10 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     cursor: pointer;
     user-select: none;
-  ">
+  " title="السلة">
     🛒 <span>السلة</span>
-
-    <!-- عدد السلة يظهر فوق -->
-    <div id="cart-count" style="
+<!-- عدد السلة يظهر فوق -->
+<div id="cart-count" style="
       position: absolute;
       top: -8px;
       right: -8px;
@@ -558,58 +572,46 @@
       align-items: center;
       justify-content: center;
     ">0</div>
-  </div>
-
-</header>
-
-
-    </div>
-  </div>
+</div>
 </header>
 
 
 
 
-  </button>
-</header>
 
-
-<div id="tabs"></div>  <!-- هنا الأقسام (التابات) -->
+<div id="tabs"></div> <!-- هنا الأقسام (التابات) -->
 <div id="shops"></div> <!-- هنا عرض المحلات -->
 <div id="products"></div> <!-- هنا عرض المنتجات -->
+<div id="tabs"></div>
+<div id="shops-container"></div>
+<div id="products-page"><button id="back-to-tabs" style="display: none; margin: 20px auto; padding: 10px 20px; background: #002A6C; color: #fff; border: none; border-radius: 12px; cursor: pointer; font-size: 16px;">الرجوع للأقسام</button>
+<!-- حذف الزر بالكامل -->
+<div id="shop-title"></div>
+<div id="subcategories"></div>
+<div id="products-container"></div>
+</div>
 
-  <div id="tabs"></div>
-
-  <div id="shops-container"></div>
-
-  <div id="products-page">
-    <button onclick="backToMain()" style="margin: 0 auto 60px; display: block; padding: 6px 18px; background:#002A6C; color:#fff; border:none; border-radius:12px; cursor:pointer; user-select:none;">العودة للرئيسية</button>
-    <div id="shop-title"></div>
-    <div id="subcategories"></div>
-    <div id="products-container"></div>
-  </div>
-
-  </div>
-
-  <div id="cart-overlay" onclick="closeCart(event)">
-    <div id="cart-content">
-      <h2>سلة المشتريات</h2>
-      <div id="cart-items"></div>
-      <div id="cart-total"></div>
-      <button id="confirm-order-btn" onclick="showOrderForm()">تأكيد الطلب</button>
-      <form id="order-form">
-        <input type="text" id="name" placeholder="الاسم الكامل" required />
-        <input type="tel" id="phone" placeholder="رقم الهاتف" required />
-        <input type="text" id="city" placeholder="المدينة" required />
-        <input type="text" id="address" placeholder="العنوان" required />
-        <textarea id="notes" placeholder="ملاحظات (اختياري)"></textarea>
-        <button type="submit">إرسال الطلب</button>
-        <button type="button" onclick="hideOrderForm()" style="background:#888;margin-top:8px;">إلغاء</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
+<button id="back-to-tabs" style="display: none; margin: 20px auto; padding: 6px 18px; background: #002A6C; color: #fff; border: none; border-radius: 12px; cursor: pointer;">
+  الرجوع للأقسام
+</button>
+<div id="cart-overlay" onclick="closeCart(event)">
+<div id="cart-content">
+<h2>سلة المشتريات</h2>
+<div id="cart-items"></div>
+<div id="cart-total"></div>
+<button id="confirm-order-btn" onclick="showOrderForm()">تأكيد الطلب</button>
+<form id="order-form">
+<input id="name" class="customer-input" placeholder="الاسم الكامل" required="" type="text"/>
+<input id="phone" class="customer-input" placeholder="رقم الهاتف" required="" type="tel"/>
+<input id="city" class="customer-input" placeholder="المدينة" required="" type="text"/>
+<input id="address" class="customer-input" placeholder="العنوان" required="" type="text"/>
+<textarea id="notes" class="customer-input" placeholder="ملاحظات (اختياري)"></textarea>
+<button type="submit">إرسال الطلب</button>
+<button onclick="hideOrderForm()" style="background:#888;margin-top:8px;" type="button">إلغاء</button>
+</form>
+</div>
+</div>
+<script>
     // البيانات
     const sectionsData = {
       "الولااني": [
@@ -703,25 +705,75 @@
     let orderNumber = Number(localStorage.getItem('orderNumber')) || 1;
 
     // العرض الرئيسي - تبويب الأقسام
-    function renderTabs() {
+   function renderTabs() {
   const tabsDiv = document.getElementById("tabs");
   tabsDiv.innerHTML = "";
+
   mainSections.forEach(sec => {
     const tab = document.createElement("div");
     tab.classList.add("tab");
     if (sec === currentMainSection) tab.classList.add("active");
     tab.textContent = sec;
+
     tab.onclick = () => {
       currentMainSection = sec;
       currentShop = null;
       renderTabs();
       renderShops();
-      goHome();
-      document.getElementById("home-btn").style.display = "none";
+
+// فتح الصورة المكبرة
+function openImageModal(src) {
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+
+  if (modal && modalImg) {
+    modalImg.src = src;
+    modal.style.display = "flex";
+  }
+}
+
+// غلق الصورة عند الضغط على أي مكان في الخلفية
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("image-modal");
+  if (modal) {
+    modal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+});
+
+
+      // ✅ إخفاء باقي التبويبات غير اللي نقرنا عليه
+      // إخفاء باقي التبويبات (الأقسام) لما ندخل محل
+const allTabs = document.querySelectorAll("#tabs .tab");
+allTabs.forEach(tabEl => {
+  if (tabEl.textContent !== currentMainSection) {
+    tabEl.style.display = "none";
+  }
+});
+
+// إظهار زر الرجوع للأقسام
+document.getElementById("back-to-tabs").style.display = "block";
+
     };
+
     tabsDiv.appendChild(tab);
   });
 }
+document.getElementById("back-to-tabs").onclick = () => {
+  // ترجع تظهر جميع التبويبات
+  const allTabs = document.querySelectorAll("#tabs .tab");
+  allTabs.forEach(tabEl => {
+    tabEl.style.display = "inline-block";
+  });
+
+  // تخفي المحلات
+  document.getElementById("shops-container").style.display = "none";
+
+  // تخفي الزر
+  document.getElementById("back-to-tabs").style.display = "none";
+};
+
 
 
     // عرض المحلات حسب القسم
@@ -767,19 +819,50 @@
     }
 
     // افتح صفحة المنتجات لمحل معين
-    function openShop(shopKey, shopName) {
+   function openShop(shopKey, shopName) {
   currentShop = shopKey;
   currentSubcategory = null;
+
+  // نخفي المحلات
   document.getElementById("shops-container").style.display = "none";
-  // لا نخفي التابات
+
+  // نظهر صفحة المنتجات
   document.getElementById("products-page").style.display = "block";
   document.getElementById("shop-title").textContent = shopName;
+
+  // نرسم التصنيفات الفرعية والمنتجات
   renderSubcategories();
   renderProducts();
 
-  // إظهار زر العودة للرئيسية
-  document.getElementById("home-btn").style.display = "inline-block";
+  // ✅ نخفي باقي التبويبات (الأقسام)
+  const allTabs = document.querySelectorAll("#tabs .tab");
+  allTabs.forEach(tabEl => {
+    if (tabEl.textContent !== currentMainSection) {
+      tabEl.style.display = "none";
+    }
+  });
+
+  // ✅ نظهر زر "الرجوع للأقسام"
+  document.getElementById("back-to-tabs").style.display = "block";
 }
+document.getElementById("back-to-tabs").onclick = () => {
+  // 1. نظهر كل التبويبات (الأقسام)
+  const allTabs = document.querySelectorAll("#tabs .tab");
+  allTabs.forEach(tabEl => {
+    tabEl.style.display = "inline-block";
+  });
+
+  // 2. نظهر المحلات الخاصة بالقسم الحالي
+  document.getElementById("shops-container").style.display = "grid";
+  renderShops();
+
+  // 3. نخفي صفحة المنتجات
+  document.getElementById("products-page").style.display = "none";
+
+  // 4. نخفي الزر
+  document.getElementById("back-to-tabs").style.display = "none";
+};
+
 
 function backToMain() {
   currentShop = null;
@@ -820,80 +903,79 @@ function backToMain() {
     }
 
     // عرض المنتجات في القسم المحدد
-    function renderProducts() {
-      const container = document.getElementById("products-container");
-      container.innerHTML = "";
-      if (!currentShop || !currentSubcategory) return;
+    // عرض المنتجات في القسم المحدد
+function renderProducts() {
+  const container = document.getElementById("products-container");
+  container.innerHTML = "";
 
-      const products = shops[currentShop][currentSubcategory] || [];
+  if (!currentShop || !currentSubcategory) return;
 
-      if (products.length === 0) {
-        container.innerHTML = `<p style="text-align:center; color:#444;">لا توجد منتجات في هذا القسم.</p>`;
+  const products = shops[currentShop][currentSubcategory] || [];
+
+  if (products.length === 0) {
+    container.innerHTML = `<p style="text-align:center; color:#444;">لا توجد منتجات في هذا القسم.</p>`;
+    return;
+  }
+
+  products.forEach(product => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+
+    const img = document.createElement("img");
+    img.src = product.img;
+    img.alt = product.name;
+    img.style.cursor = "pointer";
+    img.onclick = () => openImageModal(product.img);  // تكبير الصورة
+
+    const name = document.createElement("div");
+    name.className = "product-name";
+    name.textContent = product.name;
+
+    const price = document.createElement("div");
+    price.className = "product-price";
+    price.textContent = product.price + " د.ل";
+
+    // إنشاء خيارات المقاسات
+    const sizesDiv = document.createElement("div");
+    sizesDiv.className = "sizes";
+    ["S", "M", "L", "XL"].forEach(size => {
+      const sizeBtn = document.createElement("div");
+      sizeBtn.className = "size-btn";
+      sizeBtn.textContent = size;
+      sizeBtn.onclick = () => {
+        const prevSelected = sizesDiv.querySelector(".selected");
+        if (prevSelected) prevSelected.classList.remove("selected");
+        sizeBtn.classList.add("selected");
+      };
+      sizesDiv.appendChild(sizeBtn);
+    });
+
+    // زر الإضافة إلى السلة
+    const addBtn = document.createElement("button");
+    addBtn.className = "add-to-cart-btn";
+    addBtn.title = "أضف إلى السلة";
+    addBtn.innerHTML = "🛒";
+    addBtn.onclick = () => {
+      const selectedSize = sizesDiv.querySelector(".size-btn.selected");
+      if (!selectedSize) {
+        alert("يرجى اختيار المقاس");
         return;
       }
+      addToCart(currentShop, product, selectedSize.textContent);
+    };
 
-      products.forEach(product => {
-        const card = document.createElement("div");
-        card.className = "product-card";
+    // تجميع العناصر في البطاقة
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(price);
+    card.appendChild(sizesDiv);
+    card.appendChild(addBtn);
 
-        const img = document.createElement("img");
-        img.src = product.img;
-        img.alt = product.name;
+    container.appendChild(card);
+  });
+}
 
-        const name = document.createElement("div");
-        name.className = "product-name";
-        name.textContent = product.name;
-
-        const price = document.createElement("div");
-        price.className = "product-price";
-        price.textContent = product.price + " د.ل";
-
-        // المقاسات ثابتة لجميع المنتجات كمثال
-        const sizesDiv = document.createElement("div");
-        sizesDiv.className = "sizes";
-        ["S", "M", "L", "XL"].forEach(size => {
-          const sizeBtn = document.createElement("div");
-          sizeBtn.className = "size-btn";
-          sizeBtn.textContent = size;
-          sizeBtn.onclick = () => {
-            const prevSelected = sizesDiv.querySelector(".selected");
-            if (prevSelected) prevSelected.classList.remove("selected");
-            sizeBtn.classList.add("selected");
-          };
-          sizesDiv.appendChild(sizeBtn);
-        });
-
-        const addBtn = document.createElement("button");
-        addBtn.className = "add-to-cart-btn";
-        addBtn.title = "أضف إلى السلة";
-        addBtn.innerHTML = "🛒";
-        addBtn.onclick = () => {
-          const selectedSize = sizesDiv.querySelector(".size-btn.selected");
-          if (!selectedSize) {
-            alert("يرجى اختيار المقاس");
-            return;
-          }
-          addToCart(currentShop, product, selectedSize.textContent);
-        };
-
-        card.appendChild(img);
-        card.appendChild(name);
-        card.appendChild(price);
-        card.appendChild(sizesDiv);
-        card.appendChild(addBtn);
-
-        container.appendChild(card);
-      });
-    }
-
-    // العودة للصفحة الرئيسية
-    function backToMain() {
-      currentShop = null;
-      currentSubcategory = null;
-      document.getElementById("products-page").style.display = "none";
-      document.getElementById("shops-container").style.display = "grid";
-      document.getElementById("tabs").style.display = "flex";
-    }
+    
 
     // إضافة منتج للسلة - كل محل له سلة مستقلة (مفتاح: shop|product|size)
     function addToCart(shopKey, product, size) {
@@ -1280,61 +1362,175 @@ document.getElementById("order-form").onsubmit = async function(e) {
     
     
   </script>
-  
+<style>
+.img-popup {
+  cursor: pointer;
+  transition: 0.3s;
+}
 
+.img-popup:hover {
+  opacity: 0.7;
+}
+
+#imgModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#imgModalContent {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+</style>
+<!-- نافذة تكبير الصورة -->
+<div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;">
+<img id="modal-img" src="" style="max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 0 12px rgba(0,0,0,0.5);"/>
+</div>
+<!-- نافذة تكبير الصورة -->
+<div id="image-modal" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+">
+<img id="modal-img" style="
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  "/>
+</div>
+<div id="image-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;"><button id="close-modal-btn" style="position:absolute; top:20px; left:20px; background:#fff; border:none; font-size:28px; border-radius:50%; width:40px; height:40px; cursor:pointer;">×</button><img id="modal-img" style="max-width:90%; max-height:80%; border-radius:12px;"/></div><script>
+// تكبير الصورة
+function openImageModal(src) {
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  modalImg.src = src;
+  modal.style.display = "flex";
+}
+
+// إغلاق الصورة بزر أو عند الضغط خارجها
+document.getElementById("image-modal").addEventListener("click", function(e) {
+  if (e.target.id === "image-modal" || e.target.id === "close-modal-btn") {
+    this.style.display = "none";
+  }
+});
+
+// تأكيد الطلبية بشكل سليم
+document.getElementById("order-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if (!name || !phone) {
+    alert("يرجى إدخال الاسم ورقم الهاتف");
+    return;
+  }
+
+  alert("تم إرسال الطلب بنجاح ✅");
+  this.reset();
+  document.getElementById("cart-overlay").style.display = "none";
+});
+</script>
 <script>
-// بيانات تيليجرام الموحدة مؤقتاً (بدّلهم لاحقاً لكل محل)
-const shopsTokens = {
-  "محل 1": "YOUR_BOT_TOKEN",
-  "محل 2": "YOUR_BOT_TOKEN",
-  "محل 3": "YOUR_BOT_TOKEN"
-};
-const chatIds = {
-  "محل 1": "YOUR_CHAT_ID",
-  "محل 2": "YOUR_CHAT_ID",
-  "محل 3": "YOUR_CHAT_ID"
-};
+let orderNumber = parseInt(localStorage.getItem('orderNumber') || '1');
 
-// دالة إرسال الطلب لكل محل
-async function sendTelegramMessages(orderData, orderNumber) {
-  for (const shop in orderData) {
-    const items = orderData[shop].items;
-    const customer = orderData[shop].customer;
-    const token = shopsTokens[shop] || "7860582198:AAHRrpCCr83B1X1O7BGHebRUc-5h9VaPDBk";
-    const chatId = chatIds[shop] || "355888174";
+async function sendTelegramMessages(orderData) {
+  const token = "7860582198:AAHRrpCCr83B1X1O7BGHebRUc-5h9VaPDBk";
+  const chatId = "355888174";
 
-    const itemsText = items.map(item => 
-      `- ${item.productName} | مقاس: ${item.size} | كمية: ${item.quantity} | سعر: ${item.price} د.ل`
+  for (const shopKey in orderData) {
+    const shopOrder = orderData[shopKey];
+    const itemsText = shopOrder.items.map(item =>
+      `- ${item.productName} - المقاس: ${item.size} - الكمية: ${item.quantity} - السعر: ${item.price} د.ل`
     ).join("\n");
 
-    const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const total = shopOrder.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    const message = 
-`🛍️ طلب جديد من ${shop}
-📦 رقم الطلب: ${orderNumber}
-👤 الاسم: ${customer.name}
-📞 الهاتف: ${customer.phone}
-🏙️ المدينة: ${customer.city}
-🏠 العنوان: ${customer.address}
-📝 ملاحظات: ${customer.notes || "لا توجد"}
+    const message = `
+🛒 رقم الطلب: ${orderNumber}
+👤 الاسم: ${shopOrder.customer.name}
+📞 الهاتف: ${shopOrder.customer.phone}
+🏙️ المدينة: ${shopOrder.customer.city}
+🏠 العنوان: ${shopOrder.customer.address}
+📝 ملاحظات: ${shopOrder.customer.notes || 'لا توجد'}
 
-المنتجات:
+📦 تفاصيل الطلب:
 ${itemsText}
 
-💰 الإجمالي: ${total} د.ل`;
+💰 الإجمالي: ${total.toFixed(2)} د.ل
+    `;
 
     await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: message
-      })
+      body: JSON.stringify({ chat_id: chatId, text: message })
     });
+  }
+}
+
+document.getElementById("order-form").onsubmit = async function(e) {
+  e.preventDefault();
+
+  if (Object.keys(cart).length === 0) {
+    alert("السلة فارغة");
+    return;
+  }
+
+  const customer = {
+    name: document.getElementById("name").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    city: document.getElementById("city").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    notes: document.getElementById("notes").value.trim()
+  };
+
+  if (!customer.name || !customer.phone || !customer.city || !customer.address) {
+    alert("يرجى تعبئة جميع الحقول المطلوبة");
+    return;
+  }
+
+  const orderData = {};
+  for (const key in cart) {
+    const item = cart[key];
+    if (!orderData[item.shopKey]) {
+      orderData[item.shopKey] = { customer, items: [] };
+    }
+    orderData[item.shopKey].items.push(item);
+  }
+
+  try {
+    await sendTelegramMessages(orderData);
+    alert(`تم إرسال الطلب بنجاح. رقم الطلب: ${orderNumber}`);
+    orderNumber++;
+    localStorage.setItem('orderNumber', orderNumber);
+
+    cart = {};
+    updateCartCount();
+    renderCartItems();
+    hideOrderForm();
+    document.getElementById("cart-overlay").style.display = "none";
+  } catch (err) {
+    alert("حدث خطأ أثناء إرسال الطلب");
+    console.error(err);
   }
 }
 </script>
 
 </body>
-
 </html>
