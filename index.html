@@ -746,6 +746,161 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* زر طباعة كشف الحساب */
+        .print-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        /* كشف الحساب */
+        .account-statement {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+        
+        .statement-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .summary-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .summary-item.income {
+            border-top: 4px solid #28a745;
+        }
+        
+        .summary-item.expense {
+            border-top: 4px solid #dc3545;
+        }
+        
+        .summary-item.balance {
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .summary-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .summary-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .statement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .statement-table th {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px;
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .statement-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .statement-table tr:hover {
+            background: rgba(67, 97, 238, 0.03);
+        }
+        
+        /* حقل البحث */
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            font-size: 16px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+            outline: none;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+        
+        /* إعدادات الطباعة */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            
+            #printable-statement, #printable-statement * {
+                visibility: visible;
+            }
+            
+            #printable-statement {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 20px;
+                background: white;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .statement-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+            .statement-table th, .statement-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -869,6 +1024,11 @@
                 <i class="fas fa-user-plus"></i> إضافة شخص جديد
             </button>
             
+            <!-- زر كشف الحساب -->
+            <button class="print-btn mb-4" id="openStatementModal">
+                <i class="fas fa-file-invoice"></i> كشف الحساب
+            </button>
+            
             <!-- قائمة الأشخاص -->
             <div id="people-list">
                 <!-- سيتم ملء هذا القسم بالبيانات -->
@@ -886,6 +1046,19 @@
             <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addTransactionModal">
                 <i class="fas fa-exchange-alt"></i> إضافة عملية جديدة
             </button>
+            
+            <!-- حقل البحث -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-search"></i> البحث في العمليات
+                </div>
+                <div class="card-body">
+                    <div class="search-container">
+                        <input type="text" class="search-input" id="transaction-search" placeholder="ابحث في وصف العمليات...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+            </div>
             
             <!-- تصفية العمليات -->
             <div class="card mb-4">
@@ -1251,6 +1424,94 @@
             </div>
         </div>
     </div>
+    
+    <!-- نموذج كشف الحساب -->
+    <div class="modal fade" id="statementModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-file-invoice"></i> كشف الحساب</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="statement-person" class="form-label">اختر الشخص</label>
+                        <select class="form-control" id="statement-person">
+                            <option value="">اختر الشخص</option>
+                        </select>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="statement-from-date" class="form-label">من تاريخ</label>
+                            <input type="date" class="form-control" id="statement-from-date">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="statement-to-date" class="form-label">إلى تاريخ</label>
+                            <input type="date" class="form-control" id="statement-to-date">
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mb-4">
+                        <button class="action-btn primary" id="generate-statement">
+                            <i class="fas fa-search"></i> توليد كشف الحساب
+                        </button>
+                    </div>
+                    
+                    <div id="statement-results" style="display: none;">
+                        <div class="account-statement" id="printable-statement">
+                            <div class="statement-header text-center mb-4">
+                                <h3 id="statement-title">كشف الحساب</h3>
+                                <p id="statement-period" class="text-muted"></p>
+                            </div>
+                            
+                            <div class="statement-summary">
+                                <div class="summary-item income">
+                                    <div class="summary-label">إجمالي الإيداع</div>
+                                    <div class="summary-value text-success" id="total-income">0.00</div>
+                                </div>
+                                <div class="summary-item expense">
+                                    <div class="summary-label">إجمالي السحب</div>
+                                    <div class="summary-value text-danger" id="total-expense">0.00</div>
+                                </div>
+                                <div class="summary-item balance">
+                                    <div class="summary-label">صافي الحركة</div>
+                                    <div class="summary-value text-primary" id="net-movement">0.00</div>
+                                </div>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="statement-table">
+                                    <thead>
+                                        <tr>
+                                            <th>التاريخ</th>
+                                            <th>النوع</th>
+                                            <th>الفئة</th>
+                                            <th>الوصف</th>
+                                            <th>المبلغ</th>
+                                            <th>الرصيد</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="statement-details">
+                                        <!-- سيتم ملء هذا القسم بالبيانات -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4 no-print">
+                            <button class="action-btn success" id="print-statement">
+                                <i class="fas fa-print"></i> طباعة كشف الحساب
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn warning" data-bs-dismiss="modal">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -1545,24 +1806,32 @@
                 sendTelegramNotification('🔔 هذا رسالة اختبار من برنامج إدارة المواعيد والحسابات\nتم الإرسال بنجاح ✅');
             });
             
-            // مسح المواعيد السابقة
-            document.querySelectorAll('.btn-outline-danger').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    if (this.id === 'clear-past-appointments' || this.id === 'clear-past-only') {
-                        if (confirm('هل أنت متأكد من رغبتك في مسح جميع المواعيد السابقة؟')) {
-                            appData.pastAppointments = [];
-                            saveData();
-                            updateAllAppointmentsList();
-                            updatePastAppointmentsList();
-                            alert('✅ تم مسح جميع المواعيد السابقة');
-                        }
-                    }
-                });
+            // البحث في العمليات
+            document.getElementById('transaction-search').addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                updateTransactionsList(searchTerm);
             });
             
             // تصفية العمليات
             document.getElementById('transaction-filter').addEventListener('change', function() {
                 updateTransactionsList();
+            });
+            
+            // فتح نموذج كشف الحساب
+            document.getElementById('openStatementModal').addEventListener('click', function() {
+                updateStatementPersonSelect();
+                const modal = new bootstrap.Modal(document.getElementById('statementModal'));
+                modal.show();
+            });
+            
+            // توليد كشف الحساب
+            document.getElementById('generate-statement').addEventListener('click', function() {
+                generateStatement();
+            });
+            
+            // طباعة كشف الحساب
+            document.getElementById('print-statement').addEventListener('click', function() {
+                window.print();
             });
             
             // إدارة البيانات
@@ -1616,9 +1885,6 @@
                 document.getElementById('turkey-timezone').classList.remove('active');
             }
         }
-
-        // بقية الدوال (addAppointment, updateAppointment, addPerson, etc.)
-        // ... تبقى نفس الدوال السابقة بدون تغيير ...
 
         // توليد معرف فريد
         function generateId() {
@@ -1834,8 +2100,6 @@
             return categories[category] || category;
         }
 
-        // ============ الدوال المفقودة من النسخة السابقة ============
-        
         // إضافة موعد
         function addAppointment(title, personId, date, timezone, notes = '', notifications) {
             const person = personId ? appData.people.find(p => p.id === personId) : null;
@@ -2031,6 +2295,7 @@
             updatePeopleList();
             updateTransactionPersonSelect();
             updateAppointmentPersonSelect();
+            updateStatementPersonSelect();
         }
 
         // تحديث شخص
@@ -2046,6 +2311,7 @@
                 updatePeopleList();
                 updateTransactionPersonSelect();
                 updateAppointmentPersonSelect();
+                updateStatementPersonSelect();
                 
                 appData.appointments.forEach(appointment => {
                     if (appointment.personId === id) {
@@ -2385,6 +2651,9 @@
                         </div>
                     </div>
                     <div class="d-flex flex-column gap-2">
+                        <button class="action-btn success view-statement" data-id="${person.id}" data-name="${person.name}">
+                            <i class="fas fa-file-invoice"></i>
+                        </button>
                         <button class="action-btn warning edit-person-btn" data-id="${person.id}">
                             <i class="fas fa-edit"></i>
                         </button>
@@ -2402,14 +2671,24 @@
             addPeopleEventListeners();
         }
 
-        // تحديث قائمة العمليات
-        function updateTransactionsList() {
+        // تحديث قائمة العمليات مع البحث
+        function updateTransactionsList(searchTerm = '') {
             const container = document.getElementById('transactions-list');
             const filter = document.getElementById('transaction-filter').value;
             
             let transactionsToShow = [...appData.transactions]
                 .sort((a, b) => b.date - a.date);
             
+            // تطبيق البحث إذا كان موجودًا
+            if (searchTerm) {
+                transactionsToShow = transactionsToShow.filter(transaction => 
+                    transaction.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    transaction.personName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    getCategoryText(transaction.category).toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+            
+            // تطبيق التصفية
             if (filter !== 'all') {
                 const count = parseInt(filter);
                 transactionsToShow = transactionsToShow.slice(0, count);
@@ -2420,7 +2699,7 @@
                     <div class="empty-state">
                         <i class="fas fa-exchange-alt"></i>
                         <h5>لا توجد عمليات</h5>
-                        <p>اضغط على زر "إضافة عملية" لتسجيل عملياتك المالية</p>
+                        <p>${searchTerm ? 'لم يتم العثور على عمليات مطابقة للبحث' : 'اضغط على زر "إضافة عملية" لتسجيل عملياتك المالية'}</p>
                     </div>
                 `;
                 return;
@@ -2502,6 +2781,99 @@
             });
         }
 
+        function updateStatementPersonSelect() {
+            const select = document.getElementById('statement-person');
+            select.innerHTML = '<option value="">اختر الشخص</option>';
+            
+            appData.people.forEach(person => {
+                const option = document.createElement('option');
+                option.value = person.id;
+                option.textContent = `${person.name} (${getCurrencyText(person.currency)})`;
+                select.appendChild(option);
+            });
+            
+            // تعيين تواريخ افتراضية (آخر 30 يومًا)
+            const today = new Date();
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(today.getDate() - 30);
+            
+            document.getElementById('statement-from-date').value = thirtyDaysAgo.toISOString().split('T')[0];
+            document.getElementById('statement-to-date').value = today.toISOString().split('T')[0];
+        }
+
+        // توليد كشف الحساب
+        function generateStatement() {
+            const personId = document.getElementById('statement-person').value;
+            const fromDate = document.getElementById('statement-from-date').value;
+            const toDate = document.getElementById('statement-to-date').value;
+            
+            if (!personId) {
+                alert('يرجى اختيار الشخص');
+                return;
+            }
+            
+            const person = appData.people.find(p => p.id === personId);
+            if (!person) return;
+            
+            const fromTimestamp = new Date(fromDate).getTime();
+            const toTimestamp = new Date(toDate).getTime() + (24 * 60 * 60 * 1000); // إضافة يوم كامل
+            
+            // تصفية العمليات حسب الشخص والفترة الزمنية
+            const filteredTransactions = appData.transactions
+                .filter(t => t.personId === personId && t.date >= fromTimestamp && t.date <= toTimestamp)
+                .sort((a, b) => a.date - b.date);
+            
+            let runningBalance = 0;
+            let totalIncome = 0;
+            let totalExpense = 0;
+            
+            // تحديث العنوان والفترة
+            document.getElementById('statement-title').textContent = `كشف حساب ${person.name}`;
+            document.getElementById('statement-period').textContent = `من ${fromDate} إلى ${toDate}`;
+            
+            // تفريغ الجدول
+            const tableBody = document.getElementById('statement-details');
+            tableBody.innerHTML = '';
+            
+            // إضافة الصفوف
+            filteredTransactions.forEach(transaction => {
+                const date = new Date(transaction.date);
+                const dateString = formatNumericDate12Hour(date, false);
+                const typeText = transaction.type === 'income' ? 'إيداع' : 'سحب';
+                const categoryText = getCategoryText(transaction.category);
+                
+                if (transaction.type === 'income') {
+                    runningBalance += transaction.amount;
+                    totalIncome += transaction.amount;
+                } else {
+                    runningBalance -= transaction.amount;
+                    totalExpense += transaction.amount;
+                }
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${dateString}</td>
+                    <td><span class="badge ${transaction.type === 'income' ? 'bg-success' : 'bg-danger'}">${typeText}</span></td>
+                    <td>${categoryText}</td>
+                    <td>${transaction.description || '-'}</td>
+                    <td class="${transaction.type === 'income' ? 'text-success' : 'text-danger'} fw-bold">${transaction.type === 'income' ? '+' : '-'}${formatCurrency(transaction.amount, transaction.currency)}</td>
+                    <td class="fw-bold">${formatCurrency(runningBalance, transaction.currency)}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            // تحديث الملخص
+            document.getElementById('total-income').textContent = formatCurrency(totalIncome, person.currency);
+            document.getElementById('total-expense').textContent = formatCurrency(totalExpense, person.currency);
+            document.getElementById('net-movement').textContent = formatCurrency(totalIncome - totalExpense, person.currency);
+            
+            // إظهار النتائج
+            document.getElementById('statement-results').style.display = 'block';
+            
+            // تمرير إلى النتائج
+            document.getElementById('statement-results').scrollIntoView({ behavior: 'smooth' });
+        }
+
         // إضافة مستمعين للأحداث
         function addAppointmentEventListeners() {
             document.querySelectorAll('.delete-appointment').forEach(btn => {
@@ -2545,6 +2917,25 @@
                 btn.addEventListener('click', function() {
                     const id = this.dataset.id;
                     deletePerson(id);
+                });
+            });
+            
+            document.querySelectorAll('.view-statement').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const personId = this.dataset.id;
+                    const personName = this.dataset.name;
+                    
+                    updateStatementPersonSelect();
+                    document.getElementById('statement-person').value = personId;
+                    
+                    // فتح النموذج
+                    const modal = new bootstrap.Modal(document.getElementById('statementModal'));
+                    modal.show();
+                    
+                    // توليد الكشف مباشرة
+                    setTimeout(() => {
+                        generateStatement();
+                    }, 500);
                 });
             });
         }
@@ -2632,6 +3023,7 @@
                 updateTransactionsList();
                 updateTransactionPersonSelect();
                 updateAppointmentPersonSelect();
+                updateStatementPersonSelect();
             }
         }
 
