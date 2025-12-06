@@ -819,6 +819,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            margin-bottom: 30px;
         }
         
         .statement-table th {
@@ -836,6 +837,48 @@
         
         .statement-table tr:hover {
             background: rgba(67, 97, 238, 0.03);
+        }
+        
+        .statement-footer {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border-top: 2px solid #dee2e6;
+        }
+        
+        .footer-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .footer-item {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .footer-item h5 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .footer-item .value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .footer-item.income .value {
+            color: #28a745;
+        }
+        
+        .footer-item.expense .value {
+            color: #dc3545;
+        }
+        
+        .footer-item.net .value {
+            color: var(--primary-color);
         }
         
         /* حقل البحث */
@@ -874,17 +917,18 @@
                 visibility: hidden;
             }
             
-            #printable-statement, #printable-statement * {
+            #printable-area, #printable-area * {
                 visibility: visible;
             }
             
-            #printable-statement {
+            #printable-area {
                 position: absolute;
                 left: 0;
                 top: 0;
                 width: 100%;
                 padding: 20px;
                 background: white;
+                font-size: 12px;
             }
             
             .no-print {
@@ -894,11 +938,84 @@
             .statement-table {
                 width: 100%;
                 border-collapse: collapse;
+                margin: 20px 0;
+                page-break-inside: avoid;
             }
             
             .statement-table th, .statement-table td {
                 border: 1px solid #ddd;
+                padding: 8px;
+                text-align: right;
+                font-size: 12px;
+            }
+            
+            .statement-table th {
+                background-color: #f8f9fa !important;
+                color: #333 !important;
+                font-weight: bold;
+            }
+            
+            .statement-header {
+                text-align: center;
+                margin-bottom: 20px;
+                page-break-after: avoid;
+            }
+            
+            .statement-footer {
+                background: #f8f9fa !important;
+                border: 1px solid #ddd;
+                padding: 15px;
+                margin-top: 20px;
+                page-break-before: avoid;
+            }
+            
+            .footer-summary {
+                display: flex !important;
+                justify-content: space-between !important;
+            }
+            
+            .footer-item {
+                text-align: center;
                 padding: 10px;
+            }
+            
+            .footer-item .value {
+                font-size: 18px;
+            }
+            
+            .summary-item {
+                page-break-inside: avoid;
+            }
+            
+            /* تحسين العرض للطباعة */
+            .modal-content {
+                box-shadow: none !important;
+                border: none !important;
+            }
+            
+            .modal-header, .modal-footer {
+                display: none !important;
+            }
+            
+            .modal-body {
+                padding: 0 !important;
+                max-height: none !important;
+                overflow: visible !important;
+            }
+        }
+        
+        /* طباعة ملائمة */
+        .print-friendly {
+            display: none;
+        }
+        
+        @media print {
+            .print-friendly {
+                display: block;
+            }
+            
+            .no-print-friendly {
+                display: none;
             }
         }
     </style>
@@ -1458,8 +1575,13 @@
                         </button>
                     </div>
                     
-                    <div id="statement-results" style="display: none;">
-                        <div class="account-statement" id="printable-statement">
+                    <!-- منطقة الطباعة الكاملة -->
+                    <div id="printable-area" style="display: none;">
+                        <!-- سيتم ملء هذا القسم بالكشف الكامل -->
+                    </div>
+                    
+                    <div id="statement-results" style="display: none;" class="no-print">
+                        <div class="account-statement">
                             <div class="statement-header text-center mb-4">
                                 <h3 id="statement-title">كشف الحساب</h3>
                                 <p id="statement-period" class="text-muted"></p>
@@ -1497,9 +1619,26 @@
                                     </tbody>
                                 </table>
                             </div>
+                            
+                            <div class="statement-footer">
+                                <div class="footer-summary">
+                                    <div class="footer-item income">
+                                        <h5>إجمالي الإيداع</h5>
+                                        <div class="value" id="print-total-income">0.00</div>
+                                    </div>
+                                    <div class="footer-item expense">
+                                        <h5>إجمالي السحب</h5>
+                                        <div class="value" id="print-total-expense">0.00</div>
+                                    </div>
+                                    <div class="footer-item net">
+                                        <h5>صافي الحركة</h5>
+                                        <div class="value" id="print-net-movement">0.00</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="text-center mt-4 no-print">
+                        <div class="text-center mt-4">
                             <button class="action-btn success" id="print-statement">
                                 <i class="fas fa-print"></i> طباعة كشف الحساب
                             </button>
@@ -1831,7 +1970,7 @@
             
             // طباعة كشف الحساب
             document.getElementById('print-statement').addEventListener('click', function() {
-                window.print();
+                printStatement();
             });
             
             // إدارة البيانات
@@ -2867,11 +3006,253 @@
             document.getElementById('total-expense').textContent = formatCurrency(totalExpense, person.currency);
             document.getElementById('net-movement').textContent = formatCurrency(totalIncome - totalExpense, person.currency);
             
+            // تحديث الملخص للطباعة
+            document.getElementById('print-total-income').textContent = formatCurrency(totalIncome, person.currency);
+            document.getElementById('print-total-expense').textContent = formatCurrency(totalExpense, person.currency);
+            document.getElementById('print-net-movement').textContent = formatCurrency(totalIncome - totalExpense, person.currency);
+            
+            // إنشاء نسخة للطباعة
+            createPrintableStatement(person, fromDate, toDate, filteredTransactions, totalIncome, totalExpense);
+            
             // إظهار النتائج
             document.getElementById('statement-results').style.display = 'block';
             
             // تمرير إلى النتائج
             document.getElementById('statement-results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // إنشاء نسخة للطباعة
+        function createPrintableStatement(person, fromDate, toDate, transactions, totalIncome, totalExpense) {
+            const printableArea = document.getElementById('printable-area');
+            let runningBalance = 0;
+            const netMovement = totalIncome - totalExpense;
+            
+            let tableRows = '';
+            
+            transactions.forEach(transaction => {
+                const date = new Date(transaction.date);
+                const dateString = formatNumericDate12Hour(date, false);
+                const typeText = transaction.type === 'income' ? 'إيداع' : 'سحب';
+                const categoryText = getCategoryText(transaction.category);
+                
+                if (transaction.type === 'income') {
+                    runningBalance += transaction.amount;
+                } else {
+                    runningBalance -= transaction.amount;
+                }
+                
+                tableRows += `
+                    <tr>
+                        <td>${dateString}</td>
+                        <td>${typeText}</td>
+                        <td>${categoryText}</td>
+                        <td>${transaction.description || '-'}</td>
+                        <td style="text-align: right; ${transaction.type === 'income' ? 'color: green;' : 'color: red;'} font-weight: bold;">
+                            ${transaction.type === 'income' ? '+' : '-'}${formatCurrency(transaction.amount, transaction.currency)}
+                        </td>
+                        <td style="text-align: right; font-weight: bold;">${formatCurrency(runningBalance, transaction.currency)}</td>
+                    </tr>
+                `;
+            });
+            
+            printableArea.innerHTML = `
+                <div style="text-align: center; margin-bottom: 20px; page-break-after: avoid;">
+                    <h2 style="margin-bottom: 10px;">كشف حساب ${person.name}</h2>
+                    <p style="color: #666; margin-bottom: 20px;">من ${fromDate} إلى ${toDate}</p>
+                </div>
+                
+                <div style="margin-bottom: 30px; page-break-inside: avoid;">
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                        <thead>
+                            <tr>
+                                <th style="background: #f8f9fa; color: #333; padding: 12px; text-align: right; border: 1px solid #ddd; font-weight: bold;">التاريخ</th>
+                                <th style="background: #f8f9fa; color: #333; padding: 12px; text-align: right; border: 1px solid #ddd; font-weight: bold;">النوع</th>
+                                <th style="background: #f8f9fa; color: #333; padding: 12px; text-align: right; border: 1px solid #ddd; font-weight: bold;">الفئة</th>
+                                <th style="background: #f8f9fa; color: #333; padding: 12px; text-align: right; border: 1px solid #ddd; font-weight: bold;">الوصف</th>
+                                <th style="background: #f8f9fa; color: #333; padding: 12px; text-align: right; border: 1px solid #ddd; font-weight: bold;">المبلغ</th>
+                                <th style="background: #f8f9fa; color: #333; padding: 12px; text-align: right; border: 1px solid #ddd; font-weight: bold;">الرصيد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${tableRows}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="background: #f8f9fa; border-radius: 8px; padding: 25px; margin-top: 30px; border-top: 2px solid #dee2e6; page-break-before: avoid;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="text-align: center; padding: 15px;">
+                            <h5 style="font-size: 14px; color: #666; margin-bottom: 10px;">إجمالي الإيداع</h5>
+                            <div style="font-size: 24px; font-weight: bold; color: #28a745;">${formatCurrency(totalIncome, person.currency)}</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px;">
+                            <h5 style="font-size: 14px; color: #666; margin-bottom: 10px;">إجمالي السحب</h5>
+                            <div style="font-size: 24px; font-weight: bold; color: #dc3545;">${formatCurrency(totalExpense, person.currency)}</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px;">
+                            <h5 style="font-size: 14px; color: #666; margin-bottom: 10px;">صافي الحركة</h5>
+                            <div style="font-size: 24px; font-weight: bold; color: #4361ee;">${formatCurrency(netMovement, person.currency)}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px; color: #666; font-size: 12px;">
+                    <p>تم إنشاء الكشف في: ${new Date().toLocaleDateString('ar-SA')}</p>
+                </div>
+            `;
+            
+            printableArea.style.display = 'block';
+        }
+
+        // طباعة كشف الحساب
+        function printStatement() {
+            const printableArea = document.getElementById('printable-area');
+            
+            if (printableArea.innerHTML.trim() === '') {
+                alert('يرجى توليد كشف الحساب أولاً');
+                return;
+            }
+            
+            // إخفاء جميع العناصر
+            document.body.classList.add('printing');
+            
+            // طباعة المنطقة القابلة للطباعة
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html dir="rtl" lang="ar">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>كشف الحساب</title>
+                    <style>
+                        body {
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            margin: 20px;
+                            color: #333;
+                            direction: rtl;
+                        }
+                        
+                        .print-header {
+                            text-align: center;
+                            margin-bottom: 30px;
+                            border-bottom: 2px solid #4361ee;
+                            padding-bottom: 20px;
+                        }
+                        
+                        .print-header h1 {
+                            color: #4361ee;
+                            margin-bottom: 10px;
+                        }
+                        
+                        .print-period {
+                            color: #666;
+                            font-size: 16px;
+                        }
+                        
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 20px 0;
+                            page-break-inside: avoid;
+                        }
+                        
+                        th {
+                            background-color: #f8f9fa;
+                            color: #333;
+                            padding: 12px;
+                            text-align: right;
+                            border: 1px solid #ddd;
+                            font-weight: bold;
+                        }
+                        
+                        td {
+                            padding: 10px 12px;
+                            border: 1px solid #ddd;
+                            text-align: right;
+                        }
+                        
+                        tr:nth-child(even) {
+                            background-color: #f9f9f9;
+                        }
+                        
+                        .income {
+                            color: #28a745;
+                            font-weight: bold;
+                        }
+                        
+                        .expense {
+                            color: #dc3545;
+                            font-weight: bold;
+                        }
+                        
+                        .summary {
+                            background: #f8f9fa;
+                            border-radius: 8px;
+                            padding: 25px;
+                            margin-top: 30px;
+                            border-top: 2px solid #dee2e6;
+                            page-break-before: avoid;
+                        }
+                        
+                        .summary-grid {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                        
+                        .summary-item {
+                            text-align: center;
+                            padding: 15px;
+                        }
+                        
+                        .summary-item h3 {
+                            font-size: 14px;
+                            color: #666;
+                            margin-bottom: 10px;
+                        }
+                        
+                        .summary-value {
+                            font-size: 24px;
+                            font-weight: bold;
+                        }
+                        
+                        .footer {
+                            text-align: center;
+                            margin-top: 30px;
+                            color: #666;
+                            font-size: 12px;
+                            border-top: 1px solid #eee;
+                            padding-top: 20px;
+                        }
+                        
+                        @media print {
+                            body {
+                                margin: 0;
+                                padding: 20px;
+                            }
+                            
+                            .no-print {
+                                display: none !important;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${printableArea.innerHTML}
+                    <div class="footer">
+                        <p>تم إنشاء الكشف في: ${new Date().toLocaleDateString('ar-SA')} ${new Date().toLocaleTimeString('ar-SA')}</p>
+                    </div>
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            
+            // تأخير الطباعة لضمان تحميل المحتوى
+            setTimeout(() => {
+                printWindow.print();
+                printWindow.close();
+            }, 500);
         }
 
         // إضافة مستمعين للأحداث
