@@ -1,951 +1,2739 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TAREQ  STORE</title>
-<style>
-  
-  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-
-  @keyframes gradientAnimation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-  }
-
-  body {
-    font-family: 'Cairo', sans-serif;
-    margin: 0; padding: 0;
-    direction: rtl;
-    color: #fff;
-    /* الخلفية الجديدة الهادية الموفية */
-    background: linear-gradient(135deg, #813072, #c649ef);
-    /* بدلاً من التدرج المتحرك */
-    /* background-size: 400% 400%; */
-    /* animation: gradientAnimation 15s ease infinite; */
-    min-height: 100vh;
-  }
-
-  header {
-    text-align: center;
-    padding: 25px 10px;
-    font-size: 30px;
-    font-weight: 700;
-    background: rgba(0,0,0,0.4);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    background: rgba(0,0,0,0.3);
-    padding: 12px 0;
-  }
-
-  .menu button {
-    background: #0073e6;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 115, 230, 0.4);
-  }
-
-  .menu button:hover,
-  .menu button:focus {
-    background-color: #005bb5;
-    outline: none;
-    box-shadow: 0 5px 12px rgba(0, 91, 181, 0.7);
-  }
-
-  .section {
-    display: none;
-    padding: 25px 15px;
-    max-width: 1100px;
-    margin: 30px auto 80px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  }
-
-  .section.active {
-    display: block;
-  }
-
-  .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 25px;
-  }
-
-  .product {
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    background: #f7faffcc;
-    text-align: center;
-    padding-bottom: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-  }
-
-  .product:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 30px rgba(0, 115, 230, 0.5);
-  }
-
-  .product img {
-    width: 100%;
-    height: 170px;
-    object-fit: contain;
-    background: white;
-    border-bottom: 1px solid #ddd;
-    border-radius: 15px 15px 0 0;
-  }
-
-  .product h3 {
-    margin: 12px 0 8px;
-    color: #004080;
-    font-weight: 700;
-    font-size: 18px;
-  }
-
-  .product .price {
-    color: #0073e6;
-    font-weight: 700;
-    font-size: 17px;
-    margin-bottom: 10px;
-  }
-
-  .size-btn {
-  background-color: #ee39bb;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 6px 10px;  /* حجم مناسب */
-  font-size: 14px;    /* حجم خط معقول */
-  user-select: none;
-  transition: background-color 0.3s ease;
-  min-width: 32px;    /* عرض صغير مناسب */
-  text-align: center;
-}
-
-.size-btn.selected,
-.size-btn:hover {
-  background-color: #005bb5;
-}
-
-/* لجعل الأزرار متجاورة ومتناسقة */
-.size-options {
-  display: flex;
-  justify-content: center;
-  gap: 8px; /* مسافة بين الأزرار */
-  margin: 10px 0;
-}
-
-
-  .add-to-cart-btn {
-    background-color: #0073e6;
-    border: none;
-    border-radius: 12px;
-    color: white;
-    padding: 10px 18px;
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0, 115, 230, 0.5);
-    transition: background-color 0.3s ease;
-  }
-
-  .add-to-cart-btn:hover {
-    background-color: #005bb5;
-  }
-
-  /* زر السلة العلوي */
-  header {
-  position: relative;
-  /* لو عندك خصائص تانية للهيدر خليه مثل ما هو */
-}
-
-/* زر السلة صغير وبزاوية فوق اليمين (أو حسب اتجاه الصفحة) */
-#cart-button {
-  position: absolute;
-  top: 10px;   /* تعديل المسافة من فوق */
-  left: 10px;  /* لأن الصفحة بالاتجاه RTL، خليها يسار */
-  background-color: #0073e6;
-  border: none;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-}
-
-/* العداد فوق الرمز صغير */
-#cart-count {
-  position: absolute;
-  top: -6px;
-  left: -6px;
-  background: red;
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 1px 5px;
-  border-radius: 50%;
-  user-select: none;
-}
-
-
-  /* نافذة السلة */
-  #cart-modal {
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    max-width: 500px;
-    max-height: 80vh;
-    overflow-y: auto;
-    background: rgba(255,255,255,0.95);
-    color: #004080;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    padding: 20px 25px;
-    z-index: 2000;
-  }
-
-  #cart-modal h2 {
-    text-align: center;
-    margin-top: 0;
-  }
-
-  #cart-items {
-    margin: 15px 0;
-  }
-
-  .cart-item {
-    border-bottom: 1px solid #ccc;
-    padding: 12px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .cart-item:last-child {
-    border-bottom: none;
-  }
-
-  .cart-item-details {
-    max-width: 70%;
-  }
-
-  .cart-item-name {
-    font-weight: 700;
-    font-size: 16px;
-  }
-
-  .cart-item-size,
-  .cart-item-price {
-    font-size: 14px;
-    color: #0073e6;
-  }
-
-  .remove-btn {
-    background: #e63946;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    padding: 5px 10px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .remove-btn:hover {
-    background: #b22222;
-  }
-
-  /* نموذج تأكيد الطلب */
-  #order-form {
-    display: none;
-    margin-top: 15px;
-    border-top: 2px solid #0073e6;
-    padding-top: 15px;
-  }
-
-  #order-form label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: 700;
-    font-size: 15px;
-    color: #004080;
-  }
-
-  #order-form input, #order-form textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    resize: vertical;
-  }
-
-  #order-form button {
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 15px;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 15px;
-    box-shadow: 0 3px 8px rgba(0, 115, 230, 0.5);
-    transition: background-color 0.3s ease;
-  }
-
-  #order-form button:hover {
-    background-color: #005bb5;
-  }
-
-  /* رسالة تأكيد الطلب */
-  #order-summary {
-    margin-top: 20px;
-    padding: 15px;
-    background: #e0ffe0;
-    border-radius: 15px;
-    color: #004080;
-    font-weight: 700;
-    white-space: pre-wrap;
-  }
-
-  /* فقرة الاتصال تحت الموقع */
-  #contact-info {
-    max-width: 1100px;
-    margin: 20px auto 40px;
-    padding: 15px 20px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    text-align: center;
-  }
-
-  /* للجوال */
-  @media (max-width: 600px) {
-    .menu {
-      flex-direction: column;
-      gap: 10px;
-    }
-    .menu button {
-      width: 90%;
-      font-size: 18px;
-    }
-    .products {
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 15px;
-    }
-    .product img {
-      height: 140px;
-    }
-    #cart-modal {
-      width: 95%;
-      max-height: 70vh;
-    }
-  }
-  /* تصميم الهاتف الأساسي */
-.products {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.product {
-  width: 100%;
-  padding: 10px;
-  background: #fff;
-  border-radius: 12px;
-  text-align: center;
-}
-
-/* للأزرار داخل المنتج */
-.size-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.size-btn {
-  padding: 6px 12px;
-  font-size: 14px;
-}
-
-/* شاشة أكبر من 600px - آيباد */
-@media (min-width: 600px) {
-  .products {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .product {
-    width: calc(50% - 10px);
-  }
-}
-
-/* شاشة أكبر من 1024px - كمبيوتر */
-@media (min-width: 1024px) {
-  .product {
-    width: calc(33.33% - 15px);
-  }
-}
-.size-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin: 10px 0;
-}
-
-.size-options .size-btn {
-  flex: 0 0 auto;
-  padding: 8px 14px;
-  font-size: 14px;
-  border-radius: 8px;
-  background-color: #0073e6;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.size-options .size-btn:hover,
-.size-options .size-btn.selected {
-  background-color: #005bb5;
-}
-/* تصفيف الصنف */
-.product {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 15px;
-  margin: 10px;
-  max-width: 280px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.2s ease;
-}
-
-.product:hover {
-  transform: translateY(-5px);
-}
-
-/* الصورة */
-.product img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: contain;
-  margin-bottom: 12px;
-}
-
-/* عنوان الصنف */
-.product h3 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: #222;
-}
-
-/* السعر */
-.product .price {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #007bff;
-  margin-bottom: 12px;
-}
-
-/* ترتيب أزرار الأحجام */
-.size-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.size-options button {
-  padding: 6px 12px;
-  font-size: 0.9rem;
-  border: 1.5px solid #007bff;
-  border-radius: 6px;
-  background: white;
-  color: #007bff;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.size-options button:hover,
-.size-options button.active {
-  background-color: #007bff;
-  color: white;
-}
-
-/* زر الإضافة للسلة */
-.add-to-cart-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.add-to-cart-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.add-to-cart-btn:not(:disabled):hover {
-  background-color: #0056b3;
-}
-
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مدير المال والمواعيد</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --success-color: #4cc9f0;
+            --danger-color: #f72585;
+            --warning-color: #f8961e;
+            --info-color: #4895ef;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* الهيدر الثابت */
+        .app-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+        }
+        
+        .app-header h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .current-time {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        
+        /* المحتوى الرئيسي */
+        .main-content {
+            padding: 80px 0 80px 0;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .section {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            min-height: 100vh;
+            padding: 80px 15px 80px 15px;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            display: none;
+        }
+        
+        .section.active {
+            transform: translateX(0);
+            opacity: 1;
+            display: block;
+        }
+        
+        .section.slide-out {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        
+        /* الشريط السفلي للتنقل */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            color: #666;
+            text-decoration: none;
+            flex: 1;
+            min-width: 0;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            margin: 0 5px;
+            position: relative;
+        }
+        
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item span {
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item.active {
+            color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(63, 55, 201, 0.05));
+            transform: translateY(-5px);
+        }
+        
+        .nav-item.active i {
+            transform: scale(1.1);
+        }
+        
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 40%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .nav-item:active {
+            transform: scale(0.95);
+        }
+        
+        /* البطاقات */
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            background: white;
+            overflow: hidden;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:active {
+            transform: scale(0.98);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-bottom: none;
+            font-weight: 600;
+            padding: 18px 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .card-header i {
+            font-size: 1.2rem;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        /* الأزرار */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 14px;
+            padding: 16px 28px;
+            font-weight: 600;
+            width: 100%;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-primary:hover, .btn-primary:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-sm {
+            padding: 10px 18px;
+            font-size: 14px;
+            border-radius: 10px;
+        }
+        
+        .btn-outline-danger {
+            border: 2px solid var(--danger-color);
+            color: var(--danger-color);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-danger:hover {
+            background: var(--danger-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* العناصر داخل القوائم */
+        .appointment-item, .past-appointment-item, .transaction-item {
+            padding: 18px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            animation: slideInRight 0.5s ease;
+            animation-fill-mode: both;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .appointment-item:nth-child(1) { animation-delay: 0.1s; }
+        .appointment-item:nth-child(2) { animation-delay: 0.2s; }
+        .appointment-item:nth-child(3) { animation-delay: 0.3s; }
+        .appointment-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .appointment-item:hover, .transaction-item:hover {
+            background: rgba(67, 97, 238, 0.03);
+            transform: translateX(5px);
+        }
+        
+        .appointment-item:active, .transaction-item:active {
+            transform: scale(0.98);
+        }
+        
+        .appointment-item:last-child, .past-appointment-item:last-child, .transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* علامات التبويب */
+        .tabs-container {
+            display: flex;
+            margin-bottom: 25px;
+            background: white;
+            border-radius: 16px;
+            padding: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            border-radius: 12px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .tab-btn .badge {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            font-size: 10px;
+            padding: 4px 8px;
+        }
+        
+        /* خيارات الفرز */
+        .sort-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .sort-btn {
+            padding: 12px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background: white;
+            color: #666;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .sort-btn.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .sort-btn:hover:not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* أزرار الإجراءات */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            background: white;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .action-btn.primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .action-btn.warning {
+            background: linear-gradient(135deg, var(--warning-color), #f3722c);
+            color: white;
+        }
+        
+        .action-btn.danger {
+            background: linear-gradient(135deg, var(--danger-color), #d90429);
+            color: white;
+        }
+        
+        .action-btn.success {
+            background: linear-gradient(135deg, var(--success-color), #00bbf9);
+            color: white;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .action-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* النماذج */
+        .modal-content {
+            border-radius: 24px;
+            border: none;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            animation: modalAppear 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-bottom: none;
+            padding: 25px;
+        }
+        
+        .modal-header .modal-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .modal-body {
+            padding: 25px;
+            max-height: 60vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .form-control, .form-select {
+            padding: 16px;
+            border-radius: 12px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        /* خيارات التنبيه */
+        .notification-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .notification-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .notification-option:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .notification-option:has(input:checked) {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(63, 55, 201, 0.05));
+            border-color: var(--primary-color);
+        }
+        
+        /* تصميم الأشخاص */
+        .people-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .person-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.4s ease;
+            animation: slideInRight 0.5s ease;
+            animation-fill-mode: both;
+            border: 2px solid transparent;
+        }
+        
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .person-card:nth-child(1) { animation-delay: 0.1s; }
+        .person-card:nth-child(2) { animation-delay: 0.2s; }
+        .person-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .person-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+        }
+        
+        .person-info {
+            flex: 1;
+        }
+        
+        .person-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+        
+        .person-balance {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .balance-positive {
+            color: #28a745;
+        }
+        
+        .balance-negative {
+            color: #dc3545;
+        }
+        
+        /* تحسينات للشاشات الصغيرة */
+        @media (max-width: 375px) {
+            .app-header h4 {
+                font-size: 1.1rem;
+            }
+            
+            .nav-item {
+                padding: 6px 8px;
+            }
+            
+            .nav-item span {
+                font-size: 10px;
+            }
+            
+            .card {
+                border-radius: 14px;
+            }
+        }
+        
+        /* ألوان الفئات */
+        .category-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .category-rent { background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: white; }
+        .category-electricity { background: linear-gradient(135deg, #4cd964, #34c759); color: white; }
+        .category-car { background: linear-gradient(135deg, #5ac8fa, #007aff); color: white; }
+        .category-living { background: linear-gradient(135deg, #ff9500, #ff5e3a); color: white; }
+        .category-personal { background: linear-gradient(135deg, #af52de, #5856d6); color: white; }
+        
+        /* توكن التلقرام */
+        .currency-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(63, 55, 201, 0.05));
+            color: var(--primary-color);
+            display: inline-block;
+            border: 2px solid rgba(67, 97, 238, 0.2);
+        }
+        
+        /* منطقة الأمان */
+        .safe-area-bottom {
+            padding-bottom: env(safe-area-inset-bottom, 20px);
+        }
+        
+        /* رسائل الحالة */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+            animation: fadeIn 0.6s ease;
+        }
+        
+        .empty-state i {
+            font-size: 64px;
+            color: #ddd;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        .empty-state h5 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #888;
+        }
+        
+        .empty-state p {
+            font-size: 1rem;
+            color: #aaa;
+        }
+        
+        /* شاشة البداية */
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fb 0%, #e4e8f0 100%);
+        }
+        
+        .welcome-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(67, 97, 238, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .welcome-logo i {
+            font-size: 60px;
+            color: white;
+        }
+        
+        .welcome-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 300px;
+        }
+        
+        /* المؤشرات */
+        .loading-indicator {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .loading-indicator.active {
+            display: block;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <!-- باقي محتويات الهيدر -->
-
-  <button id="cart-button" title="السلة">
-    🛒
-    <span id="cart-count">0</span>
-  </button>
-</header>
-
-<header>🛍️ TAREQ  STORE</header>
-
-<div class="menu">
-  <button onclick="showSection('men')">👕 ملابس رجالي</button>
-  <button onclick="showSection('women')">👗 ملابس نسائي</button>
-  <button onclick="showSection('shoes')">👟 أحذية رجالي</button>
-  <button onclick="showSection('offers')">🔥 تخفيضات</button>
-</div>
-
-<!-- قسم ملابس رجالي -->
-<div class="section" id="men">
-  <h2 style="text-align:center">👕 ملابس رجالي</h2>
-  <div class="products">
-    <div class="product" data-name="Louis Vuitton" data-price="95" data-category="men">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXl1WHEY4mGuH4I4j--TCVNcG5YPyA32qcg&s" alt="تيشيرت Louis Vuitton" />
-      <h3>Louis Vuitton</h3>
-      <div class="price">95 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
+    <!-- مؤشر التحميل -->
+    <div class="loading-indicator" id="loadingIndicator">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
     </div>
-
-    <div class="product" data-name="Adidas" data-price="75" data-category="men">
-      <img src="data:image/jpeg;base64,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
-      " alt="تيشيرت Adidas" />
-      <h3>Adidas</h3>
-      <div class="price">75 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-    </div>
-    <div class="product" data-name="Nike " data-price="85" data-category="men">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdgjyjYO2ghkBLROafQRrB9k9L23dUGKvQpg&s" alt="تيشيرت Nike" />
-      <h3>Nike</h3>
-      <div class="price">85 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-    </div>
-    <div class="product" data-name="Nike SPORT" data-price="85" data-category="men">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs9DCRkIufKOJbcsI0fsL0ylj8CIdn0cgS7w&s" alt="تيشيرت Nike" />
-      <h3>Nike</h3>
-      <div class="price">85 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-    </div>
-    <div class="product" data-name="Nike teshert" data-price="85" data-category="men">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3dfot-lq3PHSJV7VGQQoe4tJ6qKFBhhgCZQ&s" alt="تيشيرت Nike" />
-      <h3>Nike</h3>
-      <div class="price">85 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-      </div>
-    <div class="product" data-name="قميص رجالي" data-price="150" data-category="men">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpGVz4hYH5cLJsY-de_jhNAzFyW-mPFpV9fQ&s" alt="قميص">
-      <h3>قميص رجالي</h3>
-      <div class="price">150 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-    </div>
-  </div>
-</div>
-
-<div class="section" id="women">
-  <h2 style="text-align:center">👗 ملابس نسائي</h2>
-  <div class="products">
-    <div class="product" data-name="فستان ناعم" data-price="270" data-category="women">
-      <img src="data:image/jpeg;base64,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
-      " alt="فستان">
-      <h3>فستان ناعم</h3>
-      <div class="price">270 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-    </div>
-  </div>
-</div>
-
-<div class="section" id="shoes">
-  <h2 style="text-align:center">👟 أحذية رجالي</h2>
-  <div class="products">
-    <div class="product" data-name="Louis Vuitton" data-price="199" data-category="shoes">
-     <img src="data:image/jpeg;base64,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
-     " alt="Louis Vuitton" width="200" />
-      <h3>Louis Vuitton</h3>
-      <div class="price">199 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">40</button>
-        <button class="size-btn">41</button>
-        <button class="size-btn">42</button>
-        <button class="size-btn">43</button>
-        <button class="size-btn">44</button>
-        <button class="size-btn">45</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-    </div>
-    <div class="product" data-name=" Louis Vuitton Sneakers" data-price="350" data-category="shoes">
-      <img src="data:image/jpeg;base64,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
-      " alt=" Louis Vuitton Sneakers">
-      <h3> Louis Vuitton Sneakers</h3>
-      <div class="price">350 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">40</button>
-        <button class="size-btn">41</button>
-        <button class="size-btn">42</button>
-        <button class="size-btn">43</button>
-        <button class="size-btn">44</button>
-        <button class="size-btn">43</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-    </div>
-  </div>
-</div>
-
-<div class="section" id="offers">
-  <h2 style="text-align:center">🔥 تخفيضات اليوم</h2>
-  <div class="products">
-    <div class="product" data-name="تيشيرت - عرض خاص" data-price="80" data-category="offers">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8LhZEnKwKOxXPmaiHHAMdovSRYk6MwlNyCA&s" alt="تيشيرت عرض خاص">
-      <h3>تيشيرت - عرض خاص</h3>
-      <div class="price">80 د.ل</div>
-      <div class="size-options">
-        <button class="size-btn">S</button>
-        <button class="size-btn">M</button>
-        <button class="size-btn">L</button>
-        <button class="size-btn">XL</button>
-      </div>
-      <button class="add-to-cart-btn" disabled>أضف إلى السلة</button>
-    </div>
-  </div>
-</div>
-
-
-</div>
-
-<!-- نافذة السلة -->
-<div id="cart-modal">
-  <h2>🛒 طلباتك</h2>
-  <div id="cart-items"></div>
-  <button id="show-order-form-btn" style="width: 100%; margin-top: 15px; padding: 12px; font-weight: 700; font-size: 16px; background: #0073e6; color: white; border: none; border-radius: 15px; cursor: pointer;">تأكيد الطلب</button>
-
-  <!-- نموذج تأكيد الطلب -->
-  <form id="order-form">
-    <label for="name">الاسم الكامل:</label>
-    <input type="text" id="name" required placeholder="اكتب اسمك هنا" />
     
-    <label for="phone">رقم الهاتف:</label>
-    <input type="tel" id="phone" required placeholder="مثال: 0912345678" pattern="[0-9]+" />
+    <!-- الهيدر الثابت -->
+    <div class="app-header">
+        <div style="width: 40px;"></div> <!-- عنصر فارغ للتوازن -->
+        <h4 id="header-title">المواعيد</h4>
+        <div class="current-time" id="header-time"></div>
+    </div>
     
-    <label for="location">مكان التوصيل:</label>
-    <textarea id="location" required placeholder="اكتب عنوانك بالتفصيل"></textarea>
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content safe-area-bottom">
+        <!-- قسم المواعيد -->
+        <div class="section active" id="appointments-section">
+            <div class="mb-4">
+                <h2>📅 المواعيد</h2>
+                <p class="text-muted">إدارة مواعيدك وتنبيهاتك</p>
+            </div>
+            
+            <!-- زر إضافة موعد -->
+            <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addAppointmentModal">
+                <i class="fas fa-plus-circle"></i> إضافة موعد جديد
+            </button>
+            
+            <!-- اختيار المنطقة الزمنية -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-globe"></i> المنطقة الزمنية
+                </div>
+                <div class="card-body">
+                    <div class="tabs-container">
+                        <button class="tab-btn active" id="turkey-timezone">
+                            <i class="fas fa-flag"></i> تركيا
+                        </button>
+                        <button class="tab-btn" id="libya-timezone">
+                            <i class="fas fa-flag"></i> ليبيا
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- تبويبات المواعيد -->
+            <div class="tabs-container mb-4">
+                <button class="tab-btn active" data-tab="all-appointments">
+                    الكل <span class="badge bg-info" id="all-count">0</span>
+                </button>
+                <button class="tab-btn" data-tab="upcoming-appointments">
+                    القادمة <span class="badge bg-primary" id="upcoming-count">0</span>
+                </button>
+                <button class="tab-btn" data-tab="past-appointments">
+                    السابقة <span class="badge bg-secondary" id="past-count">0</span>
+                </button>
+            </div>
+            
+            <!-- خيارات الفرز -->
+            <div class="mb-4">
+                <h5><i class="fas fa-sort-amount-down"></i> فرز حسب:</h5>
+                <div class="sort-options">
+                    <button class="sort-btn active" data-sort="date-asc">الأقرب تاريخاً</button>
+                    <button class="sort-btn" data-sort="date-desc">الأبعد تاريخاً</button>
+                    <button class="sort-btn" data-sort="name">الاسم</button>
+                </div>
+            </div>
+            
+            <!-- قائمة المواعيد -->
+            <div id="all-appointments" class="appointment-tab">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-list"></i> جميع المواعيد
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="all-appointments-list">
+                            <!-- سيتم ملء هذا القسم بالبيانات -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="upcoming-appointments" class="appointment-tab" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-clock"></i> المواعيد القادمة
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="upcoming-appointments-list">
+                            <!-- سيتم ملء هذا القسم بالبيانات -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="past-appointments" class="appointment-tab" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-history"></i> المواعيد السابقة
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="past-appointments-list">
+                            <!-- سيتم ملء هذا القسم بالبيانات -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- قسم الحسابات -->
+        <div class="section" id="accounts-section">
+            <div class="mb-4">
+                <h2>👥 الحسابات</h2>
+                <p class="text-muted">إدارة حسابات الأشخاص وأرصدتهم</p>
+            </div>
+            
+            <!-- زر إضافة شخص -->
+            <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addPersonModal">
+                <i class="fas fa-user-plus"></i> إضافة شخص جديد
+            </button>
+            
+            <!-- قائمة الأشخاص -->
+            <div id="people-list">
+                <!-- سيتم ملء هذا القسم بالبيانات -->
+            </div>
+        </div>
+        
+        <!-- قسم العمليات -->
+        <div class="section" id="transactions-section">
+            <div class="mb-4">
+                <h2>💸 العمليات</h2>
+                <p class="text-muted">عمليات الإيداع والسحب المالية</p>
+            </div>
+            
+            <!-- زر إضافة عملية -->
+            <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addTransactionModal">
+                <i class="fas fa-exchange-alt"></i> إضافة عملية جديدة
+            </button>
+            
+            <!-- تصفية العمليات -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-filter"></i> تصفية العمليات
+                </div>
+                <div class="card-body">
+                    <select class="form-select" id="transaction-filter">
+                        <option value="10">آخر 10 عمليات</option>
+                        <option value="20">آخر 20 عملية</option>
+                        <option value="50">آخر 50 عملية</option>
+                        <option value="all">جميع العمليات</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- قائمة العمليات -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-money-bill-wave"></i> العمليات المالية
+                </div>
+                <div class="card-body p-0">
+                    <div id="transactions-list">
+                        <!-- سيتم ملء هذا القسم بالبيانات -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- قسم الإعدادات -->
+        <div class="section" id="settings-section">
+            <div class="mb-4">
+                <h2>⚙️ الإعدادات</h2>
+                <p class="text-muted">إعدادات التطبيق وإدارة البيانات</p>
+            </div>
+            
+            <!-- إعدادات التلقرام -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-paper-plane"></i> إعدادات التلقرام
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="telegram-token" class="form-label">رمز التلقرام</label>
+                        <input type="text" class="form-control" id="telegram-token" placeholder="أدخل رمز البوت">
+                        <small class="text-muted">مثال: 1234567890:ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telegram-chat-id" class="form-label">معرف الدردشة</label>
+                        <input type="text" class="form-control" id="telegram-chat-id" placeholder="أدخل معرف الدردشة">
+                        <small class="text-muted">مثال: 123456789 (يجب أن يبدأ برقم)</small>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn primary" id="save-telegram-settings">
+                            <i class="fas fa-save"></i> حفظ
+                        </button>
+                        <button class="action-btn success" id="test-telegram">
+                            <i class="fas fa-paper-plane"></i> اختبار
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- إدارة البيانات -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-database"></i> إدارة البيانات
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">يمكنك نسخ احتياطي للبيانات أو استعادتها.</p>
+                    
+                    <div class="d-grid gap-3">
+                        <button class="action-btn primary" id="export-data">
+                            <i class="fas fa-download"></i> تصدير البيانات
+                        </button>
+                        <button class="action-btn warning" id="import-data">
+                            <i class="fas fa-upload"></i> استيراد البيانات
+                        </button>
+                        <button class="action-btn danger" id="clear-data">
+                            <i class="fas fa-trash"></i> مسح جميع البيانات
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <label for="notes">ملاحظات إضافية (اختياري):</label>
-    <textarea id="notes" placeholder="إن كان لديك ملاحظات"></textarea>
+    <!-- الشريط السفلي للتنقل -->
+    <div class="bottom-nav safe-area-bottom">
+        <a href="#" class="nav-item active" data-section="appointments">
+            <i class="fas fa-calendar-alt"></i>
+            <span>المواعيد</span>
+        </a>
+        <a href="#" class="nav-item" data-section="accounts">
+            <i class="fas fa-users"></i>
+            <span>الحسابات</span>
+        </a>
+        <a href="#" class="nav-item" data-section="transactions">
+            <i class="fas fa-exchange-alt"></i>
+            <span>العمليات</span>
+        </a>
+        <a href="#" class="nav-item" data-section="settings">
+            <i class="fas fa-cog"></i>
+            <span>الإعدادات</span>
+        </a>
+    </div>
     
-    <button type="submit">إرسال الطلب</button>
-  </form>
+    <!-- النماذج Modals -->
+    <!-- نموذج إضافة موعد -->
+    <div class="modal fade" id="addAppointmentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-calendar-plus"></i> إضافة موعد جديد</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="appointment-title" class="form-label">عنوان الموعد</label>
+                        <input type="text" class="form-control" id="appointment-title" placeholder="أدخل عنوان الموعد">
+                    </div>
+                    <div class="mb-3">
+                        <label for="appointment-person" class="form-label">اختر الشخص</label>
+                        <select class="form-control" id="appointment-person">
+                            <option value="">-- بدون شخص --</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="appointment-date" class="form-label">التاريخ والوقت</label>
+                        <input type="datetime-local" class="form-control" id="appointment-date">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">خيارات التنبيه</label>
+                        <div class="notification-grid">
+                            <div class="notification-option">
+                                <input type="checkbox" id="notification-2days" class="form-check-input">
+                                <label for="notification-2days" class="form-check-label">قبل يومين</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="notification-1day" class="form-check-input">
+                                <label for="notification-1day" class="form-check-label">قبل يوم</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="notification-1hour" class="form-check-input" checked>
+                                <label for="notification-1hour" class="form-check-label">قبل ساعة</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="notification-30min" class="form-check-input" checked>
+                                <label for="notification-30min" class="form-check-label">قبل 30 دقيقة</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="notification-10min" class="form-check-input" checked>
+                                <label for="notification-10min" class="form-check-label">قبل 10 دقائق</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="notification-exact" class="form-check-input" checked>
+                                <label for="notification-exact" class="form-check-label">في وقت الموعد</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="appointment-notes" class="form-label">ملاحظات</label>
+                        <textarea class="form-control" id="appointment-notes" rows="3" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn warning" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="action-btn primary" id="save-appointment">حفظ الموعد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نموذج تعديل موعد -->
+    <div class="modal fade" id="editAppointmentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-edit"></i> تعديل الموعد</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="edit-appointment-id">
+                    <div class="mb-3">
+                        <label for="edit-appointment-title" class="form-label">عنوان الموعد</label>
+                        <input type="text" class="form-control" id="edit-appointment-title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-appointment-person" class="form-label">اختر الشخص</label>
+                        <select class="form-control" id="edit-appointment-person">
+                            <option value="">-- بدون شخص --</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-appointment-date" class="form-label">التاريخ والوقت</label>
+                        <input type="datetime-local" class="form-control" id="edit-appointment-date">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">خيارات التنبيه</label>
+                        <div class="notification-grid">
+                            <div class="notification-option">
+                                <input type="checkbox" id="edit-notification-2days" class="form-check-input">
+                                <label for="edit-notification-2days" class="form-check-label">قبل يومين</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="edit-notification-1day" class="form-check-input">
+                                <label for="edit-notification-1day" class="form-check-label">قبل يوم</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="edit-notification-1hour" class="form-check-input">
+                                <label for="edit-notification-1hour" class="form-check-label">قبل ساعة</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="edit-notification-30min" class="form-check-input">
+                                <label for="edit-notification-30min" class="form-check-label">قبل 30 دقيقة</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="edit-notification-10min" class="form-check-input">
+                                <label for="edit-notification-10min" class="form-check-label">قبل 10 دقائق</label>
+                            </div>
+                            <div class="notification-option">
+                                <input type="checkbox" id="edit-notification-exact" class="form-check-input">
+                                <label for="edit-notification-exact" class="form-check-label">في وقت الموعد</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-appointment-notes" class="form-label">ملاحظات</label>
+                        <textarea class="form-control" id="edit-appointment-notes" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn warning" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="action-btn primary" id="update-appointment">تحديث الموعد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نموذج إضافة شخص -->
+    <div class="modal fade" id="addPersonModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-user-plus"></i> إضافة شخص جديد</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="person-name" class="form-label">اسم الشخص</label>
+                        <input type="text" class="form-control" id="person-name" placeholder="أدخل اسم الشخص">
+                    </div>
+                    <div class="mb-3">
+                        <label for="person-initial-currency" class="form-label">العملة</label>
+                        <select class="form-control" id="person-initial-currency">
+                            <option value="try">ليرة تركية (TRY)</option>
+                            <option value="usd">دولار أمريكي (USD)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="person-initial-balance" class="form-label">الرصيد الابتدائي</label>
+                        <input type="number" class="form-control" id="person-initial-balance" value="0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="person-telegram-token" class="form-label">توكن التلقرام (اختياري)</label>
+                        <input type="text" class="form-control" id="person-telegram-token" placeholder="أدخل توكن التلقرام">
+                    </div>
+                    <div class="mb-3">
+                        <label for="person-telegram-chat-id" class="form-label">معرف الدردشة (اختياري)</label>
+                        <input type="text" class="form-control" id="person-telegram-chat-id" placeholder="أدخل معرف الدردشة">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn warning" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="action-btn primary" id="save-person">حفظ الشخص</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نموذج تعديل شخص -->
+    <div class="modal fade" id="editPersonModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-user-edit"></i> تعديل بيانات الشخص</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="edit-person-id">
+                    <div class="mb-3">
+                        <label for="edit-person-name" class="form-label">اسم الشخص</label>
+                        <input type="text" class="form-control" id="edit-person-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-person-currency" class="form-label">العملة</label>
+                        <select class="form-control" id="edit-person-currency">
+                            <option value="try">ليرة تركية (TRY)</option>
+                            <option value="usd">دولار أمريكي (USD)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-person-telegram-token" class="form-label">توكن التلقرام (اختياري)</label>
+                        <input type="text" class="form-control" id="edit-person-telegram-token">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-person-telegram-chat-id" class="form-label">معرف الدردشة (اختياري)</label>
+                        <input type="text" class="form-control" id="edit-person-telegram-chat-id">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn warning" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="action-btn primary" id="update-person">تحديث البيانات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نموذج إضافة عملية -->
+    <div class="modal fade" id="addTransactionModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-money-bill-wave"></i> إضافة عملية جديدة</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="transaction-type" class="form-label">نوع العملية</label>
+                        <select class="form-control" id="transaction-type">
+                            <option value="income">إيداع / إضافة رصيد</option>
+                            <option value="expense">سحب / مصروف</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transaction-person" class="form-label">اختر الشخص</label>
+                        <select class="form-control" id="transaction-person">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transaction-category" class="form-label">نوع المصروف</label>
+                        <select class="form-control" id="transaction-category">
+                            <option value="rent">إيجار</option>
+                            <option value="electricity">كهرباء</option>
+                            <option value="car">سيارة</option>
+                            <option value="living">معيشة</option>
+                            <option value="personal">لزوم شخصية</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="transaction-amount" class="form-label">المبلغ</label>
+                        <input type="number" class="form-control" id="transaction-amount" placeholder="أدخل المبلغ">
+                    </div>
+                    <div class="mb-3">
+                        <label for="transaction-description" class="form-label">الوصف (اختياري)</label>
+                        <textarea class="form-control" id="transaction-description" rows="2" placeholder="وصف العملية"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn warning" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="action-btn primary" id="save-transaction">حفظ العملية</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <div id="order-summary" style="display:none;"></div>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // بيانات التطبيق
+        let appData = {
+            timezone: 'turkey',
+            people: [],
+            appointments: [],
+            pastAppointments: [],
+            transactions: [],
+            settings: {
+                telegramToken: '',
+                telegramChatId: ''
+            },
+            appointmentsSort: 'date-asc',
+            currentSection: 'appointments'
+        };
 
-<!-- معلومات الاتصال أسفل الصفحة -->
-<div id="contact-info">
-  للاستفسار الاتصال على الرقم: <strong>0920988008</strong>
-</div>
+        // DOM جاهز
+        document.addEventListener('DOMContentLoaded', function() {
+            showLoading(true);
+            
+            setTimeout(() => {
+                loadData();
+                initializeApp();
+                updateUI();
+                startClock();
+                checkAppointments();
+                showLoading(false);
+                
+                // فحص المواعيد كل دقيقة
+                setInterval(checkAppointments, 60000);
+                
+                // فحص التنبيهات كل 30 ثانية
+                setInterval(checkNotifications, 30000);
+            }, 1000);
+        });
 
-<script>
- function showSection(id) {
-  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-showSection('men');
+        // عرض مؤشر التحميل
+        function showLoading(show) {
+            document.getElementById('loadingIndicator').classList.toggle('active', show);
+        }
 
-// اختيار حجم: ممكن تضغط على الحجم نفسه أكثر من مرة، نعد الضغطات ككمية
-document.querySelectorAll('.product').forEach(product => {
-  const sizeButtons = product.querySelectorAll('.size-btn');
-  const addBtn = product.querySelector('.add-to-cart-btn');
-  let sizeCounts = {};
+        // تهيئة التطبيق
+        function initializeApp() {
+            // التنقل بين الأقسام باستخدام الشريط السفلي
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.dataset.section;
+                    
+                    // إذا كان القسم نفسه، لا تفعل شيئا
+                    if (section === appData.currentSection) return;
+                    
+                    // عرض مؤشر التحميل
+                    showLoading(true);
+                    
+                    setTimeout(() => {
+                        // تحديث حالة التنقل
+                        document.querySelectorAll('.nav-item').forEach(nav => {
+                            nav.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // تحديث عنوان الهيدر
+                        const titles = {
+                            'appointments': 'المواعيد',
+                            'accounts': 'الحسابات',
+                            'transactions': 'العمليات',
+                            'settings': 'الإعدادات'
+                        };
+                        document.getElementById('header-title').textContent = titles[section];
+                        
+                        // إخفاء القسم الحالي بتحريكه
+                        const currentSection = document.getElementById(`${appData.currentSection}-section`);
+                        currentSection.classList.add('slide-out');
+                        
+                        // بعد انتهاء التحريك، إظهار القسم الجديد
+                        setTimeout(() => {
+                            currentSection.classList.remove('active', 'slide-out');
+                            
+                            // إظهار القسم المحدد
+                            showSection(section);
+                            showLoading(false);
+                        }, 400);
+                        
+                    }, 300);
+                });
+            });
+            
+            // التبديل بين أقسام المواعيد
+            document.querySelectorAll('.tab-btn').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.dataset.tab;
+                    if (!tabName) return;
+                    
+                    document.querySelectorAll('.tab-btn').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    document.querySelectorAll('.appointment-tab').forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    
+                    this.classList.add('active');
+                    document.getElementById(tabName).style.display = 'block';
+                    
+                    if (tabName === 'all-appointments') {
+                        updateAllAppointmentsList();
+                    } else if (tabName === 'upcoming-appointments') {
+                        updateUpcomingAppointmentsList();
+                    } else if (tabName === 'past-appointments') {
+                        updatePastAppointmentsList();
+                    }
+                });
+            });
+            
+            // اختيار المنطقة الزمنية
+            document.getElementById('turkey-timezone').addEventListener('click', function() {
+                document.getElementById('turkey-timezone').classList.add('active');
+                document.getElementById('libya-timezone').classList.remove('active');
+                appData.timezone = 'turkey';
+                saveData();
+                updateClock();
+                updateAllAppointmentsList();
+            });
+            
+            document.getElementById('libya-timezone').addEventListener('click', function() {
+                document.getElementById('libya-timezone').classList.add('active');
+                document.getElementById('turkey-timezone').classList.remove('active');
+                appData.timezone = 'libya';
+                saveData();
+                updateClock();
+                updateAllAppointmentsList();
+            });
+            
+            // خيارات الفرز للمواعيد
+            document.querySelectorAll('.sort-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const sortType = this.dataset.sort;
+                    
+                    document.querySelectorAll('.sort-btn').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    this.classList.add('active');
+                    
+                    appData.appointmentsSort = sortType;
+                    saveData();
+                    
+                    updateAllAppointmentsList();
+                    updateUpcomingAppointmentsList();
+                    updatePastAppointmentsList();
+                });
+            });
+            
+            // حفظ الموعد
+            document.getElementById('save-appointment').addEventListener('click', function() {
+                const title = document.getElementById('appointment-title').value;
+                const personId = document.getElementById('appointment-person').value;
+                const date = document.getElementById('appointment-date').value;
+                const notes = document.getElementById('appointment-notes').value;
+                
+                const notifications = {
+                    twoDays: document.getElementById('notification-2days').checked,
+                    oneDay: document.getElementById('notification-1day').checked,
+                    oneHour: document.getElementById('notification-1hour').checked,
+                    thirtyMinutes: document.getElementById('notification-30min').checked,
+                    tenMinutes: document.getElementById('notification-10min').checked,
+                    exactTime: document.getElementById('notification-exact').checked
+                };
+                
+                if (title && date) {
+                    addAppointment(title, personId, new Date(date), appData.timezone, notes, notifications);
+                    
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addAppointmentModal'));
+                    modal.hide();
+                    
+                    // مسح الحقول
+                    document.getElementById('appointment-title').value = '';
+                    document.getElementById('appointment-date').value = '';
+                    document.getElementById('appointment-notes').value = '';
+                    document.getElementById('appointment-person').value = '';
+                } else {
+                    alert('يرجى ملء عنوان الموعد والتاريخ');
+                }
+            });
+            
+            // تحديث الموعد
+            document.getElementById('update-appointment').addEventListener('click', function() {
+                const id = document.getElementById('edit-appointment-id').value;
+                const title = document.getElementById('edit-appointment-title').value;
+                const personId = document.getElementById('edit-appointment-person').value;
+                const date = document.getElementById('edit-appointment-date').value;
+                const notes = document.getElementById('edit-appointment-notes').value;
+                
+                const notifications = {
+                    twoDays: document.getElementById('edit-notification-2days').checked,
+                    oneDay: document.getElementById('edit-notification-1day').checked,
+                    oneHour: document.getElementById('edit-notification-1hour').checked,
+                    thirtyMinutes: document.getElementById('edit-notification-30min').checked,
+                    tenMinutes: document.getElementById('edit-notification-10min').checked,
+                    exactTime: document.getElementById('edit-notification-exact').checked
+                };
+                
+                if (title && date) {
+                    updateAppointment(id, title, personId, new Date(date), appData.timezone, notes, notifications);
+                    
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('editAppointmentModal'));
+                    modal.hide();
+                } else {
+                    alert('يرجى ملء عنوان الموعد والتاريخ');
+                }
+            });
+            
+            // حفظ الشخص
+            document.getElementById('save-person').addEventListener('click', function() {
+                const name = document.getElementById('person-name').value;
+                const currency = document.getElementById('person-initial-currency').value;
+                const balance = parseFloat(document.getElementById('person-initial-balance').value) || 0;
+                const telegramToken = document.getElementById('person-telegram-token').value;
+                const telegramChatId = document.getElementById('person-telegram-chat-id').value;
+                
+                if (name) {
+                    addPerson(name, currency, balance, telegramToken, telegramChatId);
+                    
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addPersonModal'));
+                    modal.hide();
+                    
+                    document.getElementById('person-name').value = '';
+                    document.getElementById('person-initial-balance').value = '0';
+                    document.getElementById('person-telegram-token').value = '';
+                    document.getElementById('person-telegram-chat-id').value = '';
+                } else {
+                    alert('يرجى إدخال اسم الشخص');
+                }
+            });
+            
+            // تحديث الشخص
+            document.getElementById('update-person').addEventListener('click', function() {
+                const id = document.getElementById('edit-person-id').value;
+                const name = document.getElementById('edit-person-name').value;
+                const currency = document.getElementById('edit-person-currency').value;
+                const telegramToken = document.getElementById('edit-person-telegram-token').value;
+                const telegramChatId = document.getElementById('edit-person-telegram-chat-id').value;
+                
+                if (name) {
+                    updatePerson(id, name, currency, telegramToken, telegramChatId);
+                    
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('editPersonModal'));
+                    modal.hide();
+                } else {
+                    alert('يرجى إدخال اسم الشخص');
+                }
+            });
+            
+            // حفظ العملية
+            document.getElementById('save-transaction').addEventListener('click', function() {
+                const type = document.getElementById('transaction-type').value;
+                const personId = document.getElementById('transaction-person').value;
+                const category = document.getElementById('transaction-category').value;
+                const amount = parseFloat(document.getElementById('transaction-amount').value);
+                const description = document.getElementById('transaction-description').value;
+                
+                if (personId && amount > 0) {
+                    addTransaction(type, personId, category, amount, description);
+                    
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addTransactionModal'));
+                    modal.hide();
+                    
+                    document.getElementById('transaction-amount').value = '';
+                    document.getElementById('transaction-description').value = '';
+                    document.getElementById('transaction-person').value = '';
+                } else {
+                    alert('يرجى اختيار شخص وإدخال مبلغ صحيح');
+                }
+            });
+            
+            // حفظ إعدادات التلقرام
+            document.getElementById('save-telegram-settings').addEventListener('click', function() {
+                const token = document.getElementById('telegram-token').value;
+                const chatId = document.getElementById('telegram-chat-id').value;
+                
+                appData.settings.telegramToken = token;
+                appData.settings.telegramChatId = chatId;
+                saveData();
+                alert('✅ تم حفظ إعدادات التلقرام بنجاح');
+            });
+            
+            // اختبار التلقرام
+            document.getElementById('test-telegram').addEventListener('click', function() {
+                sendTelegramNotification('🔔 هذا رسالة اختبار من برنامج إدارة المواعيد والحسابات\nتم الإرسال بنجاح ✅');
+            });
+            
+            // مسح المواعيد السابقة
+            document.querySelectorAll('.btn-outline-danger').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.id === 'clear-past-appointments' || this.id === 'clear-past-only') {
+                        if (confirm('هل أنت متأكد من رغبتك في مسح جميع المواعيد السابقة؟')) {
+                            appData.pastAppointments = [];
+                            saveData();
+                            updateAllAppointmentsList();
+                            updatePastAppointmentsList();
+                            alert('✅ تم مسح جميع المواعيد السابقة');
+                        }
+                    }
+                });
+            });
+            
+            // تصفية العمليات
+            document.getElementById('transaction-filter').addEventListener('change', function() {
+                updateTransactionsList();
+            });
+            
+            // إدارة البيانات
+            document.getElementById('export-data').addEventListener('click', exportData);
+            document.getElementById('import-data').addEventListener('click', importData);
+            document.getElementById('clear-data').addEventListener('click', clearData);
+        }
 
-  sizeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const size = btn.textContent.trim();
-      if (!sizeCounts[size]) {
-        sizeCounts[size] = 0;
-        btn.classList.add('selected');
-      }
-      sizeCounts[size]++;
-      addBtn.disabled = Object.keys(sizeCounts).length === 0;
-    });
-  });
+        // عرض القسم المحدد
+        function showSection(section) {
+            appData.currentSection = section;
+            
+            // إخفاء جميع الأقسام
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            
+            // إظهار القسم المحدد
+            const targetSection = document.getElementById(`${section}-section`);
+            targetSection.classList.add('active');
+            
+            // تحديث المحتوى حسب القسم
+            if (section === 'appointments') {
+                updateAllAppointmentsList();
+            } else if (section === 'accounts') {
+                updatePeopleList();
+            } else if (section === 'transactions') {
+                updateTransactionsList();
+                updateTransactionPersonSelect();
+            } else if (section === 'settings') {
+                loadTelegramSettings();
+            }
+        }
 
-  addBtn.addEventListener('click', () => {
-    if (Object.keys(sizeCounts).length === 0) {
-      alert('يرجى اختيار المقاس أولاً.');
-      return;
-    }
+        // تحديث واجهة المستخدم
+        function updateUI() {
+            updateAllAppointmentsList();
+            updateUpcomingAppointmentsList();
+            updatePastAppointmentsList();
+            updatePeopleList();
+            updateTransactionsList();
+            updateTransactionPersonSelect();
+            updateAppointmentPersonSelect();
+            
+            // تحديث المنطقة الزمنية
+            if (appData.timezone === 'turkey') {
+                document.getElementById('turkey-timezone').classList.add('active');
+                document.getElementById('libya-timezone').classList.remove('active');
+            } else {
+                document.getElementById('libya-timezone').classList.add('active');
+                document.getElementById('turkey-timezone').classList.remove('active');
+            }
+        }
 
-    const name = product.dataset.name;
-    const price = parseFloat(product.dataset.price);
+        // بقية الدوال (addAppointment, updateAppointment, addPerson, etc.)
+        // ... تبقى نفس الدوال السابقة بدون تغيير ...
 
-    Object.entries(sizeCounts).forEach(([size, quantity]) => {
-      if (quantity > 0) {
-        cart.push({ name, price, size, quantity });
-      }
-    });
+        // توليد معرف فريد
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
 
-    updateCartCount();
-    alert(`تمت إضافة ${Object.keys(sizeCounts).length} صنف(أصناف) إلى السلة.`);
+        // تحميل البيانات من localStorage
+        function loadData() {
+            const savedData = localStorage.getItem('appointmentManagerData');
+            if (savedData) {
+                try {
+                    const parsedData = JSON.parse(savedData);
+                    appData = { ...appData, ...parsedData };
+                } catch (e) {
+                    console.error('خطأ في تحميل البيانات:', e);
+                }
+            }
+        }
 
-    sizeCounts = {};
-    sizeButtons.forEach(btn => btn.classList.remove('selected'));
-    addBtn.disabled = true;
-  });
-});
+        // حفظ البيانات إلى localStorage
+        function saveData() {
+            try {
+                localStorage.setItem('appointmentManagerData', JSON.stringify(appData));
+            } catch (e) {
+                console.error('خطأ في حفظ البيانات:', e);
+            }
+        }
 
-// السلة
-let cart = [];
+        // تحميل إعدادات التلقرام
+        function loadTelegramSettings() {
+            document.getElementById('telegram-token').value = appData.settings.telegramToken;
+            document.getElementById('telegram-chat-id').value = appData.settings.telegramChatId;
+        }
 
-const cartButton = document.getElementById('cart-button');
-const cartCount = document.getElementById('cart-count');
-const cartModal = document.getElementById('cart-modal');
-const cartItemsContainer = document.getElementById('cart-items');
-const orderForm = document.getElementById('order-form');
-const showOrderFormBtn = document.getElementById('show-order-form-btn');
-const orderSummary = document.getElementById('order-summary');
+        // تصدير البيانات
+        function exportData() {
+            const dataStr = JSON.stringify(appData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
 
-function updateCartCount() {
-  let totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartCount.textContent = totalQuantity;
-}
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'appointment_manager_data.json';
+            link.click();
 
-cartButton.addEventListener('click', () => {
-  if (cartModal.style.display === 'block') {
-    cartModal.style.display = 'none';
-    orderForm.style.display = 'none';
-    orderSummary.style.display = 'none';
-    showOrderFormBtn.style.display = 'inline-block';
-  } else {
-    renderCartItems();
-    cartModal.style.display = 'block';
-    orderForm.style.display = 'none';
-    orderSummary.style.display = 'none';
-    showOrderFormBtn.style.display = cart.length ? 'inline-block' : 'none';
-  }
-});
+            URL.revokeObjectURL(url);
+            alert('✅ تم تصدير البيانات بنجاح');
+        }
 
-function renderCartItems() {
-  if (cart.length === 0) {
-    cartItemsContainer.innerHTML = '<p style="text-align:center; font-weight:700;">السلة فارغة</p>';
-    showOrderFormBtn.style.display = 'none';
-    return;
-  }
+        // استيراد البيانات
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
 
-  cartItemsContainer.innerHTML = '';
-  let totalPrice = 0;
+            input.onchange = e => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                
+                reader.onload = event => {
+                    try {
+                        const importedData = JSON.parse(event.target.result);
+                        appData = { ...appData, ...importedData };
+                        saveData();
+                        updateUI();
+                        alert('✅ تم استيراد البيانات بنجاح');
+                    } catch (error) {
+                        alert('❌ خطأ في استيراد البيانات: ملف غير صالح');
+                    }
+                };
+                
+                reader.readAsText(file);
+            };
 
-  cart.forEach((item, index) => {
-    const itemTotal = item.price * item.quantity;
-    totalPrice += itemTotal;
+            input.click();
+        }
 
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <div class="cart-item-details">
-        <div class="cart-item-name">${item.name}</div>
-        <div class="cart-item-size">المقاس: ${item.size}</div>
-        <div class="cart-item-quantity">الكمية: ${item.quantity}</div>
-        <div class="cart-item-price">السعر الفردي: ${item.price} د.ل</div>
-        <div class="cart-item-total">الإجمالي: ${itemTotal.toFixed(2)} د.ل</div>
-      </div>
-      <button class="remove-btn" data-index="${index}">حذف</button>
-    `;
-    cartItemsContainer.appendChild(div);
-  });
+        // مسح جميع البيانات
+        function clearData() {
+            if (confirm('⚠️ هل أنت متأكد من رغبتك في مسح جميع البيانات؟ هذا الإجراء لا يمكن التراجع عنه!')) {
+                const allKeys = Object.keys(localStorage);
+                allKeys.forEach(key => {
+                    if (key.startsWith('notification_')) {
+                        localStorage.removeItem(key);
+                    }
+                });
+                
+                localStorage.removeItem('appointmentManagerData');
+                appData = {
+                    timezone: 'turkey',
+                    people: [],
+                    appointments: [],
+                    pastAppointments: [],
+                    transactions: [],
+                    settings: {
+                        telegramToken: '',
+                        telegramChatId: ''
+                    },
+                    appointmentsSort: 'date-asc',
+                    currentSection: 'appointments'
+                };
+                updateUI();
+                alert('✅ تم مسح جميع البيانات بنجاح');
+            }
+        }
 
-  const totalDiv = document.createElement('div');
-  totalDiv.style = "text-align: center; font-weight: 800; margin-top: 15px; font-size: 18px; color: #004080;";
-  totalDiv.textContent = `المجموع الكلي: ${totalPrice.toFixed(2)} د.ل`;
-  cartItemsContainer.appendChild(totalDiv);
+        // بدء الساعة
+        function startClock() {
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
 
-  document.querySelectorAll('.remove-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const i = parseInt(btn.dataset.index);
-      cart.splice(i, 1);
-      updateCartCount();
-      renderCartItems();
-    });
-  });
-}
+        // تحديث الساعة
+        function updateClock() {
+            const now = new Date();
+            const timezone = appData.timezone;
+            let timeString;
 
-showOrderFormBtn.addEventListener('click', () => {
-  orderForm.style.display = 'block';
-  showOrderFormBtn.style.display = 'none';
-  orderSummary.style.display = 'none';
-});
+            if (timezone === 'turkey') {
+                const turkeyTime = new Date(now.getTime() + (3 * 60 * 60 * 1000));
+                timeString = formatNumericDate12Hour(turkeyTime, true, 'turkey');
+            } else {
+                const libyaTime = new Date(now.getTime() + (2 * 60 * 60 * 1000));
+                timeString = formatNumericDate12Hour(libyaTime, true, 'libya');
+            }
 
-// 🔴 إرسال البيانات إلى تيليجرام تلقائيًا
-function sendToTelegram(message) {
-  const botToken = '7904675794:AAErKUwOydYemruU0cp3pFsKRG2_7vj72UU';
-  const chatId = '355888174';
+            document.getElementById('header-time').textContent = timeString;
+        }
 
-  fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: message
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    alert("✅ تم إرسال الطلب بنجاح إلى تيليجرام");
-  })
-  .catch(error => {
-    alert("❌ فشل إرسال الطلب إلى تيليجرام");
-    console.error("Telegram Error:", error);
-  });
-}
+        // تنسيق التاريخ بالأرقام الإنجليزية بنظام 12 ساعة
+        function formatNumericDate12Hour(date, includeTime = false, timezone = 'turkey') {
+            let adjustedDate = date;
+            if (timezone === 'turkey') {
+                adjustedDate = new Date(date.getTime() - (3 * 60 * 60 * 1000));
+            } else if (timezone === 'libya') {
+                adjustedDate = new Date(date.getTime() - (2 * 60 * 60 * 1000));
+            }
 
-orderForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const name = orderForm.name.value.trim();
-  const phone = orderForm.phone.value.trim();
-  const location = orderForm.location.value.trim();
-  const notes = orderForm.notes.value.trim();
+            const year = adjustedDate.getFullYear();
+            const month = String(adjustedDate.getMonth() + 1).padStart(2, '0');
+            const day = String(adjustedDate.getDate()).padStart(2, '0');
+            
+            let dateString = `${year}-${month}-${day}`;
+            
+            if (includeTime) {
+                let hours = adjustedDate.getHours();
+                const minutes = String(adjustedDate.getMinutes()).padStart(2, '0');
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                
+                dateString += ` ${hours}:${minutes} ${ampm}`;
+            }
+            
+            return dateString;
+        }
 
-  if (!name || !phone || !location) {
-    alert('يرجى ملء جميع الحقول المطلوبة.');
-    return;
-  }
+        // حساب الوقت المتبقي
+        function getTimeLeft(targetDate) {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
 
-  let message = `📦 طلب جديد:\n`;
-  message += `👤 الاسم: ${name}\n`;
-  message += `📞 الهاتف: ${phone}\n`;
-  message += `📍 الموقع: ${location}\n`;
-  if (notes) message += `📝 ملاحظات: ${notes}\n`;
-  message += `\n🧾 تفاصيل الطلب:\n`;
-  cart.forEach((item, i) => {
-    message += `${i+1}. ${item.name} - المقاس: ${item.size} - الكمية: ${item.quantity} - السعر الفردي: ${item.price} د.ل\n`;
-  });
+            if (diff <= 0) {
+                return 'منتهي';
+            }
 
-  sendToTelegram(message);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-  orderForm.reset();
-  cart = [];
-  updateCartCount();
-  renderCartItems();
-  orderForm.style.display = 'none';
-  showOrderFormBtn.style.display = 'none';
-});
+            if (days > 0) {
+                return `${days} يوم و ${hours} ساعة`;
+            } else if (hours > 0) {
+                return `${hours} ساعة و ${minutes} دقيقة`;
+            } else {
+                return `${minutes} دقيقة`;
+            }
+        }
 
-</script>
-<div id="inquiry-tab">
-  <div class="left-side">
-    <i class="fab fa-instagram"></i>
-    <a href="https://instagram.com/tro8qa" target="_blank">@tro8qa</a>
-  </div>
-  <div class="center-side">
-    <i class="fab fa-snapchat-ghost"></i>
-    <a href="https://snapchat.com/add/tro8qa" target="_blank">@tro8qa</a>
-  </div>
-  <div class="right-side">
-    الاتصال للاستفسار: 0920988008
-  </div>
-</div>
+        // تنسيق العملة
+        function formatCurrency(amount, currency) {
+            if (currency === 'try') {
+                return amount.toFixed(2) + ' ₺';
+            } else if (currency === 'usd') {
+                return amount.toFixed(2) + ' $';
+            } else {
+                return amount.toFixed(2);
+            }
+        }
 
+        // الحصول على نص العملة
+        function getCurrencyText(currency) {
+            if (currency === 'try') {
+                return 'ليرة تركية';
+            } else if (currency === 'usd') {
+                return 'دولار أمريكي';
+            } else {
+                return currency;
+            }
+        }
+
+        // الحصول على نص الفئة
+        function getCategoryText(category) {
+            const categories = {
+                'rent': 'إيجار',
+                'electricity': 'كهرباء',
+                'car': 'سيارة',
+                'living': 'معيشة',
+                'personal': 'لزوم شخصية'
+            };
+
+            return categories[category] || category;
+        }
+
+        // ============ الدوال المفقودة من النسخة السابقة ============
+        
+        // إضافة موعد
+        function addAppointment(title, personId, date, timezone, notes = '', notifications) {
+            const person = personId ? appData.people.find(p => p.id === personId) : null;
+            const personName = person ? person.name : '';
+            
+            const appointment = {
+                id: generateId(),
+                title,
+                personId,
+                personName,
+                date: date.getTime(),
+                timezone,
+                notes,
+                notifications: notifications,
+                notified: {
+                    twoDays: false,
+                    oneDay: false,
+                    oneHour: false,
+                    thirtyMinutes: false,
+                    tenMinutes: false,
+                    exactTime: false
+                },
+                scheduledNotifications: []
+            };
+            
+            scheduleAppointmentNotifications(appointment);
+            
+            appData.appointments.push(appointment);
+            saveData();
+            updateAllAppointmentsList();
+            updateUpcomingAppointmentsList();
+        }
+
+        // جدولة تنبيهات الموعد
+        function scheduleAppointmentNotifications(appointment) {
+            const appointmentTime = appointment.date;
+            const now = Date.now();
+            
+            appointment.scheduledNotifications.forEach(notificationId => {
+                const notification = localStorage.getItem(`notification_${notificationId}`);
+                if (notification) {
+                    localStorage.removeItem(`notification_${notificationId}`);
+                }
+            });
+            
+            appointment.scheduledNotifications = [];
+            
+            if (appointment.notifications.twoDays) {
+                const notificationTime = appointmentTime - (2 * 24 * 60 * 60 * 1000);
+                if (notificationTime > now) {
+                    scheduleNotification(notificationTime, appointment, 'قبل يومين');
+                }
+            }
+            
+            if (appointment.notifications.oneDay) {
+                const notificationTime = appointmentTime - (24 * 60 * 60 * 1000);
+                if (notificationTime > now) {
+                    scheduleNotification(notificationTime, appointment, 'قبل يوم');
+                }
+            }
+            
+            if (appointment.notifications.oneHour) {
+                const notificationTime = appointmentTime - (60 * 60 * 1000);
+                if (notificationTime > now) {
+                    scheduleNotification(notificationTime, appointment, 'قبل ساعة');
+                }
+            }
+            
+            if (appointment.notifications.thirtyMinutes) {
+                const notificationTime = appointmentTime - (30 * 60 * 1000);
+                if (notificationTime > now) {
+                    scheduleNotification(notificationTime, appointment, 'قبل 30 دقيقة');
+                }
+            }
+            
+            if (appointment.notifications.tenMinutes) {
+                const notificationTime = appointmentTime - (10 * 60 * 1000);
+                if (notificationTime > now) {
+                    scheduleNotification(notificationTime, appointment, 'قبل 10 دقائق');
+                }
+            }
+            
+            if (appointment.notifications.exactTime) {
+                const notificationTime = appointmentTime;
+                if (notificationTime > now) {
+                    scheduleNotification(notificationTime, appointment, 'حان وقت الموعد');
+                }
+            }
+        }
+
+        // جدولة تنبيه واحد
+        function scheduleNotification(notificationTime, appointment, timeText) {
+            const notificationId = generateId();
+            const notificationData = {
+                id: notificationId,
+                appointmentId: appointment.id,
+                time: notificationTime,
+                timeText: timeText,
+                sent: false
+            };
+            
+            localStorage.setItem(`notification_${notificationId}`, JSON.stringify(notificationData));
+            appointment.scheduledNotifications.push(notificationId);
+        }
+
+        // فحص التنبيهات المجدولة
+        function checkNotifications() {
+            const now = Date.now();
+            const allKeys = Object.keys(localStorage);
+            
+            allKeys.forEach(key => {
+                if (key.startsWith('notification_')) {
+                    const notificationData = JSON.parse(localStorage.getItem(key));
+                    if (!notificationData.sent && notificationData.time <= now) {
+                        sendScheduledNotification(notificationData);
+                    }
+                }
+            });
+        }
+
+        // إرسال تنبيه مجدول
+        function sendScheduledNotification(notificationData) {
+            const appointment = appData.appointments.find(a => a.id === notificationData.appointmentId) || 
+                              appData.pastAppointments.find(a => a.id === notificationData.appointmentId);
+            
+            if (appointment) {
+                const message = `⏰ تنبيه بالموعد (${notificationData.timeText}):\n${appointment.title}\nالتاريخ: ${formatNumericDate12Hour(new Date(appointment.date), true, appointment.timezone)}`;
+                
+                let telegramToken = appData.settings.telegramToken;
+                let telegramChatId = appData.settings.telegramChatId;
+                
+                if (appointment.personId) {
+                    const person = appData.people.find(p => p.id === appointment.personId);
+                    if (person) {
+                        if (person.telegramToken) telegramToken = person.telegramToken;
+                        if (person.telegramChatId) telegramChatId = person.telegramChatId;
+                    }
+                }
+                
+                sendTelegramNotification(message, telegramToken, telegramChatId);
+                
+                notificationData.sent = true;
+                localStorage.setItem(`notification_${notificationData.id}`, JSON.stringify(notificationData));
+            }
+        }
+
+        // تحديث موعد
+        function updateAppointment(id, title, personId, date, timezone, notes = '', notifications) {
+            const appointment = appData.appointments.find(a => a.id === id);
+            if (appointment) {
+                const person = personId ? appData.people.find(p => p.id === personId) : null;
+                const personName = person ? person.name : '';
+                
+                appointment.title = title;
+                appointment.personId = personId;
+                appointment.personName = personName;
+                appointment.date = date.getTime();
+                appointment.timezone = timezone;
+                appointment.notes = notes;
+                appointment.notifications = notifications;
+                
+                appointment.notified = {
+                    twoDays: false,
+                    oneDay: false,
+                    oneHour: false,
+                    thirtyMinutes: false,
+                    tenMinutes: false,
+                    exactTime: false
+                };
+                
+                scheduleAppointmentNotifications(appointment);
+                
+                saveData();
+                updateAllAppointmentsList();
+                updateUpcomingAppointmentsList();
+            }
+        }
+
+        // إضافة شخص
+        function addPerson(name, currency, initialBalance = 0, telegramToken = '', telegramChatId = '') {
+            const person = {
+                id: generateId(),
+                name,
+                currency,
+                balance: initialBalance,
+                telegramToken,
+                telegramChatId,
+                createdAt: new Date().getTime()
+            };
+            
+            appData.people.push(person);
+            saveData();
+            updatePeopleList();
+            updateTransactionPersonSelect();
+            updateAppointmentPersonSelect();
+        }
+
+        // تحديث شخص
+        function updatePerson(id, name, currency, telegramToken = '', telegramChatId = '') {
+            const person = appData.people.find(p => p.id === id);
+            if (person) {
+                person.name = name;
+                person.currency = currency;
+                person.telegramToken = telegramToken;
+                person.telegramChatId = telegramChatId;
+                
+                saveData();
+                updatePeopleList();
+                updateTransactionPersonSelect();
+                updateAppointmentPersonSelect();
+                
+                appData.appointments.forEach(appointment => {
+                    if (appointment.personId === id) {
+                        appointment.personName = name;
+                    }
+                });
+                
+                appData.pastAppointments.forEach(appointment => {
+                    if (appointment.personId === id) {
+                        appointment.personName = name;
+                    }
+                });
+                
+                saveData();
+            }
+        }
+
+        // إضافة عملية
+        function addTransaction(type, personId, category, amount, description = '') {
+            const person = appData.people.find(p => p.id === personId);
+            if (!person) return;
+            
+            if (type === 'income') {
+                person.balance += amount;
+            } else {
+                person.balance -= amount;
+            }
+            
+            const transaction = {
+                id: generateId(),
+                type,
+                personId,
+                personName: person.name,
+                currency: person.currency,
+                category,
+                amount,
+                description,
+                date: new Date().getTime()
+            };
+            
+            appData.transactions.push(transaction);
+            saveData();
+            updateTransactionsList();
+            updatePeopleList();
+        }
+
+        // تحديث قائمة جميع المواعيد
+        function updateAllAppointmentsList() {
+            const container = document.getElementById('all-appointments-list');
+            const now = new Date().getTime();
+            
+            let allAppointments = [...appData.appointments, ...appData.pastAppointments];
+            allAppointments = sortAppointments(allAppointments);
+            
+            document.getElementById('all-count').textContent = allAppointments.length;
+            
+            if (allAppointments.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h5>لا توجد مواعيد</h5>
+                        <p>اضغط على زر "إضافة موعد" لبدء إدارة مواعيدك</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            allAppointments.forEach((appointment, index) => {
+                const date = new Date(appointment.date);
+                const timeString = formatNumericDate12Hour(date, true, appointment.timezone);
+                const isPast = appointment.date < now;
+                const timeLeft = isPast ? 'منتهي' : getTimeLeft(appointment.date);
+                
+                const appointmentElement = document.createElement('div');
+                appointmentElement.className = isPast ? 'past-appointment-item' : 'appointment-item';
+                appointmentElement.style.animationDelay = `${index * 0.1}s`;
+                appointmentElement.innerHTML = `
+                    <div>
+                        <h6 class="mb-1">${appointment.title}</h6>
+                        <small class="text-muted">${timeString}</small>
+                        ${appointment.personName ? `<div class="mt-2"><span class="badge bg-info">${appointment.personName}</span></div>` : ''}
+                        ${appointment.notes ? `<p class="mb-0 mt-2 small">${appointment.notes}</p>` : ''}
+                        ${!isPast ? `
+                        <div class="action-buttons mt-3">
+                            <button class="action-btn primary send-notification" data-id="${appointment.id}">
+                                <i class="fas fa-paper-plane"></i> تنبيه
+                            </button>
+                            <button class="action-btn warning edit-appointment" data-id="${appointment.id}">
+                                <i class="fas fa-edit"></i> تعديل
+                            </button>
+                            <button class="action-btn danger delete-appointment" data-id="${appointment.id}">
+                                <i class="fas fa-trash"></i> حذف
+                            </button>
+                        </div>
+                        ` : ''}
+                    </div>
+                    <div class="text-end">
+                        <div class="mb-2 ${isPast ? 'text-secondary' : 'text-primary'} fw-bold">${timeLeft}</div>
+                        ${isPast ? `
+                        <button class="action-btn danger delete-past-appointment" data-id="${appointment.id}">
+                            <i class="fas fa-trash"></i> حذف
+                        </button>
+                        ` : ''}
+                    </div>
+                `;
+                
+                container.appendChild(appointmentElement);
+            });
+            
+            addAppointmentEventListeners();
+        }
+
+        // تحديث قائمة المواعيد القادمة
+        function updateUpcomingAppointmentsList() {
+            const container = document.getElementById('upcoming-appointments-list');
+            const now = new Date().getTime();
+            
+            let upcomingAppointments = appData.appointments.filter(a => a.date >= now);
+            upcomingAppointments = sortAppointments(upcomingAppointments);
+            
+            document.getElementById('upcoming-count').textContent = upcomingAppointments.length;
+            
+            if (upcomingAppointments.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-clock"></i>
+                        <h5>لا توجد مواعيد قادمة</h5>
+                        <p>جميع مواعيدك تمت أو لم تقم بإضافة مواعيد جديدة</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            upcomingAppointments.forEach((appointment, index) => {
+                const date = new Date(appointment.date);
+                const timeString = formatNumericDate12Hour(date, true, appointment.timezone);
+                const timeLeft = getTimeLeft(appointment.date);
+                
+                const appointmentElement = document.createElement('div');
+                appointmentElement.className = 'appointment-item';
+                appointmentElement.style.animationDelay = `${index * 0.1}s`;
+                appointmentElement.innerHTML = `
+                    <div>
+                        <h6 class="mb-1">${appointment.title}</h6>
+                        <small class="text-muted">${timeString}</small>
+                        ${appointment.personName ? `<div class="mt-2"><span class="badge bg-info">${appointment.personName}</span></div>` : ''}
+                        ${appointment.notes ? `<p class="mb-0 mt-2 small">${appointment.notes}</p>` : ''}
+                        <div class="action-buttons mt-3">
+                            <button class="action-btn primary send-notification" data-id="${appointment.id}">
+                                <i class="fas fa-paper-plane"></i> تنبيه
+                            </button>
+                            <button class="action-btn warning edit-appointment" data-id="${appointment.id}">
+                                <i class="fas fa-edit"></i> تعديل
+                            </button>
+                            <button class="action-btn danger delete-appointment" data-id="${appointment.id}">
+                                <i class="fas fa-trash"></i> حذف
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <div class="mb-2 text-primary fw-bold">${timeLeft}</div>
+                    </div>
+                `;
+                
+                container.appendChild(appointmentElement);
+            });
+            
+            addAppointmentEventListeners();
+        }
+
+        // تحديث قائمة المواعيد السابقة
+        function updatePastAppointmentsList() {
+            const container = document.getElementById('past-appointments-list');
+            const now = new Date().getTime();
+            
+            let pastAppointments = appData.pastAppointments.filter(a => a.date < now);
+            pastAppointments = sortAppointments(pastAppointments);
+            
+            document.getElementById('past-count').textContent = pastAppointments.length;
+            
+            if (pastAppointments.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-history"></i>
+                        <h5>لا توجد مواعيد سابقة</h5>
+                        <p>لم تنتهي أي من مواعيدك بعد</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            pastAppointments.forEach((appointment, index) => {
+                const date = new Date(appointment.date);
+                const timeString = formatNumericDate12Hour(date, true, appointment.timezone);
+                
+                const appointmentElement = document.createElement('div');
+                appointmentElement.className = 'past-appointment-item';
+                appointmentElement.style.animationDelay = `${index * 0.1}s`;
+                appointmentElement.innerHTML = `
+                    <div>
+                        <h6 class="mb-1">${appointment.title}</h6>
+                        <small class="text-muted">${timeString}</small>
+                        ${appointment.personName ? `<div class="mt-2"><span class="badge bg-info">${appointment.personName}</span></div>` : ''}
+                        ${appointment.notes ? `<p class="mb-0 mt-2 small">${appointment.notes}</p>` : ''}
+                    </div>
+                    <div class="text-end">
+                        <button class="action-btn danger delete-past-appointment" data-id="${appointment.id}">
+                            <i class="fas fa-trash"></i> حذف
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(appointmentElement);
+            });
+            
+            addAppointmentEventListeners();
+        }
+
+        // فرز المواعيد
+        function sortAppointments(appointments) {
+            switch (appData.appointmentsSort) {
+                case 'date-asc':
+                    return appointments.sort((a, b) => a.date - b.date);
+                case 'date-desc':
+                    return appointments.sort((a, b) => b.date - a.date);
+                case 'name':
+                    return appointments.sort((a, b) => a.title.localeCompare(b.title));
+                default:
+                    return appointments.sort((a, b) => a.date - b.date);
+            }
+        }
+
+        // تعديل موعد
+        function editAppointment(id) {
+            const appointment = appData.appointments.find(a => a.id === id);
+            if (appointment) {
+                document.getElementById('edit-appointment-id').value = appointment.id;
+                document.getElementById('edit-appointment-title').value = appointment.title;
+                document.getElementById('edit-appointment-person').value = appointment.personId || '';
+                
+                const date = new Date(appointment.date);
+                const formattedDate = date.toISOString().slice(0, 16);
+                document.getElementById('edit-appointment-date').value = formattedDate;
+                
+                document.getElementById('edit-appointment-notes').value = appointment.notes || '';
+                
+                document.getElementById('edit-notification-2days').checked = appointment.notifications.twoDays;
+                document.getElementById('edit-notification-1day').checked = appointment.notifications.oneDay;
+                document.getElementById('edit-notification-1hour').checked = appointment.notifications.oneHour;
+                document.getElementById('edit-notification-30min').checked = appointment.notifications.thirtyMinutes;
+                document.getElementById('edit-notification-10min').checked = appointment.notifications.tenMinutes;
+                document.getElementById('edit-notification-exact').checked = appointment.notifications.exactTime;
+                
+                updateEditAppointmentPersonSelect();
+                
+                const modal = new bootstrap.Modal(document.getElementById('editAppointmentModal'));
+                modal.show();
+            }
+        }
+
+        // تعديل شخص
+        function editPerson(id) {
+            const person = appData.people.find(p => p.id === id);
+            if (person) {
+                document.getElementById('edit-person-id').value = person.id;
+                document.getElementById('edit-person-name').value = person.name;
+                document.getElementById('edit-person-currency').value = person.currency;
+                document.getElementById('edit-person-telegram-token').value = person.telegramToken || '';
+                document.getElementById('edit-person-telegram-chat-id').value = person.telegramChatId || '';
+                
+                const modal = new bootstrap.Modal(document.getElementById('editPersonModal'));
+                modal.show();
+            }
+        }
+
+        // إرسال تنبيه للموعد
+        function sendAppointmentNotification(id) {
+            const appointment = appData.appointments.find(a => a.id === id);
+            if (appointment) {
+                const timeLeft = getTimeLeft(appointment.date);
+                const message = `⏰ تنبيه بالموعد:\n${appointment.title}\nالوقت المتبقي: ${timeLeft}\nالتاريخ: ${formatNumericDate12Hour(new Date(appointment.date), true, appointment.timezone)}`;
+                
+                let telegramToken = appData.settings.telegramToken;
+                let telegramChatId = appData.settings.telegramChatId;
+                
+                if (appointment.personId) {
+                    const person = appData.people.find(p => p.id === appointment.personId);
+                    if (person) {
+                        if (person.telegramToken) telegramToken = person.telegramToken;
+                        if (person.telegramChatId) telegramChatId = person.telegramChatId;
+                    }
+                }
+                
+                sendTelegramNotification(message, telegramToken, telegramChatId);
+            }
+        }
+
+        // تحديث قائمة الأشخاص
+        function updatePeopleList() {
+            const container = document.getElementById('people-list');
+            
+            if (appData.people.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-users"></i>
+                        <h5>لا توجد حسابات</h5>
+                        <p>اضغط على زر "إضافة شخص" لبدء إدارة حساباتك</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '<div class="people-grid">';
+            
+            appData.people.forEach((person, index) => {
+                const balanceClass = person.balance >= 0 ? 'balance-positive' : 'balance-negative';
+                const balanceText = formatCurrency(person.balance, person.currency);
+                const currencyText = getCurrencyText(person.currency);
+                
+                const personElement = document.createElement('div');
+                personElement.className = 'person-card';
+                personElement.style.animationDelay = `${index * 0.1}s`;
+                personElement.innerHTML = `
+                    <div class="person-avatar">${person.name.charAt(0)}</div>
+                    <div class="person-info">
+                        <h6 class="person-name">${person.name}</h6>
+                        <div class="person-balance ${balanceClass}">${balanceText}</div>
+                        <div class="d-flex align-items-center gap-2 mt-2">
+                            <span class="currency-badge">${currencyText}</span>
+                            ${person.telegramToken ? '<span class="badge bg-success"><i class="fas fa-paper-plane"></i></span>' : ''}
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-2">
+                        <button class="action-btn warning edit-person-btn" data-id="${person.id}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="action-btn danger delete-person" data-id="${person.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                container.querySelector('.people-grid').appendChild(personElement);
+            });
+            
+            container.innerHTML += '</div>';
+            
+            addPeopleEventListeners();
+        }
+
+        // تحديث قائمة العمليات
+        function updateTransactionsList() {
+            const container = document.getElementById('transactions-list');
+            const filter = document.getElementById('transaction-filter').value;
+            
+            let transactionsToShow = [...appData.transactions]
+                .sort((a, b) => b.date - a.date);
+            
+            if (filter !== 'all') {
+                const count = parseInt(filter);
+                transactionsToShow = transactionsToShow.slice(0, count);
+            }
+            
+            if (transactionsToShow.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h5>لا توجد عمليات</h5>
+                        <p>اضغط على زر "إضافة عملية" لتسجيل عملياتك المالية</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            transactionsToShow.forEach((transaction, index) => {
+                const date = new Date(transaction.date);
+                const dateString = formatNumericDate12Hour(date, false);
+                
+                const categoryClass = `category-${transaction.category}`;
+                const categoryText = getCategoryText(transaction.category);
+                const typeText = transaction.type === 'income' ? 'إيداع' : 'سحب';
+                const amountClass = transaction.type === 'income' ? 'text-success' : 'text-danger';
+                const amountSign = transaction.type === 'income' ? '+' : '-';
+                
+                const transactionElement = document.createElement('div');
+                transactionElement.className = 'transaction-item';
+                transactionElement.style.animationDelay = `${index * 0.1}s`;
+                transactionElement.innerHTML = `
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <h6 class="mb-0 fw-bold">${transaction.personName}</h6>
+                            <span class="category-badge ${categoryClass}">${categoryText}</span>
+                            <span class="badge ${transaction.type === 'income' ? 'bg-success' : 'bg-danger'}">${typeText}</span>
+                        </div>
+                        <small class="text-muted">${dateString}</small>
+                        ${transaction.description ? `<p class="mb-0 mt-2 small">${transaction.description}</p>` : ''}
+                    </div>
+                    <div class="text-end">
+                        <h6 class="mb-2 ${amountClass} fw-bold">${amountSign}${formatCurrency(transaction.amount, transaction.currency)}</h6>
+                        <button class="action-btn danger delete-transaction" data-id="${transaction.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(transactionElement);
+            });
+            
+            addTransactionEventListeners();
+        }
+
+        // تحديث قائمة الأشخاص في النماذج
+        function updateTransactionPersonSelect() {
+            const select = document.getElementById('transaction-person');
+            select.innerHTML = '<option value="">اختر الشخص</option>';
+            
+            appData.people.forEach(person => {
+                const option = document.createElement('option');
+                option.value = person.id;
+                option.textContent = `${person.name} (${getCurrencyText(person.currency)})`;
+                select.appendChild(option);
+            });
+        }
+
+        function updateAppointmentPersonSelect() {
+            const select = document.getElementById('appointment-person');
+            select.innerHTML = '<option value="">-- بدون شخص --</option>';
+            
+            appData.people.forEach(person => {
+                const option = document.createElement('option');
+                option.value = person.id;
+                option.textContent = person.name;
+                select.appendChild(option);
+            });
+        }
+
+        function updateEditAppointmentPersonSelect() {
+            const select = document.getElementById('edit-appointment-person');
+            select.innerHTML = '<option value="">-- بدون شخص --</option>';
+            
+            appData.people.forEach(person => {
+                const option = document.createElement('option');
+                option.value = person.id;
+                option.textContent = person.name;
+                select.appendChild(option);
+            });
+        }
+
+        // إضافة مستمعين للأحداث
+        function addAppointmentEventListeners() {
+            document.querySelectorAll('.delete-appointment').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    deleteAppointment(id);
+                });
+            });
+            
+            document.querySelectorAll('.edit-appointment').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    editAppointment(id);
+                });
+            });
+            
+            document.querySelectorAll('.send-notification').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    sendAppointmentNotification(id);
+                });
+            });
+            
+            document.querySelectorAll('.delete-past-appointment').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    deletePastAppointment(id);
+                });
+            });
+        }
+
+        function addPeopleEventListeners() {
+            document.querySelectorAll('.edit-person-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    editPerson(id);
+                });
+            });
+            
+            document.querySelectorAll('.delete-person').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    deletePerson(id);
+                });
+            });
+        }
+
+        function addTransactionEventListeners() {
+            document.querySelectorAll('.delete-transaction').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    deleteTransaction(id);
+                });
+            });
+        }
+
+        // حذف موعد
+        function deleteAppointment(id) {
+            if (confirm('هل أنت متأكد من رغبتك في حذف هذا الموعد؟')) {
+                const appointment = appData.appointments.find(a => a.id === id);
+                if (appointment) {
+                    appointment.scheduledNotifications.forEach(notificationId => {
+                        localStorage.removeItem(`notification_${notificationId}`);
+                    });
+                }
+                
+                appData.appointments = appData.appointments.filter(a => a.id !== id);
+                saveData();
+                updateAllAppointmentsList();
+                updateUpcomingAppointmentsList();
+            }
+        }
+
+        // حذف موعد سابق
+        function deletePastAppointment(id) {
+            if (confirm('هل أنت متأكد من رغبتك في حذف هذا الموعد السابق؟')) {
+                const appointment = appData.pastAppointments.find(a => a.id === id);
+                if (appointment) {
+                    appointment.scheduledNotifications.forEach(notificationId => {
+                        localStorage.removeItem(`notification_${notificationId}`);
+                    });
+                }
+                
+                appData.pastAppointments = appData.pastAppointments.filter(a => a.id !== id);
+                saveData();
+                updateAllAppointmentsList();
+                updatePastAppointmentsList();
+            }
+        }
+
+        // حذف شخص
+        function deletePerson(id) {
+            const person = appData.people.find(p => p.id === id);
+            if (!person) return;
+
+            const hasTransactions = appData.transactions.some(t => t.personId === id);
+            const hasAppointments = appData.appointments.some(a => a.personId === id);
+
+            let message = 'هل أنت متأكد من رغبتك في حذف هذا الشخص؟';
+            if (hasTransactions || hasAppointments) {
+                message += '\n\nتحذير: هذا الشخص لديه عمليات أو مواعيد مرتبطة به. سيتم إزالة هذه الارتباطات.';
+            }
+
+            if (confirm(message)) {
+                appData.people = appData.people.filter(p => p.id !== id);
+                
+                appData.appointments.forEach(appointment => {
+                    if (appointment.personId === id) {
+                        appointment.personId = '';
+                        appointment.personName = '';
+                    }
+                });
+                
+                appData.pastAppointments.forEach(appointment => {
+                    if (appointment.personId === id) {
+                        appointment.personId = '';
+                        appointment.personName = '';
+                    }
+                });
+                
+                appData.transactions = appData.transactions.filter(t => t.personId !== id);
+                
+                saveData();
+                updatePeopleList();
+                updateAllAppointmentsList();
+                updateUpcomingAppointmentsList();
+                updatePastAppointmentsList();
+                updateTransactionsList();
+                updateTransactionPersonSelect();
+                updateAppointmentPersonSelect();
+            }
+        }
+
+        // حذف عملية
+        function deleteTransaction(id) {
+            const transaction = appData.transactions.find(t => t.id === id);
+            if (!transaction) return;
+
+            if (confirm('هل أنت متأكد من رغبتك في حذف هذه العملية؟')) {
+                const person = appData.people.find(p => p.id === transaction.personId);
+                if (person) {
+                    if (transaction.type === 'income') {
+                        person.balance -= transaction.amount;
+                    } else {
+                        person.balance += transaction.amount;
+                    }
+                }
+                
+                appData.transactions = appData.transactions.filter(t => t.id !== id);
+                
+                saveData();
+                updateTransactionsList();
+                updatePeopleList();
+            }
+        }
+
+        // فحص المواعيد
+        function checkAppointments() {
+            const now = new Date().getTime();
+            const appointmentsToRemove = [];
+
+            appData.appointments.forEach(appointment => {
+                if (appointment.date <= now) {
+                    appointmentsToRemove.push(appointment.id);
+                    appData.pastAppointments.push(appointment);
+                }
+            });
+
+            if (appointmentsToRemove.length > 0) {
+                appData.appointments = appData.appointments.filter(a => !appointmentsToRemove.includes(a.id));
+                saveData();
+                updateAllAppointmentsList();
+                updateUpcomingAppointmentsList();
+                updatePastAppointmentsList();
+            }
+        }
+
+        // إرسال إشعار تلقرام
+        function sendTelegramNotification(message, token = null, chatId = null) {
+            const telegramToken = token || appData.settings.telegramToken;
+            const telegramChatId = chatId || appData.settings.telegramChatId;
+
+            if (!telegramToken || !telegramChatId) {
+                alert('❌ يرجى إدخال رمز التلقرام ومعرف الدردشة أولاً');
+                return;
+            }
+
+            if (!telegramToken.includes(':')) {
+                alert('❌ رمز التلقرام غير صحيح. يجب أن يحتوي على نقطتين رأسيتين (:)');
+                return;
+            }
+
+            if (!/^\d+$/.test(telegramChatId)) {
+                alert('❌ معرف الدردشة غير صحيح. يجب أن يحتوي على أرقام فقط');
+                return;
+            }
+
+            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: telegramChatId,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert('✅ تم إرسال الرسالة إلى التلقرام بنجاح');
+                } else {
+                    let errorMsg = '❌ فشل إرسال الرسالة: ';
+                    if (data.description.includes('bot was blocked')) {
+                        errorMsg = '❌ البوت محظور من قبل المستخدم';
+                    } else if (data.description.includes('chat not found')) {
+                        errorMsg = '❌ معرف الدردشة غير صحيح أو البوت ليس عضو في المجموعة';
+                    } else if (data.description.includes('Unauthorized')) {
+                        errorMsg = '❌ رمز التلقرام غير صحيح';
+                    } else {
+                        errorMsg += data.description;
+                    }
+                    alert(errorMsg);
+                }
+            })
+            .catch(error => {
+                alert('❌ خطأ في إرسال الإشعار: ' + error.message);
+            });
+        }
+    </script>
 </body>
 </html>
