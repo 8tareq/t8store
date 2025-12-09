@@ -669,7 +669,7 @@
             min-height: 100vh;
             padding: 40px 20px;
             text-align: center;
-            background: linear-gradient(135deg, #f5f7fb 0%, #e4e8f0 100%);
+            background: linear-gradient(135deg, #f5f7fb 0%, #e4e8f0 100%;
         }
         
         .welcome-logo {
@@ -1433,6 +1433,7 @@
                         <select class="form-control" id="person-initial-currency">
                             <option value="try">ليرة تركية (TRY)</option>
                             <option value="usd">دولار أمريكي (USD)</option>
+                            <option value="lyd">دينار ليبي (LYD)</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -1475,6 +1476,7 @@
                         <select class="form-control" id="edit-person-currency">
                             <option value="try">ليرة تركية (TRY)</option>
                             <option value="usd">دولار أمريكي (USD)</option>
+                            <option value="lyd">دينار ليبي (LYD)</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -2210,6 +2212,8 @@
                 return amount.toFixed(2) + ' ₺';
             } else if (currency === 'usd') {
                 return amount.toFixed(2) + ' $';
+            } else if (currency === 'lyd') {
+                return amount.toFixed(2) + ' د.ل';
             } else {
                 return amount.toFixed(2);
             }
@@ -2221,6 +2225,8 @@
                 return 'ليرة تركية';
             } else if (currency === 'usd') {
                 return 'دولار أمريكي';
+            } else if (currency === 'lyd') {
+                return 'دينار ليبي';
             } else {
                 return currency;
             }
