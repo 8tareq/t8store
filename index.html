@@ -616,6 +616,10 @@
         .category-car { background: linear-gradient(135deg, #5ac8fa, #007aff); color: white; }
         .category-living { background: linear-gradient(135deg, #ff9500, #ff5e3a); color: white; }
         .category-personal { background: linear-gradient(135deg, #af52de, #5856d6); color: white; }
+        .category-metro { background: linear-gradient(135deg, #ffd166, #ff9e00); color: #333; }
+        .category-sweets { background: linear-gradient(135deg, #ff9a9e, #fad0c4); color: #333; }
+        .category-apartment { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); color: #333; }
+        .category-internet { background: linear-gradient(135deg, #84fab0, #8fd3f4); color: #333; }
         
         /* توكن التلقرام */
         .currency-badge {
@@ -1019,10 +1023,10 @@
             }
         }
         
-        /* تحسينات قسم الإحصائيات */
+        /* تحسينات قسم الإحصائيات الجديدة */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-bottom: 25px;
         }
@@ -1094,64 +1098,158 @@
             color: #dc3545;
         }
         
-        /* مخطط دائري بسيط */
-        .pie-chart {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            position: relative;
-            background: conic-gradient(
-                #4cd964 0% 25%,
-                #5ac8fa 25% 45%,
-                #ff9500 45% 65%,
-                #af52de 65% 85%,
-                #ff6b6b 85% 100%
-            );
-            margin: 0 auto 20px auto;
+        /* تقارير السبب التفصيلية */
+        .category-report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
         }
         
-        .pie-chart-center {
-            position: absolute;
-            width: 80px;
-            height: 80px;
+        .category-report-card {
             background: white;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .category-report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-report-header {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-report-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-report-total {
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary-color);
         }
         
-        .chart-legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
+        .person-transaction-list {
+            max-height: 300px;
+            overflow-y: auto;
         }
         
-        .legend-item {
+        .person-transaction-item {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .person-transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        .person-transaction-info {
+            flex: 1;
+        }
+        
+        .person-transaction-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .person-transaction-date {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .person-transaction-amount {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* أزرار التعديل في العمليات */
+        .transaction-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .action-icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: none;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 12px;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 14px;
         }
         
-        .legend-color {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+        .action-icon-btn.edit {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
         }
         
-        .legend-rent { background: #ff6b6b; }
-        .legend-electricity { background: #4cd964; }
-        .legend-car { background: #5ac8fa; }
-        .legend-living { background: #ff9500; }
-        .legend-personal { background: #af52de; }
+        .action-icon-btn.delete {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .action-icon-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* تحسينات التصفية في الإحصائيات */
+        .filter-container {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+        
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            padding: 12px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background: white;
+            color: #666;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
@@ -1339,39 +1437,52 @@
             </div>
         </div>
         
-        <!-- قسم الإحصائيات -->
+        <!-- قسم الإحصائيات الجديد -->
         <div class="section" id="statistics-section">
             <div class="mb-4">
-                <h2>📊 الإحصائيات</h2>
-                <p class="text-muted">تحليل مفصل للعمليات المالية والإحصائيات</p>
+                <h2>📊 تقارير سبب السحب/الإيداع</h2>
+                <p class="text-muted">عرض تفصيلي للمصروفات والإيداعات حسب السبب</p>
             </div>
             
-            <!-- أزرار التصفية -->
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-filter"></i> تصفية الإحصائيات
+            <!-- تصفية التقارير -->
+            <div class="filter-container">
+                <h4 class="mb-4"><i class="fas fa-filter"></i> تصفية التقارير</h4>
+                
+                <!-- نوع العملية -->
+                <div class="mb-4">
+                    <h5 class="mb-3">نوع العملية</h5>
+                    <div class="filter-row">
+                        <button class="filter-btn active" data-filter-type="all">
+                            <i class="fas fa-list"></i> الكل
+                        </button>
+                        <button class="filter-btn" data-filter-type="income">
+                            <i class="fas fa-money-bill-wave"></i> الإيداعات فقط
+                        </button>
+                        <button class="filter-btn" data-filter-type="expense">
+                            <i class="fas fa-shopping-cart"></i> السحوبات فقط
+                        </button>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label for="stats-type" class="form-label">نوع التقرير</label>
-                            <select class="form-select" id="stats-type">
-                                <option value="all">كل العمليات</option>
-                                <option value="income">الإيداعات فقط</option>
-                                <option value="expense">السحوبات فقط</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="stats-period" class="form-label">الفترة الزمنية</label>
-                            <select class="form-select" id="stats-period">
-                                <option value="last-30">آخر 30 يومًا</option>
-                                <option value="last-90">آخر 90 يومًا</option>
-                                <option value="this-month">هذا الشهر</option>
-                                <option value="last-month">الشهر الماضي</option>
-                                <option value="custom">مخصص</option>
-                                <option value="all">جميع الفترات</option>
-                            </select>
-                        </div>
+                
+                <!-- الفترة الزمنية -->
+                <div class="mb-4">
+                    <h5 class="mb-3">الفترة الزمنية</h5>
+                    <div class="filter-row">
+                        <button class="filter-btn active" data-filter-period="last-30">
+                            آخر 30 يومًا
+                        </button>
+                        <button class="filter-btn" data-filter-period="last-90">
+                            آخر 90 يومًا
+                        </button>
+                        <button class="filter-btn" data-filter-period="this-month">
+                            هذا الشهر
+                        </button>
+                        <button class="filter-btn" data-filter-period="last-month">
+                            الشهر الماضي
+                        </button>
+                        <button class="filter-btn" data-filter-period="custom">
+                            مخصص
+                        </button>
                     </div>
                     
                     <!-- التاريخ المخصص -->
@@ -1385,90 +1496,117 @@
                             <input type="date" class="form-control" id="stats-to-date">
                         </div>
                     </div>
-                    
-                    <div class="action-buttons mt-4">
-                        <button class="action-btn primary" id="generate-stats">
-                            <i class="fas fa-chart-bar"></i> توليد الإحصائيات
+                </div>
+                
+                <!-- أنواع المصروفات -->
+                <div class="mb-4">
+                    <h5 class="mb-3">اختر السبب</h5>
+                    <div class="filter-row">
+                        <button class="filter-btn active" data-filter-category="all">
+                            <i class="fas fa-tags"></i> كل الأسباب
                         </button>
-                        <button class="action-btn success" id="print-stats">
-                            <i class="fas fa-print"></i> طباعة التقرير
+                        <button class="filter-btn" data-filter-category="rent">
+                            <i class="fas fa-home"></i> الإيجار
+                        </button>
+                        <button class="filter-btn" data-filter-category="personal">
+                            <i class="fas fa-user"></i> لزوم شخصية
+                        </button>
+                    </div>
+                    <div class="filter-row mt-2">
+                        <button class="filter-btn" data-filter-category="metro">
+                            <i class="fas fa-subway"></i> مترو
+                        </button>
+                        <button class="filter-btn" data-filter-category="sweets">
+                            <i class="fas fa-candy-cane"></i> حلويات
+                        </button>
+                        <button class="filter-btn" data-filter-category="apartment">
+                            <i class="fas fa-building"></i> الشقة
+                        </button>
+                        <button class="filter-btn" data-filter-category="internet">
+                            <i class="fas fa-wifi"></i> انترنت
+                        </button>
+                    </div>
+                    <div class="filter-row mt-2">
+                        <button class="filter-btn" data-filter-category="electricity">
+                            <i class="fas fa-bolt"></i> كهرباء
+                        </button>
+                        <button class="filter-btn" data-filter-category="car">
+                            <i class="fas fa-car"></i> سيارة
+                        </button>
+                        <button class="filter-btn" data-filter-category="living">
+                            <i class="fas fa-shopping-basket"></i> معيشة
                         </button>
                     </div>
                 </div>
+                
+                <!-- أزرار التحكم -->
+                <div class="action-buttons">
+                    <button class="action-btn primary" id="generate-category-report">
+                        <i class="fas fa-chart-pie"></i> توليد التقرير
+                    </button>
+                    <button class="action-btn success" id="print-category-report">
+                        <i class="fas fa-print"></i> طباعة التقرير
+                    </button>
+                </div>
             </div>
             
-            <!-- ملخص الإحصائيات -->
-            <div class="card mb-4" id="stats-summary" style="display: none;">
+            <!-- ملخص التقرير -->
+            <div class="card mb-4" id="report-summary" style="display: none;">
                 <div class="card-header">
-                    <i class="fas fa-chart-pie"></i> ملخص الإحصائيات
+                    <i class="fas fa-chart-bar"></i> ملخص التقرير
                 </div>
                 <div class="card-body">
-                    <div class="row g-3">
+                    <div class="row g-3 mb-4">
                         <div class="col-md-4">
                             <div class="summary-item income text-center">
                                 <div class="summary-label">إجمالي الإيداع</div>
-                                <div class="summary-value text-success" id="stats-total-income">0.00</div>
+                                <div class="summary-value text-success" id="report-total-income">0.00</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="summary-item expense text-center">
                                 <div class="summary-label">إجمالي السحب</div>
-                                <div class="summary-value text-danger" id="stats-total-expense">0.00</div>
+                                <div class="summary-value text-danger" id="report-total-expense">0.00</div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="summary-item balance text-center">
                                 <div class="summary-label">صافي الحركة</div>
-                                <div class="summary-value text-primary" id="stats-net-movement">0.00</div>
+                                <div class="summary-value text-primary" id="report-net-movement">0.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="stats-card stats-income">
+                                <div class="stats-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="stats-title">عدد الإيداعات</div>
+                                <div class="stats-value" id="report-income-count">0</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stats-card stats-expense">
+                                <div class="stats-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="stats-title">عدد السحوبات</div>
+                                <div class="stats-value" id="report-expense-count">0</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- تفصيل حسب الأشخاص -->
-            <div class="card mb-4" id="people-stats" style="display: none;">
-                <div class="card-header">
-                    <i class="fas fa-users"></i> تفصيل حسب الأشخاص
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="statement-table">
-                            <thead>
-                                <tr>
-                                    <th>اسم الشخص</th>
-                                    <th>العملة</th>
-                                    <th>عدد الإيداعات</th>
-                                    <th>إجمالي الإيداع</th>
-                                    <th>عدد السحوبات</th>
-                                    <th>إجمالي السحب</th>
-                                    <th>صافي الحركة</th>
-                                </tr>
-                            </thead>
-                            <tbody id="people-stats-details">
-                                <!-- سيتم ملء هذا القسم بالبيانات -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- تفصيل حسب الفئات -->
-            <div class="card mb-4" id="category-stats" style="display: none;">
-                <div class="card-header">
-                    <i class="fas fa-tags"></i> تفصيل حسب الفئات
-                </div>
-                <div class="card-body">
-                    <div class="row g-3" id="category-stats-details">
-                        <!-- سيتم ملء هذا القسم بالبيانات -->
-                    </div>
-                </div>
+            <!-- التقارير التفصيلية حسب السبب -->
+            <div id="category-reports-container">
+                <!-- سيتم ملء هذا القسم بالتقارير -->
             </div>
             
             <!-- نسخة للطباعة -->
-            <div id="stats-printable" style="display: none;">
-                <!-- سيتم ملء هذا القسم بالبيانات -->
-            </div>
+            <div id="category-report-printable" style="display: none;"></div>
         </div>
         
         <!-- قسم الإعدادات -->
@@ -1795,6 +1933,10 @@
                             <option value="car">سيارة</option>
                             <option value="living">معيشة</option>
                             <option value="personal">لزوم شخصية</option>
+                            <option value="metro">مترو</option>
+                            <option value="sweets">حلويات</option>
+                            <option value="apartment">الشقة</option>
+                            <option value="internet">انترنت</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -1809,6 +1951,54 @@
                 <div class="modal-footer">
                     <button type="button" class="action-btn warning" data-bs-dismiss="modal">إلغاء</button>
                     <button type="button" class="action-btn primary" id="save-transaction">حفظ العملية</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نموذج تعديل عملية -->
+    <div class="modal fade" id="editTransactionModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-edit"></i> تعديل العملية</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="edit-transaction-id">
+                    <div class="mb-3">
+                        <label for="edit-transaction-type" class="form-label">نوع العملية</label>
+                        <select class="form-control" id="edit-transaction-type">
+                            <option value="income">إيداع / إضافة رصيد</option>
+                            <option value="expense">سحب / مصروف</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-transaction-category" class="form-label">نوع المصروف</label>
+                        <select class="form-control" id="edit-transaction-category">
+                            <option value="rent">إيجار</option>
+                            <option value="electricity">كهرباء</option>
+                            <option value="car">سيارة</option>
+                            <option value="living">معيشة</option>
+                            <option value="personal">لزوم شخصية</option>
+                            <option value="metro">مترو</option>
+                            <option value="sweets">حلويات</option>
+                            <option value="apartment">الشقة</option>
+                            <option value="internet">انترنت</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-transaction-amount" class="form-label">المبلغ</label>
+                        <input type="number" class="form-control" id="edit-transaction-amount" placeholder="أدخل المبلغ">
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit-transaction-description" class="form-label">الوصف (اختياري)</label>
+                        <textarea class="form-control" id="edit-transaction-description" rows="2" placeholder="وصف العملية"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="action-btn warning" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="action-btn primary" id="update-transaction">تحديث العملية</button>
                 </div>
             </div>
         </div>
@@ -1938,7 +2128,15 @@
                 telegramChatId: ''
             },
             appointmentsSort: 'date-asc',
-            currentSection: 'appointments'
+            currentSection: 'appointments',
+            // إعدادات التقارير الجديدة
+            reportSettings: {
+                type: 'all',
+                period: 'last-30',
+                category: 'all',
+                fromDate: null,
+                toDate: null
+            }
         };
 
         // DOM جاهز
@@ -2202,6 +2400,24 @@
                 }
             });
             
+            // تحديث العملية
+            document.getElementById('update-transaction').addEventListener('click', function() {
+                const id = document.getElementById('edit-transaction-id').value;
+                const type = document.getElementById('edit-transaction-type').value;
+                const category = document.getElementById('edit-transaction-category').value;
+                const amount = parseFloat(document.getElementById('edit-transaction-amount').value);
+                const description = document.getElementById('edit-transaction-description').value;
+                
+                if (amount > 0) {
+                    updateTransaction(id, type, category, amount, description);
+                    
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('editTransactionModal'));
+                    modal.hide();
+                } else {
+                    alert('يرجى إدخال مبلغ صحيح');
+                }
+            });
+            
             // حفظ إعدادات التلقرام
             document.getElementById('save-telegram-settings').addEventListener('click', function() {
                 const token = document.getElementById('telegram-token').value;
@@ -2246,21 +2462,51 @@
                 printStatement();
             });
             
-            // تصفية الفترة الزمنية للإحصائيات
-            document.getElementById('stats-period').addEventListener('change', function() {
-                const customRange = document.getElementById('custom-date-range');
-                if (this.value === 'custom') {
-                    customRange.style.display = 'flex';
-                } else {
-                    customRange.style.display = 'none';
-                }
+            // تصفية التقارير الجديدة
+            document.querySelectorAll('.filter-btn[data-filter-type]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn[data-filter-type]').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    appData.reportSettings.type = this.dataset.filterType;
+                });
             });
             
-            // توليد الإحصائيات
-            document.getElementById('generate-stats').addEventListener('click', generateStatistics);
+            document.querySelectorAll('.filter-btn[data-filter-period]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn[data-filter-period]').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const period = this.dataset.filterPeriod;
+                    appData.reportSettings.period = period;
+                    
+                    const customRange = document.getElementById('custom-date-range');
+                    if (period === 'custom') {
+                        customRange.style.display = 'flex';
+                    } else {
+                        customRange.style.display = 'none';
+                    }
+                });
+            });
             
-            // طباعة الإحصائيات
-            document.getElementById('print-stats').addEventListener('click', printStatistics);
+            document.querySelectorAll('.filter-btn[data-filter-category]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn[data-filter-category]').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    appData.reportSettings.category = this.dataset.filterCategory;
+                });
+            });
+            
+            // توليد تقرير السبب
+            document.getElementById('generate-category-report').addEventListener('click', generateCategoryReport);
+            
+            // طباعة تقرير السبب
+            document.getElementById('print-category-report').addEventListener('click', printCategoryReport);
             
             // إدارة البيانات
             document.getElementById('export-data').addEventListener('click', exportData);
@@ -2290,7 +2536,7 @@
                 updateTransactionsList();
                 updateTransactionPersonSelect();
             } else if (section === 'statistics') {
-                generateStatistics();
+                generateCategoryReport();
             } else if (section === 'settings') {
                 loadTelegramSettings();
             }
@@ -2328,6 +2574,17 @@
                 try {
                     const parsedData = JSON.parse(savedData);
                     appData = { ...appData, ...parsedData };
+                    
+                    // التأكد من وجود إعدادات التقارير الجديدة
+                    if (!appData.reportSettings) {
+                        appData.reportSettings = {
+                            type: 'all',
+                            period: 'last-30',
+                            category: 'all',
+                            fromDate: null,
+                            toDate: null
+                        };
+                    }
                 } catch (e) {
                     console.error('خطأ في تحميل البيانات:', e);
                 }
@@ -2378,6 +2635,18 @@
                     try {
                         const importedData = JSON.parse(event.target.result);
                         appData = { ...appData, ...importedData };
+                        
+                        // التأكد من وجود إعدادات التقارير الجديدة
+                        if (!appData.reportSettings) {
+                            appData.reportSettings = {
+                                type: 'all',
+                                period: 'last-30',
+                                category: 'all',
+                                fromDate: null,
+                                toDate: null
+                            };
+                        }
+                        
                         saveData();
                         updateUI();
                         alert('✅ تم استيراد البيانات بنجاح');
@@ -2414,7 +2683,14 @@
                         telegramChatId: ''
                     },
                     appointmentsSort: 'date-asc',
-                    currentSection: 'appointments'
+                    currentSection: 'appointments',
+                    reportSettings: {
+                        type: 'all',
+                        period: 'last-30',
+                        category: 'all',
+                        fromDate: null,
+                        toDate: null
+                    }
                 };
                 updateUI();
                 alert('✅ تم مسح جميع البيانات بنجاح');
@@ -2528,10 +2804,31 @@
                 'electricity': 'كهرباء',
                 'car': 'سيارة',
                 'living': 'معيشة',
-                'personal': 'لزوم شخصية'
+                'personal': 'لزوم شخصية',
+                'metro': 'مترو',
+                'sweets': 'حلويات',
+                'apartment': 'الشقة',
+                'internet': 'انترنت'
             };
 
             return categories[category] || category;
+        }
+
+        // الحصول على أيقونة الفئة
+        function getCategoryIcon(category) {
+            const icons = {
+                'rent': 'fa-home',
+                'electricity': 'fa-bolt',
+                'car': 'fa-car',
+                'living': 'fa-shopping-basket',
+                'personal': 'fa-user',
+                'metro': 'fa-subway',
+                'sweets': 'fa-candy-cane',
+                'apartment': 'fa-building',
+                'internet': 'fa-wifi'
+            };
+
+            return icons[category] || 'fa-tag';
         }
 
         // إضافة موعد
@@ -2792,6 +3089,39 @@
             updatePeopleList();
         }
 
+        // تحديث عملية
+        function updateTransaction(id, type, category, amount, description = '') {
+            const transaction = appData.transactions.find(t => t.id === id);
+            if (!transaction) return;
+            
+            const person = appData.people.find(p => p.id === transaction.personId);
+            if (!person) return;
+            
+            // إزالة المبلغ القديم من رصيد الشخص
+            if (transaction.type === 'income') {
+                person.balance -= transaction.amount;
+            } else {
+                person.balance += transaction.amount;
+            }
+            
+            // تحديث بيانات العملية
+            transaction.type = type;
+            transaction.category = category;
+            transaction.amount = amount;
+            transaction.description = description;
+            
+            // إضافة المبلغ الجديد إلى رصيد الشخص
+            if (type === 'income') {
+                person.balance += amount;
+            } else {
+                person.balance -= amount;
+            }
+            
+            saveData();
+            updateTransactionsList();
+            updatePeopleList();
+        }
+
         // تحديث قائمة جميع المواعيد
         function updateAllAppointmentsList() {
             const container = document.getElementById('all-appointments-list');
@@ -3012,6 +3342,21 @@
             }
         }
 
+        // تعديل عملية
+        function editTransaction(id) {
+            const transaction = appData.transactions.find(t => t.id === id);
+            if (transaction) {
+                document.getElementById('edit-transaction-id').value = transaction.id;
+                document.getElementById('edit-transaction-type').value = transaction.type;
+                document.getElementById('edit-transaction-category').value = transaction.category;
+                document.getElementById('edit-transaction-amount').value = transaction.amount;
+                document.getElementById('edit-transaction-description').value = transaction.description || '';
+                
+                const modal = new bootstrap.Modal(document.getElementById('editTransactionModal'));
+                modal.show();
+            }
+        }
+
         // تعديل شخص
         function editPerson(id) {
             const person = appData.people.find(p => p.id === id);
@@ -3166,9 +3511,14 @@
                     </div>
                     <div class="text-end">
                         <h6 class="mb-2 ${amountClass} fw-bold">${amountSign}${formatCurrency(transaction.amount, transaction.currency)}</h6>
-                        <button class="action-btn danger delete-transaction" data-id="${transaction.id}">
-                            <i class="fas fa-trash"></i>
-                        </button>
+                        <div class="transaction-actions">
+                            <button class="action-icon-btn edit edit-transaction" data-id="${transaction.id}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-icon-btn delete delete-transaction" data-id="${transaction.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
                     </div>
                 `;
                 
@@ -3233,6 +3583,405 @@
             
             document.getElementById('statement-from-date').value = thirtyDaysAgo.toISOString().split('T')[0];
             document.getElementById('statement-to-date').value = today.toISOString().split('T')[0];
+        }
+
+        // توليد تقرير سبب السحب/الإيداع
+        function generateCategoryReport() {
+            const reportType = appData.reportSettings.type;
+            const period = appData.reportSettings.period;
+            const category = appData.reportSettings.category;
+            
+            let fromDate, toDate;
+            const now = new Date();
+            
+            switch (period) {
+                case 'last-30':
+                    fromDate = new Date(now.getTime() - (30 * 24 * 60 * 60 * 1000));
+                    toDate = now;
+                    break;
+                case 'last-90':
+                    fromDate = new Date(now.getTime() - (90 * 24 * 60 * 60 * 1000));
+                    toDate = now;
+                    break;
+                case 'this-month':
+                    fromDate = new Date(now.getFullYear(), now.getMonth(), 1);
+                    toDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                    break;
+                case 'last-month':
+                    fromDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+                    toDate = new Date(now.getFullYear(), now.getMonth(), 0);
+                    break;
+                case 'custom':
+                    const customFrom = document.getElementById('stats-from-date').value;
+                    const customTo = document.getElementById('stats-to-date').value;
+                    if (!customFrom || !customTo) {
+                        alert('يرجى تحديد الفترة المخصصة');
+                        return;
+                    }
+                    fromDate = new Date(customFrom);
+                    toDate = new Date(customTo);
+                    break;
+                default:
+                    fromDate = new Date(0);
+                    toDate = new Date();
+            }
+            
+            const fromTimestamp = fromDate.getTime();
+            const toTimestamp = toDate.getTime() + (24 * 60 * 60 * 1000);
+            
+            // تصفية العمليات حسب الفترة الزمنية والنوع والسبب
+            let filteredTransactions = appData.transactions.filter(t => 
+                t.date >= fromTimestamp && t.date <= toTimestamp
+            );
+            
+            // تصفية حسب النوع
+            if (reportType === 'income') {
+                filteredTransactions = filteredTransactions.filter(t => t.type === 'income');
+            } else if (reportType === 'expense') {
+                filteredTransactions = filteredTransactions.filter(t => t.type === 'expense');
+            }
+            
+            // تصفية حسب السبب
+            if (category !== 'all') {
+                filteredTransactions = filteredTransactions.filter(t => t.category === category);
+            }
+            
+            // حساب الإحصائيات
+            let totalIncome = 0;
+            let totalExpense = 0;
+            let incomeCount = 0;
+            let expenseCount = 0;
+            
+            filteredTransactions.forEach(transaction => {
+                if (transaction.type === 'income') {
+                    totalIncome += transaction.amount;
+                    incomeCount++;
+                } else {
+                    totalExpense += transaction.amount;
+                    expenseCount++;
+                }
+            });
+            
+            // تحديث الملخص
+            document.getElementById('report-total-income').textContent = formatCurrency(totalIncome, 'try');
+            document.getElementById('report-total-expense').textContent = formatCurrency(totalExpense, 'try');
+            document.getElementById('report-net-movement').textContent = formatCurrency(totalIncome - totalExpense, 'try');
+            document.getElementById('report-income-count').textContent = incomeCount;
+            document.getElementById('report-expense-count').textContent = expenseCount;
+            
+            // إظهار ملخص التقرير
+            document.getElementById('report-summary').style.display = 'block';
+            
+            // إنشاء التقارير التفصيلية حسب السبب
+            createCategoryReports(filteredTransactions, fromDate, toDate, reportType, category);
+            
+            // إنشاء نسخة للطباعة
+            createPrintableCategoryReport(filteredTransactions, fromDate, toDate, reportType, category, totalIncome, totalExpense, incomeCount, expenseCount);
+        }
+
+        // إنشاء التقارير التفصيلية حسب السبب
+        function createCategoryReports(transactions, fromDate, toDate, reportType, selectedCategory) {
+            const container = document.getElementById('category-reports-container');
+            
+            // جمع العمليات حسب السبب
+            const transactionsByCategory = {};
+            
+            transactions.forEach(transaction => {
+                if (!transactionsByCategory[transaction.category]) {
+                    transactionsByCategory[transaction.category] = [];
+                }
+                transactionsByCategory[transaction.category].push(transaction);
+            });
+            
+            // عرض تقرير لكل سبب
+            container.innerHTML = '';
+            
+            Object.keys(transactionsByCategory).forEach(category => {
+                const categoryTransactions = transactionsByCategory[category];
+                const categoryText = getCategoryText(category);
+                const categoryIcon = getCategoryIcon(category);
+                
+                // حساب الإجمالي لهذا السبب
+                let categoryTotal = 0;
+                const transactionsByPerson = {};
+                
+                categoryTransactions.forEach(transaction => {
+                    categoryTotal += transaction.type === 'income' ? transaction.amount : -transaction.amount;
+                    
+                    if (!transactionsByPerson[transaction.personId]) {
+                        transactionsByPerson[transaction.personId] = {
+                            name: transaction.personName,
+                            currency: transaction.currency,
+                            transactions: [],
+                            total: 0
+                        };
+                    }
+                    
+                    transactionsByPerson[transaction.personId].transactions.push(transaction);
+                    transactionsByPerson[transaction.personId].total += transaction.type === 'income' ? transaction.amount : -transaction.amount;
+                });
+                
+                // إنشاء بطاقة التقرير
+                const reportCard = document.createElement('div');
+                reportCard.className = 'category-report-card';
+                reportCard.innerHTML = `
+                    <div class="category-report-header">
+                        <div class="category-report-title">
+                            <i class="fas ${categoryIcon}"></i>
+                            <span>${categoryText}</span>
+                        </div>
+                        <div class="category-report-total">
+                            ${categoryTotal >= 0 ? '+' : ''}${formatCurrency(categoryTotal, 'try')}
+                        </div>
+                    </div>
+                    <div class="person-transaction-list">
+                        ${Object.values(transactionsByPerson).map(person => `
+                            <div class="person-transaction-item">
+                                <div class="person-transaction-info">
+                                    <div class="person-transaction-name">
+                                        ${person.name} (${getCurrencyText(person.currency)})
+                                    </div>
+                                    <div class="person-transaction-date">
+                                        ${person.transactions.length} عملية
+                                    </div>
+                                </div>
+                                <div class="person-transaction-amount ${person.total >= 0 ? 'text-success' : 'text-danger'}">
+                                    ${person.total >= 0 ? '+' : ''}${formatCurrency(person.total, person.currency)}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                container.appendChild(reportCard);
+            });
+            
+            // إذا لم توجد عمليات
+            if (Object.keys(transactionsByCategory).length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-chart-bar"></i>
+                        <h5>لا توجد عمليات</h5>
+                        <p>لم يتم العثور على عمليات مطابقة للتصفية المحددة</p>
+                    </div>
+                `;
+            }
+        }
+
+        // إنشاء نسخة للطباعة من تقرير السبب
+        function createPrintableCategoryReport(transactions, fromDate, toDate, reportType, selectedCategory, totalIncome, totalExpense, incomeCount, expenseCount) {
+            const printableArea = document.getElementById('category-report-printable');
+            
+            // جمع العمليات حسب السبب
+            const transactionsByCategory = {};
+            
+            transactions.forEach(transaction => {
+                if (!transactionsByCategory[transaction.category]) {
+                    transactionsByCategory[transaction.category] = [];
+                }
+                transactionsByCategory[transaction.category].push(transaction);
+            });
+            
+            let periodText = '';
+            switch (appData.reportSettings.period) {
+                case 'last-30': periodText = 'آخر 30 يومًا'; break;
+                case 'last-90': periodText = 'آخر 90 يومًا'; break;
+                case 'this-month': periodText = 'هذا الشهر'; break;
+                case 'last-month': periodText = 'الشهر الماضي'; break;
+                case 'custom': periodText = `من ${fromDate.toLocaleDateString('ar-SA')} إلى ${toDate.toLocaleDateString('ar-SA')}`; break;
+                default: periodText = 'جميع الفترات';
+            }
+            
+            let reportTypeText = '';
+            switch (reportType) {
+                case 'all': reportTypeText = 'كل العمليات'; break;
+                case 'income': reportTypeText = 'الإيداعات فقط'; break;
+                case 'expense': reportTypeText = 'السحوبات فقط'; break;
+            }
+            
+            let categoryText = selectedCategory === 'all' ? 'كل الأسباب' : getCategoryText(selectedCategory);
+            
+            let categoryReportsHTML = '';
+            Object.keys(transactionsByCategory).forEach(category => {
+                const categoryTransactions = transactionsByCategory[category];
+                const categoryName = getCategoryText(category);
+                
+                // حساب الإجمالي لهذا السبب
+                let categoryTotal = 0;
+                const transactionsByPerson = {};
+                
+                categoryTransactions.forEach(transaction => {
+                    categoryTotal += transaction.type === 'income' ? transaction.amount : -transaction.amount;
+                    
+                    if (!transactionsByPerson[transaction.personId]) {
+                        transactionsByPerson[transaction.personId] = {
+                            name: transaction.personName,
+                            currency: transaction.currency,
+                            transactions: [],
+                            total: 0
+                        };
+                    }
+                    
+                    transactionsByPerson[transaction.personId].transactions.push(transaction);
+                    transactionsByPerson[transaction.personId].total += transaction.type === 'income' ? transaction.amount : -transaction.amount;
+                });
+                
+                let personRowsHTML = '';
+                Object.values(transactionsByPerson).forEach(person => {
+                    personRowsHTML += `
+                        <tr>
+                            <td>${person.name}</td>
+                            <td>${getCurrencyText(person.currency)}</td>
+                            <td>${person.transactions.length}</td>
+                            <td style="${person.total >= 0 ? 'color: green' : 'color: red'}; font-weight: bold;">
+                                ${person.total >= 0 ? '+' : ''}${formatCurrency(person.total, person.currency)}
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                categoryReportsHTML += `
+                    <div style="margin-bottom: 30px; page-break-inside: avoid;">
+                        <h3 style="color: #4361ee; border-bottom: 2px solid #4361ee; padding-bottom: 10px;">
+                            ${categoryName}
+                            <span style="float: left; font-size: 1.2rem; color: ${categoryTotal >= 0 ? 'green' : 'red'}">
+                                ${categoryTotal >= 0 ? '+' : ''}${formatCurrency(categoryTotal, 'try')}
+                            </span>
+                        </h3>
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                            <thead>
+                                <tr style="background-color: #f8f9fa;">
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">اسم الشخص</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">العملة</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">عدد العمليات</th>
+                                    <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">الإجمالي</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${personRowsHTML}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            });
+            
+            printableArea.innerHTML = `
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h2 style="color: #4361ee; margin-bottom: 10px;">تقرير سبب السحب/الإيداع</h2>
+                    <p style="color: #666;">نوع العمليات: ${reportTypeText}</p>
+                    <p style="color: #666;">السبب: ${categoryText}</p>
+                    <p style="color: #666;">الفترة الزمنية: ${periodText}</p>
+                    <p style="color: #666;">تاريخ التقرير: ${new Date().toLocaleDateString('ar-SA')}</p>
+                </div>
+                
+                <div style="margin-bottom: 30px; page-break-inside: avoid;">
+                    <h3 style="color: #4361ee; border-bottom: 2px solid #4361ee; padding-bottom: 10px;">ملخص التقرير</h3>
+                    <div style="display: flex; justify-content: space-around; text-align: center; margin-top: 20px;">
+                        <div>
+                            <h4 style="color: #666; margin-bottom: 5px;">إجمالي الإيداع</h4>
+                            <h2 style="color: #28a745;">${formatCurrency(totalIncome, 'try')}</h2>
+                            <p style="color: #666; font-size: 14px;">${incomeCount} عملية</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #666; margin-bottom: 5px;">إجمالي السحب</h4>
+                            <h2 style="color: #dc3545;">${formatCurrency(totalExpense, 'try')}</h2>
+                            <p style="color: #666; font-size: 14px;">${expenseCount} عملية</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #666; margin-bottom: 5px;">صافي الحركة</h4>
+                            <h2 style="color: #4361ee;">${formatCurrency(totalIncome - totalExpense, 'try')}</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                ${categoryReportsHTML || '<p style="text-align: center; color: #666;">لا توجد عمليات مطابقة للتصفية المحددة</p>'}
+                
+                <div style="text-align: center; margin-top: 50px; color: #666; font-size: 12px; border-top: 1px solid #eee; padding-top: 20px;">
+                    <p>تم إنشاء التقرير في: ${new Date().toLocaleDateString('ar-SA')} ${new Date().toLocaleTimeString('ar-SA')}</p>
+                </div>
+            `;
+            
+            printableArea.style.display = 'block';
+        }
+
+        // طباعة تقرير السبب
+        function printCategoryReport() {
+            const printableArea = document.getElementById('category-report-printable');
+            
+            if (printableArea.innerHTML.trim() === '') {
+                alert('يرجى توليد التقرير أولاً');
+                return;
+            }
+            
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html dir="rtl" lang="ar">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>تقرير سبب السحب/الإيداع</title>
+                    <style>
+                        body {
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            margin: 20px;
+                            color: #333;
+                            direction: rtl;
+                        }
+                        
+                        h2, h3 {
+                            color: #4361ee;
+                        }
+                        
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 20px 0;
+                        }
+                        
+                        th {
+                            background-color: #f8f9fa;
+                            color: #333;
+                            padding: 12px;
+                            text-align: right;
+                            border: 1px solid #ddd;
+                            font-weight: bold;
+                        }
+                        
+                        td {
+                            padding: 10px 12px;
+                            border: 1px solid #ddd;
+                            text-align: right;
+                        }
+                        
+                        tr:nth-child(even) {
+                            background-color: #f9f9f9;
+                        }
+                        
+                        .summary {
+                            text-align: center;
+                            margin: 30px 0;
+                        }
+                        
+                        @media print {
+                            body {
+                                margin: 0;
+                                padding: 20px;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${printableArea.innerHTML}
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            
+            setTimeout(() => {
+                printWindow.print();
+                printWindow.close();
+            }, 500);
         }
 
         // توليد كشف الحساب
@@ -3550,378 +4299,6 @@
             }, 500);
         }
 
-        // دالة توليد الإحصائيات
-        function generateStatistics() {
-            const reportType = document.getElementById('stats-type').value;
-            const period = document.getElementById('stats-period').value;
-            
-            let fromDate, toDate;
-            const now = new Date();
-            
-            switch (period) {
-                case 'last-30':
-                    fromDate = new Date(now.getTime() - (30 * 24 * 60 * 60 * 1000));
-                    toDate = now;
-                    break;
-                case 'last-90':
-                    fromDate = new Date(now.getTime() - (90 * 24 * 60 * 60 * 1000));
-                    toDate = now;
-                    break;
-                case 'this-month':
-                    fromDate = new Date(now.getFullYear(), now.getMonth(), 1);
-                    toDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-                    break;
-                case 'last-month':
-                    fromDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-                    toDate = new Date(now.getFullYear(), now.getMonth(), 0);
-                    break;
-                case 'custom':
-                    const customFrom = document.getElementById('stats-from-date').value;
-                    const customTo = document.getElementById('stats-to-date').value;
-                    if (!customFrom || !customTo) {
-                        alert('يرجى تحديد الفترة المخصصة');
-                        return;
-                    }
-                    fromDate = new Date(customFrom);
-                    toDate = new Date(customTo);
-                    break;
-                default:
-                    fromDate = new Date(0);
-                    toDate = new Date();
-            }
-            
-            const fromTimestamp = fromDate.getTime();
-            const toTimestamp = toDate.getTime() + (24 * 60 * 60 * 1000);
-            
-            // تصفية العمليات
-            let filteredTransactions = appData.transactions.filter(t => 
-                t.date >= fromTimestamp && t.date <= toTimestamp
-            );
-            
-            // تصفية حسب النوع
-            if (reportType === 'income') {
-                filteredTransactions = filteredTransactions.filter(t => t.type === 'income');
-            } else if (reportType === 'expense') {
-                filteredTransactions = filteredTransactions.filter(t => t.type === 'expense');
-            }
-            
-            // إحصائيات الأشخاص
-            const peopleStats = {};
-            let totalIncome = 0;
-            let totalExpense = 0;
-            
-            filteredTransactions.forEach(transaction => {
-                if (!peopleStats[transaction.personId]) {
-                    const person = appData.people.find(p => p.id === transaction.personId);
-                    peopleStats[transaction.personId] = {
-                        name: person ? person.name : 'غير معروف',
-                        currency: transaction.currency,
-                        incomeCount: 0,
-                        totalIncome: 0,
-                        expenseCount: 0,
-                        totalExpense: 0,
-                        netMovement: 0
-                    };
-                }
-                
-                if (transaction.type === 'income') {
-                    peopleStats[transaction.personId].incomeCount++;
-                    peopleStats[transaction.personId].totalIncome += transaction.amount;
-                    totalIncome += transaction.amount;
-                } else {
-                    peopleStats[transaction.personId].expenseCount++;
-                    peopleStats[transaction.personId].totalExpense += transaction.amount;
-                    totalExpense += transaction.amount;
-                }
-            });
-            
-            // حساب صافي الحركة لكل شخص
-            Object.keys(peopleStats).forEach(personId => {
-                const person = peopleStats[personId];
-                person.netMovement = person.totalIncome - person.totalExpense;
-            });
-            
-            // إحصائيات الفئات
-            const categoryStats = {};
-            filteredTransactions.forEach(transaction => {
-                if (transaction.type === 'expense') {
-                    if (!categoryStats[transaction.category]) {
-                        categoryStats[transaction.category] = {
-                            name: getCategoryText(transaction.category),
-                            total: 0,
-                            count: 0
-                        };
-                    }
-                    categoryStats[transaction.category].total += transaction.amount;
-                    categoryStats[transaction.category].count++;
-                }
-            });
-            
-            // عرض الملخص
-            document.getElementById('stats-total-income').textContent = formatCurrency(totalIncome, 'try');
-            document.getElementById('stats-total-expense').textContent = formatCurrency(totalExpense, 'try');
-            document.getElementById('stats-net-movement').textContent = formatCurrency(totalIncome - totalExpense, 'try');
-            
-            // عرض تفصيل الأشخاص
-            const peopleTable = document.getElementById('people-stats-details');
-            peopleTable.innerHTML = '';
-            
-            Object.values(peopleStats).forEach(person => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${person.name}</td>
-                    <td>${getCurrencyText(person.currency)}</td>
-                    <td>${person.incomeCount}</td>
-                    <td class="text-success fw-bold">${formatCurrency(person.totalIncome, person.currency)}</td>
-                    <td>${person.expenseCount}</td>
-                    <td class="text-danger fw-bold">${formatCurrency(person.totalExpense, person.currency)}</td>
-                    <td class="${person.netMovement >= 0 ? 'text-success' : 'text-danger'} fw-bold">
-                        ${formatCurrency(person.netMovement, person.currency)}
-                    </td>
-                `;
-                peopleTable.appendChild(row);
-            });
-            
-            // عرض تفصيل الفئات
-            const categoryContainer = document.getElementById('category-stats-details');
-            categoryContainer.innerHTML = '';
-            
-            Object.values(categoryStats).forEach(category => {
-                const categoryElement = document.createElement('div');
-                categoryElement.className = 'col-md-4';
-                categoryElement.innerHTML = `
-                    <div class="card">
-                        <div class="card-body">
-                            <h6 class="card-title">${category.name}</h6>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <small class="text-muted">عدد العمليات</small>
-                                    <h5>${category.count}</h5>
-                                </div>
-                                <div>
-                                    <small class="text-muted">الإجمالي</small>
-                                    <h5 class="text-danger">${formatCurrency(category.total, 'try')}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                categoryContainer.appendChild(categoryElement);
-            });
-            
-            // إظهار العناصر
-            document.getElementById('stats-summary').style.display = 'block';
-            document.getElementById('people-stats').style.display = 'block';
-            if (reportType !== 'income') {
-                document.getElementById('category-stats').style.display = 'block';
-            } else {
-                document.getElementById('category-stats').style.display = 'none';
-            }
-            
-            // إنشاء نسخة للطباعة
-            createPrintableStats(reportType, fromDate, toDate, peopleStats, categoryStats, totalIncome, totalExpense);
-        }
-
-        // دالة إنشاء نسخة للطباعة
-        function createPrintableStats(reportType, fromDate, toDate, peopleStats, categoryStats, totalIncome, totalExpense) {
-            const printableArea = document.getElementById('stats-printable');
-            
-            let periodText = '';
-            switch (document.getElementById('stats-period').value) {
-                case 'last-30': periodText = 'آخر 30 يومًا'; break;
-                case 'last-90': periodText = 'آخر 90 يومًا'; break;
-                case 'this-month': periodText = 'هذا الشهر'; break;
-                case 'last-month': periodText = 'الشهر الماضي'; break;
-                case 'custom': periodText = `من ${fromDate.toLocaleDateString('ar-SA')} إلى ${toDate.toLocaleDateString('ar-SA')}`; break;
-                default: periodText = 'جميع الفترات';
-            }
-            
-            let reportTypeText = '';
-            switch (reportType) {
-                case 'all': reportTypeText = 'كل العمليات'; break;
-                case 'income': reportTypeText = 'الإيداعات فقط'; break;
-                case 'expense': reportTypeText = 'السحوبات فقط'; break;
-            }
-            
-            let peopleRows = '';
-            Object.values(peopleStats).forEach(person => {
-                peopleRows += `
-                    <tr>
-                        <td>${person.name}</td>
-                        <td>${getCurrencyText(person.currency)}</td>
-                        <td>${person.incomeCount}</td>
-                        <td style="color: green; font-weight: bold;">${formatCurrency(person.totalIncome, person.currency)}</td>
-                        <td>${person.expenseCount}</td>
-                        <td style="color: red; font-weight: bold;">${formatCurrency(person.totalExpense, person.currency)}</td>
-                        <td style="${person.netMovement >= 0 ? 'color: green' : 'color: red'}; font-weight: bold;">
-                            ${formatCurrency(person.netMovement, person.currency)}
-                        </td>
-                    </tr>
-                `;
-            });
-            
-            let categoryRows = '';
-            Object.values(categoryStats).forEach(category => {
-                categoryRows += `
-                    <tr>
-                        <td>${category.name}</td>
-                        <td>${category.count}</td>
-                        <td style="color: red; font-weight: bold;">${formatCurrency(category.total, 'try')}</td>
-                    </tr>
-                `;
-            });
-            
-            printableArea.innerHTML = `
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <h2 style="color: #4361ee; margin-bottom: 10px;">تقرير الإحصائيات المالية</h2>
-                    <p style="color: #666;">${reportTypeText} - ${periodText}</p>
-                    <p style="color: #666;">تاريخ التقرير: ${new Date().toLocaleDateString('ar-SA')}</p>
-                </div>
-                
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: #4361ee; border-bottom: 2px solid #4361ee; padding-bottom: 10px;">ملخص الإحصائيات</h3>
-                    <div style="display: flex; justify-content: space-around; text-align: center; margin-top: 20px;">
-                        <div>
-                            <h4 style="color: #666; margin-bottom: 5px;">إجمالي الإيداع</h4>
-                            <h2 style="color: #28a745;">${formatCurrency(totalIncome, 'try')}</h2>
-                        </div>
-                        <div>
-                            <h4 style="color: #666; margin-bottom: 5px;">إجمالي السحب</h4>
-                            <h2 style="color: #dc3545;">${formatCurrency(totalExpense, 'try')}</h2>
-                        </div>
-                        <div>
-                            <h4 style="color: #666; margin-bottom: 5px;">صافي الحركة</h4>
-                            <h2 style="color: #4361ee;">${formatCurrency(totalIncome - totalExpense, 'try')}</h2>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: #4361ee; border-bottom: 2px solid #4361ee; padding-bottom: 10px;">تفصيل حسب الأشخاص</h3>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                        <thead>
-                            <tr style="background-color: #f8f9fa;">
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">اسم الشخص</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">العملة</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">عدد الإيداعات</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">إجمالي الإيداع</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">عدد السحوبات</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">إجمالي السحب</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">صافي الحركة</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${peopleRows}
-                        </tbody>
-                    </table>
-                </div>
-                
-                ${reportType !== 'income' ? `
-                <div style="margin-bottom: 30px;">
-                    <h3 style="color: #4361ee; border-bottom: 2px solid #4361ee; padding-bottom: 10px;">تفصيل حسب فئات السحب</h3>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                        <thead>
-                            <tr style="background-color: #f8f9fa;">
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">الفئة</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">عدد العمليات</th>
-                                <th style="padding: 12px; border: 1px solid #ddd; text-align: right; font-weight: bold;">إجمالي القيمة</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${categoryRows}
-                        </tbody>
-                    </table>
-                </div>
-                ` : ''}
-                
-                <div style="text-align: center; margin-top: 50px; color: #666; font-size: 12px; border-top: 1px solid #eee; padding-top: 20px;">
-                    <p>تم إنشاء التقرير في: ${new Date().toLocaleDateString('ar-SA')} ${new Date().toLocaleTimeString('ar-SA')}</p>
-                </div>
-            `;
-            
-            printableArea.style.display = 'block';
-        }
-
-        // دالة طباعة الإحصائيات
-        function printStatistics() {
-            const printableArea = document.getElementById('stats-printable');
-            
-            if (printableArea.innerHTML.trim() === '') {
-                alert('يرجى توليد الإحصائيات أولاً');
-                return;
-            }
-            
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write(`
-                <!DOCTYPE html>
-                <html dir="rtl" lang="ar">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>تقرير الإحصائيات المالية</title>
-                    <style>
-                        body {
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                            margin: 20px;
-                            color: #333;
-                            direction: rtl;
-                        }
-                        
-                        h2, h3 {
-                            color: #4361ee;
-                        }
-                        
-                        table {
-                            width: 100%;
-                            border-collapse: collapse;
-                            margin: 20px 0;
-                        }
-                        
-                        th {
-                            background-color: #f8f9fa;
-                            color: #333;
-                            padding: 12px;
-                            text-align: right;
-                            border: 1px solid #ddd;
-                            font-weight: bold;
-                        }
-                        
-                        td {
-                            padding: 10px 12px;
-                            border: 1px solid #ddd;
-                            text-align: right;
-                        }
-                        
-                        tr:nth-child(even) {
-                            background-color: #f9f9f9;
-                        }
-                        
-                        .summary {
-                            text-align: center;
-                            margin: 30px 0;
-                        }
-                        
-                        @media print {
-                            body {
-                                margin: 0;
-                                padding: 20px;
-                            }
-                        }
-                    </style>
-                </head>
-                <body>
-                    ${printableArea.innerHTML}
-                </body>
-                </html>
-            `);
-            
-            printWindow.document.close();
-            
-            setTimeout(() => {
-                printWindow.print();
-                printWindow.close();
-            }, 500);
-        }
-
         // إضافة مستمعين للأحداث
         function addAppointmentEventListeners() {
             document.querySelectorAll('.delete-appointment').forEach(btn => {
@@ -3993,6 +4370,13 @@
                 btn.addEventListener('click', function() {
                     const id = this.dataset.id;
                     deleteTransaction(id);
+                });
+            });
+            
+            document.querySelectorAll('.edit-transaction').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    editTransaction(id);
                 });
             });
         }
