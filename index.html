@@ -838,6 +838,44 @@
             width: 100%;
             margin: 20px 0;
         }
+
+        /* أزرار التحويل */
+        .transfer-btn {
+            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+            border: none;
+            color: white;
+        }
+        
+        .transfer-btn:hover {
+            background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%);
+        }
+        
+        .currency-display {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .exchange-rate-info {
+            background: var(--light);
+            border-radius: var(--radius-md);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .amount-preview {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid var(--info-light);
+        }
+        
+        .transfer-icon {
+            font-size: 20px;
+            color: var(--info);
+            animation: pulse 1.5s infinite;
+        }
     </style>
 </head>
 <body>
@@ -886,9 +924,18 @@
                 <p class="text-muted">سجل عمليات الإيداع والسحب بسهولة</p>
             </div>
             
-            <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addTransactionModal">
-                <i class="fas fa-exchange-alt"></i> إضافة عملية جديدة
-            </button>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#addTransactionModal">
+                        <i class="fas fa-exchange-alt"></i> إضافة عملية جديدة
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn transfer-btn w-100" data-bs-toggle="modal" data-bs-target="#transferModal">
+                        <i class="fas fa-money-bill-transfer"></i> تحويل بين الحسابات
+                    </button>
+                </div>
+            </div>
             
             <div class="search-container mb-4">
                 <input type="text" class="search-input" id="transaction-search" placeholder="🔍 ابحث في العمليات...">
@@ -1130,6 +1177,77 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
                     <button type="button" class="btn btn-primary" id="save-transaction">حفظ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نموذج التحويل بين الحسابات -->
+    <div class="modal fade" id="transferModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-money-bill-transfer"></i> تحويل بين الحسابات</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">من حساب</label>
+                        <select class="form-select" id="transfer-from">
+                            <option value="">اختر الحساب المرسل</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">إلى حساب</label>
+                        <select class="form-select" id="transfer-to">
+                            <option value="">اختر الحساب المستلم</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">المبلغ المراد تحويله</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="transfer-amount" placeholder="أدخل المبلغ">
+                            <span class="input-group-text" id="transfer-currency-from">TRY</span>
+                        </div>
+                        <div class="form-text">المبلغ بالعملة الأصلية للحساب المرسل</div>
+                    </div>
+                    
+                    <div id="exchange-rate-section" style="display: none;">
+                        <div class="exchange-rate-info">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold">سعر الصرف</span>
+                                <span id="transfer-currencies"></span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">1 <span id="currency-from-symbol">TRY</span> =</span>
+                                <input type="number" class="form-control" id="exchange-rate" value="1" step="0.0001" min="0.0001">
+                                <span class="input-group-text" id="currency-to-symbol">TRY</span>
+                            </div>
+                            <div class="form-text">أدخل سعر صرف العملة (مثال: 1 دولار = 32 ليرة تركية)</div>
+                        </div>
+                        
+                        <div class="amount-preview">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>المبلغ المصدر:</span>
+                                <span class="fw-bold" id="amount-source"></span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>المبلغ المستلم:</span>
+                                <span class="fw-bold" id="amount-received"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">ملاحظة (اختياري)</label>
+                        <textarea class="form-control" id="transfer-notes" rows="2" placeholder="ملاحظة حول عملية التحويل"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" id="save-transfer">تحويل</button>
                 </div>
             </div>
         </div>
@@ -1502,6 +1620,20 @@
             document.querySelector('[data-section="settings"]').addEventListener('click', function() {
                 setTimeout(loadTelegramSettings, 100);
             });
+
+            // تحديث قائمة التحويل عند فتح النموذج
+            document.querySelector('[data-bs-target="#transferModal"]').addEventListener('click', function() {
+                updateTransferSelects();
+            });
+
+            // تحديث قسم سعر الصرف عند تغيير الحسابات
+            document.getElementById('transfer-from').addEventListener('change', updateExchangeRateSection);
+            document.getElementById('transfer-to').addEventListener('change', updateExchangeRateSection);
+            document.getElementById('transfer-amount').addEventListener('input', updateTransferAmount);
+            document.getElementById('exchange-rate').addEventListener('input', updateTransferAmount);
+
+            // حفظ عملية التحويل
+            document.getElementById('save-transfer').addEventListener('click', saveTransfer);
         }
 
         // تبديل الأقسام
@@ -1546,6 +1678,7 @@
             updateTransactionsList();
             updateTransactionPersonSelect();
             updateStatementPersonSelect();
+            updateTransferSelects();
             loadTelegramSettings();
         }
 
@@ -1586,6 +1719,7 @@
             updatePeopleList();
             updateTransactionPersonSelect();
             updateStatementPersonSelect();
+            updateTransferSelects();
         }
 
         // تحديث شخص
@@ -1598,6 +1732,7 @@
                 updatePeopleList();
                 updateTransactionPersonSelect();
                 updateStatementPersonSelect();
+                updateTransferSelects();
             }
         }
 
@@ -1629,6 +1764,66 @@
             saveData();
             updateTransactionsList();
             updatePeopleList();
+        }
+
+        // إضافة عملية تحويل
+        function addTransfer(fromPersonId, toPersonId, amount, exchangeRate = 1, notes = '') {
+            const fromPerson = appData.people.find(p => p.id === fromPersonId);
+            const toPerson = appData.people.find(p => p.id === toPersonId);
+            
+            if (!fromPerson || !toPerson) {
+                alert('يرجى اختيار حسابات صحيحة');
+                return false;
+            }
+            
+            if (fromPersonId === toPersonId) {
+                alert('لا يمكن التحويل لنفس الحساب');
+                return false;
+            }
+            
+            if (amount <= 0) {
+                alert('يرجى إدخال مبلغ صحيح');
+                return false;
+            }
+            
+            if (fromPerson.balance < amount) {
+                alert('الرصيد غير كافي لإتمام التحويل');
+                return false;
+            }
+            
+            const receivedAmount = fromPerson.currency === toPerson.currency ? 
+                amount : amount * exchangeRate;
+            
+            // خصم من الحساب المرسل
+            fromPerson.balance -= amount;
+            
+            // إضافة للحساب المستلم
+            toPerson.balance += receivedAmount;
+            
+            // تسجيل العملية كتحويل
+            const transferTransaction = {
+                id: generateId(),
+                type: 'transfer',
+                fromPersonId: fromPersonId,
+                fromPersonName: fromPerson.name,
+                fromCurrency: fromPerson.currency,
+                toPersonId: toPersonId,
+                toPersonName: toPerson.name,
+                toCurrency: toPerson.currency,
+                amount: amount,
+                receivedAmount: receivedAmount,
+                exchangeRate: fromPerson.currency === toPerson.currency ? 1 : exchangeRate,
+                description: notes,
+                date: new Date().toISOString(),
+                category: 'transfer'
+            };
+            
+            appData.transactions.push(transferTransaction);
+            saveData();
+            updateTransactionsList();
+            updatePeopleList();
+            
+            return true;
         }
 
         // تحديث عملية
@@ -1766,7 +1961,9 @@
             if (searchTerm) {
                 transactions = transactions.filter(t => 
                     t.description?.toLowerCase().includes(searchTerm) ||
-                    t.personName.toLowerCase().includes(searchTerm) ||
+                    t.personName?.toLowerCase().includes(searchTerm) ||
+                    (t.fromPersonName && t.fromPersonName.toLowerCase().includes(searchTerm)) ||
+                    (t.toPersonName && t.toPersonName.toLowerCase().includes(searchTerm)) ||
                     getCategoryText(t.category).toLowerCase().includes(searchTerm)
                 );
             }
@@ -1793,37 +1990,77 @@
             transactions.forEach((transaction, index) => {
                 const date = new Date(transaction.date);
                 const dateString = date.toLocaleDateString('en-US');
-                const categoryText = getCategoryText(transaction.category);
-                const typeClass = transaction.type === 'income' ? 'income' : 'expense';
-                const amountClass = transaction.type === 'income' ? 'currency-amount positive' : 'currency-amount negative';
-                const amountSign = transaction.type === 'income' ? '+' : '-';
                 
-                const transactionElement = document.createElement('div');
-                transactionElement.className = `transaction-item ${typeClass} slide-in-right`;
-                transactionElement.style.animationDelay = `${index * 0.1}s`;
-                transactionElement.innerHTML = `
-                    <div>
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <strong>${transaction.personName}</strong>
-                            <span class="category-badge category-${transaction.category}">${categoryText}</span>
+                // تمييز عمليات التحويل
+                if (transaction.type === 'transfer') {
+                    const transferElement = document.createElement('div');
+                    transferElement.className = `transaction-item slide-in-right`;
+                    transferElement.style.borderLeftColor = 'var(--info)';
+                    transferElement.style.animationDelay = `${index * 0.1}s`;
+                    
+                    transferElement.innerHTML = `
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="fas fa-money-bill-transfer text-info"></i>
+                                <strong>تحويل</strong>
+                                <span class="category-badge" style="background: var(--gradient-info);">تحويل</span>
+                            </div>
+                            <div class="mb-2">
+                                <span class="fw-bold">من:</span> ${transaction.fromPersonName}
+                                <span class="fw-bold mx-2">إلى:</span> ${transaction.toPersonName}
+                            </div>
+                            ${transaction.description ? `<p class="mb-1 small">${transaction.description}</p>` : ''}
+                            <small class="text-muted">${dateString}</small>
                         </div>
-                        ${transaction.description ? `<p class="mb-1 small">${transaction.description}</p>` : ''}
-                        <small class="text-muted">${dateString}</small>
-                    </div>
-                    <div class="text-end">
-                        <div class="${amountClass} fs-5">${amountSign}${formatCurrency(transaction.amount, transaction.currency)}</div>
-                        <div class="mt-2">
-                            <button class="btn btn-sm btn-outline-warning edit-transaction" data-id="${transaction.id}">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="btn btn-sm btn-outline-danger delete-transaction" data-id="${transaction.id}">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                        <div class="text-end">
+                            <div class="currency-amount fs-5 text-info">
+                                ${formatCurrency(transaction.amount, transaction.fromCurrency)} → ${formatCurrency(transaction.receivedAmount, transaction.toCurrency)}
+                            </div>
+                            ${transaction.fromCurrency !== transaction.toCurrency ? 
+                                `<small class="text-muted">سعر الصرف: ${transaction.exchangeRate}</small>` : ''}
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-danger delete-transaction" data-id="${transaction.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                `;
-                
-                container.appendChild(transactionElement);
+                    `;
+                    
+                    container.appendChild(transferElement);
+                } else {
+                    // العمليات العادية
+                    const categoryText = getCategoryText(transaction.category);
+                    const typeClass = transaction.type === 'income' ? 'income' : 'expense';
+                    const amountClass = transaction.type === 'income' ? 'currency-amount positive' : 'currency-amount negative';
+                    const amountSign = transaction.type === 'income' ? '+' : '-';
+                    
+                    const transactionElement = document.createElement('div');
+                    transactionElement.className = `transaction-item ${typeClass} slide-in-right`;
+                    transactionElement.style.animationDelay = `${index * 0.1}s`;
+                    transactionElement.innerHTML = `
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <strong>${transaction.personName}</strong>
+                                <span class="category-badge category-${transaction.category}">${categoryText}</span>
+                            </div>
+                            ${transaction.description ? `<p class="mb-1 small">${transaction.description}</p>` : ''}
+                            <small class="text-muted">${dateString}</small>
+                        </div>
+                        <div class="text-end">
+                            <div class="${amountClass} fs-5">${amountSign}${formatCurrency(transaction.amount, transaction.currency)}</div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-warning edit-transaction" data-id="${transaction.id}">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger delete-transaction" data-id="${transaction.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(transactionElement);
+                }
             });
             
             // إضافة مستمعي الأحداث
@@ -1851,6 +2088,7 @@
             updateTransactionsList();
             updateTransactionPersonSelect();
             updateStatementPersonSelect();
+            updateTransferSelects();
             alert('تم حذف الشخص بنجاح ✅');
         }
 
@@ -1859,12 +2097,26 @@
             const transaction = appData.transactions.find(t => t.id === id);
             if (!transaction) return;
             
-            const person = appData.people.find(p => p.id === transaction.personId);
-            if (person) {
-                if (transaction.type === 'income') {
-                    person.balance -= transaction.amount;
-                } else {
-                    person.balance += transaction.amount;
+            if (transaction.type === 'transfer') {
+                // إرجاع التحويل
+                const fromPerson = appData.people.find(p => p.id === transaction.fromPersonId);
+                const toPerson = appData.people.find(p => p.id === transaction.toPersonId);
+                
+                if (fromPerson) {
+                    fromPerson.balance += transaction.amount;
+                }
+                if (toPerson) {
+                    toPerson.balance -= transaction.receivedAmount;
+                }
+            } else {
+                // العمليات العادية
+                const person = appData.people.find(p => p.id === transaction.personId);
+                if (person) {
+                    if (transaction.type === 'income') {
+                        person.balance -= transaction.amount;
+                    } else {
+                        person.balance += transaction.amount;
+                    }
                 }
             }
             
@@ -1908,6 +2160,146 @@
             document.getElementById('statement-to-date').value = today.toISOString().split('T')[0];
         }
 
+        // تحديث قوائم التحويل
+        function updateTransferSelects() {
+            const fromSelect = document.getElementById('transfer-from');
+            const toSelect = document.getElementById('transfer-to');
+            
+            fromSelect.innerHTML = '<option value="">اختر الحساب المرسل</option>';
+            toSelect.innerHTML = '<option value="">اختر الحساب المستلم</option>';
+            
+            appData.people.forEach(person => {
+                const fromOption = document.createElement('option');
+                fromOption.value = person.id;
+                fromOption.textContent = `${person.name} (${getCurrencyText(person.currency)}) - ${formatCurrency(person.balance, person.currency)}`;
+                fromSelect.appendChild(fromOption);
+                
+                const toOption = document.createElement('option');
+                toOption.value = person.id;
+                toOption.textContent = `${person.name} (${getCurrencyText(person.currency)}) - ${formatCurrency(person.balance, person.currency)}`;
+                toSelect.appendChild(toOption);
+            });
+            
+            // إعادة تعيين الحقول
+            document.getElementById('transfer-amount').value = '';
+            document.getElementById('exchange-rate').value = '1';
+            document.getElementById('transfer-notes').value = '';
+            document.getElementById('exchange-rate-section').style.display = 'none';
+        }
+
+        // تحديث قسم سعر الصرف
+        function updateExchangeRateSection() {
+            const fromId = document.getElementById('transfer-from').value;
+            const toId = document.getElementById('transfer-to').value;
+            
+            if (!fromId || !toId) {
+                document.getElementById('exchange-rate-section').style.display = 'none';
+                return;
+            }
+            
+            const fromPerson = appData.people.find(p => p.id === fromId);
+            const toPerson = appData.people.find(p => p.id === toId);
+            
+            if (!fromPerson || !toPerson) {
+                document.getElementById('exchange-rate-section').style.display = 'none';
+                return;
+            }
+            
+            // عرض قسم سعر الصرف فقط إذا كانت العملات مختلفة
+            if (fromPerson.currency !== toPerson.currency) {
+                document.getElementById('exchange-rate-section').style.display = 'block';
+                document.getElementById('transfer-currencies').textContent = 
+                    `${getCurrencyText(fromPerson.currency)} → ${getCurrencyText(toPerson.currency)}`;
+                document.getElementById('currency-from-symbol').textContent = getCurrencySymbol(fromPerson.currency);
+                document.getElementById('currency-to-symbol').textContent = getCurrencySymbol(toPerson.currency);
+                document.getElementById('transfer-currency-from').textContent = getCurrencySymbol(fromPerson.currency);
+                
+                // تعيين سعر صرف افتراضي (لأغراض الاختبار)
+                if (document.getElementById('exchange-rate').value === '1') {
+                    let defaultRate = 1;
+                    if (fromPerson.currency === 'try' && toPerson.currency === 'usd') {
+                        defaultRate = 0.031; // 1 ليرة = 0.031 دولار تقريباً
+                    } else if (fromPerson.currency === 'usd' && toPerson.currency === 'try') {
+                        defaultRate = 32; // 1 دولار = 32 ليرة تقريباً
+                    } else if (fromPerson.currency === 'try' && toPerson.currency === 'lyd') {
+                        defaultRate = 0.15; // 1 ليرة = 0.15 دينار ليبي تقريباً
+                    } else if (fromPerson.currency === 'lyd' && toPerson.currency === 'try') {
+                        defaultRate = 6.5; // 1 دينار ليبي = 6.5 ليرة تقريباً
+                    }
+                    document.getElementById('exchange-rate').value = defaultRate;
+                }
+            } else {
+                document.getElementById('exchange-rate-section').style.display = 'none';
+            }
+            
+            updateTransferAmount();
+        }
+
+        // تحديث معاينة المبلغ
+        function updateTransferAmount() {
+            const fromId = document.getElementById('transfer-from').value;
+            const toId = document.getElementById('transfer-to').value;
+            const amount = parseFloat(document.getElementById('transfer-amount').value) || 0;
+            const exchangeRate = parseFloat(document.getElementById('exchange-rate').value) || 1;
+            
+            if (!fromId || !toId || amount <= 0) {
+                document.getElementById('amount-source').textContent = '';
+                document.getElementById('amount-received').textContent = '';
+                return;
+            }
+            
+            const fromPerson = appData.people.find(p => p.id === fromId);
+            const toPerson = appData.people.find(p => p.id === toId);
+            
+            if (!fromPerson || !toPerson) return;
+            
+            const receivedAmount = fromPerson.currency === toPerson.currency ? 
+                amount : amount * exchangeRate;
+            
+            document.getElementById('amount-source').textContent = 
+                `${formatCurrency(amount, fromPerson.currency)}`;
+            document.getElementById('amount-received').textContent = 
+                `${formatCurrency(receivedAmount, toPerson.currency)}`;
+        }
+
+        // حفظ عملية التحويل
+        function saveTransfer() {
+            const fromId = document.getElementById('transfer-from').value;
+            const toId = document.getElementById('transfer-to').value;
+            const amount = parseFloat(document.getElementById('transfer-amount').value);
+            const exchangeRate = parseFloat(document.getElementById('exchange-rate').value) || 1;
+            const notes = document.getElementById('transfer-notes').value.trim();
+            
+            if (!fromId || !toId) {
+                alert('يرجى اختيار الحساب المرسل والمستلم');
+                return;
+            }
+            
+            if (!amount || amount <= 0) {
+                alert('يرجى إدخال مبلغ صحيح');
+                return;
+            }
+            
+            if (fromId === toId) {
+                alert('لا يمكن التحويل لنفس الحساب');
+                return;
+            }
+            
+            const fromPerson = appData.people.find(p => p.id === fromId);
+            if (fromPerson.balance < amount) {
+                alert('الرصيد غير كافي لإتمام التحويل');
+                return;
+            }
+            
+            if (addTransfer(fromId, toId, amount, exchangeRate, notes)) {
+                // إغلاق النموذج وإعادة التعيين
+                const modal = bootstrap.Modal.getInstance(document.getElementById('transferModal'));
+                modal.hide();
+                updateTransferSelects();
+                alert('تم التحويل بنجاح ✅');
+            }
+        }
+
         // تحميل إعدادات التلقرام
         function loadTelegramSettings() {
             document.getElementById('telegram-token').value = appData.settings.telegramToken || '';
@@ -1932,6 +2324,16 @@
             }
         }
 
+        // الحصول على رمز العملة
+        function getCurrencySymbol(currency) {
+            switch(currency) {
+                case 'try': return 'TRY';
+                case 'usd': return 'USD';
+                case 'lyd': return 'LYD';
+                default: return currency;
+            }
+        }
+
         // الحصول على نص العملة
         function getCurrencyText(currency) {
             switch(currency) {
@@ -1953,7 +2355,8 @@
                 'metro': 'مترو',
                 'sweets': 'حلويات',
                 'apartment': 'الشقة',
-                'internet': 'انترنت'
+                'internet': 'انترنت',
+                'transfer': 'تحويل'
             };
             return categories[category] || category;
         }
@@ -1969,7 +2372,8 @@
                 'metro': 'fa-subway',
                 'sweets': 'fa-candy-cane',
                 'apartment': 'fa-building',
-                'internet': 'fa-wifi'
+                'internet': 'fa-wifi',
+                'transfer': 'fa-money-bill-transfer'
             };
             return icons[category] || 'fa-tag';
         }
@@ -2099,7 +2503,11 @@
             
             // تصفية العمليات حسب الشخص والفترة
             const filteredTransactions = appData.transactions
-                .filter(t => t.personId === personId)
+                .filter(t => {
+                    // تضمين العمليات التي يكون الشخص فيها مرسل أو مستلم
+                    return t.personId === personId || 
+                           (t.type === 'transfer' && (t.fromPersonId === personId || t.toPersonId === personId));
+                })
                 .filter(t => {
                     const date = new Date(t.date);
                     return date >= from && date <= to;
@@ -2126,36 +2534,89 @@
                 return;
             }
             
-            let runningBalance = 0;
+            let runningBalance = person.balance; // نبدأ بالرصيد الحالي
             let totalIncome = 0;
             let totalExpense = 0;
+            
+            // حساب الرصيد في بداية الفترة
+            let startingBalance = person.balance;
+            filteredTransactions.forEach(transaction => {
+                if (transaction.type === 'transfer') {
+                    if (transaction.fromPersonId === personId) {
+                        startingBalance += transaction.amount; // إرجاع المبلغ المحول
+                    } else if (transaction.toPersonId === personId) {
+                        startingBalance -= transaction.receivedAmount; // إرجاع المبلغ المستلم
+                    }
+                } else {
+                    if (transaction.type === 'income') {
+                        startingBalance -= transaction.amount;
+                    } else {
+                        startingBalance += transaction.amount;
+                    }
+                }
+            });
+            
+            runningBalance = startingBalance;
             
             // إنشاء الجدول
             let tableRows = '';
             filteredTransactions.forEach((transaction, index) => {
                 const date = new Date(transaction.date);
                 const dateString = date.toLocaleDateString('en-US');
-                const typeText = transaction.type === 'income' ? 'إيداع' : 'سحب';
-                const categoryText = getCategoryText(transaction.category);
                 
-                if (transaction.type === 'income') {
-                    runningBalance += transaction.amount;
-                    totalIncome += transaction.amount;
+                let typeText = '';
+                let categoryText = '';
+                let amount = 0;
+                let currency = person.currency;
+                let isIncome = false;
+                
+                if (transaction.type === 'transfer') {
+                    // عملية تحويل
+                    typeText = 'تحويل';
+                    categoryText = 'تحويل';
+                    
+                    if (transaction.fromPersonId === personId) {
+                        // الشخص هو المرسل
+                        amount = -transaction.amount;
+                        currency = transaction.fromCurrency;
+                        runningBalance += amount;
+                        totalExpense += Math.abs(amount);
+                    } else if (transaction.toPersonId === personId) {
+                        // الشخص هو المستلم
+                        amount = transaction.receivedAmount;
+                        currency = transaction.toCurrency;
+                        runningBalance += amount;
+                        totalIncome += amount;
+                        isIncome = true;
+                    }
                 } else {
-                    runningBalance -= transaction.amount;
-                    totalExpense += transaction.amount;
+                    // عملية عادية
+                    typeText = transaction.type === 'income' ? 'إيداع' : 'سحب';
+                    categoryText = getCategoryText(transaction.category);
+                    amount = transaction.type === 'income' ? transaction.amount : -transaction.amount;
+                    currency = transaction.currency;
+                    runningBalance += amount;
+                    
+                    if (transaction.type === 'income') {
+                        totalIncome += transaction.amount;
+                        isIncome = true;
+                    } else {
+                        totalExpense += transaction.amount;
+                    }
                 }
+                
+                const amountSign = amount >= 0 ? '+' : '';
                 
                 tableRows += `
                     <tr>
                         <td>${dateString}</td>
-                        <td><span class="badge ${transaction.type === 'income' ? 'bg-success' : 'bg-danger'}">${typeText}</span></td>
+                        <td><span class="badge ${isIncome ? 'bg-success' : 'bg-danger'}">${typeText}</span></td>
                         <td>${categoryText}</td>
                         <td>${transaction.description || '-'}</td>
-                        <td class="${transaction.type === 'income' ? 'text-success' : 'text-danger'} fw-bold">
-                            ${transaction.type === 'income' ? '+' : '-'}${formatCurrency(transaction.amount, transaction.currency)}
+                        <td class="${isIncome ? 'text-success' : 'text-danger'} fw-bold">
+                            ${amountSign}${formatCurrency(Math.abs(amount), currency)}
                         </td>
-                        <td class="fw-bold">${formatCurrency(runningBalance, transaction.currency)}</td>
+                        <td class="fw-bold">${formatCurrency(runningBalance, currency)}</td>
                     </tr>
                 `;
             });
@@ -2170,25 +2631,31 @@
                     </div>
                     <div class="card-body">
                         <div class="row mb-4">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <div class="text-muted small">الرصيد الابتدائي</div>
+                                    <div class="fs-4 fw-bold">${formatCurrency(startingBalance, person.currency)}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="text-center p-3 bg-success bg-opacity-10 rounded">
                                     <div class="text-muted small">إجمالي الإيداع</div>
                                     <div class="fs-4 fw-bold text-success">${formatCurrency(totalIncome, person.currency)}</div>
-                                    <small class="text-muted">${filteredTransactions.filter(t => t.type === 'income').length} عملية</small>
+                                    <small class="text-muted">${filteredTransactions.filter(t => (t.type === 'income') || (t.type === 'transfer' && t.toPersonId === personId)).length} عملية</small>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="text-center p-3 bg-danger bg-opacity-10 rounded">
                                     <div class="text-muted small">إجمالي السحب</div>
                                     <div class="fs-4 fw-bold text-danger">${formatCurrency(totalExpense, person.currency)}</div>
-                                    <small class="text-muted">${filteredTransactions.filter(t => t.type === 'expense').length} عملية</small>
+                                    <small class="text-muted">${filteredTransactions.filter(t => (t.type === 'expense') || (t.type === 'transfer' && t.fromPersonId === personId)).length} عملية</small>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="text-center p-3 bg-primary bg-opacity-10 rounded">
-                                    <div class="text-muted small">صافي الحركة</div>
-                                    <div class="fs-4 fw-bold text-primary">${formatCurrency(netMovement, person.currency)}</div>
-                                    <small class="text-muted">رصيد نهائي: ${formatCurrency(runningBalance, person.currency)}</small>
+                                    <div class="text-muted small">الرصيد النهائي</div>
+                                    <div class="fs-4 fw-bold text-primary">${formatCurrency(runningBalance, person.currency)}</div>
+                                    <small class="text-muted">صافي الحركة: ${formatCurrency(netMovement, person.currency)}</small>
                                 </div>
                             </div>
                         </div>
@@ -2212,7 +2679,7 @@
                         <div class="mt-4 p-3 bg-light rounded">
                             <h6>تحليل حسب الفئة:</h6>
                             <div class="row">
-                                ${getCategoryAnalysisHTML(filteredTransactions)}
+                                ${getCategoryAnalysisHTML(filteredTransactions, personId)}
                             </div>
                         </div>
                         
@@ -2230,31 +2697,45 @@
         }
 
         // تحليل حسب الفئة
-        function getCategoryAnalysisHTML(transactions) {
+        function getCategoryAnalysisHTML(transactions, personId) {
             const categoryAnalysis = {};
             
             transactions.forEach(transaction => {
-                if (!categoryAnalysis[transaction.category]) {
-                    categoryAnalysis[transaction.category] = {
+                let category = transaction.category;
+                let amount = 0;
+                
+                if (transaction.type === 'transfer') {
+                    if (transaction.fromPersonId === personId) {
+                        amount = -transaction.amount;
+                    } else if (transaction.toPersonId === personId) {
+                        amount = transaction.receivedAmount;
+                    }
+                } else if (transaction.personId === personId) {
+                    amount = transaction.type === 'income' ? transaction.amount : -transaction.amount;
+                }
+                
+                if (!categoryAnalysis[category]) {
+                    categoryAnalysis[category] = {
+                        name: getCategoryText(category),
                         income: 0,
                         expense: 0,
                         count: 0
                     };
                 }
                 
-                if (transaction.type === 'income') {
-                    categoryAnalysis[transaction.category].income += transaction.amount;
+                if (amount > 0) {
+                    categoryAnalysis[category].income += amount;
                 } else {
-                    categoryAnalysis[transaction.category].expense += transaction.amount;
+                    categoryAnalysis[category].expense += Math.abs(amount);
                 }
-                categoryAnalysis[transaction.category].count++;
+                categoryAnalysis[category].count++;
             });
             
             let html = '';
             Object.keys(categoryAnalysis).forEach(category => {
                 const data = categoryAnalysis[category];
                 const total = data.income - data.expense;
-                const categoryText = getCategoryText(category);
+                const categoryText = data.name;
                 
                 html += `
                     <div class="col-md-4 mb-2">
@@ -2393,9 +2874,15 @@
                 if (transaction.type === 'income') {
                     totalIncome += transaction.amount;
                     incomeCount++;
-                } else {
+                } else if (transaction.type === 'expense') {
                     totalExpense += transaction.amount;
                     expenseCount++;
+                } else if (transaction.type === 'transfer') {
+                    // التحويلات تُعتبر سحباً وإيداعاً معاً
+                    totalExpense += transaction.amount;
+                    totalIncome += transaction.receivedAmount;
+                    expenseCount++;
+                    incomeCount++;
                 }
                 
                 // إحصاءات الفئات
@@ -2411,7 +2898,10 @@
                 
                 if (transaction.type === 'income') {
                     categoryStats[transaction.category].income += transaction.amount;
-                } else {
+                } else if (transaction.type === 'expense') {
+                    categoryStats[transaction.category].expense += transaction.amount;
+                } else if (transaction.type === 'transfer') {
+                    categoryStats[transaction.category].income += transaction.receivedAmount;
                     categoryStats[transaction.category].expense += transaction.amount;
                 }
                 categoryStats[transaction.category].count++;
@@ -2500,22 +2990,38 @@
                                         <thead>
                                             <tr>
                                                 <th>التاريخ</th>
-                                                <th>الشخص</th>
                                                 <th>النوع</th>
+                                                <th>من/إلى</th>
                                                 <th>المبلغ</th>
                                                 <th>الوصف</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            ${stats.transactions.slice(0, 5).map(t => `
-                                                <tr>
-                                                    <td>${new Date(t.date).toLocaleDateString('en-US')}</td>
-                                                    <td>${t.personName}</td>
-                                                    <td><span class="badge ${t.type === 'income' ? 'bg-success' : 'bg-danger'}">${t.type === 'income' ? 'إيداع' : 'سحب'}</span></td>
-                                                    <td class="${t.type === 'income' ? 'text-success' : 'text-danger'}">${t.type === 'income' ? '+' : '-'}${formatCurrency(t.amount, t.currency)}</td>
-                                                    <td>${t.description || '-'}</td>
-                                                </tr>
-                                            `).join('')}
+                                            ${stats.transactions.slice(0, 5).map(t => {
+                                                let typeText = '';
+                                                let personInfo = '';
+                                                let amountText = '';
+                                                
+                                                if (t.type === 'transfer') {
+                                                    typeText = 'تحويل';
+                                                    personInfo = `${t.fromPersonName} → ${t.toPersonName}`;
+                                                    amountText = `${formatCurrency(t.amount, t.fromCurrency)} → ${formatCurrency(t.receivedAmount, t.toCurrency)}`;
+                                                } else {
+                                                    typeText = t.type === 'income' ? 'إيداع' : 'سحب';
+                                                    personInfo = t.personName;
+                                                    amountText = `${t.type === 'income' ? '+' : '-'}${formatCurrency(t.amount, t.currency)}`;
+                                                }
+                                                
+                                                return `
+                                                    <tr>
+                                                        <td>${new Date(t.date).toLocaleDateString('en-US')}</td>
+                                                        <td><span class="badge ${t.type === 'income' || (t.type === 'transfer') ? 'bg-success' : 'bg-danger'}">${typeText}</span></td>
+                                                        <td>${personInfo}</td>
+                                                        <td class="${t.type === 'income' || (t.type === 'transfer') ? 'text-success' : 'text-danger'}">${amountText}</td>
+                                                        <td>${t.description || '-'}</td>
+                                                    </tr>
+                                                `;
+                                            }).join('')}
                                         </tbody>
                                     </table>
                                 </div>
