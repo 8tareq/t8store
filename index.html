@@ -286,6 +286,78 @@
             padding: 25px;
         }
         
+        /* أزرار العمليات */
+        .operations-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .operation-btn {
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            color: white;
+            min-height: 80px;
+            text-align: center;
+        }
+        
+        .operation-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .operation-btn:hover::before {
+            left: 100%;
+        }
+        
+        .operation-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .operation-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .operation-btn.primary {
+            background: var(--gradient-primary);
+        }
+        
+        .operation-btn.transfer {
+            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+        }
+        
+        .operation-btn i {
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+        
         /* الأزرار المخصصة */
         .btn-primary {
             background: var(--gradient-primary);
@@ -467,6 +539,7 @@
         .category-sweets { background: linear-gradient(135deg, #EC4899 0%, #F472B6 100%); color: white; }
         .category-apartment { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); color: white; }
         .category-internet { background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%); color: white; }
+        .category-transfer { background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%); color: white; }
         
         .category-badge:hover {
             transform: scale(1.05);
@@ -597,6 +670,147 @@
             padding: 25px;
         }
         
+        /* تصميم نموذج التحويل */
+        .transfer-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .transfer-form label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            color: var(--dark);
+        }
+        
+        .currency-display {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+        
+        .exchange-rate-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid var(--info-light);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .exchange-rate-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .exchange-rate-title {
+            font-weight: 700;
+            color: var(--info);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .exchange-rate-info {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .amount-preview {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid var(--success-light);
+            animation: pulse 2s infinite;
+        }
+        
+        .amount-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .amount-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .amount-label {
+            color: var(--gray);
+        }
+        
+        .amount-value {
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .transfer-arrow {
+            text-align: center;
+            margin: 15px 0;
+            color: var(--info);
+            font-size: 24px;
+            animation: bounce 1.5s infinite;
+        }
+        
+        .account-select {
+            position: relative;
+        }
+        
+        .account-balance {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(124, 58, 237, 0.1);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* تحسين تصميم إدخال المبلغ مع رمز العملة */
+        .currency-input-group {
+            display: flex;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .currency-input-group:focus-within {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .currency-input-group input {
+            flex: 1;
+            border: none;
+            padding: 12px 16px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .currency-symbol {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: white;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            min-width: 80px;
+            font-size: 16px;
+        }
+        
         /* شريط البحث */
         .search-container {
             position: relative;
@@ -709,6 +923,35 @@
             
             .person-balance {
                 font-size: 1.4rem;
+            }
+            
+            .operations-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .operation-btn {
+                min-height: 70px;
+                padding: 15px;
+            }
+            
+            .operation-btn i {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .amount-preview {
+                padding: 15px;
+            }
+            
+            .exchange-rate-section {
+                padding: 15px;
+            }
+            
+            .currency-symbol {
+                min-width: 60px;
+                padding: 0 15px;
+                font-size: 14px;
             }
         }
         
@@ -838,44 +1081,6 @@
             width: 100%;
             margin: 20px 0;
         }
-
-        /* أزرار التحويل */
-        .transfer-btn {
-            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
-            border: none;
-            color: white;
-        }
-        
-        .transfer-btn:hover {
-            background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%);
-        }
-        
-        .currency-display {
-            font-size: 14px;
-            color: var(--gray);
-        }
-        
-        .exchange-rate-info {
-            background: var(--light);
-            border-radius: var(--radius-md);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid var(--gray-light);
-        }
-        
-        .amount-preview {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-radius: var(--radius-md);
-            padding: 15px;
-            margin: 15px 0;
-            border: 2px solid var(--info-light);
-        }
-        
-        .transfer-icon {
-            font-size: 20px;
-            color: var(--info);
-            animation: pulse 1.5s infinite;
-        }
     </style>
 </head>
 <body>
@@ -921,20 +1126,25 @@
         <div class="section" id="transactions-section">
             <div class="mb-4 fade-in">
                 <h2 class="fw-bold mb-2">💰 العمليات المالية</h2>
-                <p class="text-muted">سجل عمليات الإيداع والسحب بسهولة</p>
+                <p class="text-muted">سجل عمليات الإيداع والسحب والتحويل بسهولة</p>
             </div>
             
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#addTransactionModal">
-                        <i class="fas fa-exchange-alt"></i> إضافة عملية جديدة
-                    </button>
-                </div>
-                <div class="col-md-6">
-                    <button class="btn transfer-btn w-100" data-bs-toggle="modal" data-bs-target="#transferModal">
-                        <i class="fas fa-money-bill-transfer"></i> تحويل بين الحسابات
-                    </button>
-                </div>
+            <div class="operations-buttons">
+                <button class="operation-btn primary" data-bs-toggle="modal" data-bs-target="#addTransactionModal">
+                    <i class="fas fa-exchange-alt"></i>
+                    <div>
+                        <div>إضافة عملية جديدة</div>
+                        <small>إيداع أو سحب</small>
+                    </div>
+                </button>
+                
+                <button class="operation-btn transfer" data-bs-toggle="modal" data-bs-target="#transferModal">
+                    <i class="fas fa-money-bill-transfer"></i>
+                    <div>
+                        <div>تحويل بين الحسابات</div>
+                        <small>تحويل داخلي أو بين عملات</small>
+                    </div>
+                </button>
             </div>
             
             <div class="search-container mb-4">
@@ -972,6 +1182,7 @@
                                 <button class="btn btn-sm filter-btn active" data-filter-type="all">الكل</button>
                                 <button class="btn btn-sm filter-btn" data-filter-type="income">الإيداعات</button>
                                 <button class="btn btn-sm filter-btn" data-filter-type="expense">السحوبات</button>
+                                <button class="btn btn-sm filter-btn" data-filter-type="transfer">التحويلات</button>
                             </div>
                         </div>
                         
@@ -1190,64 +1401,79 @@
                     <h5 class="modal-title"><i class="fas fa-money-bill-transfer"></i> تحويل بين الحسابات</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="mb-3">
+                <div class="modal-body transfer-form">
+                    <div class="form-group">
                         <label class="form-label">من حساب</label>
-                        <select class="form-select" id="transfer-from">
-                            <option value="">اختر الحساب المرسل</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">إلى حساب</label>
-                        <select class="form-select" id="transfer-to">
-                            <option value="">اختر الحساب المستلم</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">المبلغ المراد تحويله</label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" id="transfer-amount" placeholder="أدخل المبلغ">
-                            <span class="input-group-text" id="transfer-currency-from">TRY</span>
+                        <div class="account-select">
+                            <select class="form-select" id="transfer-from">
+                                <option value="">اختر الحساب المرسل</option>
+                            </select>
                         </div>
-                        <div class="form-text">المبلغ بالعملة الأصلية للحساب المرسل</div>
                     </div>
                     
-                    <div id="exchange-rate-section" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label">إلى حساب</label>
+                        <div class="account-select">
+                            <select class="form-select" id="transfer-to">
+                                <option value="">اختر الحساب المستلم</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">المبلغ المراد تحويله</label>
+                        <div class="currency-input-group">
+                            <input type="number" class="form-control" id="transfer-amount" placeholder="أدخل المبلغ">
+                            <div class="currency-symbol" id="transfer-currency-symbol">TRY</div>
+                        </div>
+                        <div class="currency-display">المبلغ بالعملة الأصلية للحساب المرسل</div>
+                    </div>
+                    
+                    <div id="exchange-rate-section" class="exchange-rate-section" style="display: none;">
+                        <div class="exchange-rate-header">
+                            <div class="exchange-rate-title">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>سعر الصرف</span>
+                            </div>
+                            <span id="transfer-currencies" class="badge bg-info"></span>
+                        </div>
+                        
                         <div class="exchange-rate-info">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-bold">سعر الصرف</span>
-                                <span id="transfer-currencies"></span>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-text">1 <span id="currency-from-symbol">TRY</span> =</span>
-                                <input type="number" class="form-control" id="exchange-rate" value="1" step="0.0001" min="0.0001">
-                                <span class="input-group-text" id="currency-to-symbol">TRY</span>
-                            </div>
-                            <div class="form-text">أدخل سعر صرف العملة (مثال: 1 دولار = 32 ليرة تركية)</div>
+                            أدخل سعر صرف العملة (مثال: 1 دولار = 32 ليرة تركية)
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-text">1 <span id="currency-from-symbol">TRY</span> =</span>
+                            <input type="number" class="form-control" id="exchange-rate" value="1" step="0.0001" min="0.0001">
+                            <span class="input-group-text" id="currency-to-symbol">TRY</span>
+                        </div>
+                        
+                        <div class="transfer-arrow">
+                            <i class="fas fa-long-arrow-alt-down"></i>
                         </div>
                         
                         <div class="amount-preview">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span>المبلغ المصدر:</span>
-                                <span class="fw-bold" id="amount-source"></span>
+                            <div class="amount-row">
+                                <span class="amount-label">المبلغ المصدر:</span>
+                                <span class="amount-value text-primary" id="amount-source">0.00 TRY</span>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span>المبلغ المستلم:</span>
-                                <span class="fw-bold" id="amount-received"></span>
+                            <div class="amount-row">
+                                <span class="amount-label">المبلغ المستلم:</span>
+                                <span class="amount-value text-success" id="amount-received">0.00 TRY</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label class="form-label">ملاحظة (اختياري)</label>
                         <textarea class="form-control" id="transfer-notes" rows="2" placeholder="ملاحظة حول عملية التحويل"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
-                    <button type="button" class="btn btn-primary" id="save-transfer">تحويل</button>
+                    <button type="button" class="btn btn-primary" id="save-transfer">
+                        <i class="fas fa-paper-plane"></i> تحويل
+                    </button>
                 </div>
             </div>
         </div>
@@ -1432,7 +1658,8 @@
                 'metro': 'مترو',
                 'sweets': 'حلويات',
                 'apartment': 'الشقة',
-                'internet': 'انترنت'
+                'internet': 'انترنت',
+                'transfer': 'تحويل'
             };
             
             container.innerHTML = `
@@ -2003,7 +2230,7 @@
                             <div class="d-flex align-items-center gap-2 mb-2">
                                 <i class="fas fa-money-bill-transfer text-info"></i>
                                 <strong>تحويل</strong>
-                                <span class="category-badge" style="background: var(--gradient-info);">تحويل</span>
+                                <span class="category-badge category-transfer">تحويل</span>
                             </div>
                             <div class="mb-2">
                                 <span class="fw-bold">من:</span> ${transaction.fromPersonName}
@@ -2135,7 +2362,7 @@
             appData.people.forEach(person => {
                 const option = document.createElement('option');
                 option.value = person.id;
-                option.textContent = `${person.name} (${getCurrencyText(person.currency)})`;
+                option.textContent = `${person.name} (${getCurrencyText(person.currency)}) - ${formatCurrency(person.balance, person.currency)}`;
                 select.appendChild(option);
             });
         }
@@ -2171,12 +2398,16 @@
             appData.people.forEach(person => {
                 const fromOption = document.createElement('option');
                 fromOption.value = person.id;
-                fromOption.textContent = `${person.name} (${getCurrencyText(person.currency)}) - ${formatCurrency(person.balance, person.currency)}`;
+                fromOption.textContent = `${person.name} (${getCurrencyText(person.currency)})`;
+                fromOption.setAttribute('data-balance', person.balance);
+                fromOption.setAttribute('data-currency', person.currency);
                 fromSelect.appendChild(fromOption);
                 
                 const toOption = document.createElement('option');
                 toOption.value = person.id;
-                toOption.textContent = `${person.name} (${getCurrencyText(person.currency)}) - ${formatCurrency(person.balance, person.currency)}`;
+                toOption.textContent = `${person.name} (${getCurrencyText(person.currency)})`;
+                toOption.setAttribute('data-balance', person.balance);
+                toOption.setAttribute('data-currency', person.currency);
                 toSelect.appendChild(toOption);
             });
             
@@ -2185,12 +2416,77 @@
             document.getElementById('exchange-rate').value = '1';
             document.getElementById('transfer-notes').value = '';
             document.getElementById('exchange-rate-section').style.display = 'none';
+            updateCurrencySymbol();
+            updateBalanceDisplay();
+        }
+
+        // تحديث رمز العملة
+        function updateCurrencySymbol() {
+            const fromSelect = document.getElementById('transfer-from');
+            const fromOption = fromSelect.options[fromSelect.selectedIndex];
+            
+            if (fromOption && fromOption.value) {
+                const currency = fromOption.getAttribute('data-currency');
+                const symbol = getCurrencySymbol(currency);
+                document.getElementById('transfer-currency-symbol').textContent = symbol;
+            } else {
+                document.getElementById('transfer-currency-symbol').textContent = 'TRY';
+            }
+        }
+
+        // تحديث عرض الأرصدة
+        function updateBalanceDisplay() {
+            const fromSelect = document.getElementById('transfer-from');
+            const toSelect = document.getElementById('transfer-to');
+            
+            // تحديث رمز العملة أولاً
+            updateCurrencySymbol();
+            
+            // إضافة أرصدة للخيارات المحددة
+            const fromOption = fromSelect.options[fromSelect.selectedIndex];
+            const toOption = toSelect.options[toSelect.selectedIndex];
+            
+            if (fromOption && fromOption.value) {
+                const balance = parseFloat(fromOption.getAttribute('data-balance'));
+                const currency = fromOption.getAttribute('data-currency');
+                const balanceText = formatCurrency(balance, currency);
+                
+                // تحديث عرض الرصيد في القائمة
+                const balanceSpan = fromSelect.parentElement.querySelector('.account-balance');
+                if (balanceSpan) {
+                    balanceSpan.textContent = balanceText;
+                } else {
+                    const newBalanceSpan = document.createElement('span');
+                    newBalanceSpan.className = 'account-balance';
+                    newBalanceSpan.textContent = balanceText;
+                    fromSelect.parentElement.appendChild(newBalanceSpan);
+                }
+            }
+            
+            if (toOption && toOption.value) {
+                const balance = parseFloat(toOption.getAttribute('data-balance'));
+                const currency = toOption.getAttribute('data-currency');
+                const balanceText = formatCurrency(balance, currency);
+                
+                // تحديث عرض الرصيد في القائمة
+                const balanceSpan = toSelect.parentElement.querySelector('.account-balance');
+                if (balanceSpan) {
+                    balanceSpan.textContent = balanceText;
+                } else {
+                    const newBalanceSpan = document.createElement('span');
+                    newBalanceSpan.className = 'account-balance';
+                    newBalanceSpan.textContent = balanceText;
+                    toSelect.parentElement.appendChild(newBalanceSpan);
+                }
+            }
         }
 
         // تحديث قسم سعر الصرف
         function updateExchangeRateSection() {
             const fromId = document.getElementById('transfer-from').value;
             const toId = document.getElementById('transfer-to').value;
+            
+            updateBalanceDisplay();
             
             if (!fromId || !toId) {
                 document.getElementById('exchange-rate-section').style.display = 'none';
@@ -2212,7 +2508,6 @@
                     `${getCurrencyText(fromPerson.currency)} → ${getCurrencyText(toPerson.currency)}`;
                 document.getElementById('currency-from-symbol').textContent = getCurrencySymbol(fromPerson.currency);
                 document.getElementById('currency-to-symbol').textContent = getCurrencySymbol(toPerson.currency);
-                document.getElementById('transfer-currency-from').textContent = getCurrencySymbol(fromPerson.currency);
                 
                 // تعيين سعر صرف افتراضي (لأغراض الاختبار)
                 if (document.getElementById('exchange-rate').value === '1') {
@@ -2225,6 +2520,10 @@
                         defaultRate = 0.15; // 1 ليرة = 0.15 دينار ليبي تقريباً
                     } else if (fromPerson.currency === 'lyd' && toPerson.currency === 'try') {
                         defaultRate = 6.5; // 1 دينار ليبي = 6.5 ليرة تقريباً
+                    } else if (fromPerson.currency === 'usd' && toPerson.currency === 'lyd') {
+                        defaultRate = 4.8; // 1 دولار = 4.8 دينار ليبي تقريباً
+                    } else if (fromPerson.currency === 'lyd' && toPerson.currency === 'usd') {
+                        defaultRate = 0.21; // 1 دينار ليبي = 0.21 دولار تقريباً
                     }
                     document.getElementById('exchange-rate').value = defaultRate;
                 }
@@ -2243,8 +2542,8 @@
             const exchangeRate = parseFloat(document.getElementById('exchange-rate').value) || 1;
             
             if (!fromId || !toId || amount <= 0) {
-                document.getElementById('amount-source').textContent = '';
-                document.getElementById('amount-received').textContent = '';
+                document.getElementById('amount-source').textContent = '0.00';
+                document.getElementById('amount-received').textContent = '0.00';
                 return;
             }
             
@@ -2917,7 +3216,7 @@
                         <h5 class="mb-0">ملخص التقرير</h5>
                         <small class="text-white">
                             الفترة: ${fromDate.toLocaleDateString('en-US')} - ${toDate.toLocaleDateString('en-US')}
-                            ${filterType !== 'all' ? ` | ${filterType === 'income' ? 'الإيداعات فقط' : 'السحوبات فقط'}` : ''}
+                            ${filterType !== 'all' ? ` | ${filterType === 'income' ? 'الإيداعات فقط' : filterType === 'expense' ? 'السحوبات فقط' : 'التحويلات فقط'}` : ''}
                             ${filterCategory !== 'all' ? ` | ${getCategoryText(filterCategory)}` : ''}
                         </small>
                     </div>
