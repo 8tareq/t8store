@@ -3,61 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🚀 المحاسب الذكي المتقدم</title>
+    <title>👑 مدير المال الذكي</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* نظام ألوان جديد وجذاب */
+        /* نظام ألوان جميل ومتناسق */
         :root {
-            --primary: #6C63FF;
-            --primary-light: #8B85FF;
-            --primary-dark: #4D46D6;
-            --secondary: #FF6584;
-            --secondary-light: #FF8FA3;
-            --success: #00D4AA;
-            --success-light: #33FFD6;
-            --danger: #FF4757;
-            --danger-light: #FF6B7A;
-            --warning: #FFB347;
-            --warning-light: #FFC97A;
-            --info: #36D1DC;
-            --info-light: #5DE7F2;
-            --light: #FAFAFF;
-            --dark: #1A1A2E;
-            --gray: #6C757D;
-            --gray-light: #E8EAED;
+            --primary: #7C3AED;
+            --primary-light: #A78BFA;
+            --primary-dark: #5B21B6;
+            --secondary: #06B6D4;
+            --secondary-light: #22D3EE;
+            --success: #10B981;
+            --success-light: #34D399;
+            --danger: #EF4444;
+            --danger-light: #F87171;
+            --warning: #F59E0B;
+            --warning-light: #FBBF24;
+            --info: #3B82F6;
+            --info-light: #60A5FA;
+            --light: #F9FAFB;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
             
-            /* تدرجات جديدة */
-            --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #8B85FF 100%);
-            --gradient-secondary: linear-gradient(135deg, #FF6584 0%, #FF8FA3 100%);
-            --gradient-success: linear-gradient(135deg, #00D4AA 0%, #33FFD6 100%);
-            --gradient-danger: linear-gradient(135deg, #FF4757 0%, #FF6B7A 100%);
-            --gradient-warning: linear-gradient(135deg, #FFB347 0%, #FFC97A 100%);
-            --gradient-info: linear-gradient(135deg, #36D1DC 0%, #5DE7F2 100%);
-            --gradient-dark: linear-gradient(135deg, #1A1A2E 0%, #2D2D44 100%);
-            --gradient-neon: linear-gradient(135deg, #6C63FF 0%, #FF6584 50%, #00D4AA 100%);
-            --gradient-sunrise: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+            /* تدرجات جميلة */
+            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%);
+            --gradient-success: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+            --gradient-danger: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+            --gradient-warning: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+            --gradient-info: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            --gradient-dark: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+            --gradient-sunset: linear-gradient(135deg, #667EEA 0%, #764BA2 50%, #F093FB 100%);
             
-            /* ظلال جديدة */
-            --shadow-sm: 0 2px 8px rgba(108, 99, 255, 0.1);
-            --shadow-md: 0 6px 20px rgba(108, 99, 255, 0.15);
-            --shadow-lg: 0 15px 35px rgba(108, 99, 255, 0.2);
-            --shadow-xl: 0 25px 50px rgba(108, 99, 255, 0.25);
-            --shadow-primary: 0 10px 30px rgba(108, 99, 255, 0.3);
-            --shadow-success: 0 10px 30px rgba(0, 212, 170, 0.3);
-            --shadow-danger: 0 10px 30px rgba(255, 71, 87, 0.3);
+            /* تأثيرات الظلال */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --shadow-primary: 0 10px 30px rgba(124, 58, 237, 0.3);
+            --shadow-success: 0 10px 30px rgba(16, 185, 129, 0.3);
+            --shadow-danger: 0 10px 30px rgba(239, 68, 68, 0.3);
             
-            /* زوايا دائرية جديدة */
-            --radius-sm: 10px;
-            --radius-md: 16px;
-            --radius-lg: 22px;
-            --radius-xl: 28px;
+            /* زوايا دائرية */
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 24px;
+            --radius-xl: 30px;
             --radius-full: 999px;
-            
-            /* تأثيرات جديدة */
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
         }
         
         /* إعدادات عامة */
@@ -69,56 +63,52 @@
         }
         
         body {
-            font-family: 'Segoe UI', 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 100%);
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
             color: var(--dark);
             min-height: 100vh;
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
         }
         
         /* تخصيص Bootstrap */
         .btn {
             border-radius: var(--radius-md);
             font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
+            transition: all 0.3s ease;
         }
         
         .form-control, .form-select {
             border-radius: var(--radius-md);
-            border: 2px solid transparent;
-            padding: 14px 18px;
+            border: 2px solid var(--gray-light);
+            padding: 12px 16px;
             font-size: 16px;
-            transition: all 0.4s ease;
-            background: var(--light);
-            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
         }
         
         .form-control:focus, .form-select:focus {
             border-color: var(--primary-light);
-            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
             transform: translateY(-2px);
         }
         
-        /* هيدر جديد */
+        /* الهيدر الرئيسي */
         .app-header {
             background: var(--gradient-primary);
             color: white;
-            padding: 18px 20px;
+            padding: 20px;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(15px);
-            animation: slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            animation: slideDown 0.5s ease;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 75px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            height: 70px;
         }
         
         @keyframes slideDown {
@@ -134,58 +124,50 @@
         
         .app-header h4 {
             margin: 0;
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.4rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
-            letter-spacing: -0.5px;
+            gap: 10px;
         }
         
         .current-time {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
             border-radius: var(--radius-full);
-            font-size: 0.95rem;
-            font-weight: 700;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            animation: pulseGlow 3s infinite;
-            box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+            font-size: 0.9rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: pulse 2s infinite;
         }
         
-        @keyframes pulseGlow {
-            0%, 100% { 
-                opacity: 1; 
-                box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
-            }
-            50% { 
-                opacity: 0.9; 
-                box-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
-            }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
         
         /* المحتوى الرئيسي */
         .main-content {
-            padding: 95px 20px 110px;
+            padding: 90px 20px 100px;
             min-height: 100vh;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         .section {
             display: none;
-            animation: fadeInUp 0.6s ease;
+            animation: fadeIn 0.5s ease;
         }
         
         .section.active {
             display: block;
         }
         
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -193,21 +175,20 @@
             }
         }
         
-        /* شريط تنقل سفلي جديد */
+        /* شريط التنقل السفلي */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(25px);
-            border-top: 1px solid rgba(108, 99, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-around;
-            padding: 18px 0;
+            padding: 15px 0;
             z-index: 1000;
-            box-shadow: 0 -10px 30px rgba(108, 99, 255, 0.1);
-            border-radius: 25px 25px 0 0;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
         }
         
         .nav-item {
@@ -218,72 +199,69 @@
             color: var(--gray);
             text-decoration: none;
             flex: 1;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 12px 5px;
+            transition: all 0.3s ease;
+            padding: 10px 5px;
             border-radius: var(--radius-md);
             position: relative;
         }
         
         .nav-item i {
-            font-size: 24px;
-            margin-bottom: 6px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 22px;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
         }
         
         .nav-item span {
-            font-size: 13px;
-            font-weight: 700;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            letter-spacing: -0.3px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
         .nav-item.active {
             color: var(--primary);
-            transform: translateY(-8px);
+            transform: translateY(-5px);
         }
         
         .nav-item.active i {
             color: var(--primary);
-            transform: scale(1.3);
+            transform: scale(1.2);
         }
         
         .nav-item.active::after {
             content: '';
             position: absolute;
-            bottom: -18px;
-            width: 35px;
-            height: 4px;
+            bottom: -15px;
+            width: 30px;
+            height: 3px;
             background: var(--gradient-primary);
             border-radius: var(--radius-full);
-            animation: bounce 1.5s infinite;
-            box-shadow: 0 0 15px rgba(108, 99, 255, 0.5);
+            animation: bounce 1s infinite;
         }
         
         @keyframes bounce {
             0%, 100% { transform: scaleX(1); }
-            50% { transform: scaleX(0.7); }
+            50% { transform: scaleX(0.8); }
         }
         
         .nav-item:hover:not(.active) {
             color: var(--primary-light);
-            transform: translateY(-4px);
-            background: rgba(108, 99, 255, 0.05);
+            transform: translateY(-2px);
         }
         
-        /* بطاقات جديدة */
+        /* البطاقات */
         .card {
             border: none;
-            border-radius: var(--radius-xl);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
             background: white;
-            margin-bottom: 25px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
             overflow: hidden;
-            border: 1px solid rgba(108, 99, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-xl);
         }
         
@@ -291,51 +269,49 @@
             background: var(--gradient-primary);
             color: white;
             border: none;
-            padding: 22px 28px;
-            font-weight: 800;
-            font-size: 1.2rem;
+            padding: 20px 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            letter-spacing: -0.3px;
         }
         
         .card-header i {
-            font-size: 1.3rem;
-            opacity: 0.95;
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         
         .card-body {
-            padding: 28px;
+            padding: 25px;
         }
         
-        /* أزرار العمليات الجديدة */
+        /* أزرار العمليات */
         .operations-buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
         }
         
         .operation-btn {
-            padding: 25px;
-            border-radius: var(--radius-xl);
+            padding: 20px;
+            border-radius: var(--radius-lg);
             border: none;
-            font-weight: 800;
-            font-size: 17px;
+            font-weight: 700;
+            font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 15px;
+            transition: all 0.3s ease;
             cursor: pointer;
             box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
             color: white;
-            min-height: 95px;
+            min-height: 80px;
             text-align: center;
-            letter-spacing: -0.3px;
         }
         
         .operation-btn::before {
@@ -345,8 +321,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-            transition: 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
         }
         
         .operation-btn:hover::before {
@@ -354,12 +330,12 @@
         }
         
         .operation-btn:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-xl);
         }
         
         .operation-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.98);
         }
         
         .operation-btn.primary {
@@ -367,41 +343,39 @@
         }
         
         .operation-btn.transfer {
-            background: var(--gradient-neon);
+            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
         }
         
         .operation-btn i {
-            font-size: 28px;
-            background: rgba(255, 255, 255, 0.25);
-            width: 60px;
-            height: 60px;
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
         }
         
-        /* أزرار مخصصة جديدة */
+        /* الأزرار المخصصة */
         .btn-primary {
             background: var(--gradient-primary);
             border: none;
-            border-radius: var(--radius-xl);
-            padding: 18px 32px;
-            font-weight: 800;
-            font-size: 17px;
+            border-radius: var(--radius-lg);
+            padding: 16px 28px;
+            font-weight: 700;
+            font-size: 16px;
             color: white;
             box-shadow: var(--shadow-primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 12px;
+            transition: all 0.3s ease;
             width: 100%;
             position: relative;
             overflow: hidden;
-            letter-spacing: -0.3px;
         }
         
         .btn-primary::before {
@@ -411,8 +385,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-            transition: 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
         }
         
         .btn-primary:hover::before {
@@ -420,63 +394,51 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
         }
         
         .btn-primary:active {
-            transform: scale(0.97);
+            transform: scale(0.98);
         }
         
-        /* تصميم الأشخاص الجديد */
+        /* تصميم الأشخاص */
         .person-card {
             background: white;
-            border-radius: var(--radius-xl);
-            padding: 28px;
-            margin-bottom: 25px;
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 20px;
             box-shadow: var(--shadow-md);
             display: flex;
             align-items: center;
-            gap: 25px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 20px;
+            transition: all 0.3s ease;
             border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .person-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
         }
         
         .person-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-xl);
             border-color: var(--primary-light);
         }
         
         .person-avatar {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background: var(--gradient-primary);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
             box-shadow: var(--shadow-primary);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
         
         .person-card:hover .person-avatar {
-            transform: scale(1.15) rotate(15deg);
+            transform: scale(1.1) rotate(10deg);
         }
         
         .person-info {
@@ -484,17 +446,16 @@
         }
         
         .person-name {
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--dark);
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            margin-bottom: 5px;
         }
         
         .person-balance {
-            font-size: 1.8rem;
-            font-weight: 900;
-            margin: 12px 0;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 10px 0;
         }
         
         .balance-positive {
@@ -503,8 +464,8 @@
         }
         
         .balance-positive::after {
-            content: '📈';
-            margin-right: 8px;
+            content: '↑';
+            margin-right: 5px;
             animation: floatUp 2s infinite;
         }
         
@@ -514,39 +475,39 @@
         }
         
         .balance-negative::after {
-            content: '📉';
-            margin-right: 8px;
+            content: '↓';
+            margin-right: 5px;
             animation: floatDown 2s infinite;
         }
         
         @keyframes floatUp {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-5px); }
         }
         
         @keyframes floatDown {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(8px); }
+            50% { transform: translateY(5px); }
         }
         
-        /* العناصر المالية الجديدة */
+        /* العناصر المالية */
         .transaction-item {
             background: white;
-            border-radius: var(--radius-lg);
-            padding: 22px;
-            margin-bottom: 18px;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 15px;
             box-shadow: var(--shadow-sm);
-            border-left: 5px solid var(--primary);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .transaction-item:hover {
-            transform: translateX(8px);
+            transform: translateX(5px);
             box-shadow: var(--shadow-md);
-            border-left-width: 10px;
+            border-left-width: 8px;
         }
         
         .transaction-item.income {
@@ -557,17 +518,16 @@
             border-left-color: var(--danger);
         }
         
-        /* الفئات الجديدة */
+        /* الفئات */
         .category-badge {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: var(--radius-full);
-            font-size: 13px;
-            font-weight: 800;
-            margin: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            margin: 4px;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
-            letter-spacing: -0.3px;
         }
         
         .category-rent { background: var(--gradient-danger); color: white; }
@@ -575,73 +535,71 @@
         .category-car { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; }
         .category-living { background: var(--gradient-warning); color: white; }
         .category-personal { background: var(--gradient-primary); color: white; }
-        .category-metro { background: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 100%); color: white; }
+        .category-metro { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; }
         .category-sweets { background: linear-gradient(135deg, #EC4899 0%, #F472B6 100%); color: white; }
-        .category-apartment { background: var(--gradient-success); color: white; }
-        .category-internet { background: var(--gradient-info); color: white; }
-        .category-transfer { background: var(--gradient-neon); color: white; }
+        .category-apartment { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); color: white; }
+        .category-internet { background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%); color: white; }
+        .category-transfer { background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%); color: white; }
         
         .category-badge:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
             box-shadow: var(--shadow-md);
         }
         
-        /* حالة فارغة جديدة */
+        /* حالة فارغة */
         .empty-state {
             text-align: center;
-            padding: 70px 20px;
+            padding: 60px 20px;
             color: var(--gray);
         }
         
         .empty-state i {
-            font-size: 80px;
+            font-size: 70px;
             color: var(--gray-light);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: block;
-            animation: bounceEmpty 3.5s infinite;
+            animation: bounceEmpty 3s infinite;
         }
         
         @keyframes bounceEmpty {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(8deg); }
+            25% { transform: translateY(-10px) rotate(5deg); }
             50% { transform: translateY(0) rotate(0deg); }
-            75% { transform: translateY(-8px) rotate(-8deg); }
+            75% { transform: translateY(-5px) rotate(-5deg); }
         }
         
         .empty-state h5 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
             color: var(--dark);
-            font-weight: 800;
-            letter-spacing: -0.5px;
+            font-weight: 700;
         }
         
         .empty-state p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--gray);
         }
         
-        /* أزرار الإجراءات الجديدة */
+        /* أزرار الإجراءات */
         .action-buttons {
             display: flex;
-            gap: 18px;
-            margin-top: 25px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .action-btn {
             flex: 1;
-            padding: 18px;
-            border-radius: var(--radius-lg);
+            padding: 15px;
+            border-radius: var(--radius-md);
             border: none;
-            font-weight: 800;
+            font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 10px;
+            transition: all 0.3s ease;
             cursor: pointer;
             box-shadow: var(--shadow-md);
-            letter-spacing: -0.3px;
         }
         
         .action-btn.primary {
@@ -665,27 +623,27 @@
         }
         
         .action-btn:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
         
         .action-btn:active {
-            transform: scale(0.97);
+            transform: scale(0.98);
         }
         
-        /* النماذج الجديدة */
+        /* النماذج */
         .modal-content {
-            border-radius: var(--radius-xl);
+            border-radius: var(--radius-lg);
             border: none;
             overflow: hidden;
             box-shadow: var(--shadow-xl);
-            animation: modalSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: modalSlide 0.3s ease;
         }
         
         @keyframes modalSlide {
             from {
                 opacity: 0;
-                transform: translateY(-40px) scale(0.9);
+                transform: translateY(-30px) scale(0.95);
             }
             to {
                 opacity: 1;
@@ -697,88 +655,84 @@
             background: var(--gradient-primary);
             color: white;
             border: none;
-            padding: 28px;
+            padding: 25px;
         }
         
         .modal-header .modal-title {
-            font-weight: 800;
-            font-size: 1.4rem;
+            font-weight: 700;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            gap: 12px;
-            letter-spacing: -0.5px;
+            gap: 10px;
         }
         
         .modal-body {
-            padding: 28px;
+            padding: 25px;
         }
         
-        /* تصميم نموذج التحويل الجديد */
+        /* تصميم نموذج التحويل */
         .transfer-form .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .transfer-form label {
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 8px;
             display: block;
             color: var(--dark);
-            font-size: 15px;
         }
         
         .currency-display {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--gray);
-            margin-top: 8px;
+            margin-top: 5px;
         }
         
         .exchange-rate-section {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            margin: 25px 0;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px 0;
             border: 2px solid var(--info-light);
-            animation: fadeIn 0.6s ease;
+            animation: fadeIn 0.5s ease;
         }
         
         .exchange-rate-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
         
         .exchange-rate-title {
-            font-weight: 800;
+            font-weight: 700;
             color: var(--info);
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 16px;
+            gap: 10px;
         }
         
         .exchange-rate-info {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--gray);
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
         
         .amount-preview {
             background: white;
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            margin: 25px 0;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px 0;
             border: 2px solid var(--success-light);
-            animation: pulse 2.5s infinite;
-            box-shadow: var(--shadow-sm);
+            animation: pulse 2s infinite;
         }
         
         .amount-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-            padding-bottom: 12px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
             border-bottom: 1px solid var(--gray-light);
         }
         
@@ -790,20 +744,19 @@
         
         .amount-label {
             color: var(--gray);
-            font-weight: 600;
         }
         
         .amount-value {
-            font-weight: 800;
-            font-size: 19px;
+            font-weight: 700;
+            font-size: 18px;
         }
         
         .transfer-arrow {
             text-align: center;
-            margin: 18px 0;
+            margin: 15px 0;
             color: var(--info);
-            font-size: 28px;
-            animation: bounce 1.8s infinite;
+            font-size: 24px;
+            animation: bounce 1.5s infinite;
         }
         
         .account-select {
@@ -812,88 +765,83 @@
         
         .account-balance {
             position: absolute;
-            left: 18px;
+            left: 15px;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(108, 99, 255, 0.15);
-            padding: 6px 15px;
+            background: rgba(124, 58, 237, 0.1);
+            padding: 4px 12px;
             border-radius: var(--radius-full);
-            font-size: 13px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 600;
             color: var(--primary);
-            backdrop-filter: blur(5px);
         }
         
-        /* تحسين تصميم إدخال المبلغ */
+        /* تحسين تصميم إدخال المبلغ مع رمز العملة */
         .currency-input-group {
             display: flex;
             border: 2px solid var(--gray-light);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
             overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
         }
         
         .currency-input-group:focus-within {
             border-color: var(--primary-light);
-            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.15);
-            transform: translateY(-3px);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+            transform: translateY(-2px);
         }
         
         .currency-input-group input {
             flex: 1;
             border: none;
-            padding: 14px 18px;
-            font-size: 17px;
+            padding: 12px 16px;
+            font-size: 16px;
             outline: none;
-            background: white;
         }
         
         .currency-symbol {
             background: linear-gradient(135deg, var(--primary-light), var(--primary));
             color: white;
-            padding: 0 25px;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            min-width: 90px;
-            font-size: 17px;
+            font-weight: 700;
+            min-width: 80px;
+            font-size: 16px;
         }
         
-        /* شريط البحث الجديد */
+        /* شريط البحث */
         .search-container {
             position: relative;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .search-input {
             width: 100%;
-            padding: 18px 50px 18px 18px;
+            padding: 15px 45px 15px 15px;
             border: 2px solid var(--gray-light);
             border-radius: var(--radius-full);
-            font-size: 17px;
+            font-size: 16px;
             background: white;
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
         }
         
         .search-input:focus {
             border-color: var(--primary-light);
-            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
             outline: none;
         }
         
         .search-icon {
             position: absolute;
-            left: 18px;
+            left: 15px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--gray);
-            font-size: 18px;
         }
         
-        /* المؤشر الجديد */
+        /* المؤشر */
         .loading-indicator {
             display: none;
             position: fixed;
@@ -902,8 +850,8 @@
             transform: translate(-50%, -50%);
             z-index: 9999;
             background: white;
-            padding: 35px;
-            border-radius: var(--radius-xl);
+            padding: 30px;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-xl);
             text-align: center;
         }
@@ -913,13 +861,13 @@
         }
         
         .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid var(--gray-light);
-            border-top: 4px solid var(--primary);
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--gray-light);
+            border-top: 3px solid var(--primary);
             border-radius: 50%;
-            animation: spin 1.2s linear infinite;
-            margin: 0 auto 25px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
         }
         
         @keyframes spin {
@@ -929,8 +877,8 @@
         
         /* تنسيق الأرقام */
         .currency-amount {
-            font-family: 'SF Mono', 'Courier New', monospace;
-            font-weight: 800;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
         }
         
         .currency-amount.positive {
@@ -941,201 +889,40 @@
             color: var(--danger);
         }
         
-        /* قسم الإحصائيات المتقدمة */
-        .statistics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: 25px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(108, 99, 255, 0.1);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .stat-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        
-        .stat-value {
-            font-size: 2.2rem;
-            font-weight: 900;
-            margin: 10px 0;
-        }
-        
-        .stat-trend {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 5px 12px;
-            border-radius: var(--radius-full);
-            font-size: 13px;
-            font-weight: 700;
-        }
-        
-        .trend-up {
-            background: rgba(0, 212, 170, 0.1);
-            color: var(--success);
-        }
-        
-        .trend-down {
-            background: rgba(255, 71, 87, 0.1);
-            color: var(--danger);
-        }
-        
-        /* مخططات */
-        .chart-container {
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .chart-title {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--dark);
-        }
-        
-        .chart-legend {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .legend-color {
-            width: 12px;
-            height: 12px;
-            border-radius: 2px;
-        }
-        
-        /* توقعات */
-        .forecast-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: var(--radius-xl);
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .forecast-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="white" fill-opacity="0.05" d="M0,0 L100,0 L100,100 Z"/></svg>');
-            background-size: cover;
-        }
-        
-        .forecast-title {
-            font-weight: 800;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            position: relative;
-        }
-        
-        .forecast-value {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin: 15px 0;
-            position: relative;
-        }
-        
-        .forecast-details {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 25px;
-            position: relative;
-        }
-        
-        .forecast-detail {
-            text-align: center;
-        }
-        
-        .forecast-detail .value {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-        
-        .forecast-detail .label {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-        
         /* تحسينات للشاشات الصغيرة */
         @media (max-width: 768px) {
             .main-content {
-                padding: 85px 15px 100px;
+                padding: 80px 15px 90px;
             }
             
             .app-header h4 {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .nav-item span {
-                font-size: 12px;
+                font-size: 11px;
             }
             
             .nav-item i {
-                font-size: 22px;
+                font-size: 20px;
             }
             
             .person-card {
-                padding: 22px;
+                padding: 20px;
             }
             
             .person-avatar {
-                width: 70px;
-                height: 70px;
-                font-size: 28px;
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
             }
             
             .person-name {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .person-balance {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
             
             .operations-buttons {
@@ -1143,64 +930,56 @@
             }
             
             .operation-btn {
-                min-height: 85px;
-                padding: 20px;
+                min-height: 70px;
+                padding: 15px;
             }
             
             .operation-btn i {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
             }
             
             .amount-preview {
-                padding: 20px;
+                padding: 15px;
             }
             
             .exchange-rate-section {
-                padding: 20px;
+                padding: 15px;
             }
             
             .currency-symbol {
-                min-width: 70px;
-                padding: 0 20px;
-                font-size: 16px;
-            }
-            
-            .statistics-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .forecast-details {
-                grid-template-columns: 1fr;
+                min-width: 60px;
+                padding: 0 15px;
+                font-size: 14px;
             }
         }
         
-        /* تأثيرات خاصة جديدة */
+        /* تأثيرات خاصة */
         .glow {
-            animation: glow 3s infinite;
+            animation: glow 2s infinite;
         }
         
         @keyframes glow {
             0%, 100% { box-shadow: var(--shadow-primary); }
-            50% { box-shadow: 0 0 40px rgba(108, 99, 255, 0.6); }
+            50% { box-shadow: 0 0 30px rgba(124, 58, 237, 0.5); }
         }
         
         /* شرائح التقدم */
         .progress-ring {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             transform: rotate(-90deg);
         }
         
         .progress-ring circle {
             fill: transparent;
             stroke: var(--primary);
-            stroke-width: 8;
+            stroke-width: 6;
             stroke-linecap: round;
             stroke-dasharray: 283;
             stroke-dashoffset: 283;
-            animation: progress 2.5s ease-out forwards;
+            animation: progress 2s ease-out forwards;
         }
         
         @keyframes progress {
@@ -1209,19 +988,19 @@
             }
         }
         
-        /* تأثيرات دخول جديدة */
+        /* تأثيرات دخول */
         .fade-in {
-            animation: fadeIn 0.8s ease;
+            animation: fadeIn 0.6s ease;
         }
         
         .slide-in-right {
-            animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideInRight 0.5s ease;
         }
         
         @keyframes slideInRight {
             from {
                 opacity: 0;
-                transform: translateX(40px);
+                transform: translateX(30px);
             }
             to {
                 opacity: 1;
@@ -1229,7 +1008,7 @@
             }
         }
         
-        /* خلفيات ديكور جديدة */
+        /* خلفيات ديكور */
         .bg-pattern {
             position: fixed;
             top: 0;
@@ -1238,11 +1017,8 @@
             bottom: 0;
             z-index: -1;
             opacity: 0.03;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(108, 99, 255, 0.3) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 101, 132, 0.3) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(0, 212, 170, 0.3) 0%, transparent 30%);
-            background-size: 200px 200px;
+            background-image: radial-gradient(var(--primary) 2px, transparent 2px);
+            background-size: 40px 40px;
         }
         
         /* تحسينات الطباعة */
@@ -1263,6 +1039,48 @@
                 border: 1px solid #ddd;
             }
         }
+
+        /* تحسينات التقارير */
+        .report-card {
+            border-radius: var(--radius-lg);
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .report-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .summary-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .summary-item.income {
+            border-color: var(--success);
+        }
+
+        .summary-item.expense {
+            border-color: var(--danger);
+        }
+
+        .summary-item.net {
+            border-color: var(--primary);
+        }
+
+        .category-chart {
+            height: 300px;
+            width: 100%;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -1278,7 +1096,7 @@
     <!-- الهيدر الثابت -->
     <div class="app-header">
         <div style="width: 40px;"></div>
-        <h4 id="header-title">🚀 المحاسب الذكي</h4>
+        <h4 id="header-title">👑 الحسابات الذكية</h4>
         <div class="current-time" id="header-time">--:--</div>
     </div>
     
@@ -1287,57 +1105,17 @@
         <!-- قسم الحسابات -->
         <div class="section active" id="accounts-section">
             <div class="mb-4 fade-in">
-                <h2 class="fw-bold mb-2">👥 إدارة الحسابات المتقدمة</h2>
-                <p class="text-muted">تابع وتحكم في جميع حساباتك المالية من مكان واحد</p>
+                <h2 class="fw-bold mb-2">👥 إدارة الحسابات</h2>
+                <p class="text-muted">تابع أرصدة الأشخاص وإدارتهم بسهولة</p>
             </div>
             
-            <div class="statistics-grid">
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #6C63FF 0%, #8B85FF 100%); color: white;">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="text-muted small">إجمالي الحسابات</div>
-                    <div class="stat-value" id="total-accounts">0</div>
-                    <div class="stat-trend trend-up">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>0%</span>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #00D4AA 0%, #33FFD6 100%); color: white;">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <div class="text-muted small">إجمالي الأرصدة</div>
-                    <div class="stat-value" id="total-balance">0 ₺</div>
-                    <div class="stat-trend trend-up">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>0%</span>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #FF6584 0%, #FF8FA3 100%); color: white;">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <div class="text-muted small">العمليات اليوم</div>
-                    <div class="stat-value" id="daily-transactions">0</div>
-                    <div class="stat-trend trend-down">
-                        <i class="fas fa-arrow-down"></i>
-                        <span>0%</span>
-                    </div>
-                </div>
-            </div>
+            <button class="btn btn-primary mb-4 glow" data-bs-toggle="modal" data-bs-target="#addPersonModal">
+                <i class="fas fa-user-plus"></i> إضافة شخص جديد
+            </button>
             
-            <div class="d-grid gap-3 mb-4">
-                <button class="btn btn-primary glow" data-bs-toggle="modal" data-bs-target="#addPersonModal">
-                    <i class="fas fa-user-plus"></i> إضافة حساب جديد
-                </button>
-                
-                <button class="btn btn-primary" style="background: var(--gradient-success);" id="openStatementModal">
-                    <i class="fas fa-file-invoice-dollar"></i> كشف حساب مفصل
-                </button>
-            </div>
+            <button class="btn btn-primary mb-4" style="background: var(--gradient-success);" id="openStatementModal">
+                <i class="fas fa-file-invoice"></i> كشف الحساب
+            </button>
             
             <div id="people-list" class="mt-3">
                 <!-- سيتم ملء هذا القسم بالبيانات -->
@@ -1347,344 +1125,162 @@
         <!-- قسم العمليات -->
         <div class="section" id="transactions-section">
             <div class="mb-4 fade-in">
-                <h2 class="fw-bold mb-2">💰 العمليات المالية المتقدمة</h2>
-                <p class="text-muted">سجل وتحكم في جميع معاملاتك المالية بسهولة</p>
+                <h2 class="fw-bold mb-2">💰 العمليات المالية</h2>
+                <p class="text-muted">سجل عمليات الإيداع والسحب والتحويل بسهولة</p>
             </div>
             
             <div class="operations-buttons">
                 <button class="operation-btn primary" data-bs-toggle="modal" data-bs-target="#addTransactionModal">
                     <i class="fas fa-exchange-alt"></i>
                     <div>
-                        <div>إضافة معاملة جديدة</div>
-                        <small>إيداع أو سحب أو فاتورة</small>
+                        <div>إضافة عملية جديدة</div>
+                        <small>إيداع أو سحب</small>
                     </div>
                 </button>
                 
                 <button class="operation-btn transfer" data-bs-toggle="modal" data-bs-target="#transferModal">
                     <i class="fas fa-money-bill-transfer"></i>
                     <div>
-                        <div>تحويل أموال</div>
-                        <small>بين الحسابات أو البنوك</small>
-                    </div>
-                </button>
-                
-                <button class="operation-btn" style="background: var(--gradient-success);" id="quick-income">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <div>
-                        <div>إيداع سريع</div>
-                        <small>سجل إيراد فوري</small>
+                        <div>تحويل بين الحسابات</div>
+                        <small>تحويل داخلي أو بين عملات</small>
                     </div>
                 </button>
             </div>
             
             <div class="search-container mb-4">
-                <input type="text" class="search-input" id="transaction-search" placeholder="🔍 ابحث في المعاملات...">
+                <input type="text" class="search-input" id="transaction-search" placeholder="🔍 ابحث في العمليات...">
             </div>
             
-            <div class="row g-3 mb-4">
-                <div class="col-md-6">
-                    <select class="form-select" id="transaction-filter">
-                        <option value="10">آخر 10 معاملات</option>
-                        <option value="20">آخر 20 معاملة</option>
-                        <option value="50">آخر 50 معاملة</option>
-                        <option value="all">جميع المعاملات</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <select class="form-select" id="transaction-sort">
-                        <option value="date-desc">الأحدث أولاً</option>
-                        <option value="date-asc">الأقدم أولاً</option>
-                        <option value="amount-desc">المبلغ (من كبير)</option>
-                        <option value="amount-asc">المبلغ (من صغير)</option>
-                    </select>
-                </div>
-            </div>
+            <select class="form-select mb-4" id="transaction-filter">
+                <option value="10">آخر 10 عمليات</option>
+                <option value="20">آخر 20 عملية</option>
+                <option value="50">آخر 50 عملية</option>
+                <option value="all">جميع العمليات</option>
+            </select>
             
             <div id="transactions-list">
                 <!-- سيتم ملء هذا القسم بالبيانات -->
             </div>
         </div>
         
-        <!-- قسم الإحصائيات المتقدمة -->
+        <!-- قسم الإحصائيات -->
         <div class="section" id="statistics-section">
             <div class="mb-4 fade-in">
-                <h2 class="fw-bold mb-2">📊 الإحصائيات المتقدمة</h2>
-                <p class="text-muted">تحليل دقيق وتقارير متكاملة عن أدائك المالي</p>
+                <h2 class="fw-bold mb-2">📊 التقارير والإحصائيات</h2>
+                <p class="text-muted">تحليل دقيق للعمليات المالية حسب الأسباب</p>
             </div>
             
-            <!-- إحصائيات سريعة -->
-            <div class="statistics-grid">
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #00D4AA 0%, #33FFD6 100%); color: white;">
-                        <i class="fas fa-arrow-up"></i>
-                    </div>
-                    <div class="text-muted small">إجمالي الإيداعات</div>
-                    <div class="stat-value text-success" id="total-income">0 ₺</div>
-                    <div class="stat-trend trend-up">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>0%</span>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #FF4757 0%, #FF6B7A 100%); color: white;">
-                        <i class="fas fa-arrow-down"></i>
-                    </div>
-                    <div class="text-muted small">إجمالي المصروفات</div>
-                    <div class="stat-value text-danger" id="total-expense">0 ₺</div>
-                    <div class="stat-trend trend-down">
-                        <i class="fas fa-arrow-down"></i>
-                        <span>0%</span>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #6C63FF 0%, #8B85FF 100%); color: white;">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <div class="text-muted small">صافي الدخل</div>
-                    <div class="stat-value text-primary" id="net-income">0 ₺</div>
-                    <div class="stat-trend trend-up">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>0%</span>
-                    </div>
-                </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #FFB347 0%, #FFC97A 100%); color: white;">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="text-muted small">متوسط المعاملات</div>
-                    <div class="stat-value text-warning" id="avg-transaction">0 ₺</div>
-                    <div class="stat-trend trend-up">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>0%</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- توقعات -->
-            <div class="forecast-card mb-4">
-                <div class="forecast-title">التوقعات الشهرية</div>
-                <div class="forecast-value" id="monthly-forecast">0 ₺</div>
-                <div class="forecast-details">
-                    <div class="forecast-detail">
-                        <div class="value" id="forecast-income">0 ₺</div>
-                        <div class="label">الإيرادات المتوقعة</div>
-                    </div>
-                    <div class="forecast-detail">
-                        <div class="value" id="forecast-expense">0 ₺</div>
-                        <div class="label">المصروفات المتوقعة</div>
-                    </div>
-                    <div class="forecast-detail">
-                        <div class="value" id="forecast-savings">0 ₺</div>
-                        <div class="label">التوفير المتوقع</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- التصفية -->
             <div class="card mb-4">
                 <div class="card-header">
-                    <i class="fas fa-filter"></i> تصفية التقارير المتقدمة
+                    <i class="fas fa-filter"></i> تصفية التقارير
                 </div>
                 <div class="card-body">
                     <div class="row g-3 mb-4">
-                        <div class="col-md-4">
-                            <label class="form-label">نوع المعاملة</label>
-                            <select class="form-select" id="filter-type">
-                                <option value="all">الكل</option>
-                                <option value="income">الإيداعات</option>
-                                <option value="expense">السحوبات</option>
-                                <option value="transfer">التحويلات</option>
-                            </select>
+                        <div class="col-12">
+                            <h5 class="mb-3">نوع العملية</h5>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <button class="btn btn-sm filter-btn active" data-filter-type="all">الكل</button>
+                                <button class="btn btn-sm filter-btn" data-filter-type="income">الإيداعات</button>
+                                <button class="btn btn-sm filter-btn" data-filter-type="expense">السحوبات</button>
+                                <button class="btn btn-sm filter-btn" data-filter-type="transfer">التحويلات</button>
+                            </div>
                         </div>
                         
-                        <div class="col-md-4">
-                            <label class="form-label">الفترة الزمنية</label>
-                            <select class="form-select" id="filter-period">
-                                <option value="last-30">آخر 30 يوم</option>
-                                <option value="last-90">آخر 90 يوم</option>
-                                <option value="this-month">هذا الشهر</option>
-                                <option value="last-month">الشهر الماضي</option>
-                                <option value="this-year">هذه السنة</option>
-                                <option value="custom">مخصص</option>
-                            </select>
+                        <div class="col-12">
+                            <h5 class="mb-3">الفترة الزمنية</h5>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <button class="btn btn-sm filter-btn active" data-filter-period="last-30">آخر 30 يوم</button>
+                                <button class="btn btn-sm filter-btn" data-filter-period="last-90">آخر 90 يوم</button>
+                                <button class="btn btn-sm filter-btn" data-filter-period="this-month">هذا الشهر</button>
+                                <button class="btn btn-sm filter-btn" data-filter-period="last-month">الشهر الماضي</button>
+                                <button class="btn btn-sm filter-btn" data-filter-period="custom">مخصص</button>
+                            </div>
+                            
+                            <div class="row g-2 mt-2" id="custom-date-range" style="display: none;">
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="report-from-date">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="report-to-date">
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="col-md-4">
-                            <label class="form-label">تصنيف الفئة</label>
-                            <select class="form-select" id="filter-category">
-                                <option value="all">جميع الفئات</option>
+                        <div class="col-12">
+                            <h5 class="mb-3">نوع المصروف</h5>
+                            <div class="d-flex gap-2 flex-wrap" id="category-filters">
                                 <!-- سيتم ملؤها تلقائياً -->
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="row g-2 mb-3" id="custom-date-range" style="display: none;">
-                        <div class="col-md-6">
-                            <label class="form-label">من تاريخ</label>
-                            <input type="date" class="form-control" id="report-from-date">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">إلى تاريخ</label>
-                            <input type="date" class="form-control" id="report-to-date">
+                            </div>
                         </div>
                     </div>
                     
                     <div class="action-buttons">
-                        <button class="action-btn primary" id="generate-report">
-                            <i class="fas fa-chart-pie"></i> توليد تقرير متقدم
+                        <button class="action-btn primary" id="generate-category-report">
+                            <i class="fas fa-chart-pie"></i> توليد التقرير
                         </button>
-                        <button class="action-btn success" id="export-report">
-                            <i class="fas fa-file-export"></i> تصدير التقرير
-                        </button>
-                        <button class="action-btn warning" id="print-report">
-                            <i class="fas fa-print"></i> طباعة التقرير
+                        <button class="action-btn success" id="print-category-report">
+                            <i class="fas fa-print"></i> طباعة
                         </button>
                     </div>
                 </div>
             </div>
             
-            <!-- المخططات -->
-            <div class="chart-container mb-4">
-                <div class="chart-header">
-                    <div class="chart-title">تحليل الفئات</div>
-                    <div class="chart-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #6C63FF;"></div>
-                            <span>الإيداعات</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background: #FF4757;"></div>
-                            <span>المصروفات</span>
-                        </div>
-                    </div>
-                </div>
-                <div id="category-chart" style="height: 300px; width: 100%;">
-                    <!-- سيتم إنشاء المخطط هنا -->
-                </div>
+            <div id="report-summary" class="mb-4">
+                <!-- ملخص التقرير -->
             </div>
             
-            <!-- التقارير التفصيلية -->
-            <div id="reports-container"></div>
+            <div id="category-reports-container">
+                <!-- التقارير التفصيلية -->
+            </div>
         </div>
         
-        <!-- قسم الإعدادات المتقدمة -->
+        <!-- قسم الإعدادات -->
         <div class="section" id="settings-section">
             <div class="mb-4 fade-in">
-                <h2 class="fw-bold mb-2">⚙️ الإعدادات المتقدمة</h2>
-                <p class="text-muted">إدارة وتخصيص إعدادات التطبيق حسب احتياجاتك</p>
+                <h2 class="fw-bold mb-2">⚙️ الإعدادات</h2>
+                <p class="text-muted">إدارة إعدادات التطبيق والبيانات</p>
             </div>
             
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-header">
-                            <i class="fas fa-paper-plane"></i> إعدادات الإشعارات
-                        </div>
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label class="form-label">رمز بوت التلجرام</label>
-                                <input type="text" class="form-control" id="telegram-token" placeholder="أدخل رمز البوت">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">معرف الدردشة</label>
-                                <input type="text" class="form-control" id="telegram-chat-id" placeholder="أدخل معرف الدردشة">
-                            </div>
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="notify-transactions">
-                                <label class="form-check-label" for="notify-transactions">إشعارات المعاملات</label>
-                            </div>
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="notify-balance">
-                                <label class="form-check-label" for="notify-balance">إشعارات الرصيد المنخفض</label>
-                            </div>
-                            <div class="action-buttons">
-                                <button class="action-btn primary" id="save-notifications">
-                                    <i class="fas fa-save"></i> حفظ الإعدادات
-                                </button>
-                                <button class="action-btn success" id="test-notifications">
-                                    <i class="fas fa-paper-plane"></i> اختبار
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-paper-plane"></i> إعدادات التلقرام
                 </div>
-                
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-header">
-                            <i class="fas fa-cogs"></i> إعدادات التطبيق
-                        </div>
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label class="form-label">العملة الأساسية</label>
-                                <select class="form-select" id="base-currency">
-                                    <option value="try">ليرة تركية (TRY)</option>
-                                    <option value="usd">دولار أمريكي (USD)</option>
-                                    <option value="lyd">دينار ليبي (LYD)</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">تنسيق التاريخ</label>
-                                <select class="form-select" id="date-format">
-                                    <option value="dd/mm/yyyy">يوم/شهر/سنة</option>
-                                    <option value="mm/dd/yyyy">شهر/يوم/سنة</option>
-                                    <option value="yyyy-mm-dd">سنة-شهر-يوم</option>
-                                </select>
-                            </div>
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="dark-mode" checked>
-                                <label class="form-check-label" for="dark-mode">الوضع الداكن</label>
-                            </div>
-                            <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" id="auto-backup" checked>
-                                <label class="form-check-label" for="auto-backup">نسخ احتياطي تلقائي</label>
-                            </div>
-                        </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">رمز التلقرام</label>
+                        <input type="text" class="form-control" id="telegram-token" placeholder="أدخل رمز البوت">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">معرف الدردشة</label>
+                        <input type="text" class="form-control" id="telegram-chat-id" placeholder="أدخل معرف الدردشة">
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn primary" id="save-telegram-settings">
+                            <i class="fas fa-save"></i> حفظ
+                        </button>
+                        <button class="action-btn success" id="test-telegram">
+                            <i class="fas fa-paper-plane"></i> اختبار
+                        </button>
                     </div>
                 </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
-                    <i class="fas fa-database"></i> إدارة البيانات المتقدمة
+                    <i class="fas fa-database"></i> إدارة البيانات
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <button class="action-btn primary w-100" id="export-data">
-                                <i class="fas fa-download"></i> تصدير البيانات
-                            </button>
-                            <small class="text-muted d-block mt-2">تصدير جميع البيانات بصيغة JSON</small>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <button class="action-btn warning w-100" id="import-data">
-                                <i class="fas fa-upload"></i> استيراد البيانات
-                            </button>
-                            <small class="text-muted d-block mt-2">استيراد بيانات من ملف</small>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <button class="action-btn danger w-100" id="clear-data">
-                                <i class="fas fa-trash"></i> مسح البيانات
-                            </button>
-                            <small class="text-muted d-block mt-2">حذف جميع البيانات نهائياً</small>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 p-3 bg-light rounded">
-                        <h6 class="mb-3">معلومات التطبيق</h6>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <small class="text-muted d-block">الإصدار: <span id="app-version">2.0.0</span></small>
-                                <small class="text-muted d-block">عدد الحسابات: <span id="info-accounts">0</span></small>
-                            </div>
-                            <div class="col-md-6">
-                                <small class="text-muted d-block">عدد المعاملات: <span id="info-transactions">0</span></small>
-                                <small class="text-muted d-block">آخر تحديث: <span id="last-update">-</span></span></small>
-                            </div>
-                        </div>
+                    <p class="text-muted mb-4">نسخ احتياطي أو استعادة للبيانات</p>
+                    <div class="d-grid gap-3">
+                        <button class="action-btn primary" id="export-data">
+                            <i class="fas fa-download"></i> تصدير البيانات
+                        </button>
+                        <button class="action-btn warning" id="import-data">
+                            <i class="fas fa-upload"></i> استيراد البيانات
+                        </button>
+                        <button class="action-btn danger" id="clear-data">
+                            <i class="fas fa-trash"></i> مسح جميع البيانات
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1694,19 +1290,19 @@
     <!-- الشريط السفلي -->
     <div class="bottom-nav">
         <a href="#" class="nav-item active" data-section="accounts">
-            <i class="fas fa-wallet"></i>
+            <i class="fas fa-users"></i>
             <span>الحسابات</span>
         </a>
         <a href="#" class="nav-item" data-section="transactions">
             <i class="fas fa-exchange-alt"></i>
-            <span>المعاملات</span>
+            <span>العمليات</span>
         </a>
         <a href="#" class="nav-item" data-section="statistics">
-            <i class="fas fa-chart-pie"></i>
+            <i class="fas fa-chart-bar"></i>
             <span>الإحصائيات</span>
         </a>
         <a href="#" class="nav-item" data-section="settings">
-            <i class="fas fa-sliders-h"></i>
+            <i class="fas fa-cog"></i>
             <span>الإعدادات</span>
         </a>
     </div>
@@ -1717,22 +1313,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-user-plus"></i> إضافة حساب جديد</h5>
+                    <h5 class="modal-title"><i class="fas fa-user-plus"></i> إضافة شخص جديد</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">اسم الحساب</label>
-                        <input type="text" class="form-control" id="person-name" placeholder="أدخل اسم الحساب">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">نوع الحساب</label>
-                        <select class="form-select" id="person-type">
-                            <option value="personal">شخصي</option>
-                            <option value="business">عمل</option>
-                            <option value="savings">توفير</option>
-                            <option value="investment">استثمار</option>
-                        </select>
+                        <label class="form-label">اسم الشخص</label>
+                        <input type="text" class="form-control" id="person-name" placeholder="أدخل اسم الشخص">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">العملة</label>
@@ -1744,7 +1331,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">الرصيد الابتدائي</label>
-                        <input type="number" class="form-control" id="person-initial-balance" value="0" step="0.01">
+                        <input type="number" class="form-control" id="person-initial-balance" value="0">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1760,24 +1347,23 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-exchange-alt"></i> إضافة معاملة</h5>
+                    <h5 class="modal-title"><i class="fas fa-exchange-alt"></i> إضافة عملية</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">نوع المعاملة</label>
+                        <label class="form-label">نوع العملية</label>
                         <select class="form-select" id="transaction-type">
                             <option value="income">إيداع</option>
                             <option value="expense">سحب</option>
-                            <option value="invoice">فاتورة</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">اختر الحساب</label>
+                        <label class="form-label">اختر الشخص</label>
                         <select class="form-select" id="transaction-person"></select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">تصنيف الفئة</label>
+                        <label class="form-label">نوع المصروف</label>
                         <select class="form-select" id="transaction-category">
                             <option value="rent">إيجار</option>
                             <option value="electricity">كهرباء</option>
@@ -1788,22 +1374,15 @@
                             <option value="sweets">حلويات</option>
                             <option value="apartment">الشقة</option>
                             <option value="internet">انترنت</option>
-                            <option value="salary">راتب</option>
-                            <option value="investment">استثمار</option>
-                            <option value="gift">هدية</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">المبلغ</label>
-                        <input type="number" class="form-control" id="transaction-amount" placeholder="أدخل المبلغ" step="0.01">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">تاريخ المعاملة</label>
-                        <input type="date" class="form-control" id="transaction-date" value="">
+                        <input type="number" class="form-control" id="transaction-amount" placeholder="أدخل المبلغ">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">الوصف (اختياري)</label>
-                        <textarea class="form-control" id="transaction-description" rows="3" placeholder="وصف تفصيلي للمعاملة"></textarea>
+                        <textarea class="form-control" id="transaction-description" rows="2" placeholder="وصف العملية"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1844,7 +1423,7 @@
                     <div class="form-group">
                         <label class="form-label">المبلغ المراد تحويله</label>
                         <div class="currency-input-group">
-                            <input type="number" class="form-control" id="transfer-amount" placeholder="أدخل المبلغ" step="0.01">
+                            <input type="number" class="form-control" id="transfer-amount" placeholder="أدخل المبلغ">
                             <div class="currency-symbol" id="transfer-currency-symbol">TRY</div>
                         </div>
                         <div class="currency-display">المبلغ بالعملة الأصلية للحساب المرسل</div>
@@ -1886,13 +1465,8 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">تاريخ التحويل</label>
-                        <input type="date" class="form-control" id="transfer-date" value="">
-                    </div>
-                    
-                    <div class="form-group">
                         <label class="form-label">ملاحظة (اختياري)</label>
-                        <textarea class="form-control" id="transfer-notes" rows="3" placeholder="ملاحظة حول عملية التحويل"></textarea>
+                        <textarea class="form-control" id="transfer-notes" rows="2" placeholder="ملاحظة حول عملية التحويل"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1910,21 +1484,20 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-edit"></i> تعديل المعاملة</h5>
+                    <h5 class="modal-title"><i class="fas fa-edit"></i> تعديل العملية</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="edit-transaction-id">
                     <div class="mb-3">
-                        <label class="form-label">نوع المعاملة</label>
+                        <label class="form-label">نوع العملية</label>
                         <select class="form-select" id="edit-transaction-type">
                             <option value="income">إيداع</option>
                             <option value="expense">سحب</option>
-                            <option value="invoice">فاتورة</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">تصنيف الفئة</label>
+                        <label class="form-label">نوع المصروف</label>
                         <select class="form-select" id="edit-transaction-category">
                             <option value="rent">إيجار</option>
                             <option value="electricity">كهرباء</option>
@@ -1939,15 +1512,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">المبلغ</label>
-                        <input type="number" class="form-control" id="edit-transaction-amount" step="0.01">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">تاريخ المعاملة</label>
-                        <input type="date" class="form-control" id="edit-transaction-date">
+                        <input type="number" class="form-control" id="edit-transaction-amount">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">الوصف</label>
-                        <textarea class="form-control" id="edit-transaction-description" rows="3"></textarea>
+                        <textarea class="form-control" id="edit-transaction-description" rows="2"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -1963,23 +1532,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-user-edit"></i> تعديل الحساب</h5>
+                    <h5 class="modal-title"><i class="fas fa-user-edit"></i> تعديل الشخص</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="edit-person-id">
                     <div class="mb-3">
-                        <label class="form-label">اسم الحساب</label>
+                        <label class="form-label">اسم الشخص</label>
                         <input type="text" class="form-control" id="edit-person-name">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">نوع الحساب</label>
-                        <select class="form-select" id="edit-person-type">
-                            <option value="personal">شخصي</option>
-                            <option value="business">عمل</option>
-                            <option value="savings">توفير</option>
-                            <option value="investment">استثمار</option>
-                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">العملة</label>
@@ -2003,14 +1563,14 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-file-invoice-dollar"></i> كشف حساب مفصل</h5>
+                    <h5 class="modal-title"><i class="fas fa-file-invoice"></i> كشف الحساب</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">اختر الحساب</label>
+                        <label class="form-label">اختر الشخص</label>
                         <select class="form-select" id="statement-person">
-                            <option value="">اختر الحساب</option>
+                            <option value="">اختر الشخص</option>
                         </select>
                     </div>
                     <div class="row mb-3">
@@ -2033,282 +1593,1793 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // بيانات التطبيق المتقدمة
+        // بيانات التطبيق
         let appData = {
-            version: '2.0.0',
             people: [],
             transactions: [],
             settings: {
                 telegramToken: '',
-                telegramChatId: '',
-                baseCurrency: 'try',
-                dateFormat: 'dd/mm/yyyy',
-                darkMode: false,
-                autoBackup: true,
-                notifyTransactions: true,
-                notifyBalance: true
-            },
-            stats: {
-                totalIncome: 0,
-                totalExpense: 0,
-                monthlyAverage: 0,
-                lastUpdated: null
+                telegramChatId: ''
             }
         };
 
         // تهيئة التطبيق
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 جاري تهيئة التطبيق المتقدم...');
+            console.log('جاري تهيئة التطبيق...');
             loadData();
             setupEventListeners();
             updateUI();
             startClock();
-            updateStatistics();
-            setupCharts();
+            updateCategoryFilters();
             
-            // تعيين التاريخ الحالي في الحقول
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('transaction-date').value = today;
-            document.getElementById('transfer-date').value = today;
-            
-            // إخفاء مؤشر التحميل بعد 1.5 ثانية
+            // إخفاء مؤشر التحميل بعد 1 ثانية
             setTimeout(() => {
                 document.getElementById('loadingIndicator').classList.remove('active');
-            }, 1500);
+            }, 1000);
         });
 
         // تحميل البيانات من localStorage
         function loadData() {
             try {
-                const savedData = localStorage.getItem('advancedFinanceManagerData');
+                const savedData = localStorage.getItem('appointmentManagerData');
                 if (savedData) {
-                    const parsed = JSON.parse(savedData);
-                    appData = {
-                        ...appData,
-                        ...parsed,
-                        settings: { ...appData.settings, ...parsed.settings }
-                    };
-                    console.log('✅ تم تحميل البيانات بنجاح');
-                    
-                    // تحديث معلومات التطبيق
-                    updateAppInfo();
+                    appData = JSON.parse(savedData);
+                    console.log('تم تحميل البيانات بنجاح');
                 }
             } catch (error) {
-                console.error('❌ خطأ في تحميل البيانات:', error);
+                console.error('خطأ في تحميل البيانات:', error);
             }
         }
 
         // حفظ البيانات إلى localStorage
         function saveData() {
             try {
-                appData.stats.lastUpdated = new Date().toISOString();
-                localStorage.setItem('advancedFinanceManagerData', JSON.stringify(appData));
-                console.log('💾 تم حفظ البيانات بنجاح');
-                updateAppInfo();
+                localStorage.setItem('appointmentManagerData', JSON.stringify(appData));
+                console.log('تم حفظ البيانات بنجاح');
             } catch (error) {
-                console.error('❌ خطأ في حفظ البيانات:', error);
+                console.error('خطأ في حفظ البيانات:', error);
             }
         }
 
-        // تحديث إحصائيات التطبيق
-        function updateStatistics() {
-            // حساب الإحصائيات الأساسية
-            const totalAccounts = appData.people.length;
-            const totalBalance = appData.people.reduce((sum, person) => sum + person.balance, 0);
+        // تحديث مرشحات الفئات بناءً على العمليات الحالية
+        function updateCategoryFilters() {
+            const container = document.getElementById('category-filters');
+            if (!container) return;
             
-            const today = new Date().toISOString().split('T')[0];
-            const dailyTransactions = appData.transactions.filter(t => 
-                t.date && t.date.startsWith(today)
-            ).length;
+            // جميع الفئات الأساسية
+            const allCategories = {
+                'all': 'الكل',
+                'rent': 'إيجار',
+                'electricity': 'كهرباء',
+                'car': 'سيارة',
+                'living': 'معيشة',
+                'personal': 'لزوم شخصية',
+                'metro': 'مترو',
+                'sweets': 'حلويات',
+                'apartment': 'الشقة',
+                'internet': 'انترنت',
+                'transfer': 'تحويل'
+            };
             
-            // حساب الإيرادات والمصروفات
+            container.innerHTML = `
+                <button class="btn btn-sm filter-btn active" data-filter-category="all">الكل</button>
+            `;
+            
+            // إضافة الفئات الموجودة في العمليات فقط
+            const existingCategories = new Set();
+            appData.transactions.forEach(transaction => {
+                if (transaction.category) {
+                    existingCategories.add(transaction.category);
+                }
+            });
+            
+            Object.keys(allCategories).forEach(category => {
+                if (category !== 'all' && existingCategories.has(category)) {
+                    container.innerHTML += `
+                        <button class="btn btn-sm filter-btn" data-filter-category="${category}">${allCategories[category]}</button>
+                    `;
+                }
+            });
+        }
+
+        // إعداد مستمعي الأحداث
+        function setupEventListeners() {
+            // التنقل بين الأقسام
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.dataset.section;
+                    switchSection(section);
+                });
+            });
+
+            // إضافة شخص
+            document.getElementById('save-person').addEventListener('click', function() {
+                const name = document.getElementById('person-name').value.trim();
+                const currency = document.getElementById('person-initial-currency').value;
+                const balance = parseFloat(document.getElementById('person-initial-balance').value) || 0;
+                
+                if (name) {
+                    addPerson(name, currency, balance);
+                    
+                    // إغلاق النموذج وإعادة التعيين
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addPersonModal'));
+                    modal.hide();
+                    document.getElementById('person-name').value = '';
+                    document.getElementById('person-initial-balance').value = '0';
+                    
+                    alert('تم إضافة الشخص بنجاح ✅');
+                } else {
+                    alert('يرجى إدخال اسم الشخص');
+                }
+            });
+
+            // إضافة عملية
+            document.getElementById('save-transaction').addEventListener('click', function() {
+                const type = document.getElementById('transaction-type').value;
+                const personId = document.getElementById('transaction-person').value;
+                const category = document.getElementById('transaction-category').value;
+                const amount = parseFloat(document.getElementById('transaction-amount').value);
+                const description = document.getElementById('transaction-description').value.trim();
+                
+                if (personId && amount > 0) {
+                    addTransaction(type, personId, category, amount, description);
+                    
+                    // إغلاق النموذج وإعادة التعيين
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addTransactionModal'));
+                    modal.hide();
+                    document.getElementById('transaction-amount').value = '';
+                    document.getElementById('transaction-description').value = '';
+                    
+                    alert('تم إضافة العملية بنجاح ✅');
+                    updateCategoryFilters();
+                } else {
+                    alert('يرجى اختيار شخص وإدخال مبلغ صحيح');
+                }
+            });
+
+            // تحديث عملية
+            document.getElementById('update-transaction').addEventListener('click', function() {
+                const id = document.getElementById('edit-transaction-id').value;
+                const type = document.getElementById('edit-transaction-type').value;
+                const category = document.getElementById('edit-transaction-category').value;
+                const amount = parseFloat(document.getElementById('edit-transaction-amount').value);
+                const description = document.getElementById('edit-transaction-description').value.trim();
+                
+                if (amount > 0) {
+                    updateTransaction(id, type, category, amount, description);
+                    
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('editTransactionModal'));
+                    modal.hide();
+                    
+                    alert('تم تحديث العملية بنجاح ✅');
+                    updateCategoryFilters();
+                } else {
+                    alert('يرجى إدخال مبلغ صحيح');
+                }
+            });
+
+            // تحديث شخص
+            document.getElementById('update-person').addEventListener('click', function() {
+                const id = document.getElementById('edit-person-id').value;
+                const name = document.getElementById('edit-person-name').value.trim();
+                const currency = document.getElementById('edit-person-currency').value;
+                
+                if (name) {
+                    updatePerson(id, name, currency);
+                    
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('editPersonModal'));
+                    modal.hide();
+                    
+                    alert('تم تحديث الشخص بنجاح ✅');
+                } else {
+                    alert('يرجى إدخال اسم الشخص');
+                }
+            });
+
+            // إعدادات التلقرام
+            document.getElementById('save-telegram-settings').addEventListener('click', function() {
+                appData.settings.telegramToken = document.getElementById('telegram-token').value.trim();
+                appData.settings.telegramChatId = document.getElementById('telegram-chat-id').value.trim();
+                saveData();
+                alert('تم حفظ إعدادات التلقرام بنجاح ✅');
+            });
+
+            document.getElementById('test-telegram').addEventListener('click', function() {
+                sendTelegramNotification('🔔 هذا رسالة اختبار من برنامج إدارة الحسابات\nتم الإرسال بنجاح ✅');
+            });
+
+            // إدارة البيانات
+            document.getElementById('export-data').addEventListener('click', exportData);
+            document.getElementById('import-data').addEventListener('click', importData);
+            document.getElementById('clear-data').addEventListener('click', clearData);
+
+            // البحث في العمليات
+            document.getElementById('transaction-search').addEventListener('input', function() {
+                updateTransactionsList(this.value.toLowerCase());
+            });
+
+            // تصفية العمليات
+            document.getElementById('transaction-filter').addEventListener('change', updateTransactionsList);
+
+            // فتح نموذج كشف الحساب
+            document.getElementById('openStatementModal').addEventListener('click', function() {
+                updateStatementPersonSelect();
+                const modal = new bootstrap.Modal(document.getElementById('statementModal'));
+                modal.show();
+            });
+
+            // توليد كشف الحساب
+            document.getElementById('generate-statement').addEventListener('click', generateStatement);
+
+            // التقارير
+            document.getElementById('generate-category-report').addEventListener('click', generateCategoryReport);
+            document.getElementById('print-category-report').addEventListener('click', printCategoryReport);
+
+            // تصفية التقارير
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // إزالة active من جميع الأزرار في نفس المجموعة
+                    const filterType = this.dataset.filterType || 
+                                     this.dataset.filterPeriod || 
+                                     this.dataset.filterCategory;
+                    
+                    if (this.dataset.filterType) {
+                        document.querySelectorAll('[data-filter-type]').forEach(b => b.classList.remove('active'));
+                    } else if (this.dataset.filterPeriod) {
+                        document.querySelectorAll('[data-filter-period]').forEach(b => b.classList.remove('active'));
+                        const customRange = document.getElementById('custom-date-range');
+                        if (this.dataset.filterPeriod === 'custom') {
+                            customRange.style.display = 'flex';
+                        } else {
+                            customRange.style.display = 'none';
+                        }
+                    } else if (this.dataset.filterCategory) {
+                        document.querySelectorAll('[data-filter-category]').forEach(b => b.classList.remove('active'));
+                    }
+                    
+                    this.classList.add('active');
+                });
+            });
+
+            // تحميل إعدادات التلقرام عند فتح قسم الإعدادات
+            document.querySelector('[data-section="settings"]').addEventListener('click', function() {
+                setTimeout(loadTelegramSettings, 100);
+            });
+
+            // تحديث قائمة التحويل عند فتح النموذج
+            document.querySelector('[data-bs-target="#transferModal"]').addEventListener('click', function() {
+                updateTransferSelects();
+            });
+
+            // تحديث قسم سعر الصرف عند تغيير الحسابات
+            document.getElementById('transfer-from').addEventListener('change', updateExchangeRateSection);
+            document.getElementById('transfer-to').addEventListener('change', updateExchangeRateSection);
+            document.getElementById('transfer-amount').addEventListener('input', updateTransferAmount);
+            document.getElementById('exchange-rate').addEventListener('input', updateTransferAmount);
+
+            // حفظ عملية التحويل
+            document.getElementById('save-transfer').addEventListener('click', saveTransfer);
+        }
+
+        // تبديل الأقسام
+        function switchSection(section) {
+            // تحديث التنقل
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector(`.nav-item[data-section="${section}"]`).classList.add('active');
+            
+            // تحديث العنوان
+            const titles = {
+                accounts: '👑 الحسابات الذكية',
+                transactions: '💰 العمليات المالية',
+                statistics: '📊 التقارير والإحصائيات',
+                settings: '⚙️ الإعدادات'
+            };
+            document.getElementById('header-title').textContent = titles[section];
+            
+            // إظهار القسم المحدد
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            document.getElementById(`${section}-section`).classList.add('active');
+            
+            // تحديث المحتوى حسب القسم
+            if (section === 'accounts') {
+                updatePeopleList();
+            } else if (section === 'transactions') {
+                updateTransactionsList();
+                updateTransactionPersonSelect();
+            } else if (section === 'statistics') {
+                updateCategoryFilters();
+            } else if (section === 'settings') {
+                loadTelegramSettings();
+            }
+        }
+
+        // تحديث واجهة المستخدم
+        function updateUI() {
+            updatePeopleList();
+            updateTransactionsList();
+            updateTransactionPersonSelect();
+            updateStatementPersonSelect();
+            updateTransferSelects();
+            loadTelegramSettings();
+        }
+
+        // بدء الساعة
+        function startClock() {
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        function updateClock() {
+            const now = new Date();
+            // استخدام تنسيق إنجليزي للساعة
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            document.getElementById('header-time').textContent = timeString;
+        }
+
+        // توليد معرف فريد
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        // إضافة شخص
+        function addPerson(name, currency, initialBalance = 0) {
+            const person = {
+                id: generateId(),
+                name,
+                currency,
+                balance: initialBalance,
+                createdAt: new Date().toISOString()
+            };
+            
+            appData.people.push(person);
+            saveData();
+            updatePeopleList();
+            updateTransactionPersonSelect();
+            updateStatementPersonSelect();
+            updateTransferSelects();
+        }
+
+        // تحديث شخص
+        function updatePerson(id, name, currency) {
+            const person = appData.people.find(p => p.id === id);
+            if (person) {
+                person.name = name;
+                person.currency = currency;
+                saveData();
+                updatePeopleList();
+                updateTransactionPersonSelect();
+                updateStatementPersonSelect();
+                updateTransferSelects();
+            }
+        }
+
+        // إضافة عملية
+        function addTransaction(type, personId, category, amount, description = '') {
+            const person = appData.people.find(p => p.id === personId);
+            if (!person) return;
+            
+            // تحديث رصيد الشخص
+            if (type === 'income') {
+                person.balance += amount;
+            } else {
+                person.balance -= amount;
+            }
+            
+            const transaction = {
+                id: generateId(),
+                type,
+                personId,
+                personName: person.name,
+                currency: person.currency,
+                category,
+                amount,
+                description,
+                date: new Date().toISOString()
+            };
+            
+            appData.transactions.push(transaction);
+            saveData();
+            updateTransactionsList();
+            updatePeopleList();
+        }
+
+        // إضافة عملية تحويل
+        function addTransfer(fromPersonId, toPersonId, amount, exchangeRate = 1, notes = '') {
+            const fromPerson = appData.people.find(p => p.id === fromPersonId);
+            const toPerson = appData.people.find(p => p.id === toPersonId);
+            
+            if (!fromPerson || !toPerson) {
+                alert('يرجى اختيار حسابات صحيحة');
+                return false;
+            }
+            
+            if (fromPersonId === toPersonId) {
+                alert('لا يمكن التحويل لنفس الحساب');
+                return false;
+            }
+            
+            if (amount <= 0) {
+                alert('يرجى إدخال مبلغ صحيح');
+                return false;
+            }
+            
+            if (fromPerson.balance < amount) {
+                alert('الرصيد غير كافي لإتمام التحويل');
+                return false;
+            }
+            
+            const receivedAmount = fromPerson.currency === toPerson.currency ? 
+                amount : amount * exchangeRate;
+            
+            // خصم من الحساب المرسل
+            fromPerson.balance -= amount;
+            
+            // إضافة للحساب المستلم
+            toPerson.balance += receivedAmount;
+            
+            // تسجيل العملية كتحويل
+            const transferTransaction = {
+                id: generateId(),
+                type: 'transfer',
+                fromPersonId: fromPersonId,
+                fromPersonName: fromPerson.name,
+                fromCurrency: fromPerson.currency,
+                toPersonId: toPersonId,
+                toPersonName: toPerson.name,
+                toCurrency: toPerson.currency,
+                amount: amount,
+                receivedAmount: receivedAmount,
+                exchangeRate: fromPerson.currency === toPerson.currency ? 1 : exchangeRate,
+                description: notes,
+                date: new Date().toISOString(),
+                category: 'transfer'
+            };
+            
+            appData.transactions.push(transferTransaction);
+            saveData();
+            updateTransactionsList();
+            updatePeopleList();
+            
+            return true;
+        }
+
+        // تحديث عملية
+        function updateTransaction(id, type, category, amount, description = '') {
+            const transaction = appData.transactions.find(t => t.id === id);
+            if (!transaction) return;
+            
+            const person = appData.people.find(p => p.id === transaction.personId);
+            if (!person) return;
+            
+            // إرجاع المبلغ القديم
+            if (transaction.type === 'income') {
+                person.balance -= transaction.amount;
+            } else {
+                person.balance += transaction.amount;
+            }
+            
+            // تحديث بيانات العملية
+            transaction.type = type;
+            transaction.category = category;
+            transaction.amount = amount;
+            transaction.description = description;
+            
+            // تطبيق المبلغ الجديد
+            if (type === 'income') {
+                person.balance += amount;
+            } else {
+                person.balance -= amount;
+            }
+            
+            saveData();
+            updateTransactionsList();
+            updatePeopleList();
+        }
+
+        // تعديل عملية
+        function editTransaction(id) {
+            const transaction = appData.transactions.find(t => t.id === id);
+            if (transaction) {
+                document.getElementById('edit-transaction-id').value = transaction.id;
+                document.getElementById('edit-transaction-type').value = transaction.type;
+                document.getElementById('edit-transaction-category').value = transaction.category;
+                document.getElementById('edit-transaction-amount').value = transaction.amount;
+                document.getElementById('edit-transaction-description').value = transaction.description || '';
+                
+                const modal = new bootstrap.Modal(document.getElementById('editTransactionModal'));
+                modal.show();
+            }
+        }
+
+        // تعديل شخص
+        function editPerson(id) {
+            const person = appData.people.find(p => p.id === id);
+            if (person) {
+                document.getElementById('edit-person-id').value = person.id;
+                document.getElementById('edit-person-name').value = person.name;
+                document.getElementById('edit-person-currency').value = person.currency;
+                
+                const modal = new bootstrap.Modal(document.getElementById('editPersonModal'));
+                modal.show();
+            }
+        }
+
+        // تحديث قائمة الأشخاص
+        function updatePeopleList() {
+            const container = document.getElementById('people-list');
+            
+            if (appData.people.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-users"></i>
+                        <h5>لا توجد حسابات</h5>
+                        <p>اضغط على زر "إضافة شخص جديد" لبدء إدارة حساباتك</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            appData.people.forEach((person, index) => {
+                const balanceClass = person.balance >= 0 ? 'balance-positive' : 'balance-negative';
+                const balanceText = formatCurrency(person.balance, person.currency);
+                const currencyText = getCurrencyText(person.currency);
+                
+                const personCard = document.createElement('div');
+                personCard.className = 'person-card slide-in-right';
+                personCard.style.animationDelay = `${index * 0.1}s`;
+                personCard.innerHTML = `
+                    <div class="person-avatar">${person.name.charAt(0)}</div>
+                    <div class="person-info">
+                        <div class="person-name">${person.name}</div>
+                        <div class="person-balance ${balanceClass}">${balanceText}</div>
+                        <small class="text-muted">${currencyText}</small>
+                    </div>
+                    <div class="d-flex flex-column gap-2">
+                        <button class="btn btn-sm btn-outline-primary edit-person-btn" data-id="${person.id}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger delete-person" data-id="${person.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(personCard);
+            });
+            
+            // إضافة مستمعي الأحداث
+            document.querySelectorAll('.edit-person-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    editPerson(this.dataset.id);
+                });
+            });
+            
+            document.querySelectorAll('.delete-person').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (confirm('هل أنت متأكد من حذف هذا الشخص؟')) {
+                        deletePerson(this.dataset.id);
+                    }
+                });
+            });
+        }
+
+        // تحديث قائمة العمليات
+        function updateTransactionsList(searchTerm = '') {
+            const container = document.getElementById('transactions-list');
+            const filter = document.getElementById('transaction-filter').value;
+            
+            let transactions = [...appData.transactions].sort((a, b) => 
+                new Date(b.date) - new Date(a.date)
+            );
+            
+            // تطبيق البحث
+            if (searchTerm) {
+                transactions = transactions.filter(t => 
+                    t.description?.toLowerCase().includes(searchTerm) ||
+                    t.personName?.toLowerCase().includes(searchTerm) ||
+                    (t.fromPersonName && t.fromPersonName.toLowerCase().includes(searchTerm)) ||
+                    (t.toPersonName && t.toPersonName.toLowerCase().includes(searchTerm)) ||
+                    getCategoryText(t.category).toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            // تطبيق التصفية
+            if (filter !== 'all') {
+                const count = parseInt(filter);
+                transactions = transactions.slice(0, count);
+            }
+            
+            if (transactions.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h5>لا توجد عمليات</h5>
+                        <p>${searchTerm ? 'لم يتم العثور على عمليات مطابقة للبحث' : 'اضغط على زر "إضافة عملية جديدة" لتسجيل عملياتك المالية'}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            transactions.forEach((transaction, index) => {
+                const date = new Date(transaction.date);
+                const dateString = date.toLocaleDateString('en-US');
+                
+                // تمييز عمليات التحويل
+                if (transaction.type === 'transfer') {
+                    const transferElement = document.createElement('div');
+                    transferElement.className = `transaction-item slide-in-right`;
+                    transferElement.style.borderLeftColor = 'var(--info)';
+                    transferElement.style.animationDelay = `${index * 0.1}s`;
+                    
+                    transferElement.innerHTML = `
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="fas fa-money-bill-transfer text-info"></i>
+                                <strong>تحويل</strong>
+                                <span class="category-badge category-transfer">تحويل</span>
+                            </div>
+                            <div class="mb-2">
+                                <span class="fw-bold">من:</span> ${transaction.fromPersonName}
+                                <span class="fw-bold mx-2">إلى:</span> ${transaction.toPersonName}
+                            </div>
+                            ${transaction.description ? `<p class="mb-1 small">${transaction.description}</p>` : ''}
+                            <small class="text-muted">${dateString}</small>
+                        </div>
+                        <div class="text-end">
+                            <div class="currency-amount fs-5 text-info">
+                                ${formatCurrency(transaction.amount, transaction.fromCurrency)} → ${formatCurrency(transaction.receivedAmount, transaction.toCurrency)}
+                            </div>
+                            ${transaction.fromCurrency !== transaction.toCurrency ? 
+                                `<small class="text-muted">سعر الصرف: ${transaction.exchangeRate}</small>` : ''}
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-danger delete-transaction" data-id="${transaction.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(transferElement);
+                } else {
+                    // العمليات العادية
+                    const categoryText = getCategoryText(transaction.category);
+                    const typeClass = transaction.type === 'income' ? 'income' : 'expense';
+                    const amountClass = transaction.type === 'income' ? 'currency-amount positive' : 'currency-amount negative';
+                    const amountSign = transaction.type === 'income' ? '+' : '-';
+                    
+                    const transactionElement = document.createElement('div');
+                    transactionElement.className = `transaction-item ${typeClass} slide-in-right`;
+                    transactionElement.style.animationDelay = `${index * 0.1}s`;
+                    transactionElement.innerHTML = `
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <strong>${transaction.personName}</strong>
+                                <span class="category-badge category-${transaction.category}">${categoryText}</span>
+                            </div>
+                            ${transaction.description ? `<p class="mb-1 small">${transaction.description}</p>` : ''}
+                            <small class="text-muted">${dateString}</small>
+                        </div>
+                        <div class="text-end">
+                            <div class="${amountClass} fs-5">${amountSign}${formatCurrency(transaction.amount, transaction.currency)}</div>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-warning edit-transaction" data-id="${transaction.id}">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger delete-transaction" data-id="${transaction.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(transactionElement);
+                }
+            });
+            
+            // إضافة مستمعي الأحداث
+            document.querySelectorAll('.edit-transaction').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    editTransaction(this.dataset.id);
+                });
+            });
+            
+            document.querySelectorAll('.delete-transaction').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (confirm('هل أنت متأكد من حذف هذه العملية؟')) {
+                        deleteTransaction(this.dataset.id);
+                    }
+                });
+            });
+        }
+
+        // حذف شخص
+        function deletePerson(id) {
+            appData.people = appData.people.filter(p => p.id !== id);
+            appData.transactions = appData.transactions.filter(t => t.personId !== id);
+            saveData();
+            updatePeopleList();
+            updateTransactionsList();
+            updateTransactionPersonSelect();
+            updateStatementPersonSelect();
+            updateTransferSelects();
+            alert('تم حذف الشخص بنجاح ✅');
+        }
+
+        // حذف عملية
+        function deleteTransaction(id) {
+            const transaction = appData.transactions.find(t => t.id === id);
+            if (!transaction) return;
+            
+            if (transaction.type === 'transfer') {
+                // إرجاع التحويل
+                const fromPerson = appData.people.find(p => p.id === transaction.fromPersonId);
+                const toPerson = appData.people.find(p => p.id === transaction.toPersonId);
+                
+                if (fromPerson) {
+                    fromPerson.balance += transaction.amount;
+                }
+                if (toPerson) {
+                    toPerson.balance -= transaction.receivedAmount;
+                }
+            } else {
+                // العمليات العادية
+                const person = appData.people.find(p => p.id === transaction.personId);
+                if (person) {
+                    if (transaction.type === 'income') {
+                        person.balance -= transaction.amount;
+                    } else {
+                        person.balance += transaction.amount;
+                    }
+                }
+            }
+            
+            appData.transactions = appData.transactions.filter(t => t.id !== id);
+            saveData();
+            updateTransactionsList();
+            updatePeopleList();
+            alert('تم حذف العملية بنجاح ✅');
+        }
+
+        // تحديث قائمة الأشخاص في النماذج
+        function updateTransactionPersonSelect() {
+            const select = document.getElementById('transaction-person');
+            select.innerHTML = '<option value="">اختر الشخص</option>';
+            
+            appData.people.forEach(person => {
+                const option = document.createElement('option');
+                option.value = person.id;
+                option.textContent = `${person.name} (${getCurrencyText(person.currency)}) - ${formatCurrency(person.balance, person.currency)}`;
+                select.appendChild(option);
+            });
+        }
+
+        function updateStatementPersonSelect() {
+            const select = document.getElementById('statement-person');
+            select.innerHTML = '<option value="">اختر الشخص</option>';
+            
+            appData.people.forEach(person => {
+                const option = document.createElement('option');
+                option.value = person.id;
+                option.textContent = `${person.name} (${getCurrencyText(person.currency)})`;
+                select.appendChild(option);
+            });
+            
+            // تعيين تواريخ افتراضية
+            const today = new Date();
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(today.getDate() - 30);
+            
+            document.getElementById('statement-from-date').value = thirtyDaysAgo.toISOString().split('T')[0];
+            document.getElementById('statement-to-date').value = today.toISOString().split('T')[0];
+        }
+
+        // تحديث قوائم التحويل
+        function updateTransferSelects() {
+            const fromSelect = document.getElementById('transfer-from');
+            const toSelect = document.getElementById('transfer-to');
+            
+            fromSelect.innerHTML = '<option value="">اختر الحساب المرسل</option>';
+            toSelect.innerHTML = '<option value="">اختر الحساب المستلم</option>';
+            
+            appData.people.forEach(person => {
+                const fromOption = document.createElement('option');
+                fromOption.value = person.id;
+                fromOption.textContent = `${person.name} (${getCurrencyText(person.currency)})`;
+                fromOption.setAttribute('data-balance', person.balance);
+                fromOption.setAttribute('data-currency', person.currency);
+                fromSelect.appendChild(fromOption);
+                
+                const toOption = document.createElement('option');
+                toOption.value = person.id;
+                toOption.textContent = `${person.name} (${getCurrencyText(person.currency)})`;
+                toOption.setAttribute('data-balance', person.balance);
+                toOption.setAttribute('data-currency', person.currency);
+                toSelect.appendChild(toOption);
+            });
+            
+            // إعادة تعيين الحقول
+            document.getElementById('transfer-amount').value = '';
+            document.getElementById('exchange-rate').value = '1';
+            document.getElementById('transfer-notes').value = '';
+            document.getElementById('exchange-rate-section').style.display = 'none';
+            updateCurrencySymbol();
+            updateBalanceDisplay();
+        }
+
+        // تحديث رمز العملة
+        function updateCurrencySymbol() {
+            const fromSelect = document.getElementById('transfer-from');
+            const fromOption = fromSelect.options[fromSelect.selectedIndex];
+            
+            if (fromOption && fromOption.value) {
+                const currency = fromOption.getAttribute('data-currency');
+                const symbol = getCurrencySymbol(currency);
+                document.getElementById('transfer-currency-symbol').textContent = symbol;
+            } else {
+                document.getElementById('transfer-currency-symbol').textContent = 'TRY';
+            }
+        }
+
+        // تحديث عرض الأرصدة
+        function updateBalanceDisplay() {
+            const fromSelect = document.getElementById('transfer-from');
+            const toSelect = document.getElementById('transfer-to');
+            
+            // تحديث رمز العملة أولاً
+            updateCurrencySymbol();
+            
+            // إضافة أرصدة للخيارات المحددة
+            const fromOption = fromSelect.options[fromSelect.selectedIndex];
+            const toOption = toSelect.options[toSelect.selectedIndex];
+            
+            if (fromOption && fromOption.value) {
+                const balance = parseFloat(fromOption.getAttribute('data-balance'));
+                const currency = fromOption.getAttribute('data-currency');
+                const balanceText = formatCurrency(balance, currency);
+                
+                // تحديث عرض الرصيد في القائمة
+                const balanceSpan = fromSelect.parentElement.querySelector('.account-balance');
+                if (balanceSpan) {
+                    balanceSpan.textContent = balanceText;
+                } else {
+                    const newBalanceSpan = document.createElement('span');
+                    newBalanceSpan.className = 'account-balance';
+                    newBalanceSpan.textContent = balanceText;
+                    fromSelect.parentElement.appendChild(newBalanceSpan);
+                }
+            }
+            
+            if (toOption && toOption.value) {
+                const balance = parseFloat(toOption.getAttribute('data-balance'));
+                const currency = toOption.getAttribute('data-currency');
+                const balanceText = formatCurrency(balance, currency);
+                
+                // تحديث عرض الرصيد في القائمة
+                const balanceSpan = toSelect.parentElement.querySelector('.account-balance');
+                if (balanceSpan) {
+                    balanceSpan.textContent = balanceText;
+                } else {
+                    const newBalanceSpan = document.createElement('span');
+                    newBalanceSpan.className = 'account-balance';
+                    newBalanceSpan.textContent = balanceText;
+                    toSelect.parentElement.appendChild(newBalanceSpan);
+                }
+            }
+        }
+
+        // تحديث قسم سعر الصرف
+        function updateExchangeRateSection() {
+            const fromId = document.getElementById('transfer-from').value;
+            const toId = document.getElementById('transfer-to').value;
+            
+            updateBalanceDisplay();
+            
+            if (!fromId || !toId) {
+                document.getElementById('exchange-rate-section').style.display = 'none';
+                return;
+            }
+            
+            const fromPerson = appData.people.find(p => p.id === fromId);
+            const toPerson = appData.people.find(p => p.id === toId);
+            
+            if (!fromPerson || !toPerson) {
+                document.getElementById('exchange-rate-section').style.display = 'none';
+                return;
+            }
+            
+            // عرض قسم سعر الصرف فقط إذا كانت العملات مختلفة
+            if (fromPerson.currency !== toPerson.currency) {
+                document.getElementById('exchange-rate-section').style.display = 'block';
+                document.getElementById('transfer-currencies').textContent = 
+                    `${getCurrencyText(fromPerson.currency)} → ${getCurrencyText(toPerson.currency)}`;
+                document.getElementById('currency-from-symbol').textContent = getCurrencySymbol(fromPerson.currency);
+                document.getElementById('currency-to-symbol').textContent = getCurrencySymbol(toPerson.currency);
+                
+                // تعيين سعر صرف افتراضي (لأغراض الاختبار)
+                if (document.getElementById('exchange-rate').value === '1') {
+                    let defaultRate = 1;
+                    if (fromPerson.currency === 'try' && toPerson.currency === 'usd') {
+                        defaultRate = 0.031; // 1 ليرة = 0.031 دولار تقريباً
+                    } else if (fromPerson.currency === 'usd' && toPerson.currency === 'try') {
+                        defaultRate = 32; // 1 دولار = 32 ليرة تقريباً
+                    } else if (fromPerson.currency === 'try' && toPerson.currency === 'lyd') {
+                        defaultRate = 0.15; // 1 ليرة = 0.15 دينار ليبي تقريباً
+                    } else if (fromPerson.currency === 'lyd' && toPerson.currency === 'try') {
+                        defaultRate = 6.5; // 1 دينار ليبي = 6.5 ليرة تقريباً
+                    } else if (fromPerson.currency === 'usd' && toPerson.currency === 'lyd') {
+                        defaultRate = 4.8; // 1 دولار = 4.8 دينار ليبي تقريباً
+                    } else if (fromPerson.currency === 'lyd' && toPerson.currency === 'usd') {
+                        defaultRate = 0.21; // 1 دينار ليبي = 0.21 دولار تقريباً
+                    }
+                    document.getElementById('exchange-rate').value = defaultRate;
+                }
+            } else {
+                document.getElementById('exchange-rate-section').style.display = 'none';
+            }
+            
+            updateTransferAmount();
+        }
+
+        // تحديث معاينة المبلغ
+        function updateTransferAmount() {
+            const fromId = document.getElementById('transfer-from').value;
+            const toId = document.getElementById('transfer-to').value;
+            const amount = parseFloat(document.getElementById('transfer-amount').value) || 0;
+            const exchangeRate = parseFloat(document.getElementById('exchange-rate').value) || 1;
+            
+            if (!fromId || !toId || amount <= 0) {
+                document.getElementById('amount-source').textContent = '0.00';
+                document.getElementById('amount-received').textContent = '0.00';
+                return;
+            }
+            
+            const fromPerson = appData.people.find(p => p.id === fromId);
+            const toPerson = appData.people.find(p => p.id === toId);
+            
+            if (!fromPerson || !toPerson) return;
+            
+            const receivedAmount = fromPerson.currency === toPerson.currency ? 
+                amount : amount * exchangeRate;
+            
+            document.getElementById('amount-source').textContent = 
+                `${formatCurrency(amount, fromPerson.currency)}`;
+            document.getElementById('amount-received').textContent = 
+                `${formatCurrency(receivedAmount, toPerson.currency)}`;
+        }
+
+        // حفظ عملية التحويل
+        function saveTransfer() {
+            const fromId = document.getElementById('transfer-from').value;
+            const toId = document.getElementById('transfer-to').value;
+            const amount = parseFloat(document.getElementById('transfer-amount').value);
+            const exchangeRate = parseFloat(document.getElementById('exchange-rate').value) || 1;
+            const notes = document.getElementById('transfer-notes').value.trim();
+            
+            if (!fromId || !toId) {
+                alert('يرجى اختيار الحساب المرسل والمستلم');
+                return;
+            }
+            
+            if (!amount || amount <= 0) {
+                alert('يرجى إدخال مبلغ صحيح');
+                return;
+            }
+            
+            if (fromId === toId) {
+                alert('لا يمكن التحويل لنفس الحساب');
+                return;
+            }
+            
+            const fromPerson = appData.people.find(p => p.id === fromId);
+            if (fromPerson.balance < amount) {
+                alert('الرصيد غير كافي لإتمام التحويل');
+                return;
+            }
+            
+            if (addTransfer(fromId, toId, amount, exchangeRate, notes)) {
+                // إغلاق النموذج وإعادة التعيين
+                const modal = bootstrap.Modal.getInstance(document.getElementById('transferModal'));
+                modal.hide();
+                updateTransferSelects();
+                alert('تم التحويل بنجاح ✅');
+            }
+        }
+
+        // تحميل إعدادات التلقرام
+        function loadTelegramSettings() {
+            document.getElementById('telegram-token').value = appData.settings.telegramToken || '';
+            document.getElementById('telegram-chat-id').value = appData.settings.telegramChatId || '';
+        }
+
+        // تنسيق العملة (إنجليزي)
+        function formatCurrency(amount, currency) {
+            // استخدام تنسيق إنجليزي
+            const formatter = new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+            
+            const formattedAmount = formatter.format(amount);
+            
+            switch(currency) {
+                case 'try': return `${formattedAmount} ₺`;
+                case 'usd': return `$${formattedAmount}`;
+                case 'lyd': return `${formattedAmount} LYD`;
+                default: return formattedAmount;
+            }
+        }
+
+        // الحصول على رمز العملة
+        function getCurrencySymbol(currency) {
+            switch(currency) {
+                case 'try': return 'TRY';
+                case 'usd': return 'USD';
+                case 'lyd': return 'LYD';
+                default: return currency;
+            }
+        }
+
+        // الحصول على نص العملة
+        function getCurrencyText(currency) {
+            switch(currency) {
+                case 'try': return 'ليرة تركية';
+                case 'usd': return 'دولار أمريكي';
+                case 'lyd': return 'دينار ليبي';
+                default: return currency;
+            }
+        }
+
+        // الحصول على نص الفئة
+        function getCategoryText(category) {
+            const categories = {
+                'rent': 'إيجار',
+                'electricity': 'كهرباء',
+                'car': 'سيارة',
+                'living': 'معيشة',
+                'personal': 'لزوم شخصية',
+                'metro': 'مترو',
+                'sweets': 'حلويات',
+                'apartment': 'الشقة',
+                'internet': 'انترنت',
+                'transfer': 'تحويل'
+            };
+            return categories[category] || category;
+        }
+
+        // الحصول على أيقونة الفئة
+        function getCategoryIcon(category) {
+            const icons = {
+                'rent': 'fa-home',
+                'electricity': 'fa-bolt',
+                'car': 'fa-car',
+                'living': 'fa-shopping-basket',
+                'personal': 'fa-user',
+                'metro': 'fa-subway',
+                'sweets': 'fa-candy-cane',
+                'apartment': 'fa-building',
+                'internet': 'fa-wifi',
+                'transfer': 'fa-money-bill-transfer'
+            };
+            return icons[category] || 'fa-tag';
+        }
+
+        // تصدير البيانات
+        function exportData() {
+            const dataStr = JSON.stringify(appData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `مدير_الحسابات_${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            
+            alert('تم تصدير البيانات بنجاح ✅');
+        }
+
+        // استيراد البيانات
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            
+            input.onchange = e => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                
+                reader.onload = event => {
+                    try {
+                        const importedData = JSON.parse(event.target.result);
+                        
+                        if (confirm('هل تريد استيراد البيانات؟ سيتم استبدال البيانات الحالية.')) {
+                            appData = importedData;
+                            saveData();
+                            updateUI();
+                            updateCategoryFilters();
+                            alert('تم استيراد البيانات بنجاح ✅');
+                        }
+                    } catch (error) {
+                        alert('❌ خطأ في استيراد البيانات: ملف غير صالح');
+                    }
+                };
+                
+                reader.readAsText(file);
+            };
+            
+            input.click();
+        }
+
+        // مسح البيانات
+        function clearData() {
+            if (confirm('⚠️ هل أنت متأكد من مسح جميع البيانات؟ لا يمكن التراجع عن هذا الإجراء!')) {
+                appData = {
+                    people: [],
+                    transactions: [],
+                    settings: {
+                        telegramToken: '',
+                        telegramChatId: ''
+                    }
+                };
+                saveData();
+                updateUI();
+                updateCategoryFilters();
+                alert('تم مسح جميع البيانات بنجاح ✅');
+            }
+        }
+
+        // إرسال إشعار تلقرام
+        function sendTelegramNotification(message) {
+            const token = appData.settings.telegramToken;
+            const chatId = appData.settings.telegramChatId;
+            
+            if (!token || !chatId) {
+                alert('❌ يرجى إدخال رمز التلقرام ومعرف الدردشة أولاً');
+                return;
+            }
+            
+            const url = `https://api.telegram.org/bot${token}/sendMessage`;
+            
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert('✅ تم إرسال الرسالة بنجاح');
+                } else {
+                    alert('❌ فشل إرسال الرسالة: ' + (data.description || 'خطأ غير معروف'));
+                }
+            })
+            .catch(error => {
+                alert('❌ خطأ في الإرسال: ' + error.message);
+            });
+        }
+
+        // توليد كشف الحساب الحقيقي
+        function generateStatement() {
+            const personId = document.getElementById('statement-person').value;
+            const fromDate = document.getElementById('statement-from-date').value;
+            const toDate = document.getElementById('statement-to-date').value;
+            
+            if (!personId) {
+                alert('يرجى اختيار الشخص');
+                return;
+            }
+            
+            if (!fromDate || !toDate) {
+                alert('يرجى تحديد تاريخ البداية والنهاية');
+                return;
+            }
+            
+            const person = appData.people.find(p => p.id === personId);
+            if (!person) {
+                alert('لم يتم العثور على الشخص المحدد');
+                return;
+            }
+            
+            const from = new Date(fromDate);
+            const to = new Date(toDate);
+            to.setHours(23, 59, 59, 999);
+            
+            // تصفية العمليات حسب الشخص والفترة
+            const filteredTransactions = appData.transactions
+                .filter(t => {
+                    // تضمين العمليات التي يكون الشخص فيها مرسل أو مستلم
+                    return t.personId === personId || 
+                           (t.type === 'transfer' && (t.fromPersonId === personId || t.toPersonId === personId));
+                })
+                .filter(t => {
+                    const date = new Date(t.date);
+                    return date >= from && date <= to;
+                })
+                .sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            if (filteredTransactions.length === 0) {
+                const statementHTML = `
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">كشف حساب ${person.name}</h5>
+                            <small class="text-white">من ${fromDate} إلى ${toDate}</small>
+                        </div>
+                        <div class="card-body text-center py-5">
+                            <i class="fas fa-file-invoice fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">لا توجد عمليات في الفترة المحددة</h5>
+                            <p class="text-muted">لم يتم العثور على أي عمليات بين التواريخ المحددة</p>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('statement-results').innerHTML = statementHTML;
+                document.getElementById('statement-results').style.display = 'block';
+                return;
+            }
+            
+            let runningBalance = person.balance; // نبدأ بالرصيد الحالي
             let totalIncome = 0;
             let totalExpense = 0;
             
-            appData.transactions.forEach(transaction => {
-                if (transaction.type === 'income') {
-                    totalIncome += transaction.amount;
-                } else if (transaction.type === 'expense') {
-                    totalExpense += transaction.amount;
-                } else if (transaction.type === 'transfer') {
-                    // نعتبر التحويلات كمصروف وإيراد حسب الاتجاه
-                    totalExpense += transaction.amount;
-                }
-            });
-            
-            const netIncome = totalIncome - totalExpense;
-            const avgTransaction = appData.transactions.length > 0 ? 
-                (totalIncome + totalExpense) / appData.transactions.length : 0;
-            
-            // تحديث واجهة الإحصائيات
-            document.getElementById('total-accounts').textContent = totalAccounts;
-            document.getElementById('total-balance').textContent = formatCurrency(totalBalance, 'try');
-            document.getElementById('daily-transactions').textContent = dailyTransactions;
-            document.getElementById('total-income').textContent = formatCurrency(totalIncome, 'try');
-            document.getElementById('total-expense').textContent = formatCurrency(totalExpense, 'try');
-            document.getElementById('net-income').textContent = formatCurrency(netIncome, 'try');
-            document.getElementById('avg-transaction').textContent = formatCurrency(avgTransaction, 'try');
-            
-            // تحديث توقعات الشهر
-            updateMonthlyForecast();
-            
-            // حفظ الإحصائيات
-            appData.stats.totalIncome = totalIncome;
-            appData.stats.totalExpense = totalExpense;
-            appData.stats.monthlyAverage = avgTransaction;
-        }
-
-        // تحديث توقعات الشهر
-        function updateMonthlyForecast() {
-            const currentMonth = new Date().getMonth();
-            const currentYear = new Date().getFullYear();
-            
-            // تصفية معاملات الشهر الحالي
-            const monthTransactions = appData.transactions.filter(t => {
-                const date = new Date(t.date);
-                return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
-            });
-            
-            // حساب توقعات الشهر
-            let monthIncome = 0;
-            let monthExpense = 0;
-            
-            monthTransactions.forEach(t => {
-                if (t.type === 'income') monthIncome += t.amount;
-                if (t.type === 'expense') monthExpense += t.amount;
-            });
-            
-            // توقعات بناءً على متوسط الشهر الحالي
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            const currentDay = new Date().getDate();
-            
-            const forecastIncome = monthIncome / currentDay * daysInMonth;
-            const forecastExpense = monthExpense / currentDay * daysInMonth;
-            const forecastSavings = forecastIncome - forecastExpense;
-            const monthlyForecast = forecastSavings;
-            
-            // تحديث الواجهة
-            document.getElementById('monthly-forecast').textContent = formatCurrency(monthlyForecast, 'try');
-            document.getElementById('forecast-income').textContent = formatCurrency(forecastIncome, 'try');
-            document.getElementById('forecast-expense').textContent = formatCurrency(forecastExpense, 'try');
-            document.getElementById('forecast-savings').textContent = formatCurrency(forecastSavings, 'try');
-        }
-
-        // إعداد المخططات
-        function setupCharts() {
-            // إنشاء مخطط الفئات
-            const ctx = document.createElement('canvas');
-            ctx.id = 'categoryChartCanvas';
-            document.getElementById('category-chart').appendChild(ctx);
-            
-            // سيتم تحديث المخطط عند توليد التقارير
-        }
-
-        // تحديث مخطط الفئات
-        function updateCategoryChart(categoryData) {
-            const canvas = document.getElementById('categoryChartCanvas');
-            if (!canvas) return;
-            
-            const ctx = canvas.getContext('2d');
-            
-            // تدمير المخطط السابق إن وجد
-            if (window.categoryChart) {
-                window.categoryChart.destroy();
-            }
-            
-            // إعداد البيانات
-            const labels = Object.keys(categoryData);
-            const incomeData = labels.map(label => categoryData[label].income || 0);
-            const expenseData = labels.map(label => categoryData[label].expense || 0);
-            
-            window.categoryChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [
-                        {
-                            label: 'الإيداعات',
-                            data: incomeData,
-                            backgroundColor: '#6C63FF',
-                            borderColor: '#4D46D6',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'المصروفات',
-                            data: expenseData,
-                            backgroundColor: '#FF4757',
-                            borderColor: '#D63D4D',
-                            borderWidth: 1
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                callback: function(value) {
-                                    return formatCurrency(value, 'try');
-                                }
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                            rtl: true
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.dataset.label}: ${formatCurrency(context.raw, 'try')}`;
-                                }
-                            }
-                        }
+            // حساب الرصيد في بداية الفترة
+            let startingBalance = person.balance;
+            filteredTransactions.forEach(transaction => {
+                if (transaction.type === 'transfer') {
+                    if (transaction.fromPersonId === personId) {
+                        startingBalance += transaction.amount; // إرجاع المبلغ المحول
+                    } else if (transaction.toPersonId === personId) {
+                        startingBalance -= transaction.receivedAmount; // إرجاع المبلغ المستلم
+                    }
+                } else {
+                    if (transaction.type === 'income') {
+                        startingBalance -= transaction.amount;
+                    } else {
+                        startingBalance += transaction.amount;
                     }
                 }
             });
-        }
-
-        // تحديث معلومات التطبيق
-        function updateAppInfo() {
-            document.getElementById('info-accounts').textContent = appData.people.length;
-            document.getElementById('info-transactions').textContent = appData.transactions.length;
-            document.getElementById('last-update').textContent = appData.stats.lastUpdated ? 
-                new Date(appData.stats.lastUpdated).toLocaleDateString('ar-SA') : '-';
             
-            // تحديث إعدادات الواجهة
-            if (appData.settings.baseCurrency) {
-                document.getElementById('base-currency').value = appData.settings.baseCurrency;
-            }
-            if (appData.settings.dateFormat) {
-                document.getElementById('date-format').value = appData.settings.dateFormat;
-            }
-            document.getElementById('dark-mode').checked = appData.settings.darkMode;
-            document.getElementById('auto-backup').checked = appData.settings.autoBackup;
-            document.getElementById('notify-transactions').checked = appData.settings.notifyTransactions;
-            document.getElementById('notify-balance').checked = appData.settings.notifyBalance;
+            runningBalance = startingBalance;
+            
+            // إنشاء الجدول
+            let tableRows = '';
+            filteredTransactions.forEach((transaction, index) => {
+                const date = new Date(transaction.date);
+                const dateString = date.toLocaleDateString('en-US');
+                
+                let typeText = '';
+                let categoryText = '';
+                let amount = 0;
+                let currency = person.currency;
+                let isIncome = false;
+                
+                if (transaction.type === 'transfer') {
+                    // عملية تحويل
+                    typeText = 'تحويل';
+                    categoryText = 'تحويل';
+                    
+                    if (transaction.fromPersonId === personId) {
+                        // الشخص هو المرسل
+                        amount = -transaction.amount;
+                        currency = transaction.fromCurrency;
+                        runningBalance += amount;
+                        totalExpense += Math.abs(amount);
+                    } else if (transaction.toPersonId === personId) {
+                        // الشخص هو المستلم
+                        amount = transaction.receivedAmount;
+                        currency = transaction.toCurrency;
+                        runningBalance += amount;
+                        totalIncome += amount;
+                        isIncome = true;
+                    }
+                } else {
+                    // عملية عادية
+                    typeText = transaction.type === 'income' ? 'إيداع' : 'سحب';
+                    categoryText = getCategoryText(transaction.category);
+                    amount = transaction.type === 'income' ? transaction.amount : -transaction.amount;
+                    currency = transaction.currency;
+                    runningBalance += amount;
+                    
+                    if (transaction.type === 'income') {
+                        totalIncome += transaction.amount;
+                        isIncome = true;
+                    } else {
+                        totalExpense += transaction.amount;
+                    }
+                }
+                
+                const amountSign = amount >= 0 ? '+' : '';
+                
+                tableRows += `
+                    <tr>
+                        <td>${dateString}</td>
+                        <td><span class="badge ${isIncome ? 'bg-success' : 'bg-danger'}">${typeText}</span></td>
+                        <td>${categoryText}</td>
+                        <td>${transaction.description || '-'}</td>
+                        <td class="${isIncome ? 'text-success' : 'text-danger'} fw-bold">
+                            ${amountSign}${formatCurrency(Math.abs(amount), currency)}
+                        </td>
+                        <td class="fw-bold">${formatCurrency(runningBalance, currency)}</td>
+                    </tr>
+                `;
+            });
+            
+            const netMovement = totalIncome - totalExpense;
+            
+            const statementHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">كشف حساب ${person.name}</h5>
+                        <small class="text-white">From ${fromDate} to ${toDate}</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-3">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <div class="text-muted small">الرصيد الابتدائي</div>
+                                    <div class="fs-4 fw-bold">${formatCurrency(startingBalance, person.currency)}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 bg-success bg-opacity-10 rounded">
+                                    <div class="text-muted small">إجمالي الإيداع</div>
+                                    <div class="fs-4 fw-bold text-success">${formatCurrency(totalIncome, person.currency)}</div>
+                                    <small class="text-muted">${filteredTransactions.filter(t => (t.type === 'income') || (t.type === 'transfer' && t.toPersonId === personId)).length} عملية</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 bg-danger bg-opacity-10 rounded">
+                                    <div class="text-muted small">إجمالي السحب</div>
+                                    <div class="fs-4 fw-bold text-danger">${formatCurrency(totalExpense, person.currency)}</div>
+                                    <small class="text-muted">${filteredTransactions.filter(t => (t.type === 'expense') || (t.type === 'transfer' && t.fromPersonId === personId)).length} عملية</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 bg-primary bg-opacity-10 rounded">
+                                    <div class="text-muted small">الرصيد النهائي</div>
+                                    <div class="fs-4 fw-bold text-primary">${formatCurrency(runningBalance, person.currency)}</div>
+                                    <small class="text-muted">صافي الحركة: ${formatCurrency(netMovement, person.currency)}</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>التاريخ</th>
+                                        <th>النوع</th>
+                                        <th>الفئة</th>
+                                        <th>الوصف</th>
+                                        <th>المبلغ</th>
+                                        <th>الرصيد التراكمي</th>
+                                    </tr>
+                                </thead>
+                                <tbody>${tableRows}</tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <h6>تحليل حسب الفئة:</h6>
+                            <div class="row">
+                                ${getCategoryAnalysisHTML(filteredTransactions, personId)}
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary" onclick="printStatement()">
+                                <i class="fas fa-print"></i> طباعة الكشف
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('statement-results').innerHTML = statementHTML;
+            document.getElementById('statement-results').style.display = 'block';
         }
 
-        // ... (بقية الدوال الأساسية تبقى كما هي مع بعض التعديلات الطفيفة)
-        
-        // تغييرات رئيسية:
-        // 1. ألوان جديدة وتصميم عصري
-        // 2. إحصائيات متقدمة وتوقعات
-        // 3. مخططات تفاعلية
-        // 4. إعدادات أكثر تفصيلاً
-        // 5. تحسينات في واجهة المستخدم
-        // 6. ميزات جديدة مثل الإيداع السريع
-        // 7. تنظيم أفضل للكود
-        
-        // ملاحظة: بقية الكود JavaScript (الدوال الأساسية) تبقى مشابهة للكود السابق
-        // مع بعض التعديلات الطفيفة لتناسب التصميم الجديد
-        // سيتم تضمين الكود الكامل في النسخة النهائية
-        
+        // تحليل حسب الفئة
+        function getCategoryAnalysisHTML(transactions, personId) {
+            const categoryAnalysis = {};
+            
+            transactions.forEach(transaction => {
+                let category = transaction.category;
+                let amount = 0;
+                
+                if (transaction.type === 'transfer') {
+                    if (transaction.fromPersonId === personId) {
+                        amount = -transaction.amount;
+                    } else if (transaction.toPersonId === personId) {
+                        amount = transaction.receivedAmount;
+                    }
+                } else if (transaction.personId === personId) {
+                    amount = transaction.type === 'income' ? transaction.amount : -transaction.amount;
+                }
+                
+                if (!categoryAnalysis[category]) {
+                    categoryAnalysis[category] = {
+                        name: getCategoryText(category),
+                        income: 0,
+                        expense: 0,
+                        count: 0
+                    };
+                }
+                
+                if (amount > 0) {
+                    categoryAnalysis[category].income += amount;
+                } else {
+                    categoryAnalysis[category].expense += Math.abs(amount);
+                }
+                categoryAnalysis[category].count++;
+            });
+            
+            let html = '';
+            Object.keys(categoryAnalysis).forEach(category => {
+                const data = categoryAnalysis[category];
+                const total = data.income - data.expense;
+                const categoryText = data.name;
+                
+                html += `
+                    <div class="col-md-4 mb-2">
+                        <div class="p-2 border rounded">
+                            <div class="d-flex justify-content-between">
+                                <small class="fw-bold">${categoryText}</small>
+                                <small class="${total >= 0 ? 'text-success' : 'text-danger'}">
+                                    ${total >= 0 ? '+' : ''}${formatCurrency(total, 'try')}
+                                </small>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">${data.count} عملية</small>
+                                <small class="text-muted">${data.income > 0 ? '+' + formatCurrency(data.income, 'try') : ''} ${data.expense > 0 ? '-' + formatCurrency(data.expense, 'try') : ''}</small>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            return html;
+        }
+
+        // طباعة كشف الحساب
+        function printStatement() {
+            const printContent = document.getElementById('statement-results').innerHTML;
+            const originalContent = document.body.innerHTML;
+            
+            document.body.innerHTML = `
+                <!DOCTYPE html>
+                <html dir="rtl">
+                <head>
+                    <title>كشف الحساب</title>
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                    <style>
+                        body { padding: 20px; }
+                        @media print {
+                            .no-print { display: none !important; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${printContent}
+                    <div class="text-center mt-4 no-print">
+                        <button class="btn btn-secondary" onclick="window.location.reload()">رجوع</button>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            window.print();
+            document.body.innerHTML = originalContent;
+            window.location.reload();
+        }
+
+        // توليد تقرير السبب الحقيقي
+        function generateCategoryReport() {
+            // الحصول على التصفيات المحددة
+            const filterType = document.querySelector('[data-filter-type].active')?.dataset.filterType || 'all';
+            const filterPeriod = document.querySelector('[data-filter-period].active')?.dataset.filterPeriod || 'last-30';
+            const filterCategory = document.querySelector('[data-filter-category].active')?.dataset.filterCategory || 'all';
+            
+            // حساب التواريخ بناءً على الفترة
+            let fromDate, toDate;
+            const today = new Date();
+            
+            switch(filterPeriod) {
+                case 'last-30':
+                    fromDate = new Date();
+                    fromDate.setDate(today.getDate() - 30);
+                    break;
+                case 'last-90':
+                    fromDate = new Date();
+                    fromDate.setDate(today.getDate() - 90);
+                    break;
+                case 'this-month':
+                    fromDate = new Date(today.getFullYear(), today.getMonth(), 1);
+                    toDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+                    break;
+                case 'last-month':
+                    fromDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+                    toDate = new Date(today.getFullYear(), today.getMonth(), 0);
+                    break;
+                case 'custom':
+                    fromDate = new Date(document.getElementById('report-from-date').value);
+                    toDate = new Date(document.getElementById('report-to-date').value);
+                    if (!fromDate || !toDate || fromDate > toDate) {
+                        alert('يرجى تحديد تاريخ صحيح للفترة المخصصة');
+                        return;
+                    }
+                    break;
+                default:
+                    fromDate = new Date(0);
+                    toDate = new Date();
+            }
+            
+            if (!toDate) toDate = today;
+            
+            // تصفية العمليات
+            let filteredTransactions = appData.transactions.filter(transaction => {
+                const transactionDate = new Date(transaction.date);
+                return transactionDate >= fromDate && transactionDate <= toDate;
+            });
+            
+            // تصفية حسب النوع
+            if (filterType !== 'all') {
+                filteredTransactions = filteredTransactions.filter(t => t.type === filterType);
+            }
+            
+            // تصفية حسب الفئة
+            if (filterCategory !== 'all') {
+                filteredTransactions = filteredTransactions.filter(t => t.category === filterCategory);
+            }
+            
+            if (filteredTransactions.length === 0) {
+                document.getElementById('report-summary').innerHTML = `
+                    <div class="card">
+                        <div class="card-body text-center py-5">
+                            <i class="fas fa-chart-bar fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">لا توجد بيانات للعرض</h5>
+                            <p class="text-muted">لم يتم العثور على عمليات مطابقة للتصفية المحددة</p>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('category-reports-container').innerHTML = '';
+                return;
+            }
+            
+            // حساب الإحصائيات
+            let totalIncome = 0;
+            let totalExpense = 0;
+            let incomeCount = 0;
+            let expenseCount = 0;
+            let categoryStats = {};
+            
+            filteredTransactions.forEach(transaction => {
+                if (transaction.type === 'income') {
+                    totalIncome += transaction.amount;
+                    incomeCount++;
+                } else if (transaction.type === 'expense') {
+                    totalExpense += transaction.amount;
+                    expenseCount++;
+                } else if (transaction.type === 'transfer') {
+                    // التحويلات تُعتبر سحباً وإيداعاً معاً
+                    totalExpense += transaction.amount;
+                    totalIncome += transaction.receivedAmount;
+                    expenseCount++;
+                    incomeCount++;
+                }
+                
+                // إحصاءات الفئات
+                if (!categoryStats[transaction.category]) {
+                    categoryStats[transaction.category] = {
+                        name: getCategoryText(transaction.category),
+                        income: 0,
+                        expense: 0,
+                        count: 0,
+                        transactions: []
+                    };
+                }
+                
+                if (transaction.type === 'income') {
+                    categoryStats[transaction.category].income += transaction.amount;
+                } else if (transaction.type === 'expense') {
+                    categoryStats[transaction.category].expense += transaction.amount;
+                } else if (transaction.type === 'transfer') {
+                    categoryStats[transaction.category].income += transaction.receivedAmount;
+                    categoryStats[transaction.category].expense += transaction.amount;
+                }
+                categoryStats[transaction.category].count++;
+                categoryStats[transaction.category].transactions.push(transaction);
+            });
+            
+            const netMovement = totalIncome - totalExpense;
+            
+            // عرض ملخص التقرير
+            document.getElementById('report-summary').innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">ملخص التقرير</h5>
+                        <small class="text-white">
+                            الفترة: ${fromDate.toLocaleDateString('en-US')} - ${toDate.toLocaleDateString('en-US')}
+                            ${filterType !== 'all' ? ` | ${filterType === 'income' ? 'الإيداعات فقط' : filterType === 'expense' ? 'السحوبات فقط' : 'التحويلات فقط'}` : ''}
+                            ${filterCategory !== 'all' ? ` | ${getCategoryText(filterCategory)}` : ''}
+                        </small>
+                    </div>
+                    <div class="card-body">
+                        <div class="report-summary">
+                            <div class="summary-item income">
+                                <div class="text-muted small">إجمالي الإيداع</div>
+                                <div class="fs-3 fw-bold text-success">${formatCurrency(totalIncome, 'try')}</div>
+                                <small class="text-muted">${incomeCount} عملية</small>
+                            </div>
+                            <div class="summary-item expense">
+                                <div class="text-muted small">إجمالي السحب</div>
+                                <div class="fs-3 fw-bold text-danger">${formatCurrency(totalExpense, 'try')}</div>
+                                <small class="text-muted">${expenseCount} عملية</small>
+                            </div>
+                            <div class="summary-item net">
+                                <div class="text-muted small">صافي الحركة</div>
+                                <div class="fs-3 fw-bold text-primary">${formatCurrency(netMovement, 'try')}</div>
+                                <small class="text-muted">${filteredTransactions.length} إجمالي العمليات</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // عرض التقارير التفصيلية حسب الفئة
+            let categoryReportsHTML = '';
+            Object.keys(categoryStats).forEach(category => {
+                const stats = categoryStats[category];
+                const categoryTotal = stats.income - stats.expense;
+                const categoryIcon = getCategoryIcon(category);
+                
+                categoryReportsHTML += `
+                    <div class="card mb-3">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas ${categoryIcon} me-2"></i>
+                                <strong>${stats.name}</strong>
+                            </div>
+                            <div class="${categoryTotal >= 0 ? 'text-success' : 'text-danger'} fw-bold">
+                                ${categoryTotal >= 0 ? '+' : ''}${formatCurrency(categoryTotal, 'try')}
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <div class="text-muted">عدد العمليات</div>
+                                        <div class="fs-4 fw-bold">${stats.count}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <div class="text-muted">الإيداعات</div>
+                                        <div class="fs-4 fw-bold text-success">${formatCurrency(stats.income, 'try')}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <div class="text-muted">السحوبات</div>
+                                        <div class="fs-4 fw-bold text-danger">${formatCurrency(stats.expense, 'try')}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            ${stats.transactions.length > 0 ? `
+                                <h6 class="mb-3">أحدث العمليات:</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>التاريخ</th>
+                                                <th>النوع</th>
+                                                <th>من/إلى</th>
+                                                <th>المبلغ</th>
+                                                <th>الوصف</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${stats.transactions.slice(0, 5).map(t => {
+                                                let typeText = '';
+                                                let personInfo = '';
+                                                let amountText = '';
+                                                
+                                                if (t.type === 'transfer') {
+                                                    typeText = 'تحويل';
+                                                    personInfo = `${t.fromPersonName} → ${t.toPersonName}`;
+                                                    amountText = `${formatCurrency(t.amount, t.fromCurrency)} → ${formatCurrency(t.receivedAmount, t.toCurrency)}`;
+                                                } else {
+                                                    typeText = t.type === 'income' ? 'إيداع' : 'سحب';
+                                                    personInfo = t.personName;
+                                                    amountText = `${t.type === 'income' ? '+' : '-'}${formatCurrency(t.amount, t.currency)}`;
+                                                }
+                                                
+                                                return `
+                                                    <tr>
+                                                        <td>${new Date(t.date).toLocaleDateString('en-US')}</td>
+                                                        <td><span class="badge ${t.type === 'income' || (t.type === 'transfer') ? 'bg-success' : 'bg-danger'}">${typeText}</span></td>
+                                                        <td>${personInfo}</td>
+                                                        <td class="${t.type === 'income' || (t.type === 'transfer') ? 'text-success' : 'text-danger'}">${amountText}</td>
+                                                        <td>${t.description || '-'}</td>
+                                                    </tr>
+                                                `;
+                                            }).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('category-reports-container').innerHTML = categoryReportsHTML;
+        }
+
+        // طباعة تقرير السبب
+        function printCategoryReport() {
+            const reportContent = document.getElementById('category-reports-container').innerHTML;
+            const summaryContent = document.getElementById('report-summary').innerHTML;
+            
+            if (!reportContent && !summaryContent) {
+                alert('يرجى توليد التقرير أولاً');
+                return;
+            }
+            
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html dir="rtl">
+                <head>
+                    <title>تقرير الإحصائيات</title>
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                    <style>
+                        body { padding: 20px; font-family: Arial, sans-serif; }
+                        h3 { color: #7C3AED; }
+                        .table { width: 100%; margin-bottom: 1rem; }
+                        .table th { background-color: #f8f9fa; }
+                        @media print {
+                            .no-print { display: none !important; }
+                            .page-break { page-break-before: always; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h3 class="text-center mb-4">تقرير الإحصائيات</h3>
+                        <div class="mb-4">${summaryContent}</div>
+                        <div class="page-break"></div>
+                        ${reportContent}
+                        <div class="text-center mt-4 no-print">
+                            <button class="btn btn-secondary" onclick="window.close()">إغلاق</button>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            setTimeout(() => {
+                printWindow.print();
+            }, 500);
+        }
     </script>
 </body>
 </html>
