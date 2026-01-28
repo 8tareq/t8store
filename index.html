@@ -3,55 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>👑 مدير المال الذكي</title>
+    <title>👑 مدير المال الذكي - الإصدار المتطور</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* نظام ألوان جميل ومتناسق */
+        /* نظام ألوان ليلي حديث */
         :root {
-            --primary: #7C3AED;
-            --primary-light: #A78BFA;
-            --primary-dark: #5B21B6;
-            --secondary: #06B6D4;
-            --secondary-light: #22D3EE;
+            /* نظام ألوان ليلي مع لمسات زرقاء */
+            --primary: #3B82F6;
+            --primary-light: #60A5FA;
+            --primary-dark: #1D4ED8;
+            --secondary: #8B5CF6;
+            --secondary-light: #A78BFA;
             --success: #10B981;
             --success-light: #34D399;
             --danger: #EF4444;
             --danger-light: #F87171;
             --warning: #F59E0B;
             --warning-light: #FBBF24;
-            --info: #3B82F6;
-            --info-light: #60A5FA;
-            --light: #F9FAFB;
-            --dark: #1F2937;
-            --gray: #6B7280;
-            --gray-light: #E5E7EB;
+            --info: #06B6D4;
+            --info-light: #22D3EE;
+            --light: #1E293B;
+            --dark: #0F172A;
+            --gray: #64748B;
+            --gray-light: #334155;
+            --card-bg: #1E293B;
+            --body-bg: #0F172A;
             
-            /* تدرجات جميلة */
-            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
-            --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%);
-            --gradient-success: linear-gradient(135deg, #10B981 0%, #34D399 100%);
-            --gradient-danger: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
-            --gradient-warning: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
-            --gradient-info: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
-            --gradient-dark: linear-gradient(135deg, #1F2937 0%, #374151 100%);
-            --gradient-sunset: linear-gradient(135deg, #667EEA 0%, #764BA2 50%, #F093FB 100%);
+            /* تدرجات حديثة */
+            --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+            --gradient-secondary: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+            --gradient-success: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+            --gradient-danger: linear-gradient(135deg, #EF4444 0%, #F59E0B 100%);
+            --gradient-warning: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+            --gradient-info: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+            --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            --gradient-sunset: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
             
             /* تأثيرات الظلال */
-            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
-            --shadow-primary: 0 10px 30px rgba(124, 58, 237, 0.3);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.5);
+            --shadow-primary: 0 10px 30px rgba(59, 130, 246, 0.3);
             --shadow-success: 0 10px 30px rgba(16, 185, 129, 0.3);
             --shadow-danger: 0 10px 30px rgba(239, 68, 68, 0.3);
             
             /* زوايا دائرية */
-            --radius-sm: 12px;
-            --radius-md: 18px;
-            --radius-lg: 24px;
-            --radius-xl: 30px;
-            --radius-full: 999px;
+            --radius-sm: 10px;
+            --radius-md: 15px;
+            --radius-lg: 20px;
+            --radius-xl: 25px;
+            --radius-full: 50px;
         }
         
         /* إعدادات عامة */
@@ -64,8 +67,8 @@
         
         body {
             font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
-            color: var(--dark);
+            background: var(--body-bg);
+            color: #E2E8F0;
             min-height: 100vh;
             overflow-x: hidden;
             line-height: 1.6;
@@ -76,6 +79,7 @@
             border-radius: var(--radius-md);
             font-weight: 600;
             transition: all 0.3s ease;
+            border: none;
         }
         
         .form-control, .form-select {
@@ -84,26 +88,31 @@
             padding: 12px 16px;
             font-size: 16px;
             transition: all 0.3s ease;
+            background: var(--card-bg);
+            color: #E2E8F0;
         }
         
         .form-control:focus, .form-select:focus {
             border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
             transform: translateY(-2px);
+            background: var(--card-bg);
+            color: #E2E8F0;
         }
         
-        /* الهيدر الرئيسي */
+        /* الهيدر الرئيسي المطور */
         .app-header {
-            background: var(--gradient-primary);
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             color: white;
-            padding: 20px;
+            padding: 15px 20px;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             box-shadow: var(--shadow-lg);
-            backdrop-filter: blur(10px);
             animation: slideDown 0.5s ease;
             display: flex;
             align-items: center;
@@ -129,22 +138,27 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .current-time {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(59, 130, 246, 0.15);
             padding: 8px 16px;
             border-radius: var(--radius-full);
             font-size: 0.9rem;
             font-weight: 600;
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             animation: pulse 2s infinite;
+            color: #93C5FD;
         }
         
         @keyframes pulse {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+            50% { opacity: 0.8; transform: scale(1.05); }
         }
         
         /* المحتوى الرئيسي */
@@ -175,20 +189,20 @@
             }
         }
         
-        /* شريط التنقل السفلي */
+        /* شريط التنقل السفلي المطور */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 41, 59, 0.95);
             backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
             display: flex;
             justify-content: space-around;
             padding: 15px 0;
             z-index: 1000;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
         }
         
         .nav-item {
@@ -196,7 +210,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--gray);
+            color: #94A3B8;
             text-decoration: none;
             flex: 1;
             transition: all 0.3s ease;
@@ -218,12 +232,13 @@
         }
         
         .nav-item.active {
-            color: var(--primary);
-            transform: translateY(-5px);
+            color: white;
+            transform: translateY(-8px);
+            background: rgba(59, 130, 246, 0.15);
         }
         
         .nav-item.active i {
-            color: var(--primary);
+            color: var(--primary-light);
             transform: scale(1.2);
         }
         
@@ -245,24 +260,26 @@
         
         .nav-item:hover:not(.active) {
             color: var(--primary-light);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            background: rgba(59, 130, 246, 0.1);
         }
         
-        /* البطاقات */
+        /* البطاقات المطورة */
         .card {
             border: none;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
-            background: white;
+            background: var(--card-bg);
             margin-bottom: 20px;
             transition: all 0.3s ease;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
         
         .card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-xl);
+            border-color: rgba(59, 130, 246, 0.3);
         }
         
         .card-header {
@@ -286,7 +303,7 @@
             padding: 25px;
         }
         
-        /* أزرار العمليات */
+        /* أزرار العمليات المطورة */
         .operations-buttons {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -312,6 +329,7 @@
             color: white;
             min-height: 80px;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
         
         .operation-btn::before {
@@ -343,7 +361,7 @@
         }
         
         .operation-btn.transfer {
-            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+            background: var(--gradient-secondary);
         }
         
         .operation-btn i {
@@ -358,7 +376,7 @@
             backdrop-filter: blur(5px);
         }
         
-        /* الأزرار المخصصة */
+        /* الأزرار المخصصة المطورة */
         .btn-primary {
             background: var(--gradient-primary);
             border: none;
@@ -395,16 +413,16 @@
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
         }
         
         .btn-primary:active {
             transform: scale(0.98);
         }
         
-        /* تصميم الأشخاص */
+        /* تصميم الأشخاص المطور */
         .person-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: var(--radius-lg);
             padding: 25px;
             margin-bottom: 20px;
@@ -414,6 +432,18 @@
             gap: 20px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .person-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
         }
         
         .person-card:hover {
@@ -435,10 +465,12 @@
             font-weight: bold;
             box-shadow: var(--shadow-primary);
             transition: all 0.3s ease;
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
         
         .person-card:hover .person-avatar {
             transform: scale(1.1) rotate(10deg);
+            border-color: rgba(255, 255, 255, 0.3);
         }
         
         .person-info {
@@ -448,7 +480,7 @@
         .person-name {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--dark);
+            color: #E2E8F0;
             margin-bottom: 5px;
         }
         
@@ -490,9 +522,9 @@
             50% { transform: translateY(5px); }
         }
         
-        /* العناصر المالية */
+        /* العناصر المالية المطورة */
         .transaction-item {
-            background: white;
+            background: var(--card-bg);
             border-radius: var(--radius-md);
             padding: 20px;
             margin-bottom: 15px;
@@ -518,7 +550,7 @@
             border-left-color: var(--danger);
         }
         
-        /* الفئات */
+        /* الفئات المطورة */
         .category-badge {
             display: inline-block;
             padding: 8px 16px;
@@ -528,25 +560,28 @@
             margin: 4px;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .category-rent { background: var(--gradient-danger); color: white; }
-        .category-electricity { background: var(--gradient-info); color: white; }
-        .category-car { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; }
-        .category-living { background: var(--gradient-warning); color: white; }
-        .category-personal { background: var(--gradient-primary); color: white; }
-        .category-metro { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; }
-        .category-sweets { background: linear-gradient(135deg, #EC4899 0%, #F472B6 100%); color: white; }
-        .category-apartment { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); color: white; }
-        .category-internet { background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%); color: white; }
-        .category-transfer { background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%); color: white; }
+        .category-rent { background: var(--gradient-danger); }
+        .category-electricity { background: var(--gradient-info); }
+        .category-car { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); }
+        .category-living { background: var(--gradient-warning); }
+        .category-personal { background: var(--gradient-primary); }
+        .category-metro { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); }
+        .category-sweets { background: linear-gradient(135deg, #EC4899 0%, #F472B6 100%); }
+        .category-apartment { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); }
+        .category-internet { background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%); }
+        .category-transfer { background: var(--gradient-secondary); }
         
         .category-badge:hover {
             transform: scale(1.05);
             box-shadow: var(--shadow-md);
+            border-color: rgba(255, 255, 255, 0.3);
         }
         
-        /* حالة فارغة */
+        /* حالة فارغة مطورة */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
@@ -555,7 +590,10 @@
         
         .empty-state i {
             font-size: 70px;
-            color: var(--gray-light);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
             display: block;
             animation: bounceEmpty 3s infinite;
@@ -571,7 +609,7 @@
         .empty-state h5 {
             font-size: 1.3rem;
             margin-bottom: 10px;
-            color: var(--dark);
+            color: #E2E8F0;
             font-weight: 700;
         }
         
@@ -580,7 +618,7 @@
             color: var(--gray);
         }
         
-        /* أزرار الإجراءات */
+        /* أزرار الإجراءات المطورة */
         .action-buttons {
             display: flex;
             gap: 15px;
@@ -600,26 +638,23 @@
             transition: all 0.3s ease;
             cursor: pointer;
             box-shadow: var(--shadow-md);
+            color: white;
         }
         
         .action-btn.primary {
             background: var(--gradient-primary);
-            color: white;
         }
         
         .action-btn.success {
             background: var(--gradient-success);
-            color: white;
         }
         
         .action-btn.danger {
             background: var(--gradient-danger);
-            color: white;
         }
         
         .action-btn.warning {
             background: var(--gradient-warning);
-            color: white;
         }
         
         .action-btn:hover {
@@ -631,13 +666,15 @@
             transform: scale(0.98);
         }
         
-        /* النماذج */
+        /* النماذج المطورة */
         .modal-content {
             border-radius: var(--radius-lg);
             border: none;
             overflow: hidden;
             box-shadow: var(--shadow-xl);
             animation: modalSlide 0.3s ease;
+            background: var(--card-bg);
+            color: #E2E8F0;
         }
         
         @keyframes modalSlide {
@@ -670,7 +707,7 @@
             padding: 25px;
         }
         
-        /* تصميم نموذج التحويل */
+        /* تصميم نموذج التحويل المطور */
         .transfer-form .form-group {
             margin-bottom: 20px;
         }
@@ -679,7 +716,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             display: block;
-            color: var(--dark);
+            color: #E2E8F0;
         }
         
         .currency-display {
@@ -689,12 +726,13 @@
         }
         
         .exchange-rate-section {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: rgba(6, 182, 212, 0.1);
             border-radius: var(--radius-md);
             padding: 20px;
             margin: 20px 0;
             border: 2px solid var(--info-light);
             animation: fadeIn 0.5s ease;
+            backdrop-filter: blur(10px);
         }
         
         .exchange-rate-header {
@@ -719,12 +757,13 @@
         }
         
         .amount-preview {
-            background: white;
+            background: rgba(16, 185, 129, 0.1);
             border-radius: var(--radius-md);
             padding: 20px;
             margin: 20px 0;
             border: 2px solid var(--success-light);
             animation: pulse 2s infinite;
+            backdrop-filter: blur(10px);
         }
         
         .amount-row {
@@ -768,12 +807,14 @@
             left: 15px;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(124, 58, 237, 0.1);
+            background: rgba(59, 130, 246, 0.2);
             padding: 4px 12px;
             border-radius: var(--radius-full);
             font-size: 12px;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--primary-light);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
         
         /* تحسين تصميم إدخال المبلغ مع رمز العملة */
@@ -783,11 +824,12 @@
             border-radius: var(--radius-md);
             overflow: hidden;
             transition: all 0.3s ease;
+            background: var(--card-bg);
         }
         
         .currency-input-group:focus-within {
             border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
             transform: translateY(-2px);
         }
         
@@ -797,10 +839,12 @@
             padding: 12px 16px;
             font-size: 16px;
             outline: none;
+            background: transparent;
+            color: #E2E8F0;
         }
         
         .currency-symbol {
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            background: var(--gradient-primary);
             color: white;
             padding: 0 20px;
             display: flex;
@@ -811,7 +855,7 @@
             font-size: 16px;
         }
         
-        /* شريط البحث */
+        /* شريط البحث المطور */
         .search-container {
             position: relative;
             margin-bottom: 20px;
@@ -823,13 +867,14 @@
             border: 2px solid var(--gray-light);
             border-radius: var(--radius-full);
             font-size: 16px;
-            background: white;
+            background: var(--card-bg);
             transition: all 0.3s ease;
+            color: #E2E8F0;
         }
         
         .search-input:focus {
             border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
             outline: none;
         }
         
@@ -841,7 +886,7 @@
             color: var(--gray);
         }
         
-        /* المؤشر */
+        /* المؤشر المطور */
         .loading-indicator {
             display: none;
             position: fixed;
@@ -849,11 +894,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 9999;
-            background: white;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-xl);
             text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
         
         .loading-indicator.active {
@@ -875,7 +921,7 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* تنسيق الأرقام */
+        /* تنسيق الأرقام المطور */
         .currency-amount {
             font-family: 'Courier New', monospace;
             font-weight: 700;
@@ -955,40 +1001,17 @@
             }
         }
         
-        /* تأثيرات خاصة */
+        /* تأثيرات خاصة مطورة */
         .glow {
             animation: glow 2s infinite;
         }
         
         @keyframes glow {
             0%, 100% { box-shadow: var(--shadow-primary); }
-            50% { box-shadow: 0 0 30px rgba(124, 58, 237, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
         }
         
-        /* شرائح التقدم */
-        .progress-ring {
-            width: 60px;
-            height: 60px;
-            transform: rotate(-90deg);
-        }
-        
-        .progress-ring circle {
-            fill: transparent;
-            stroke: var(--primary);
-            stroke-width: 6;
-            stroke-linecap: round;
-            stroke-dasharray: 283;
-            stroke-dashoffset: 283;
-            animation: progress 2s ease-out forwards;
-        }
-        
-        @keyframes progress {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-        
-        /* تأثيرات دخول */
+        /* تأثيرات دخول مطورة */
         .fade-in {
             animation: fadeIn 0.6s ease;
         }
@@ -1008,7 +1031,7 @@
             }
         }
         
-        /* خلفيات ديكور */
+        /* خلفيات ديكور مطورة */
         .bg-pattern {
             position: fixed;
             top: 0;
@@ -1016,9 +1039,12 @@
             right: 0;
             bottom: 0;
             z-index: -1;
-            opacity: 0.03;
-            background-image: radial-gradient(var(--primary) 2px, transparent 2px);
-            background-size: 40px 40px;
+            opacity: 0.05;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 30%);
+            background-size: 300px 300px;
         }
         
         /* تحسينات الطباعة */
@@ -1038,15 +1064,21 @@
                 box-shadow: none;
                 border: 1px solid #ddd;
             }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
         }
 
-        /* تحسينات التقارير */
+        /* تحسينات التقارير المطورة */
         .report-card {
             border-radius: var(--radius-lg);
-            background: white;
+            background: var(--card-bg);
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: var(--shadow-md);
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .report-summary {
@@ -1057,11 +1089,18 @@
         }
 
         .summary-item {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: rgba(30, 41, 59, 0.8);
             border-radius: var(--radius-md);
             padding: 15px;
             text-align: center;
             border: 2px solid transparent;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .summary-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
         .summary-item.income {
@@ -1080,6 +1119,156 @@
             height: 300px;
             width: 100%;
             margin: 20px 0;
+        }
+
+        /* توهج النص */
+        .text-glow {
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        /* أقسام جديدة */
+        .dashboard-section {
+            margin-bottom: 30px;
+        }
+
+        .dashboard-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #E2E8F0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 10px 0;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* شريط التقدم */
+        .progress-bar-modern {
+            height: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            transition: width 1s ease;
+        }
+
+        /* رسومات بيانية بسيطة */
+        .chart-container {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #E2E8F0;
+        }
+
+        /* تخصيص شريط التمرير */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: var(--radius-full);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
+        }
+
+        /* أزرار الحالة */
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-active {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .status-inactive {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.3);
         }
     </style>
 </head>
@@ -1104,18 +1293,67 @@
     <div class="main-content">
         <!-- قسم الحسابات -->
         <div class="section active" id="accounts-section">
+            <!-- قسم لوحة التحكم الجديد -->
+            <div class="dashboard-section fade-in">
+                <h2 class="dashboard-title">
+                    <i class="fas fa-tachometer-alt"></i> لوحة التحكم
+                </h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">إجمالي الحسابات</div>
+                        <div class="stat-value" id="total-accounts">0</div>
+                        <div class="progress-bar-modern">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-label">إجمالي الإيداعات</div>
+                        <div class="stat-value" id="total-income">0</div>
+                        <div class="progress-bar-modern">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-label">إجمالي السحوبات</div>
+                        <div class="stat-value" id="total-expense">0</div>
+                        <div class="progress-bar-modern">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-label">الرصيد الكلي</div>
+                        <div class="stat-value" id="total-balance">0</div>
+                        <div class="progress-bar-modern">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم إدارة الحسابات -->
             <div class="mb-4 fade-in">
-                <h2 class="fw-bold mb-2">👥 إدارة الحسابات</h2>
+                <h2 class="dashboard-title">
+                    <i class="fas fa-users"></i> إدارة الحسابات
+                </h2>
                 <p class="text-muted">تابع أرصدة الأشخاص وإدارتهم بسهولة</p>
             </div>
             
-            <button class="btn btn-primary mb-4 glow" data-bs-toggle="modal" data-bs-target="#addPersonModal">
-                <i class="fas fa-user-plus"></i> إضافة شخص جديد
-            </button>
-            
-            <button class="btn btn-primary mb-4" style="background: var(--gradient-success);" id="openStatementModal">
-                <i class="fas fa-file-invoice"></i> كشف الحساب
-            </button>
+            <div class="row mb-4">
+                <div class="col-md-6 mb-3">
+                    <button class="btn btn-primary w-100 glow" data-bs-toggle="modal" data-bs-target="#addPersonModal">
+                        <i class="fas fa-user-plus"></i> إضافة شخص جديد
+                    </button>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <button class="btn btn-primary w-100" style="background: var(--gradient-success);" id="openStatementModal">
+                        <i class="fas fa-file-invoice"></i> كشف الحساب
+                    </button>
+                </div>
+            </div>
             
             <div id="people-list" class="mt-3">
                 <!-- سيتم ملء هذا القسم بالبيانات -->
@@ -1125,7 +1363,9 @@
         <!-- قسم العمليات -->
         <div class="section" id="transactions-section">
             <div class="mb-4 fade-in">
-                <h2 class="fw-bold mb-2">💰 العمليات المالية</h2>
+                <h2 class="dashboard-title">
+                    <i class="fas fa-exchange-alt"></i> العمليات المالية
+                </h2>
                 <p class="text-muted">سجل عمليات الإيداع والسحب والتحويل بسهولة</p>
             </div>
             
@@ -1151,12 +1391,21 @@
                 <input type="text" class="search-input" id="transaction-search" placeholder="🔍 ابحث في العمليات...">
             </div>
             
-            <select class="form-select mb-4" id="transaction-filter">
-                <option value="10">آخر 10 عمليات</option>
-                <option value="20">آخر 20 عملية</option>
-                <option value="50">آخر 50 عملية</option>
-                <option value="all">جميع العمليات</option>
-            </select>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <select class="form-select" id="transaction-filter">
+                        <option value="10">آخر 10 عمليات</option>
+                        <option value="20">آخر 20 عملية</option>
+                        <option value="50">آخر 50 عملية</option>
+                        <option value="all">جميع العمليات</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-outline-primary w-100" id="export-transactions">
+                        <i class="fas fa-download"></i> تصدير العمليات
+                    </button>
+                </div>
+            </div>
             
             <div id="transactions-list">
                 <!-- سيتم ملء هذا القسم بالبيانات -->
@@ -1166,7 +1415,9 @@
         <!-- قسم الإحصائيات -->
         <div class="section" id="statistics-section">
             <div class="mb-4 fade-in">
-                <h2 class="fw-bold mb-2">📊 التقارير والإحصائيات</h2>
+                <h2 class="dashboard-title">
+                    <i class="fas fa-chart-bar"></i> التقارير والإحصائيات
+                </h2>
                 <p class="text-muted">تحليل دقيق للعمليات المالية حسب الأسباب</p>
             </div>
             
@@ -1237,7 +1488,9 @@
         <!-- قسم الإعدادات -->
         <div class="section" id="settings-section">
             <div class="mb-4 fade-in">
-                <h2 class="fw-bold mb-2">⚙️ الإعدادات</h2>
+                <h2 class="dashboard-title">
+                    <i class="fas fa-cog"></i> الإعدادات
+                </h2>
                 <p class="text-muted">إدارة إعدادات التطبيق والبيانات</p>
             </div>
             
@@ -1281,6 +1534,28 @@
                         <button class="action-btn danger" id="clear-data">
                             <i class="fas fa-trash"></i> مسح جميع البيانات
                         </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- معلومات التطبيق -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <i class="fas fa-info-circle"></i> معلومات التطبيق
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>الإصدار:</strong> 2.0.0</p>
+                            <p><strong>تاريخ البناء:</strong> <span id="build-date"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>عدد الحسابات:</strong> <span id="app-accounts-count">0</span></p>
+                            <p><strong>عدد العمليات:</strong> <span id="app-transactions-count">0</span></p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <span class="status-badge status-active">نشط</span>
                     </div>
                 </div>
             </div>
@@ -1594,7 +1869,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // بيانات التطبيق
+        // بيانات التطبيق (نفس الذاكرة)
         let appData = {
             people: [],
             transactions: [],
@@ -1606,17 +1881,21 @@
 
         // تهيئة التطبيق
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('جاري تهيئة التطبيق...');
+            console.log('جاري تهيئة التطبيق المطور...');
             loadData();
             setupEventListeners();
             updateUI();
             startClock();
             updateCategoryFilters();
+            updateDashboardStats();
             
             // إخفاء مؤشر التحميل بعد 1 ثانية
             setTimeout(() => {
                 document.getElementById('loadingIndicator').classList.remove('active');
             }, 1000);
+            
+            // تعيين تاريخ البناء
+            document.getElementById('build-date').textContent = new Date().toLocaleDateString('ar-SA');
         });
 
         // تحميل البيانات من localStorage
@@ -1640,6 +1919,37 @@
             } catch (error) {
                 console.error('خطأ في حفظ البيانات:', error);
             }
+        }
+
+        // تحديث لوحة التحكم
+        function updateDashboardStats() {
+            document.getElementById('total-accounts').textContent = appData.people.length;
+            
+            let totalIncome = 0;
+            let totalExpense = 0;
+            let totalBalance = 0;
+            
+            appData.people.forEach(person => {
+                totalBalance += person.balance;
+            });
+            
+            appData.transactions.forEach(transaction => {
+                if (transaction.type === 'income') {
+                    totalIncome += transaction.amount;
+                } else if (transaction.type === 'expense') {
+                    totalExpense += transaction.amount;
+                } else if (transaction.type === 'transfer') {
+                    totalIncome += transaction.receivedAmount || 0;
+                    totalExpense += transaction.amount;
+                }
+            });
+            
+            document.getElementById('total-income').textContent = formatCurrency(totalIncome, 'try');
+            document.getElementById('total-expense').textContent = formatCurrency(totalExpense, 'try');
+            document.getElementById('total-balance').textContent = formatCurrency(totalBalance, 'try');
+            
+            document.getElementById('app-accounts-count').textContent = appData.people.length;
+            document.getElementById('app-transactions-count').textContent = appData.transactions.length;
         }
 
         // تحديث مرشحات الفئات بناءً على العمليات الحالية
@@ -1734,6 +2044,7 @@
                     
                     alert('تم إضافة العملية بنجاح ✅');
                     updateCategoryFilters();
+                    updateDashboardStats();
                 } else {
                     alert('يرجى اختيار شخص وإدخال مبلغ صحيح');
                 }
@@ -1755,6 +2066,7 @@
                     
                     alert('تم تحديث العملية بنجاح ✅');
                     updateCategoryFilters();
+                    updateDashboardStats();
                 } else {
                     alert('يرجى إدخال مبلغ صحيح');
                 }
@@ -1773,6 +2085,7 @@
                     modal.hide();
                     
                     alert('تم تحديث الشخص بنجاح ✅');
+                    updateDashboardStats();
                 } else {
                     alert('يرجى إدخال اسم الشخص');
                 }
@@ -1794,6 +2107,9 @@
             document.getElementById('export-data').addEventListener('click', exportData);
             document.getElementById('import-data').addEventListener('click', importData);
             document.getElementById('clear-data').addEventListener('click', clearData);
+            
+            // تصدير العمليات
+            document.getElementById('export-transactions').addEventListener('click', exportTransactions);
 
             // البحث في العمليات
             document.getElementById('transaction-search').addEventListener('input', function() {
@@ -1889,6 +2205,7 @@
             // تحديث المحتوى حسب القسم
             if (section === 'accounts') {
                 updatePeopleList();
+                updateDashboardStats();
             } else if (section === 'transactions') {
                 updateTransactionsList();
                 updateTransactionPersonSelect();
@@ -1896,6 +2213,7 @@
                 updateCategoryFilters();
             } else if (section === 'settings') {
                 loadTelegramSettings();
+                updateDashboardStats();
             }
         }
 
@@ -1907,6 +2225,7 @@
             updateStatementPersonSelect();
             updateTransferSelects();
             loadTelegramSettings();
+            updateDashboardStats();
         }
 
         // بدء الساعة
@@ -1947,6 +2266,7 @@
             updateTransactionPersonSelect();
             updateStatementPersonSelect();
             updateTransferSelects();
+            updateDashboardStats();
         }
 
         // تحديث شخص
@@ -1960,6 +2280,7 @@
                 updateTransactionPersonSelect();
                 updateStatementPersonSelect();
                 updateTransferSelects();
+                updateDashboardStats();
             }
         }
 
@@ -1991,6 +2312,7 @@
             saveData();
             updateTransactionsList();
             updatePeopleList();
+            updateDashboardStats();
         }
 
         // إضافة عملية تحويل
@@ -2049,6 +2371,7 @@
             saveData();
             updateTransactionsList();
             updatePeopleList();
+            updateDashboardStats();
             
             return true;
         }
@@ -2084,6 +2407,7 @@
             saveData();
             updateTransactionsList();
             updatePeopleList();
+            updateDashboardStats();
         }
 
         // تعديل عملية
@@ -2222,7 +2546,7 @@
                 if (transaction.type === 'transfer') {
                     const transferElement = document.createElement('div');
                     transferElement.className = `transaction-item slide-in-right`;
-                    transferElement.style.borderLeftColor = 'var(--info)';
+                    transferElement.style.borderLeftColor = 'var(--secondary)';
                     transferElement.style.animationDelay = `${index * 0.1}s`;
                     
                     transferElement.innerHTML = `
@@ -2316,6 +2640,7 @@
             updateTransactionPersonSelect();
             updateStatementPersonSelect();
             updateTransferSelects();
+            updateDashboardStats();
             alert('تم حذف الشخص بنجاح ✅');
         }
 
@@ -2351,6 +2676,7 @@
             saveData();
             updateTransactionsList();
             updatePeopleList();
+            updateDashboardStats();
             alert('تم حذف العملية بنجاح ✅');
         }
 
@@ -2690,6 +3016,43 @@
             alert('تم تصدير البيانات بنجاح ✅');
         }
 
+        // تصدير العمليات إلى CSV
+        function exportTransactions() {
+            if (appData.transactions.length === 0) {
+                alert('لا توجد عمليات لتصديرها');
+                return;
+            }
+            
+            let csvContent = "التاريخ,النوع,الفئة,الاسم,المبلغ,العملة,الوصف\n";
+            
+            appData.transactions.forEach(transaction => {
+                let typeText = transaction.type === 'income' ? 'إيداع' : 
+                              transaction.type === 'expense' ? 'سحب' : 'تحويل';
+                let categoryText = getCategoryText(transaction.category);
+                let personName = transaction.personName || 
+                               (transaction.fromPersonName + ' → ' + transaction.toPersonName);
+                let amount = transaction.type === 'transfer' ? 
+                           transaction.amount + ' → ' + transaction.receivedAmount : 
+                           transaction.amount;
+                let currency = transaction.type === 'transfer' ? 
+                             transaction.fromCurrency + ' → ' + transaction.toCurrency : 
+                             transaction.currency;
+                
+                const date = new Date(transaction.date);
+                const dateString = date.toLocaleDateString('en-US');
+                
+                csvContent += `${dateString},${typeText},${categoryText},${personName},${amount},${currency},"${transaction.description || ''}"\n`;
+            });
+            
+            const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `العمليات_${new Date().toISOString().split('T')[0]}.csv`;
+            link.click();
+            
+            alert('تم تصدير العمليات بنجاح ✅');
+        }
+
         // استيراد البيانات
         function importData() {
             const input = document.createElement('input');
@@ -2709,6 +3072,7 @@
                             saveData();
                             updateUI();
                             updateCategoryFilters();
+                            updateDashboardStats();
                             alert('تم استيراد البيانات بنجاح ✅');
                         }
                     } catch (error) {
@@ -2736,6 +3100,7 @@
                 saveData();
                 updateUI();
                 updateCategoryFilters();
+                updateDashboardStats();
                 alert('تم مسح جميع البيانات بنجاح ✅');
             }
         }
@@ -3352,7 +3717,7 @@
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
                     <style>
                         body { padding: 20px; font-family: Arial, sans-serif; }
-                        h3 { color: #7C3AED; }
+                        h3 { color: #3B82F6; }
                         .table { width: 100%; margin-bottom: 1rem; }
                         .table th { background-color: #f8f9fa; }
                         @media print {
