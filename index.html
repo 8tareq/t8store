@@ -2,2293 +2,1314 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👑 مدير المال الذكي - متعدد العملات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TAREK Tickets - متعدد العملات</title>
     <style>
-        /* نظام الألوان الأساسي */
         :root {
-            --primary: #7C3AED;
-            --primary-light: #A78BFA;
-            --primary-dark: #5B21B6;
-            --secondary: #06B6D4;
-            --success: #10B981;
-            --danger: #EF4444;
-            --warning: #F59E0B;
-            --info: #3B82F6;
-            --light: #F9FAFB;
-            --dark: #1F2937;
-            --gray: #6B7280;
-            --border: #E5E7EB;
+            --primary-color: #4A00E0;
+            --secondary-color: #8E2DE2;
+            --accent-color: #FF416C;
+            --success-color: #00D2A0;
+            --warning-color: #FFA62E;
+            --cancel-color: #8E44AD;
+            --light-color: #F8F9FF;
+            --dark-color: #1A1A2E;
+            --card-bg: #FFFFFF;
+            --lyd-color: #218838;
+            --eur-color: #007BFF;
+            --usd-color: #FF5722;
+            --gradient-primary: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+            --gradient-secondary: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+            --gradient-success: linear-gradient(135deg, #00D2A0 0%, #00B894 100%);
+            --gradient-warning: linear-gradient(135deg, #FFA62E 0%, #FF9A3D 100%);
+            --gradient-cancel: linear-gradient(135deg, #8E44AD 0%, #6C3483 100%);
+            --gradient-dark: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            --gradient-lyd: linear-gradient(135deg, #218838 0%, #28a745 100%);
+            --gradient-eur: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+            --gradient-usd: linear-gradient(135deg, #FF5722 0%, #e64a19 100%);
+            --shadow-light: 0 10px 30px rgba(74, 0, 224, 0.08);
+            --shadow-medium: 0 15px 35px rgba(74, 0, 224, 0.12);
+            --shadow-heavy: 0 20px 50px rgba(74, 0, 224, 0.15);
+            --border-radius: 16px;
+            --border-radius-sm: 10px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* تصميم ليلي جديد */
+        .dark-mode {
+            --primary-color: #8B5CF6;
+            --secondary-color: #A78BFA;
+            --accent-color: #FB7185;
+            --success-color: #34D399;
+            --warning-color: #FBBF24;
+            --cancel-color: #C084FC;
+            --light-color: #1F2937;
+            --dark-color: #F9FAFB;
+            --card-bg: #374151;
             
-            /* التدرجات */
-            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
-            --gradient-success: linear-gradient(135deg, #10B981 0%, #34D399 100%);
-            --gradient-danger: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
-            --gradient-warning: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
-            --gradient-dark: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+            --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+            --gradient-secondary: linear-gradient(135deg, #FB7185 0%, #F87171 100%);
+            --gradient-success: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+            --gradient-warning: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+            --gradient-cancel: linear-gradient(135deg, #C084FC 0%, #A78BFA 100%);
+            --gradient-dark: linear-gradient(135deg, #374151 0%, #4B5563 100%);
             
-            /* الظلال */
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
-            
-            /* الزوايا */
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-full: 999px;
+            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.25);
+            --shadow-heavy: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
         
-        /* الوضع الليلي */
-        body.dark-mode {
-            --light: #1F2937;
-            --dark: #F9FAFB;
-            --border: #374151;
-            --gray: #9CA3AF;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-        
-        /* التنسيقات العامة */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            background: linear-gradient(135deg, #F8F9FF 0%, #EFF2FF 100%);
+            color: #333;
             line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
+            padding: 15px;
             min-height: 100vh;
-            padding-bottom: 80px;
+            -webkit-text-size-adjust: 100%;
+            position: relative;
+            overflow-x: hidden;
+            transition: var(--transition);
         }
         
-        /* الهيدر */
-        .header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 15px 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-md);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
+        .dark-mode body {
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+            color: #E5E7EB;
         }
         
-        .header h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .header-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
+        /* زر تبديل النمط الليلي */
         .theme-toggle {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(15deg);
-        }
-        
-        /* المحتوى الرئيسي */
-        .main-content {
-            padding: 80px 15px 90px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* الأقسام */
-        .section {
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .section.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* التنقل السفلي */
-        .bottom-nav {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            z-index: 1000;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        body.dark-mode .bottom-nav {
-            background: var(--light);
-            border-top-color: var(--border);
-        }
-        
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--gray);
-            padding: 8px 12px;
-            border-radius: var(--radius-md);
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .nav-item i {
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-        
-        .nav-item span {
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        .nav-item.active {
-            color: var(--primary);
-            background: rgba(124, 58, 237, 0.1);
-        }
-        
-        .nav-indicator {
-            position: absolute;
-            top: -5px;
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-item.active .nav-indicator {
-            opacity: 1;
-        }
-        
-        /* البطاقة الرئيسية */
-        .welcome-card {
-            background: var(--gradient-dark);
-            color: white;
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .welcome-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(30%, -30%);
-        }
-        
-        .welcome-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .welcome-subtitle {
-            opacity: 0.9;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .total-balance {
-            font-size: 2.5rem;
-            font-weight: 800;
-            font-family: 'Courier New', monospace;
-            margin: 10px 0;
-        }
-        
-        /* أزرار سريعة */
-        .quick-actions {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .quick-btn {
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        body.dark-mode .quick-btn {
-            background: var(--light);
-            border-color: var(--border);
-        }
-        
-        .quick-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary-light);
-        }
-        
-        .quick-btn i {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .quick-btn .title {
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-        
-        .quick-btn .subtitle {
-            font-size: 0.85rem;
-            color: var(--gray);
-        }
-        
-        /* قائمة الأشخاص */
-        .people-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .person-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 20px;
-            transition: all 0.3s;
-        }
-        
-        body.dark-mode .person-card {
-            background: var(--light);
-        }
-        
-        .person-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
-        }
-        
-        .person-avatar {
+            top: 20px;
+            left: 20px;
             width: 50px;
             height: 50px;
             background: var(--gradient-primary);
-            border-radius: var(--radius-md);
-            color: white;
-            font-weight: 700;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-        
-        .person-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        .person-balance {
-            font-size: 1.3rem;
-            font-weight: 800;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .balance-positive {
-            color: var(--success);
-        }
-        
-        .balance-negative {
-            color: var(--danger);
-        }
-        
-        /* قائمة العمليات */
-        .transactions-list {
-            margin-top: 20px;
-        }
-        
-        .transaction-item {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 15px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: all 0.3s;
-        }
-        
-        body.dark-mode .transaction-item {
-            background: var(--light);
-        }
-        
-        .transaction-item:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .transaction-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-md);
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-        
-        .transaction-details {
-            flex: 1;
-        }
-        
-        .transaction-title {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        
-        .transaction-info {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-        
-        .transaction-amount {
-            font-weight: 700;
-            font-size: 1.1rem;
-            font-family: 'Courier New', monospace;
-        }
-        
-        /* النوافذ المنبثقة */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: var(--radius-xl);
-            width: 90%;
-            max-width: 500px;
-            max-height: 90vh;
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            animation: modalSlide 0.3s ease;
-        }
-        
-        body.dark-mode .modal-content {
-            background: var(--light);
-        }
-        
-        @keyframes modalSlide {
-            from { transform: translateY(-30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .modal-header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-header h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .modal-close {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            width: 36px;
-            height: 36px;
             border-radius: 50%;
-            color: white;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
-        }
-        
-        .modal-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-        
-        .modal-body {
-            padding: 20px;
-            max-height: calc(90vh - 80px);
-            overflow-y: auto;
-        }
-        
-        /* حقول النموذج */
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark);
-        }
-        
-        body.dark-mode .form-label {
-            color: var(--light);
-        }
-        
-        .form-control, .form-select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: white;
-            color: var(--dark);
-        }
-        
-        body.dark-mode .form-control,
-        body.dark-mode .form-select {
-            background: var(--light);
-            color: var(--dark);
-            border-color: var(--border);
-        }
-        
-        .form-control:focus, .form-select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
-        }
-        
-        /* أزرار النموذج */
-        .form-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 25px;
-        }
-        
-        .btn {
-            flex: 1;
-            padding: 15px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: none;
+            color: white;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(30deg) scale(1.1);
+        }
+        
+        /* الترويسة المحسنة */
+        .main-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 25px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--accent-color);
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-secondary);
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            font-size: 36px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: pulse 3s infinite ease-in-out;
+            transition: var(--transition);
         }
         
-        .btn-primary {
-            background: var(--gradient-primary);
+        .logo-circle:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 35px rgba(255, 65, 108, 0.3);
+        }
+        
+        .logo-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
             color: white;
+            font-weight: 800;
         }
         
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
-        }
-        
-        .btn-secondary {
-            background: var(--border);
-            color: var(--dark);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--gray);
-            color: white;
-        }
-        
-        /* حالة فارغة */
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--gray);
-        }
-        
-        .empty-state i {
-            font-size: 48px;
-            margin-bottom: 15px;
-            opacity: 0.5;
-        }
-        
-        .empty-state h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        body.dark-mode .empty-state h4 {
-            color: var(--light);
-        }
-        
-        /* البحث والتصفية */
-        .search-bar {
-            position: relative;
-            margin-bottom: 20px;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 15px 45px 15px 15px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius-full);
-            font-size: 1rem;
-            background: white;
-            color: var(--dark);
-        }
-        
-        body.dark-mode .search-input {
-            background: var(--light);
-            color: var(--dark);
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gray);
-        }
-        
-        /* أزرار الفئات */
-        .category-buttons {
+        /* تبويبات جديدة بتصميم عصري */
+        .tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-light);
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-out 0.3s both;
         }
         
-        .category-btn {
-            padding: 10px 15px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-full);
-            font-size: 0.9rem;
-            font-weight: 600;
+        .tab {
+            flex: 1;
+            padding: 20px 15px;
+            text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
+            font-weight: 700;
+            color: #666;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
         
-        body.dark-mode .category-btn {
-            background: var(--light);
+        .dark-mode .tab {
+            color: #D1D5DB;
         }
         
-        .category-btn:hover {
-            transform: translateY(-2px);
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            background-color: rgba(74, 0, 224, 0.05);
         }
         
-        .category-btn.active {
+        .dark-mode .tab.active {
+            background-color: rgba(139, 92, 246, 0.1);
+        }
+        
+        /* تصميم البطاقات الجديد */
+        .modern-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            margin-bottom: 25px;
+            border: 1px solid rgba(74, 0, 224, 0.1);
+            transition: var(--transition);
+            animation: fadeIn 0.6s ease-out 0.4s both;
+        }
+        
+        .dark-mode .modern-card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .modern-card:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-5px);
+        }
+        
+        /* تحسينات النماذج */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+        }
+        
+        .dark-mode label {
+            color: var(--dark-color);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 16px 18px;
+            border: 2px solid #E0E0FF;
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #F8F9FF;
+            color: #333;
+        }
+        
+        .dark-mode input,
+        .dark-mode select,
+        .dark-mode textarea {
+            background-color: #4B5563;
+            border-color: #6B7280;
+            color: #E5E7EB;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 4px rgba(142, 45, 226, 0.2);
+        }
+        
+        /* أزرار محسنة */
+        .btn {
+            display: inline-block;
             background: var(--gradient-primary);
             color: white;
-            border-color: transparent;
+            border: none;
+            padding: 18px 25px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: var(--transition);
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(74, 0, 224, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(74, 0, 224, 0.3);
+        }
+        
+        /* الجداول المحسنة */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(74, 0, 224, 0.1);
+            max-height: 500px;
+            overflow-y: auto;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .dark-mode .table-container {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* الشركات المحسنة */
+        .company-card {
+            background: linear-gradient(135deg, #F8F9FF 0%, #F0F4FF 100%);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border-right: 5px solid var(--secondary-color);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+        }
+        
+        .dark-mode .company-card {
+            background: linear-gradient(135deg, #374151 0%, #4B5563 100%);
+        }
+        
+        /* الأنيميشن */
+        @keyframes slideDown {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         /* تحسينات للهواتف */
         @media (max-width: 768px) {
-            .main-content {
-                padding: 70px 12px 90px;
+            .main-header {
+                padding: 20px 15px;
             }
             
-            .header h1 {
-                font-size: 1.2rem;
+            .logo-circle {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
             }
             
-            .quick-actions {
-                grid-template-columns: 1fr;
+            .logo-text h1 {
+                font-size: 1.8rem;
             }
             
-            .people-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .modal-content {
-                width: 95%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .header {
-                padding: 12px 15px;
-            }
-            
-            .people-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-item span {
-                font-size: 11px;
+            .theme-toggle {
+                top: 10px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
             }
         }
         
-        /* إشعارات */
-        .notification {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            background: white;
-            border-radius: var(--radius-md);
-            padding: 15px 20px;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            z-index: 3000;
-            transform: translateX(150%);
-            transition: transform 0.3s ease;
-            max-width: 350px;
-        }
-        
-        body.dark-mode .notification {
-            background: var(--light);
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .notification-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: white;
-        }
-        
-        .notification-success .notification-icon {
-            background: var(--success);
-        }
-        
-        .notification-error .notification-icon {
-            background: var(--danger);
-        }
-        
-        .notification-info .notification-icon {
-            background: var(--info);
-        }
-        
-        .notification-content {
-            flex: 1;
-        }
-        
-        .notification-title {
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        
-        .notification-message {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-        
-        /* تحديثات العملات */
-        .currency-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .currency-btn {
-            flex: 1;
-            padding: 12px;
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: var(--radius-md);
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        body.dark-mode .currency-btn {
-            background: var(--light);
-        }
-        
-        .currency-btn.active {
-            background: var(--gradient-primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        .currency-btn:hover:not(.active) {
-            border-color: var(--primary);
-        }
-        
-        /* زر الإضافة العائم */
-        .fab {
-            position: fixed;
-            bottom: 80px;
-            left: 20px;
-            width: 56px;
-            height: 56px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            z-index: 999;
-            transition: all 0.3s;
-            border: none;
-        }
-        
-        .fab:hover {
-            transform: scale(1.1) rotate(90deg);
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+        /* الطباعة */
+        @media print {
+            .no-print, .theme-toggle, .tabs {
+                display: none !important;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- إشعارات -->
-    <div class="notification" id="notification">
-        <div class="notification-icon">
-            <i class="fas fa-check"></i>
-        </div>
-        <div class="notification-content">
-            <div class="notification-title" id="notificationTitle">نجاح</div>
-            <div class="notification-message" id="notificationMessage">تمت العملية بنجاح</div>
-        </div>
-    </div>
+    <!-- زر تبديل النمط الليلي -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
     
-    <!-- الهيدر -->
-    <header class="header">
-        <h1>
-            <i class="fas fa-crown"></i>
-            مدير المال الذكي
-        </h1>
-        <div class="header-controls">
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
+    <!-- الترويسة -->
+    <header class="main-header no-print">
+        <div class="header-content">
+            <div class="header-logo">
+                <div class="logo-circle">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>TAREK Tickets</h1>
+                    <p>متعدد العملات - الإصدار المحسن</p>
+                </div>
+            </div>
         </div>
     </header>
     
+    <!-- تبويبات التنقل -->
+    <div class="tabs no-print">
+        <div class="tab active" data-tab="add">
+            <i class="fas fa-plus-circle"></i> إضافة عملية
+        </div>
+        <div class="tab" data-tab="report">
+            <i class="fas fa-chart-line"></i> كشف الحساب
+        </div>
+        <div class="tab" data-tab="manage">
+            <i class="fas fa-cogs"></i> إدارة العمليات
+        </div>
+    </div>
+    
     <!-- المحتوى الرئيسي -->
-    <main class="main-content">
-        <!-- قسم الحسابات -->
-        <section class="section active" id="accounts-section">
-            <div class="welcome-card">
-                <div class="welcome-title">مرحباً بك 👋</div>
-                <div class="welcome-subtitle">إجمالي أرصدة جميع الحسابات</div>
-                <div class="total-balance" id="totalBalance">0 دينار</div>
-            </div>
+    <div class="container">
+        <!-- تبويب إضافة عملية -->
+        <div class="tab-content modern-card active" id="add-tab">
+            <h2><i class="fas fa-plus-circle"></i> تسجيل عملية جديدة</h2>
             
-            <div class="quick-actions">
-                <div class="quick-btn" id="addPersonBtn">
-                    <i class="fas fa-user-plus"></i>
-                    <div class="title">إضافة شخص</div>
-                    <div class="subtitle">حساب جديد</div>
-                </div>
-                <div class="quick-btn" id="addTransactionBtn">
-                    <i class="fas fa-exchange-alt"></i>
-                    <div class="title">عملية مالية</div>
-                    <div class="subtitle">إيداع أو سحب</div>
-                </div>
-                <div class="quick-btn" id="transferBtn">
-                    <i class="fas fa-money-bill-transfer"></i>
-                    <div class="title">تحويل</div>
-                    <div class="subtitle">بين الحسابات</div>
-                </div>
-                <div class="quick-btn" id="reportBtn">
-                    <i class="fas fa-chart-bar"></i>
-                    <div class="title">التقارير</div>
-                    <div class="subtitle">تحليل البيانات</div>
+            <!-- إدارة الشركات -->
+            <button class="btn" id="open-add-company-modal">
+                <i class="fas fa-plus"></i> إضافة شركة جديدة
+            </button>
+            
+            <div class="company-list" id="company-list" style="margin-top: 20px;">
+                <div class="empty-state" id="no-companies">
+                    <i class="fas fa-building"></i>
+                    <h3>لا توجد شركات مضافة بعد</h3>
+                    <p>ابدأ بإضافة أول شركة</p>
                 </div>
             </div>
             
-            <h2 style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
-                <i class="fas fa-users"></i> الأشخاص والحسابات
-                <span style="font-size: 0.9rem; color: var(--gray); margin-right: 10px;" id="peopleCount">(0)</span>
-            </h2>
-            
-            <div id="peopleList">
-                <!-- سيتم تعبئته ديناميكياً -->
+            <div class="form-group">
+                <label for="company">اختر الشركة</label>
+                <select id="company">
+                    <option value="">-- اختر الشركة --</option>
+                </select>
             </div>
-        </section>
+            
+            <div class="company-card" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 id="current-company">--</h3>
+                        <p style="color: #666; margin-top: 5px;">الرصيد الحالي</p>
+                    </div>
+                    <div class="company-balance" id="company-balance" style="font-size: 1.8rem; font-weight: 800;">
+                        0 دينار
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>نوع العملية</label>
+                <div class="radio-group">
+                    <div class="radio-option" id="ticket-option" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #F8F9FF; border-radius: var(--border-radius-sm); margin-bottom: 10px;">
+                        <i class="fas fa-ticket-alt"></i>
+                        <input type="radio" id="ticket" name="transaction-type" value="ticket" checked>
+                        <label for="ticket" style="margin: 0; flex: 1;">تذكرة</label>
+                    </div>
+                    <div class="radio-option" id="fine-option" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #F8F9FF; border-radius: var(--border-radius-sm); margin-bottom: 10px;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <input type="radio" id="fine" name="transaction-type" value="fine">
+                        <label for="fine" style="margin: 0; flex: 1;">غرامة</label>
+                    </div>
+                    <div class="radio-option" id="payment-option" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #F8F9FF; border-radius: var(--border-radius-sm);">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <input type="radio" id="payment" name="transaction-type" value="payment">
+                        <label for="payment" style="margin: 0; flex: 1;">تسليم دفعة</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="currency">العملة</label>
+                <select id="currency">
+                    <option value="LYD">دينار ليبي (LYD)</option>
+                    <option value="EUR">يورو (EUR)</option>
+                    <option value="USD">دولار أمريكي (USD)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="passenger-name">اسم المسافر</label>
+                <input type="text" id="passenger-name" placeholder="أدخل اسم المسافر">
+            </div>
+            
+            <div class="form-group">
+                <label for="document-number">رقم المستند</label>
+                <input type="text" id="document-number" placeholder="أدخل رقم المستند">
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">المبلغ</label>
+                <input type="number" id="amount" placeholder="أدخل المبلغ" min="0" step="0.001">
+            </div>
+            
+            <div class="form-group">
+                <label for="date">تاريخ العملية</label>
+                <input type="date" id="date" value="">
+            </div>
+            
+            <button class="btn" id="add-transaction" style="background: var(--gradient-success);">
+                <i class="fas fa-plus"></i> إضافة العملية
+            </button>
+            
+            <button class="btn" id="reset-form" style="background: linear-gradient(135deg, #6C757D 0%, #495057 100%); margin-top: 10px;">
+                <i class="fas fa-redo"></i> مسح النموذج
+            </button>
+        </div>
         
-        <!-- قسم العمليات -->
-        <section class="section" id="transactions-section">
-            <h2 style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
-                <i class="fas fa-exchange-alt"></i> السجل المالي
-                <span style="font-size: 0.9rem; color: var(--gray); margin-right: 10px;" id="transactionsCount">(0)</span>
-            </h2>
+        <!-- تبويب كشف الحساب -->
+        <div class="tab-content modern-card" id="report-tab">
+            <h2><i class="fas fa-chart-line"></i> كشف الحساب</h2>
             
-            <div class="search-bar">
-                <input type="text" class="search-input" id="searchInput" placeholder="ابحث في العمليات...">
-                <div class="search-icon">
-                    <i class="fas fa-search"></i>
-                </div>
+            <div class="form-group">
+                <label for="report-company">اختر الشركة</label>
+                <select id="report-company">
+                    <option value="">-- اختر الشركة --</option>
+                </select>
             </div>
             
-            <div class="category-buttons">
-                <button class="category-btn active" data-filter="all">الكل</button>
-                <button class="category-btn" data-filter="income">الإيداعات</button>
-                <button class="category-btn" data-filter="expense">السحوبات</button>
-                <button class="category-btn" data-filter="transfer">التحويلات</button>
+            <button class="btn no-print" id="print-report" style="background: var(--gradient-dark); margin-bottom: 20px;">
+                <i class="fas fa-print"></i> طباعة الكشف
+            </button>
+            
+            <div class="table-container">
+                <table id="transactions-table" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: var(--gradient-dark); color: white;">
+                            <th style="padding: 15px; text-align: right;">#</th>
+                            <th style="padding: 15px; text-align: right;">التاريخ</th>
+                            <th style="padding: 15px; text-align: right;">النوع</th>
+                            <th style="padding: 15px; text-align: right;">المسافر</th>
+                            <th style="padding: 15px; text-align: right;">المبلغ</th>
+                            <th style="padding: 15px; text-align: right;">الرصيد</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactions-body">
+                        <!-- البيانات ستضاف هنا -->
+                    </tbody>
+                </table>
             </div>
             
-            <div id="transactionsList">
-                <!-- سيتم تعبئته ديناميكياً -->
+            <div id="no-data" style="text-align: center; padding: 40px; color: #666;">
+                <i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                <h3>لا توجد عمليات مسجلة</h3>
+                <p>قم بإضافة عمليات جديدة باستخدام النموذج</p>
             </div>
-        </section>
+        </div>
         
-        <!-- قسم التقارير -->
-        <section class="section" id="reports-section">
-            <h2 style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
-                <i class="fas fa-chart-bar"></i> التقارير والإحصائيات
-            </h2>
+        <!-- تبويب إدارة العمليات -->
+        <div class="tab-content modern-card" id="manage-tab">
+            <h2><i class="fas fa-cogs"></i> إدارة العمليات</h2>
             
-            <div class="currency-selector" id="reportCurrencySelector">
-                <!-- سيتم تعبئته ديناميكياً -->
-            </div>
-            
-            <div id="reportContent">
-                <!-- سيتم تعبئته ديناميكياً -->
-            </div>
-        </section>
-        
-        <!-- قسم الإعدادات -->
-        <section class="section" id="settings-section">
-            <h2 style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
-                <i class="fas fa-cog"></i> الإعدادات
-            </h2>
-            
-            <div class="quick-btn" id="exportDataBtn" style="margin-bottom: 15px;">
-                <i class="fas fa-download"></i>
-                <div class="title">تصدير البيانات</div>
-                <div class="subtitle">نسخة احتياطية</div>
-            </div>
-            
-            <div class="quick-btn" id="importDataBtn" style="margin-bottom: 15px;">
-                <i class="fas fa-upload"></i>
-                <div class="title">استيراد البيانات</div>
-                <div class="subtitle">استعادة نسخة</div>
-            </div>
-            
-            <div class="quick-btn" id="resetDataBtn" style="margin-bottom: 25px;">
-                <i class="fas fa-redo"></i>
-                <div class="title">إعادة تعيين</div>
-                <div class="subtitle">حذف جميع البيانات</div>
-            </div>
-            
-            <div style="background: white; border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border);">
-                <h3 style="margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">معلومات التطبيق</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <div style="font-weight: 600;">الإصدار</div>
-                    <div>v2.0</div>
-                    <div style="font-weight: 600;">عدد الأشخاص</div>
-                    <div id="settingsPeopleCount">0</div>
-                    <div style="font-weight: 600;">عدد العمليات</div>
-                    <div id="settingsTransactionsCount">0</div>
-                    <div style="font-weight: 600;">إجمالي الأرصدة</div>
-                    <div id="settingsTotalBalance">0</div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- زر الإضافة العائم -->
-    <button class="fab" id="fabButton">
-        <i class="fas fa-plus"></i>
-    </button>
-    
-    <!-- شريط التنقل السفلي -->
-    <nav class="bottom-nav">
-        <a href="#" class="nav-item active" data-section="accounts">
-            <div class="nav-indicator"></div>
-            <i class="fas fa-home"></i>
-            <span>الرئيسية</span>
-        </a>
-        <a href="#" class="nav-item" data-section="transactions">
-            <div class="nav-indicator"></div>
-            <i class="fas fa-exchange-alt"></i>
-            <span>العمليات</span>
-        </a>
-        <a href="#" class="nav-item" data-section="reports">
-            <div class="nav-indicator"></div>
-            <i class="fas fa-chart-bar"></i>
-            <span>التقارير</span>
-        </a>
-        <a href="#" class="nav-item" data-section="settings">
-            <div class="nav-indicator"></div>
-            <i class="fas fa-cog"></i>
-            <span>الإعدادات</span>
-        </a>
-    </nav>
-    
-    <!-- نافذة إضافة شخص -->
-    <div class="modal" id="addPersonModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-user-plus"></i> إضافة شخص جديد</h3>
-                <button class="modal-close" id="closeAddPersonModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="form-label">اسم الشخص</label>
-                    <input type="text" class="form-control" id="personName" placeholder="أدخل الاسم الكامل">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">رقم الهاتف (اختياري)</label>
-                    <input type="tel" class="form-control" id="personPhone" placeholder="05xxxxxxxx">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">العملة الافتراضية</label>
-                    <select class="form-select" id="personCurrency">
-                        <option value="LYD">دينار ليبي (LYD)</option>
-                        <option value="EUR">يورو (EUR)</option>
-                        <option value="USD">دولار أمريكي (USD)</option>
+            <div class="filter-controls" style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 200px;">
+                    <label for="filter-company">تصفية حسب الشركة</label>
+                    <select id="filter-company">
+                        <option value="">جميع الشركات</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">ملاحظات (اختياري)</label>
-                    <textarea class="form-control" id="personNotes" rows="3" placeholder="أي معلومات إضافية..."></textarea>
+                
+                <div style="flex: 1; min-width: 200px;">
+                    <label for="filter-type">تصفية حسب النوع</label>
+                    <select id="filter-type">
+                        <option value="">جميع الأنواع</option>
+                        <option value="ticket">تذكرة</option>
+                        <option value="fine">غرامة</option>
+                        <option value="payment">تسليم دفعة</option>
+                    </select>
                 </div>
-                <div class="form-actions">
-                    <button class="btn btn-secondary" id="cancelAddPerson">
-                        <i class="fas fa-times"></i> إلغاء
-                    </button>
-                    <button class="btn btn-primary" id="savePerson">
-                        <i class="fas fa-save"></i> حفظ
-                    </button>
-                </div>
+                
+                <button class="btn" id="reset-filters" style="background: linear-gradient(135deg, #6C757D 0%, #495057 100%); margin-top: 24px;">
+                    <i class="fas fa-filter"></i> إعادة التعيين
+                </button>
+            </div>
+            
+            <div class="table-container">
+                <table id="manage-transactions-table" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: var(--gradient-dark); color: white;">
+                            <th style="padding: 15px; text-align: right;">#</th>
+                            <th style="padding: 15px; text-align: right;">التاريخ</th>
+                            <th style="padding: 15px; text-align: right;">الشركة</th>
+                            <th style="padding: 15px; text-align: right;">النوع</th>
+                            <th style="padding: 15px; text-align: right;">المبلغ</th>
+                            <th style="padding: 15px; text-align: right;">الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="manage-transactions-body">
+                        <!-- البيانات ستضاف هنا -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="no-transactions" style="text-align: center; padding: 40px; color: #666;">
+                <i class="fas fa-exchange-alt" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                <h3>لا توجد عمليات مسجلة</h3>
+                <p>قم بإضافة عمليات جديدة</p>
             </div>
         </div>
     </div>
     
-    <!-- نافذة إضافة عملية -->
-    <div class="modal" id="addTransactionModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-exchange-alt"></i> إضافة عملية جديدة</h3>
-                <button class="modal-close" id="closeAddTransactionModal">
-                    <i class="fas fa-times"></i>
-                </button>
+    <!-- نافذة إضافة شركة جديدة -->
+    <div id="add-company-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: white; padding: 30px; border-radius: var(--border-radius); width: 90%; max-width: 500px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <h3 style="color: var(--primary-color);"><i class="fas fa-building"></i> إضافة شركة جديدة</h3>
+                <button class="close-modal" id="close-add-company-modal" style="background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--accent-color);">&times;</button>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="form-label">نوع العملية</label>
-                    <select class="form-select" id="transactionType">
-                        <option value="income">إيداع (أخذت منه)</option>
-                        <option value="expense">سحب (دفعت له)</option>
-                        <option value="transfer">تحويل داخلي</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">الشخص</label>
-                    <select class="form-select" id="transactionPerson">
-                        <!-- سيتم تعبئته ديناميكياً -->
-                    </select>
-                </div>
-                <div class="form-group" id="transferToGroup" style="display: none;">
-                    <label class="form-label">إلى الشخص</label>
-                    <select class="form-select" id="transferToPerson">
-                        <!-- سيتم تعبئته ديناميكياً -->
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">المبلغ</label>
-                    <input type="number" class="form-control" id="transactionAmount" placeholder="0.000" step="0.001" min="0">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">العملة</label>
-                    <select class="form-select" id="transactionCurrency">
-                        <option value="LYD">دينار ليبي (LYD)</option>
-                        <option value="EUR">يورو (EUR)</option>
-                        <option value="USD">دولار أمريكي (USD)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">الوصف (اختياري)</label>
-                    <textarea class="form-control" id="transactionDescription" rows="3" placeholder="وصف العملية..."></textarea>
-                </div>
-                <div class="form-actions">
-                    <button class="btn btn-secondary" id="cancelAddTransaction">
-                        <i class="fas fa-times"></i> إلغاء
-                    </button>
-                    <button class="btn btn-primary" id="saveTransaction">
-                        <i class="fas fa-save"></i> حفظ
-                    </button>
-                </div>
+            
+            <div class="form-group">
+                <label for="new-company-name">اسم الشركة</label>
+                <input type="text" id="new-company-name" placeholder="أدخل اسم الشركة">
             </div>
+            
+            <div class="form-group">
+                <label for="initial-balance">الرصيد الافتتاحي (دينار)</label>
+                <input type="number" id="initial-balance" placeholder="أدخل المبلغ" min="0" step="0.001">
+                <small style="color: #666; margin-top: 5px; display: block;">القيمة الإيجابية تعني الشركة مدينة لك، والسلبية تعني أنك مدين للشركة</small>
+            </div>
+            
+            <button class="btn" id="save-new-company" style="background: var(--gradient-success);">
+                <i class="fas fa-save"></i> حفظ الشركة
+            </button>
         </div>
     </div>
+    
+    <!-- Footer -->
+    <footer class="no-print" style="text-align: center; margin-top: 40px; padding-top: 25px; border-top: 2px solid rgba(74, 0, 224, 0.1); color: #6C757D; font-size: 0.9rem; padding-bottom: 25px;">
+        <p>TAREK Tickets - متعدد العملات © 2023</p>
+        <p>@tro8qa | طارق الطيف للبرمجيات</p>
+    </footer>
 
     <script>
-        // ====================
-        // نظام الذاكرة الأصلي
-        // ====================
+        // البيانات الأصلية - محفوظة كما هي
+        let transactions = [];
+        let companies = {};
         
-        // مفتاح التخزين في localStorage
-        const STORAGE_KEY = 'smartMoneyManager_data';
-        
-        // هيكل البيانات
-        let appData = {
-            people: [],
-            transactions: [],
-            settings: {
-                darkMode: false,
-                defaultCurrency: 'LYD'
-            },
-            version: '2.0',
-            lastUpdate: new Date().toISOString()
-        };
-        
-        // ====================
-        // نظام التخزين
-        // ====================
-        
-        // تحميل البيانات
+        // تحميل البيانات من localStorage
         function loadData() {
-            try {
-                const savedData = localStorage.getItem(STORAGE_KEY);
-                if (savedData) {
-                    const parsedData = JSON.parse(savedData);
-                    
-                    // التحقق من بنية البيانات
-                    if (parsedData.people && parsedData.transactions) {
-                        appData = parsedData;
-                        console.log('✅ تم تحميل البيانات بنجاح');
-                    } else {
-                        console.log('⚠️ البيانات غير صحيحة، سيتم استخدام البيانات الافتراضية');
-                        initSampleData();
-                    }
-                } else {
-                    console.log('📝 لا توجد بيانات سابقة، سيتم تهيئة بيانات تجريبية');
-                    initSampleData();
+            const savedTransactions = localStorage.getItem('ticketSystem_transactions_multi');
+            const savedCompanies = localStorage.getItem('ticketSystem_companies_multi');
+            
+            if (savedTransactions) {
+                try {
+                    transactions = JSON.parse(savedTransactions);
+                } catch (e) {
+                    console.error('Error loading transactions:', e);
+                    transactions = [];
                 }
-            } catch (error) {
-                console.error('❌ خطأ في تحميل البيانات:', error);
-                initSampleData();
             }
             
-            // تطبيق الإعدادات
-            applySettings();
+            if (savedCompanies) {
+                try {
+                    companies = JSON.parse(savedCompanies);
+                } catch (e) {
+                    console.error('Error loading companies:', e);
+                    companies = {};
+                }
+            }
             
-            // تحديث العرض
             updateUI();
         }
         
         // حفظ البيانات
         function saveData() {
-            try {
-                appData.lastUpdate = new Date().toISOString();
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
-                console.log('💾 تم حفظ البيانات بنجاح');
-                return true;
-            } catch (error) {
-                console.error('❌ خطأ في حفظ البيانات:', error);
-                showNotification('خطأ في حفظ البيانات', 'error');
-                return false;
+            localStorage.setItem('ticketSystem_transactions_multi', JSON.stringify(transactions));
+            localStorage.setItem('ticketSystem_companies_multi', JSON.stringify(companies));
+        }
+        
+        // تحديث واجهة المستخدم
+        function updateUI() {
+            updateCompanySelect();
+            updateReportCompanySelect();
+            updateFilterCompanySelect();
+            updateCompanyList();
+            updateCompanyBalance();
+            updateReport();
+            updateManageTable();
+        }
+        
+        // تحديث قائمة الشركات
+        function updateCompanySelect() {
+            const select = document.getElementById('company');
+            const currentValue = select.value;
+            
+            select.innerHTML = '<option value="">-- اختر الشركة --</option>';
+            
+            Object.keys(companies).sort().forEach(company => {
+                const option = document.createElement('option');
+                option.value = company;
+                option.textContent = company;
+                select.appendChild(option);
+            });
+            
+            if (currentValue && companies.hasOwnProperty(currentValue)) {
+                select.value = currentValue;
             }
         }
         
-        // تهيئة بيانات تجريبية
-        function initSampleData() {
-            appData = {
-                people: [
-                    {
-                        id: '1',
-                        name: 'أحمد محمد',
-                        phone: '0512345678',
-                        currency: 'LYD',
-                        notes: 'شريك في العمل',
-                        createdAt: '2024-01-01',
-                        balance: 500
-                    },
-                    {
-                        id: '2',
-                        name: 'سارة علي',
-                        phone: '0523456789',
-                        currency: 'EUR',
-                        notes: 'صديقة',
-                        createdAt: '2024-01-05',
-                        balance: -200
-                    },
-                    {
-                        id: '3',
-                        name: 'خالد حسن',
-                        phone: '0534567890',
-                        currency: 'USD',
-                        notes: 'جار',
-                        createdAt: '2024-01-10',
-                        balance: 1000
-                    }
-                ],
-                transactions: [
-                    {
-                        id: '1',
-                        type: 'income',
-                        personId: '1',
-                        amount: 500,
-                        currency: 'LYD',
-                        description: 'دفعة شهر يناير',
-                        date: '2024-01-15',
-                        createdAt: '2024-01-15T10:00:00'
-                    },
-                    {
-                        id: '2',
-                        type: 'expense',
-                        personId: '2',
-                        amount: 200,
-                        currency: 'EUR',
-                        description: 'سلفة طارئة',
-                        date: '2024-01-20',
-                        createdAt: '2024-01-20T14:30:00'
-                    },
-                    {
-                        id: '3',
-                        type: 'transfer',
-                        fromPersonId: '1',
-                        toPersonId: '3',
-                        amount: 100,
-                        currency: 'USD',
-                        description: 'تحويل سداد دين',
-                        date: '2024-01-25',
-                        createdAt: '2024-01-25T09:15:00'
-                    }
-                ],
-                settings: {
-                    darkMode: false,
-                    defaultCurrency: 'LYD'
-                },
-                version: '2.0',
-                lastUpdate: new Date().toISOString()
+        // تحديث رصيد الشركة
+        function updateCompanyBalance() {
+            const companySelect = document.getElementById('company');
+            const company = companySelect.value;
+            const balanceElement = document.getElementById('company-balance');
+            const nameElement = document.getElementById('current-company');
+            
+            if (!company) {
+                nameElement.textContent = '--';
+                balanceElement.textContent = '0 دينار';
+                return;
+            }
+            
+            nameElement.textContent = company;
+            
+            if (!companies[company]) {
+                balanceElement.textContent = '0 دينار';
+                return;
+            }
+            
+            const balances = companies[company];
+            let totalBalance = (balances.LYD || 0) + (balances.EUR || 0) + (balances.USD || 0);
+            
+            let balanceText = '';
+            if (balances.LYD) balanceText += `${formatCurrency(balances.LYD, 'LYD')} `;
+            if (balances.EUR) balanceText += `${formatCurrency(balances.EUR, 'EUR')} `;
+            if (balances.USD) balanceText += `${formatCurrency(balances.USD, 'USD')} `;
+            
+            if (balanceText === '') balanceText = '0 دينار';
+            
+            balanceElement.textContent = balanceText;
+            
+            // تحديث اللون حسب الرصيد
+            if (totalBalance > 0) {
+                balanceElement.style.color = 'var(--success-color)';
+            } else if (totalBalance < 0) {
+                balanceElement.style.color = 'var(--danger-color)';
+            } else {
+                balanceElement.style.color = '';
+            }
+        }
+        
+        // تحديث قائمة الشركات للعرض
+        function updateCompanyList() {
+            const container = document.getElementById('company-list');
+            const noCompanies = document.getElementById('no-companies');
+            
+            if (Object.keys(companies).length === 0) {
+                noCompanies.style.display = 'block';
+                container.innerHTML = '<div class="empty-state" id="no-companies"><i class="fas fa-building"></i><h3>لا توجد شركات مضافة بعد</h3><p>ابدأ بإضافة أول شركة</p></div>';
+                return;
+            }
+            
+            noCompanies.style.display = 'none';
+            container.innerHTML = '';
+            
+            Object.keys(companies).sort().forEach(company => {
+                const card = document.createElement('div');
+                card.className = 'company-card';
+                card.style.cssText = 'padding: 20px; margin-bottom: 15px; cursor: pointer; transition: var(--transition);';
+                
+                const balances = companies[company];
+                let totalBalance = (balances.LYD || 0) + (balances.EUR || 0) + (balances.USD || 0);
+                let balanceText = '';
+                
+                if (balances.LYD) balanceText += `${formatCurrency(balances.LYD, 'LYD')} `;
+                if (balances.EUR) balanceText += `${formatCurrency(balances.EUR, 'EUR')} `;
+                if (balances.USD) balanceText += `${formatCurrency(balances.USD, 'USD')} `;
+                
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h3 style="margin: 0;">${company}</h3>
+                            <p style="color: #666; margin-top: 5px;">الرصيد</p>
+                        </div>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: ${totalBalance > 0 ? 'var(--success-color)' : totalBalance < 0 ? 'var(--danger-color)' : '#666'}">
+                            ${balanceText || '0 دينار'}
+                        </div>
+                    </div>
+                    <button class="delete-company" data-company="${company}" style="background: var(--gradient-secondary); color: white; border: none; padding: 8px 16px; border-radius: var(--border-radius-sm); cursor: pointer; margin-top: 15px; width: 100%; transition: var(--transition);">
+                        <i class="fas fa-trash"></i> حذف الشركة
+                    </button>
+                `;
+                
+                // اختيار الشركة عند النقر
+                card.querySelector('h3').addEventListener('click', () => {
+                    document.getElementById('company').value = company;
+                    updateCompanyBalance();
+                });
+                
+                // حذف الشركة
+                card.querySelector('.delete-company').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    deleteCompany(company);
+                });
+                
+                container.appendChild(card);
+            });
+        }
+        
+        // حذف شركة
+        function deleteCompany(companyName) {
+            if (!confirm(`هل أنت متأكد من حذف شركة "${companyName}"؟ سيتم حذف جميع عملياتها أيضاً.`)) {
+                return;
+            }
+            
+            delete companies[companyName];
+            transactions = transactions.filter(t => t.company !== companyName);
+            
+            saveData();
+            updateUI();
+            showNotification('تم حذف الشركة بنجاح');
+        }
+        
+        // إضافة شركة جديدة
+        function addCompany() {
+            const nameInput = document.getElementById('new-company-name');
+            const balanceInput = document.getElementById('initial-balance');
+            
+            const name = nameInput.value.trim();
+            const balance = parseFloat(balanceInput.value) || 0;
+            
+            if (!name) {
+                alert('يرجى إدخال اسم الشركة');
+                nameInput.focus();
+                return;
+            }
+            
+            if (companies[name]) {
+                alert('هذه الشركة موجودة مسبقاً');
+                return;
+            }
+            
+            companies[name] = {
+                LYD: balance,
+                EUR: 0,
+                USD: 0
             };
             
             saveData();
+            updateUI();
+            closeAddCompanyModal();
+            showNotification('تم إضافة الشركة بنجاح');
         }
         
-        // ====================
-        // تطبيق الإعدادات
-        // ====================
-        
-        function applySettings() {
-            // تطبيق الوضع الليلي
-            if (appData.settings.darkMode) {
-                document.body.classList.add('dark-mode');
-                document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                document.body.classList.remove('dark-mode');
-                document.getElementById('themeToggle').innerHTML = '<i class="fas fa-moon"></i>';
-            }
-        }
-        
-        // ====================
-        // تحديث واجهة المستخدم
-        // ====================
-        
-        function updateUI() {
-            updatePeopleList();
-            updateTransactionsList();
-            updateTotalBalance();
-            updateSettingsInfo();
-            updateReportContent();
-            updatePersonSelects();
-        }
-        
-        // تحديث إجمالي الأرصدة
-        function updateTotalBalance() {
-            let total = 0;
-            appData.people.forEach(person => {
-                total += calculatePersonBalance(person.id);
-            });
+        // إضافة عملية جديدة
+        function addTransaction() {
+            const company = document.getElementById('company').value;
+            const currency = document.getElementById('currency').value;
+            const passengerName = document.getElementById('passenger-name').value.trim();
+            const documentNumber = document.getElementById('document-number').value.trim();
+            const amountInput = document.getElementById('amount');
+            const dateInput = document.getElementById('date');
             
-            const totalBalanceElement = document.getElementById('totalBalance');
-            if (totalBalanceElement) {
-                totalBalanceElement.textContent = formatCurrency(total, 'LYD');
-            }
-        }
-        
-        // حساب رصيد شخص
-        function calculatePersonBalance(personId) {
-            let balance = 0;
+            const transactionType = document.querySelector('input[name="transaction-type"]:checked').value;
+            const amount = parseFloat(amountInput.value);
             
-            appData.transactions.forEach(transaction => {
-                if (transaction.type === 'income' && transaction.personId === personId) {
-                    balance += transaction.amount;
-                } else if (transaction.type === 'expense' && transaction.personId === personId) {
-                    balance -= transaction.amount;
-                } else if (transaction.type === 'transfer') {
-                    if (transaction.fromPersonId === personId) {
-                        balance -= transaction.amount;
-                    }
-                    if (transaction.toPersonId === personId) {
-                        balance += transaction.amount;
-                    }
-                }
-            });
-            
-            return balance;
-        }
-        
-        // تحديث قائمة الأشخاص
-        function updatePeopleList() {
-            const peopleListElement = document.getElementById('peopleList');
-            const peopleCountElement = document.getElementById('peopleCount');
-            
-            if (!peopleListElement) return;
-            
-            if (appData.people.length === 0) {
-                peopleListElement.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-users"></i>
-                        <h4>لا توجد حسابات</h4>
-                        <p>قم بإضافة أشخاص لبدء إدارة الحسابات</p>
-                    </div>
-                `;
-                if (peopleCountElement) peopleCountElement.textContent = '(0)';
+            // التحقق من البيانات
+            if (!company) {
+                alert('يرجى اختيار الشركة');
                 return;
             }
             
-            if (peopleCountElement) peopleCountElement.textContent = `(${appData.people.length})`;
-            
-            let html = '<div class="people-grid">';
-            
-            appData.people.forEach(person => {
-                const balance = calculatePersonBalance(person.id);
-                const balanceClass = balance >= 0 ? 'balance-positive' : 'balance-negative';
-                const balanceIcon = balance >= 0 ? 'fas fa-arrow-up' : 'fas fa-arrow-down';
-                
-                html += `
-                    <div class="person-card" data-id="${person.id}">
-                        <div class="person-avatar">
-                            ${person.name.charAt(0)}
-                        </div>
-                        <div class="person-name">${person.name}</div>
-                        <div class="person-balance ${balanceClass}">
-                            <i class="${balanceIcon}"></i>
-                            ${formatCurrency(Math.abs(balance), person.currency)}
-                        </div>
-                        <div style="margin-top: 10px; font-size: 0.8rem; color: var(--gray);">
-                            <i class="fas fa-phone"></i> ${person.phone || 'لا يوجد'}
-                        </div>
-                    </div>
-                `;
-            });
-            
-            html += '</div>';
-            peopleListElement.innerHTML = html;
-            
-            // إضافة أحداث النقر على البطاقات
-            document.querySelectorAll('.person-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const personId = this.getAttribute('data-id');
-                    showPersonDetails(personId);
-                });
-            });
-        }
-        
-        // تحديث قائمة العمليات
-        function updateTransactionsList() {
-            const transactionsListElement = document.getElementById('transactionsList');
-            const transactionsCountElement = document.getElementById('transactionsCount');
-            
-            if (!transactionsListElement) return;
-            
-            if (appData.transactions.length === 0) {
-                transactionsListElement.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-exchange-alt"></i>
-                        <h4>لا توجد عمليات</h4>
-                        <p>قم بإضافة عمليات مالية لبدء السجل</p>
-                    </div>
-                `;
-                if (transactionsCountElement) transactionsCountElement.textContent = '(0)';
+            if (!passengerName && transactionType !== 'payment') {
+                alert('يرجى إدخال اسم المسافر');
                 return;
             }
             
-            if (transactionsCountElement) transactionsCountElement.textContent = `(${appData.transactions.length})`;
-            
-            let html = '<div class="transactions-list">';
-            
-            // عرض آخر 20 عملية
-            const recentTransactions = [...appData.transactions]
-                .sort((a, b) => new Date(b.date) - new Date(a.date))
-                .slice(0, 20);
-            
-            recentTransactions.forEach(transaction => {
-                let personName = '';
-                let icon = 'fas fa-exchange-alt';
-                let color = 'var(--primary)';
-                let amountPrefix = '';
-                
-                if (transaction.type === 'income') {
-                    personName = getPersonName(transaction.personId);
-                    icon = 'fas fa-arrow-down';
-                    color = 'var(--success)';
-                    amountPrefix = '+';
-                } else if (transaction.type === 'expense') {
-                    personName = getPersonName(transaction.personId);
-                    icon = 'fas fa-arrow-up';
-                    color = 'var(--danger)';
-                    amountPrefix = '-';
-                } else if (transaction.type === 'transfer') {
-                    personName = `${getPersonName(transaction.fromPersonId)} → ${getPersonName(transaction.toPersonId)}`;
-                    icon = 'fas fa-money-bill-transfer';
-                    color = 'var(--info)';
-                    amountPrefix = '↔';
-                }
-                
-                html += `
-                    <div class="transaction-item">
-                        <div class="transaction-icon" style="background: ${color}">
-                            <i class="${icon}"></i>
-                        </div>
-                        <div class="transaction-details">
-                            <div class="transaction-title">${personName}</div>
-                            <div class="transaction-info">
-                                ${transaction.description || 'لا يوجد وصف'} • ${formatDate(transaction.date)}
-                            </div>
-                        </div>
-                        <div class="transaction-amount" style="color: ${color}">
-                            ${amountPrefix}${formatCurrency(transaction.amount, transaction.currency)}
-                        </div>
-                    </div>
-                `;
-            });
-            
-            html += '</div>';
-            transactionsListElement.innerHTML = html;
-        }
-        
-        // تحديث معلومات الإعدادات
-        function updateSettingsInfo() {
-            const settingsPeopleCount = document.getElementById('settingsPeopleCount');
-            const settingsTransactionsCount = document.getElementById('settingsTransactionsCount');
-            const settingsTotalBalance = document.getElementById('settingsTotalBalance');
-            
-            if (settingsPeopleCount) settingsPeopleCount.textContent = appData.people.length;
-            if (settingsTransactionsCount) settingsTransactionsCount.textContent = appData.transactions.length;
-            
-            if (settingsTotalBalance) {
-                let total = 0;
-                appData.people.forEach(person => {
-                    total += calculatePersonBalance(person.id);
-                });
-                settingsTotalBalance.textContent = formatCurrency(total, 'LYD');
+            if (!amount || amount <= 0) {
+                alert('يرجى إدخال مبلغ صحيح أكبر من صفر');
+                amountInput.focus();
+                return;
             }
-        }
-        
-        // تحديث محتوى التقرير
-        function updateReportContent() {
-            const reportContent = document.getElementById('reportContent');
-            if (!reportContent) return;
             
-            let html = `
-                <div style="background: white; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px; border: 1px solid var(--border);">
-                    <h3 style="margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">ملخص الإحصائيات</h3>
-            `;
+            if (!dateInput.value) {
+                alert('يرجى اختيار تاريخ العملية');
+                dateInput.focus();
+                return;
+            }
             
-            // إحصائيات العملات
-            const currencyStats = {
-                LYD: { income: 0, expense: 0, count: 0 },
-                EUR: { income: 0, expense: 0, count: 0 },
-                USD: { income: 0, expense: 0, count: 0 }
+            // إنشاء العملية
+            const transaction = {
+                id: generateId(),
+                date: dateInput.value,
+                type: transactionType,
+                company: company,
+                amount: amount,
+                currency: currency,
+                passengerName: passengerName,
+                documentNumber: documentNumber
             };
             
-            appData.transactions.forEach(transaction => {
-                if (currencyStats[transaction.currency]) {
-                    if (transaction.type === 'income') {
-                        currencyStats[transaction.currency].income += transaction.amount;
-                    } else if (transaction.type === 'expense') {
-                        currencyStats[transaction.currency].expense += transaction.amount;
-                    }
-                    currencyStats[transaction.currency].count++;
-                }
-            });
-            
-            Object.entries(currencyStats).forEach(([currency, stats]) => {
-                if (stats.count > 0) {
-                    const net = stats.income - stats.expense;
-                    html += `
-                        <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border);">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                                <span style="font-weight: 600;">${getCurrencyName(currency)}</span>
-                                <span style="font-weight: 700; color: ${net >= 0 ? 'var(--success)' : 'var(--danger)'}">
-                                    ${formatCurrency(net, currency)}
-                                </span>
-                            </div>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
-                                <div>
-                                    <div style="color: var(--success);">الإيداعات</div>
-                                    <div>${formatCurrency(stats.income, currency)}</div>
-                                </div>
-                                <div>
-                                    <div style="color: var(--danger);">السحوبات</div>
-                                    <div>${formatCurrency(stats.expense, currency)}</div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }
-            });
-            
-            html += '</div>';
-            
-            // أعلى 5 أشخاص
-            const peopleBalances = appData.people.map(person => ({
-                ...person,
-                balance: calculatePersonBalance(person.id)
-            })).sort((a, b) => Math.abs(b.balance) - Math.abs(a.balance)).slice(0, 5);
-            
-            if (peopleBalances.length > 0) {
-                html += `
-                    <div style="background: white; border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border);">
-                        <h3 style="margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">أعلى 5 أرصدة</h3>
-                `;
-                
-                peopleBalances.forEach(person => {
-                    const balanceClass = person.balance >= 0 ? 'balance-positive' : 'balance-negative';
-                    html += `
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border);">
-                            <span>${person.name}</span>
-                            <span class="${balanceClass}" style="font-weight: 700;">
-                                ${formatCurrency(Math.abs(person.balance), person.currency)}
-                            </span>
-                        </div>
-                    `;
-                });
-                
-                html += '</div>';
+            // تحديث رصيد الشركة
+            if (!companies[company]) {
+                companies[company] = { LYD: 0, EUR: 0, USD: 0 };
             }
             
-            reportContent.innerHTML = html;
+            if (transactionType === 'ticket' || transactionType === 'fine') {
+                companies[company][currency] += amount;
+            } else if (transactionType === 'payment') {
+                companies[company][currency] -= amount;
+            }
+            
+            // حفظ العملية
+            transactions.push(transaction);
+            saveData();
+            
+            // تحديث الواجهة
+            updateUI();
+            resetForm();
+            showNotification('تم إضافة العملية بنجاح');
         }
         
-        // تحديث قوائم اختيار الأشخاص
-        function updatePersonSelects() {
-            const selects = ['transactionPerson', 'transferToPerson'];
+        // تحديث كشف الحساب
+        function updateReport() {
+            const company = document.getElementById('report-company').value;
+            const tbody = document.getElementById('transactions-body');
+            const noData = document.getElementById('no-data');
             
-            selects.forEach(selectId => {
-                const select = document.getElementById(selectId);
-                if (select) {
-                    select.innerHTML = '<option value="">اختر الشخص</option>';
-                    appData.people.forEach(person => {
-                        const option = document.createElement('option');
-                        option.value = person.id;
-                        option.textContent = person.name;
-                        select.appendChild(option);
-                    });
+            let filteredTransactions = company ? 
+                transactions.filter(t => t.company === company) : 
+                [...transactions];
+            
+            filteredTransactions.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            if (filteredTransactions.length === 0) {
+                tbody.innerHTML = '';
+                noData.style.display = 'block';
+                return;
+            }
+            
+            noData.style.display = 'none';
+            tbody.innerHTML = '';
+            
+            let runningBalance = 0;
+            
+            filteredTransactions.forEach((transaction, index) => {
+                if (transaction.type === 'ticket' || transaction.type === 'fine') {
+                    runningBalance += transaction.amount;
+                } else if (transaction.type === 'payment') {
+                    runningBalance -= transaction.amount;
                 }
+                
+                const row = document.createElement('tr');
+                row.style.borderBottom = '1px solid rgba(74, 0, 224, 0.1)';
+                
+                let typeText = '';
+                let typeColor = '';
+                
+                switch(transaction.type) {
+                    case 'ticket':
+                        typeText = 'تذكرة';
+                        typeColor = 'var(--success-color)';
+                        break;
+                    case 'fine':
+                        typeText = 'غرامة';
+                        typeColor = 'var(--warning-color)';
+                        break;
+                    case 'payment':
+                        typeText = 'تسليم';
+                        typeColor = 'var(--primary-color)';
+                        break;
+                }
+                
+                row.innerHTML = `
+                    <td style="padding: 15px;">${index + 1}</td>
+                    <td style="padding: 15px;">${transaction.date}</td>
+                    <td style="padding: 15px;">
+                        <span style="background: ${typeColor}; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">
+                            ${typeText}
+                        </span>
+                    </td>
+                    <td style="padding: 15px;">${transaction.passengerName || '-'}</td>
+                    <td style="padding: 15px; font-weight: bold;">
+                        <span style="color: ${transaction.currency === 'LYD' ? 'var(--lyd-color)' : transaction.currency === 'EUR' ? 'var(--eur-color)' : 'var(--usd-color)'}">
+                            ${formatCurrency(transaction.amount, transaction.currency)}
+                        </span>
+                    </td>
+                    <td style="padding: 15px; font-weight: bold;">
+                        <span style="color: ${runningBalance > 0 ? 'var(--success-color)' : runningBalance < 0 ? 'var(--danger-color)' : '#666'}">
+                            ${formatCurrency(runningBalance, transaction.currency)}
+                        </span>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
             });
         }
         
-        // ====================
-        // وظائف المساعدة
-        // ====================
+        // تحديث جدول الإدارة
+        function updateManageTable() {
+            const companyFilter = document.getElementById('filter-company').value;
+            const typeFilter = document.getElementById('filter-type').value;
+            const tbody = document.getElementById('manage-transactions-body');
+            const noTransactions = document.getElementById('no-transactions');
+            
+            let filteredTransactions = [...transactions];
+            
+            if (companyFilter) {
+                filteredTransactions = filteredTransactions.filter(t => t.company === companyFilter);
+            }
+            
+            if (typeFilter) {
+                filteredTransactions = filteredTransactions.filter(t => t.type === typeFilter);
+            }
+            
+            if (filteredTransactions.length === 0) {
+                tbody.innerHTML = '';
+                noTransactions.style.display = 'block';
+                return;
+            }
+            
+            noTransactions.style.display = 'none';
+            tbody.innerHTML = '';
+            
+            filteredTransactions.forEach((transaction, index) => {
+                const row = document.createElement('tr');
+                row.style.borderBottom = '1px solid rgba(74, 0, 224, 0.1)';
+                
+                let typeText = '';
+                let typeColor = '';
+                
+                switch(transaction.type) {
+                    case 'ticket':
+                        typeText = 'تذكرة';
+                        typeColor = 'var(--success-color)';
+                        break;
+                    case 'fine':
+                        typeText = 'غرامة';
+                        typeColor = 'var(--warning-color)';
+                        break;
+                    case 'payment':
+                        typeText = 'تسليم';
+                        typeColor = 'var(--primary-color)';
+                        break;
+                }
+                
+                row.innerHTML = `
+                    <td style="padding: 15px;">${index + 1}</td>
+                    <td style="padding: 15px;">${transaction.date}</td>
+                    <td style="padding: 15px;">${transaction.company}</td>
+                    <td style="padding: 15px;">
+                        <span style="background: ${typeColor}; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">
+                            ${typeText}
+                        </span>
+                    </td>
+                    <td style="padding: 15px; font-weight: bold;">
+                        <span style="color: ${transaction.currency === 'LYD' ? 'var(--lyd-color)' : transaction.currency === 'EUR' ? 'var(--eur-color)' : 'var(--usd-color)'}">
+                            ${formatCurrency(transaction.amount, transaction.currency)}
+                        </span>
+                    </td>
+                    <td style="padding: 15px;">
+                        <button class="delete-transaction" data-id="${transaction.id}" style="background: var(--gradient-secondary); color: white; border: none; padding: 8px 16px; border-radius: var(--border-radius-sm); cursor: pointer; margin-left: 5px; transition: var(--transition);">
+                            <i class="fas fa-trash"></i> حذف
+                        </button>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+            
+            // إضافة مستمعي الأحداث للأزرار
+            document.querySelectorAll('.delete-transaction').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const transactionId = this.getAttribute('data-id');
+                    deleteTransaction(transactionId);
+                });
+            });
+        }
         
-        // الحصول على اسم الشخص
-        function getPersonName(personId) {
-            const person = appData.people.find(p => p.id === personId);
-            return person ? person.name : 'غير معروف';
+        // حذف عملية
+        function deleteTransaction(transactionId) {
+            const transaction = transactions.find(t => t.id === transactionId);
+            
+            if (!transaction) return;
+            
+            if (!confirm(`هل أنت متأكد من حذف هذه العملية؟`)) {
+                return;
+            }
+            
+            // التراجع عن تأثير العملية على رصيد الشركة
+            const company = companies[transaction.company];
+            if (company) {
+                if (transaction.type === 'ticket' || transaction.type === 'fine') {
+                    company[transaction.currency] -= transaction.amount;
+                } else if (transaction.type === 'payment') {
+                    company[transaction.currency] += transaction.amount;
+                }
+            }
+            
+            // حذف العملية
+            transactions = transactions.filter(t => t.id !== transactionId);
+            
+            saveData();
+            updateUI();
+            showNotification('تم حذف العملية بنجاح');
+        }
+        
+        // توليد معرف فريد
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
         }
         
         // تنسيق العملة
         function formatCurrency(amount, currency) {
+            const absAmount = Math.abs(amount);
+            let symbol = '';
+            let decimalDigits = 3;
+            
+            switch(currency) {
+                case 'LYD':
+                    symbol = 'دينار';
+                    break;
+                case 'EUR':
+                    symbol = 'يورو';
+                    decimalDigits = 2;
+                    break;
+                case 'USD':
+                    symbol = 'دولار';
+                    decimalDigits = 2;
+                    break;
+            }
+            
             const formatted = new Intl.NumberFormat('ar-LY', {
-                minimumFractionDigits: 3,
-                maximumFractionDigits: 3
-            }).format(amount);
+                minimumFractionDigits: decimalDigits,
+                maximumFractionDigits: decimalDigits
+            }).format(absAmount) + ' ' + symbol;
             
-            return `${formatted} ${getCurrencySymbol(currency)}`;
+            return amount < 0 ? '-' + formatted : formatted;
         }
         
-        // الحصول على رمز العملة
-        function getCurrencySymbol(currency) {
-            switch(currency) {
-                case 'LYD': return 'دينار';
-                case 'EUR': return 'يورو';
-                case 'USD': return 'دولار';
-                default: return currency;
-            }
-        }
-        
-        // الحصول على اسم العملة
-        function getCurrencyName(currency) {
-            switch(currency) {
-                case 'LYD': return 'دينار ليبي';
-                case 'EUR': return 'يورو';
-                case 'USD': return 'دولار أمريكي';
-                default: return currency;
-            }
-        }
-        
-        // تنسيق التاريخ
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('ar-LY');
-        }
-        
-        // إظهار الإشعار
-        function showNotification(message, type = 'success') {
-            const notification = document.getElementById('notification');
-            const title = document.getElementById('notificationTitle');
-            const msg = document.getElementById('notificationMessage');
+        // إظهار إشعار
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--gradient-success);
+                color: white;
+                padding: 15px 20px;
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow-heavy);
+                z-index: 9999;
+                animation: slideInRight 0.3s ease;
+            `;
             
-            if (!notification || !title || !msg) return;
+            notification.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <span style="margin-right: 10px;">${message}</span>
+            `;
             
-            // تعيين النص
-            title.textContent = type === 'success' ? 'نجاح' : 
-                               type === 'error' ? 'خطأ' : 'معلومة';
-            msg.textContent = message;
+            document.body.appendChild(notification);
             
-            // تعيين النوع
-            notification.className = `notification notification-${type}`;
-            
-            // إظهار الإشعار
-            notification.classList.add('show');
-            
-            // إخفاء الإشعار بعد 3 ثوانٍ
             setTimeout(() => {
-                notification.classList.remove('show');
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
             }, 3000);
-        }
-        
-        // إظهار تفاصيل الشخص
-        function showPersonDetails(personId) {
-            const person = appData.people.find(p => p.id === personId);
-            if (!person) return;
             
-            const balance = calculatePersonBalance(personId);
-            const personTransactions = appData.transactions.filter(t => 
-                t.personId === personId || t.fromPersonId === personId || t.toPersonId === personId
-            );
-            
-            let details = `
-                <div style="background: white; border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border);">
-                    <h3 style="margin-bottom: 15px; font-size: 1.2rem; font-weight: 700; color: var(--primary);">
-                        <i class="fas fa-user"></i> ${person.name}
-                    </h3>
-                    
-                    <div style="margin-bottom: 15px;">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
-                            <div style="font-weight: 600;">رقم الهاتف</div>
-                            <div>${person.phone || 'لا يوجد'}</div>
-                            <div style="font-weight: 600;">العملة</div>
-                            <div>${getCurrencyName(person.currency)}</div>
-                            <div style="font-weight: 600;">الرصيد</div>
-                            <div style="font-weight: 700; color: ${balance >= 0 ? 'var(--success)' : 'var(--danger)'}">
-                                ${formatCurrency(Math.abs(balance), person.currency)}
-                            </div>
-                        </div>
-                    </div>
+            // إضافة الأنيميشن
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideInRight {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOutRight {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
             `;
-            
-            if (person.notes) {
-                details += `
-                    <div style="margin-bottom: 15px; padding: 10px; background: var(--light); border-radius: var(--radius-md);">
-                        <div style="font-weight: 600; margin-bottom: 5px;">ملاحظات:</div>
-                        <div>${person.notes}</div>
-                    </div>
-                `;
-            }
-            
-            if (personTransactions.length > 0) {
-                details += `
-                    <div style="margin-top: 20px;">
-                        <div style="font-weight: 600; margin-bottom: 10px;">آخر العمليات (${personTransactions.length})</div>
-                `;
-                
-                const recentTransactions = personTransactions.slice(-5).reverse();
-                
-                recentTransactions.forEach(transaction => {
-                    let typeText = '';
-                    let amountColor = '';
-                    
-                    if (transaction.type === 'income') {
-                        typeText = 'إيداع';
-                        amountColor = 'var(--success)';
-                    } else if (transaction.type === 'expense') {
-                        typeText = 'سحب';
-                        amountColor = 'var(--danger)';
-                    } else if (transaction.type === 'transfer') {
-                        if (transaction.fromPersonId === personId) {
-                            typeText = 'تحويل إلى ' + getPersonName(transaction.toPersonId);
-                            amountColor = 'var(--info)';
-                        } else {
-                            typeText = 'تحويل من ' + getPersonName(transaction.fromPersonId);
-                            amountColor = 'var(--success)';
-                        }
-                    }
-                    
-                    details += `
-                        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border);">
-                            <div>
-                                <div style="font-weight: 600;">${typeText}</div>
-                                <div style="font-size: 0.9rem; color: var(--gray);">
-                                    ${transaction.description || 'لا يوجد وصف'} • ${formatDate(transaction.date)}
-                                </div>
-                            </div>
-                            <div style="font-weight: 700; color: ${amountColor}">
-                                ${formatCurrency(transaction.amount, transaction.currency)}
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                details += '</div>';
-            }
-            
-            details += '</div>';
-            
-            // فتح نافذة منبثقة لعرض التفاصيل
-            const modal = document.createElement('div');
-            modal.className = 'modal active';
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3><i class="fas fa-info-circle"></i> تفاصيل الشخص</h3>
-                        <button class="modal-close" onclick="this.closest('.modal').remove()">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ${details}
-                        <div class="form-actions" style="margin-top: 20px;">
-                            <button class="btn btn-secondary" onclick="this.closest('.modal').remove()">
-                                <i class="fas fa-times"></i> إغلاق
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            // إغلاق النافذة عند النقر خارجها
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.remove();
-                }
-            });
+            document.head.appendChild(style);
         }
         
-        // ====================
-        // إدارة الأحداث
-        // ====================
+        // إدارة النوافذ المنبثقة
+        function openAddCompanyModal() {
+            document.getElementById('add-company-modal').style.display = 'flex';
+            document.getElementById('new-company-name').focus();
+        }
         
-        function initializeEvents() {
-            // تبديل الوضع الليلي
-            document.getElementById('themeToggle').addEventListener('click', function() {
-                appData.settings.darkMode = !appData.settings.darkMode;
-                applySettings();
-                saveData();
-                showNotification(appData.settings.darkMode ? 'تم تفعيل الوضع الليلي' : 'تم تفعيل الوضع النهاري', 'success');
+        function closeAddCompanyModal() {
+            document.getElementById('add-company-modal').style.display = 'none';
+            document.getElementById('new-company-name').value = '';
+            document.getElementById('initial-balance').value = '';
+        }
+        
+        // إعادة تعيين النموذج
+        function resetForm() {
+            document.getElementById('passenger-name').value = '';
+            document.getElementById('document-number').value = '';
+            document.getElementById('amount').value = '';
+            document.getElementById('date').value = new Date().toISOString().split('T')[0];
+        }
+        
+        // تحديث قوائم الشركات
+        function updateReportCompanySelect() {
+            const select = document.getElementById('report-company');
+            const currentValue = select.value;
+            
+            select.innerHTML = '<option value="">-- اختر الشركة --</option>';
+            
+            Object.keys(companies).sort().forEach(company => {
+                const option = document.createElement('option');
+                option.value = company;
+                option.textContent = company;
+                select.appendChild(option);
             });
             
-            // التنقل بين الأقسام
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const section = this.getAttribute('data-section');
-                    
-                    // تحديث التنشيط
-                    document.querySelectorAll('.nav-item').forEach(nav => {
-                        nav.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    // إظهار القسم المطلوب
-                    document.querySelectorAll('.section').forEach(sec => {
-                        sec.classList.remove('active');
-                    });
-                    document.getElementById(`${section}-section`).classList.add('active');
-                    
-                    // تحديث زر FAB
-                    updateFabAction(section);
-                });
+            if (currentValue && companies.hasOwnProperty(currentValue)) {
+                select.value = currentValue;
+            }
+        }
+        
+        function updateFilterCompanySelect() {
+            const select = document.getElementById('filter-company');
+            const currentValue = select.value;
+            
+            select.innerHTML = '<option value="">جميع الشركات</option>';
+            
+            Object.keys(companies).sort().forEach(company => {
+                const option = document.createElement('option');
+                option.value = company;
+                option.textContent = company;
+                select.appendChild(option);
             });
             
-            // زر الإضافة العائم
-            document.getElementById('fabButton').addEventListener('click', function() {
-                const activeSection = document.querySelector('.section.active').id.replace('-section', '');
-                
-                switch(activeSection) {
-                    case 'accounts':
-                        openModal('addPersonModal');
-                        break;
-                    case 'transactions':
-                        openModal('addTransactionModal');
-                        break;
-                    case 'reports':
-                        generateReport();
-                        break;
-                    case 'settings':
-                        showSettingsActions();
-                        break;
-                }
-            });
-            
-            // أزرار الإجراءات السريعة
-            document.getElementById('addPersonBtn').addEventListener('click', () => openModal('addPersonModal'));
-            document.getElementById('addTransactionBtn').addEventListener('click', () => openModal('addTransactionModal'));
-            document.getElementById('transferBtn').addEventListener('click', () => {
-                document.getElementById('transactionType').value = 'transfer';
-                openModal('addTransactionModal');
-            });
-            document.getElementById('reportBtn').addEventListener('click', () => {
-                document.querySelector('[data-section="reports"]').click();
-            });
-            
-            // تصدير البيانات
-            document.getElementById('exportDataBtn').addEventListener('click', exportData);
-            
-            // استيراد البيانات
-            document.getElementById('importDataBtn').addEventListener('click', importData);
-            
-            // إعادة تعيين البيانات
-            document.getElementById('resetDataBtn').addEventListener('click', resetData);
-            
-            // إضافة شخص
-            document.getElementById('savePerson').addEventListener('click', addNewPerson);
-            document.getElementById('cancelAddPerson').addEventListener('click', () => closeModal('addPersonModal'));
-            document.getElementById('closeAddPersonModal').addEventListener('click', () => closeModal('addPersonModal'));
-            
-            // إضافة عملية
-            document.getElementById('saveTransaction').addEventListener('click', addNewTransaction);
-            document.getElementById('cancelAddTransaction').addEventListener('click', () => closeModal('addTransactionModal'));
-            document.getElementById('closeAddTransactionModal').addEventListener('click', () => closeModal('addTransactionModal'));
-            
-            // تغيير نوع العملية
-            document.getElementById('transactionType').addEventListener('change', function() {
-                const transferGroup = document.getElementById('transferToGroup');
-                if (this.value === 'transfer') {
-                    transferGroup.style.display = 'block';
-                } else {
-                    transferGroup.style.display = 'none';
-                }
-            });
-            
-            // البحث في العمليات
-            document.getElementById('searchInput').addEventListener('input', searchTransactions);
-            
-            // تصفية العمليات
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const filter = this.getAttribute('data-filter');
-                    filterTransactions(filter);
-                });
-            });
-        }
-        
-        // تحديث إجراء زر FAB
-        function updateFabAction(section) {
-            const fab = document.getElementById('fabButton');
-            if (!fab) return;
-            
-            switch(section) {
-                case 'accounts':
-                    fab.innerHTML = '<i class="fas fa-user-plus"></i>';
-                    break;
-                case 'transactions':
-                    fab.innerHTML = '<i class="fas fa-exchange-alt"></i>';
-                    break;
-                case 'reports':
-                    fab.innerHTML = '<i class="fas fa-chart-bar"></i>';
-                    break;
-                case 'settings':
-                    fab.innerHTML = '<i class="fas fa-cog"></i>';
-                    break;
+            if (currentValue && companies.hasOwnProperty(currentValue)) {
+                select.value = currentValue;
             }
         }
         
-        // فتح النافذة المنبثقة
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.add('active');
-                
-                // التركيز على أول حقل إدخال
-                const firstInput = modal.querySelector('input, select, textarea');
-                if (firstInput) {
-                    setTimeout(() => firstInput.focus(), 100);
-                }
-            }
+        // الطباعة
+        function preparePrint() {
+            window.print();
         }
         
-        // إغلاق النافذة المنبثقة
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.classList.remove('active');
-                
-                // مسح حقول النموذج
-                modal.querySelectorAll('input, textarea').forEach(field => {
-                    field.value = '';
-                });
-                
-                // إعادة تعيين القيم الافتراضية
-                if (modalId === 'addTransactionModal') {
-                    document.getElementById('transactionType').value = 'income';
-                    document.getElementById('transferToGroup').style.display = 'none';
-                }
-            }
-        }
-        
-        // إضافة شخص جديد
-        function addNewPerson() {
-            const name = document.getElementById('personName').value.trim();
-            const phone = document.getElementById('personPhone').value.trim();
-            const currency = document.getElementById('personCurrency').value;
-            const notes = document.getElementById('personNotes').value.trim();
+        // تبديل النمط الليلي
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeIcon');
             
-            if (!name) {
-                showNotification('الرجاء إدخال اسم الشخص', 'error');
-                document.getElementById('personName').focus();
-                return;
-            }
-            
-            const newPerson = {
-                id: Date.now().toString(),
-                name: name,
-                phone: phone,
-                currency: currency,
-                notes: notes,
-                createdAt: new Date().toISOString().split('T')[0]
-            };
-            
-            appData.people.push(newPerson);
-            
-            if (saveData()) {
-                updateUI();
-                closeModal('addPersonModal');
-                showNotification('تم إضافة الشخص بنجاح', 'success');
-            }
-        }
-        
-        // إضافة عملية جديدة
-        function addNewTransaction() {
-            const type = document.getElementById('transactionType').value;
-            const personId = document.getElementById('transactionPerson').value;
-            const transferToId = document.getElementById('transferToPerson').value;
-            const amount = parseFloat(document.getElementById('transactionAmount').value);
-            const currency = document.getElementById('transactionCurrency').value;
-            const description = document.getElementById('transactionDescription').value.trim();
-            
-            // التحقق من صحة البيانات
-            if (!amount || amount <= 0) {
-                showNotification('الرجاء إدخال مبلغ صحيح', 'error');
-                document.getElementById('transactionAmount').focus();
-                return;
-            }
-            
-            if (!personId) {
-                showNotification('الرجاء اختيار الشخص', 'error');
-                document.getElementById('transactionPerson').focus();
-                return;
-            }
-            
-            if (type === 'transfer' && !transferToId) {
-                showNotification('الرجاء اختيار الشخص المراد التحويل إليه', 'error');
-                document.getElementById('transferToPerson').focus();
-                return;
-            }
-            
-            if (type === 'transfer' && personId === transferToId) {
-                showNotification('لا يمكن التحويل لنفس الشخص', 'error');
-                return;
-            }
-            
-            const newTransaction = {
-                id: Date.now().toString(),
-                type: type,
-                amount: amount,
-                currency: currency,
-                description: description,
-                date: new Date().toISOString().split('T')[0],
-                createdAt: new Date().toISOString()
-            };
-            
-            if (type === 'income' || type === 'expense') {
-                newTransaction.personId = personId;
-            } else if (type === 'transfer') {
-                newTransaction.fromPersonId = personId;
-                newTransaction.toPersonId = transferToId;
-            }
-            
-            appData.transactions.push(newTransaction);
-            
-            if (saveData()) {
-                updateUI();
-                closeModal('addTransactionModal');
-                showNotification('تم إضافة العملية بنجاح', 'success');
-            }
-        }
-        
-        // تصدير البيانات
-        function exportData() {
-            const dataStr = JSON.stringify(appData, null, 2);
-            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-            
-            const exportFileDefaultName = `smart-money-manager-backup-${new Date().toISOString().split('T')[0]}.json`;
-            
-            const linkElement = document.createElement('a');
-            linkElement.setAttribute('href', dataUri);
-            linkElement.setAttribute('download', exportFileDefaultName);
-            linkElement.click();
-            
-            showNotification('تم تصدير البيانات بنجاح', 'success');
-        }
-        
-        // استيراد البيانات
-        function importData() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = '.json';
-            
-            input.onchange = function(e) {
-                const file = e.target.files[0];
-                if (!file) return;
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        const importedData = JSON.parse(e.target.result);
-                        
-                        // التحقق من بنية البيانات
-                        if (importedData.people && importedData.transactions) {
-                            if (confirm('هل أنت متأكد من استيراد البيانات؟ سيتم استبدال جميع البيانات الحالية.')) {
-                                appData = importedData;
-                                saveData();
-                                updateUI();
-                                applySettings();
-                                showNotification('تم استيراد البيانات بنجاح', 'success');
-                            }
-                        } else {
-                            showNotification('ملف غير صالح', 'error');
-                        }
-                    } catch (error) {
-                        showNotification('خطأ في قراءة الملف', 'error');
-                    }
-                };
-                reader.readAsText(file);
-            };
-            
-            input.click();
-        }
-        
-        // إعادة تعيين البيانات
-        function resetData() {
-            if (confirm('⚠️ هل أنت متأكد من إعادة تعيين جميع البيانات؟ هذا الإجراء لا يمكن التراجع عنه.')) {
-                if (confirm('❌ تأكيد نهائي: سيتم حذف جميع الأشخاص والعمليات.')) {
-                    localStorage.removeItem(STORAGE_KEY);
-                    appData = {
-                        people: [],
-                        transactions: [],
-                        settings: {
-                            darkMode: false,
-                            defaultCurrency: 'LYD'
-                        },
-                        version: '2.0',
-                        lastUpdate: new Date().toISOString()
-                    };
-                    saveData();
-                    updateUI();
-                    showNotification('تم إعادة تعيين جميع البيانات', 'success');
-                }
-            }
-        }
-        
-        // البحث في العمليات
-        function searchTransactions() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const transactionsList = document.getElementById('transactionsList');
-            
-            if (!query.trim()) {
-                updateTransactionsList();
-                return;
-            }
-            
-            const filteredTransactions = appData.transactions.filter(transaction => {
-                // البحث في الأسماء
-                let personName = '';
-                if (transaction.type === 'income' || transaction.type === 'expense') {
-                    personName = getPersonName(transaction.personId);
-                } else if (transaction.type === 'transfer') {
-                    personName = `${getPersonName(transaction.fromPersonId)} → ${getPersonName(transaction.toPersonId)}`;
-                }
-                
-                // البحث في الوصف
-                const description = transaction.description || '';
-                
-                // البحث في المبلغ
-                const amount = transaction.amount.toString();
-                
-                // البحث في التاريخ
-                const date = transaction.date;
-                
-                return personName.toLowerCase().includes(query) ||
-                       description.toLowerCase().includes(query) ||
-                       amount.includes(query) ||
-                       date.includes(query);
-            });
-            
-            // عرض النتائج
-            if (filteredTransactions.length === 0) {
-                transactionsList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-search"></i>
-                        <h4>لا توجد نتائج</h4>
-                        <p>لم يتم العثور على عمليات تطابق البحث</p>
-                    </div>
-                `;
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
             } else {
-                let html = '<div class="transactions-list">';
-                
-                filteredTransactions.slice().reverse().forEach(transaction => {
-                    let personName = '';
-                    let icon = 'fas fa-exchange-alt';
-                    let color = 'var(--primary)';
-                    let amountPrefix = '';
-                    
-                    if (transaction.type === 'income') {
-                        personName = getPersonName(transaction.personId);
-                        icon = 'fas fa-arrow-down';
-                        color = 'var(--success)';
-                        amountPrefix = '+';
-                    } else if (transaction.type === 'expense') {
-                        personName = getPersonName(transaction.personId);
-                        icon = 'fas fa-arrow-up';
-                        color = 'var(--danger)';
-                        amountPrefix = '-';
-                    } else if (transaction.type === 'transfer') {
-                        personName = `${getPersonName(transaction.fromPersonId)} → ${getPersonName(transaction.toPersonId)}`;
-                        icon = 'fas fa-money-bill-transfer';
-                        color = 'var(--info)';
-                        amountPrefix = '↔';
-                    }
-                    
-                    html += `
-                        <div class="transaction-item">
-                            <div class="transaction-icon" style="background: ${color}">
-                                <i class="${icon}"></i>
-                            </div>
-                            <div class="transaction-details">
-                                <div class="transaction-title">${personName}</div>
-                                <div class="transaction-info">
-                                    ${transaction.description || 'لا يوجد وصف'} • ${formatDate(transaction.date)}
-                                </div>
-                            </div>
-                            <div class="transaction-amount" style="color: ${color}">
-                                ${amountPrefix}${formatCurrency(transaction.amount, transaction.currency)}
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                html += '</div>';
-                transactionsList.innerHTML = html;
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
             }
         }
         
-        // تصفية العمليات
-        function filterTransactions(filter) {
-            const transactionsList = document.getElementById('transactionsList');
-            
-            let filteredTransactions = appData.transactions;
-            
-            if (filter !== 'all') {
-                filteredTransactions = appData.transactions.filter(t => t.type === filter);
-            }
-            
-            // عرض النتائج
-            if (filteredTransactions.length === 0) {
-                transactionsList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-filter"></i>
-                        <h4>لا توجد عمليات</h4>
-                        <p>لا توجد عمليات من النوع المحدد</p>
-                    </div>
-                `;
-            } else {
-                let html = '<div class="transactions-list">';
-                
-                filteredTransactions.slice().reverse().slice(0, 20).forEach(transaction => {
-                    let personName = '';
-                    let icon = 'fas fa-exchange-alt';
-                    let color = 'var(--primary)';
-                    let amountPrefix = '';
+        // إعداد الأحداث
+        function setupEventListeners() {
+            // التبويبات
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
                     
-                    if (transaction.type === 'income') {
-                        personName = getPersonName(transaction.personId);
-                        icon = 'fas fa-arrow-down';
-                        color = 'var(--success)';
-                        amountPrefix = '+';
-                    } else if (transaction.type === 'expense') {
-                        personName = getPersonName(transaction.personId);
-                        icon = 'fas fa-arrow-up';
-                        color = 'var(--danger)';
-                        amountPrefix = '-';
-                    } else if (transaction.type === 'transfer') {
-                        personName = `${getPersonName(transaction.fromPersonId)} → ${getPersonName(transaction.toPersonId)}`;
-                        icon = 'fas fa-money-bill-transfer';
-                        color = 'var(--info)';
-                        amountPrefix = '↔';
-                    }
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
                     
-                    html += `
-                        <div class="transaction-item">
-                            <div class="transaction-icon" style="background: ${color}">
-                                <i class="${icon}"></i>
-                            </div>
-                            <div class="transaction-details">
-                                <div class="transaction-title">${personName}</div>
-                                <div class="transaction-info">
-                                    ${transaction.description || 'لا يوجد وصف'} • ${formatDate(transaction.date)}
-                                </div>
-                            </div>
-                            <div class="transaction-amount" style="color: ${color}">
-                                ${amountPrefix}${formatCurrency(transaction.amount, transaction.currency)}
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                html += '</div>';
-                transactionsList.innerHTML = html;
-            }
-        }
-        
-        // توليد التقرير
-        function generateReport() {
-            // سيتم تطوير هذه الوظيفة في المستقبل
-            showNotification('جاري توليد التقرير...', 'info');
-        }
-        
-        // إظهار إجراءات الإعدادات
-        function showSettingsActions() {
-            // سيتم تطوير هذه الوظيفة في المستقبل
-            showNotification('فتح إعدادات متقدمة', 'info');
-        }
-        
-        // ====================
-        // تهيئة التطبيق
-        // ====================
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            // تحميل البيانات
-            loadData();
-            
-            // تهيئة الأحداث
-            initializeEvents();
-            
-            // إغلاق النوافذ عند النقر خارجها
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        this.classList.remove('active');
-                    }
+                    tab.classList.add('active');
+                    document.getElementById(tabId + '-tab').classList.add('active');
                 });
             });
             
-            // إغلاق النوافذ بمفتاح ESC
-            document.addEventListener('keydown', function(e) {
+            // الأحداث الرئيسية
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            document.getElementById('open-add-company-modal').addEventListener('click', openAddCompanyModal);
+            document.getElementById('close-add-company-modal').addEventListener('click', closeAddCompanyModal);
+            document.getElementById('save-new-company').addEventListener('click', addCompany);
+            document.getElementById('add-transaction').addEventListener('click', addTransaction);
+            document.getElementById('reset-form').addEventListener('click', resetForm);
+            document.getElementById('print-report').addEventListener('click', preparePrint);
+            document.getElementById('reset-filters').addEventListener('click', () => {
+                document.getElementById('filter-company').value = '';
+                document.getElementById('filter-type').value = '';
+                updateManageTable();
+            });
+            
+            // تحديث عند تغيير القيم
+            document.getElementById('company').addEventListener('change', updateCompanyBalance);
+            document.getElementById('report-company').addEventListener('change', updateReport);
+            document.getElementById('filter-company').addEventListener('change', updateManageTable);
+            document.getElementById('filter-type').addEventListener('change', updateManageTable);
+            
+            // إغلاق النافذة المنبثقة عند النقر خارجها
+            document.getElementById('add-company-modal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('add-company-modal')) {
+                    closeAddCompanyModal();
+                }
+            });
+            
+            // تهيئة تاريخ اليوم
+            document.getElementById('date').value = new Date().toISOString().split('T')[0];
+            
+            // إغلاق بالنقر على ESC
+            document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
-                    document.querySelectorAll('.modal.active').forEach(modal => {
-                        modal.classList.remove('active');
-                    });
+                    closeAddCompanyModal();
                 }
             });
+        }
+        
+        // تهيئة التطبيق
+        function initApp() {
+            // تحميل النمط المحفوظ
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('themeIcon').className = 'fas fa-sun';
+            }
             
-            console.log('🚀 التطبيق جاهز للاستخدام');
-        });
+            loadData();
+            setupEventListeners();
+        }
+        
+        // بدء التشغيل
+        window.addEventListener('load', initApp);
     </script>
 </body>
 </html>
