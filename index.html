@@ -2,272 +2,220 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>👑 مدير المال الذكي - الإصدار الحديث</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 مدير المال الذكي - متعدد العملات</title>
     <style>
-        /* نظام ألوان متطور مع وضع ليلي */
+        /* نظام الألوان الأساسي */
         :root {
-            /* وضع النهار */
-            --bg-primary: #FFFFFF;
-            --bg-secondary: #F8FAFC;
-            --bg-card: #FFFFFF;
-            --text-primary: #1E293B;
-            --text-secondary: #64748B;
-            --border-color: #E2E8F0;
-            --accent: #7C3AED;
-            --accent-light: #A78BFA;
+            --primary: #7C3AED;
+            --primary-light: #A78BFA;
+            --primary-dark: #5B21B6;
+            --secondary: #06B6D4;
             --success: #10B981;
             --danger: #EF4444;
             --warning: #F59E0B;
             --info: #3B82F6;
+            --light: #F9FAFB;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --border: #E5E7EB;
+            
+            /* التدرجات */
+            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            --gradient-success: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+            --gradient-danger: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+            --gradient-warning: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+            --gradient-dark: linear-gradient(135deg, #1F2937 0%, #374151 100%);
             
             /* الظلال */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
             
             /* الزوايا */
-            --radius-sm: 12px;
-            --radius-md: 16px;
-            --radius-lg: 20px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
             --radius-xl: 24px;
-            --radius-full: 1000px;
-            
-            /* التدرجات */
-            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
-            --gradient-dark: linear-gradient(135deg, #1E293B 0%, #334155 100%);
-            --gradient-success: linear-gradient(135deg, #10B981 0%, #34D399 100%);
-            --gradient-danger: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
-            
-            /* متغيرات النظام */
-            --header-height: 60px;
-            --nav-height: 70px;
-            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+            --radius-full: 999px;
         }
-
+        
         /* الوضع الليلي */
-        .dark-mode {
-            --bg-primary: #0F172A;
-            --bg-secondary: #1E293B;
-            --bg-card: #1E293B;
-            --text-primary: #F1F5F9;
-            --text-secondary: #94A3B8;
-            --border-color: #334155;
-            --accent: #8B5CF6;
-            --accent-light: #A78BFA;
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.3);
+        body.dark-mode {
+            --light: #1F2937;
+            --dark: #F9FAFB;
+            --border: #374151;
+            --gray: #9CA3AF;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
-
-        /* إعدادات عامة */
+        
+        /* التنسيقات العامة */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
             min-height: 100vh;
-            overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            padding-bottom: calc(var(--nav-height) + var(--safe-area-bottom));
+            padding-bottom: 80px;
         }
-
-        /* الهيدر المتحسن */
-        .app-header {
+        
+        /* الهيدر */
+        .header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 20px;
             position: fixed;
             top: 0;
-            right: 0;
             left: 0;
-            height: var(--header-height);
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
+            right: 0;
             z-index: 1000;
+            box-shadow: var(--shadow-md);
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
-            box-shadow: var(--shadow-sm);
+            align-items: center;
+            height: 60px;
         }
-
-        .header-title {
+        
+        .header h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
-
-        .app-logo {
+        
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
             width: 40px;
             height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-        }
-
-        .app-name {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--text-primary);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* زر الوضع الليلي */
-        .theme-toggle {
-            width: 44px;
-            height: 44px;
             border-radius: var(--radius-full);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background: var(--accent);
             color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
             transform: rotate(15deg);
         }
-
+        
         /* المحتوى الرئيسي */
         .main-content {
-            padding: calc(var(--header-height) + 20px) 20px 20px;
+            padding: 80px 15px 90px;
             max-width: 800px;
             margin: 0 auto;
-            width: 100%;
         }
-
-        /* أقسام التطبيق */
+        
+        /* الأقسام */
         .section {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.3s ease;
         }
-
+        
         .section.active {
             display: block;
         }
-
+        
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        /* التنقل السفلي المطور */
+        
+        /* التنقل السفلي */
         .bottom-nav {
             position: fixed;
             bottom: 0;
-            right: 0;
             left: 0;
-            height: calc(var(--nav-height) + var(--safe-area-bottom));
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-top: 1px solid var(--border-color);
-            z-index: 1000;
+            right: 0;
+            background: white;
+            border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-around;
-            padding: 12px 0 var(--safe-area-bottom);
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
-
+        
+        body.dark-mode .bottom-nav {
+            background: var(--light);
+            border-top-color: var(--border);
+        }
+        
         .nav-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            flex: 1;
             text-decoration: none;
-            color: var(--text-secondary);
+            color: var(--gray);
+            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            transition: all 0.3s;
             position: relative;
-            padding: 8px 0;
-            transition: all 0.3s ease;
         }
-
-        .nav-icon {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 6px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        .nav-item i {
+            font-size: 20px;
+            margin-bottom: 4px;
         }
-
-        .nav-label {
-            font-size: 11px;
+        
+        .nav-item span {
+            font-size: 12px;
             font-weight: 600;
-            opacity: 0.8;
-            transition: all 0.3s ease;
         }
-
+        
         .nav-item.active {
-            color: var(--accent);
+            color: var(--primary);
+            background: rgba(124, 58, 237, 0.1);
         }
-
-        .nav-item.active .nav-icon {
-            transform: translateY(-4px);
-        }
-
-        .nav-item.active .nav-label {
-            opacity: 1;
-            font-weight: 700;
-        }
-
+        
         .nav-indicator {
             position: absolute;
-            top: -8px;
-            width: 4px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: var(--radius-full);
+            top: -5px;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s;
         }
-
+        
         .nav-item.active .nav-indicator {
             opacity: 1;
         }
-
-        /* بطاقة ترحيبية */
+        
+        /* البطاقة الرئيسية */
         .welcome-card {
             background: var(--gradient-dark);
             color: white;
             border-radius: var(--radius-lg);
             padding: 25px;
             margin-bottom: 25px;
+            box-shadow: var(--shadow-lg);
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
         }
-
+        
         .welcome-card::before {
             content: '';
             position: absolute;
@@ -279,436 +227,456 @@
             border-radius: 50%;
             transform: translate(30%, -30%);
         }
-
+        
         .welcome-title {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
-
+        
         .welcome-subtitle {
-            font-size: 14px;
             opacity: 0.9;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
-
-        .balance-display {
-            font-size: 32px;
+        
+        .total-balance {
+            font-size: 2.5rem;
             font-weight: 800;
             font-family: 'Courier New', monospace;
+            margin: 10px 0;
         }
-
-        /* أزرار الإجراءات السريعة */
+        
+        /* أزرار سريعة */
         .quick-actions {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 25px;
         }
-
-        .quick-action-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 20px 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
+        
+        .quick-btn {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-
-        .quick-action-btn:hover {
+        
+        body.dark-mode .quick-btn {
+            background: var(--light);
+            border-color: var(--border);
+        }
+        
+        .quick-btn:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
-            border-color: var(--accent-light);
+            border-color: var(--primary-light);
         }
-
-        .quick-action-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
+        
+        .quick-btn i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
         }
-
-        .quick-action-text {
-            font-weight: 600;
-            font-size: 14px;
-            text-align: center;
-            color: var(--text-primary);
-        }
-
-        .quick-action-desc {
-            font-size: 12px;
-            color: var(--text-secondary);
-            text-align: center;
-            opacity: 0.8;
-        }
-
-        /* قائمة الأشخاص المطورة */
-        .section-title {
-            font-size: 20px;
+        
+        .quick-btn .title {
             font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            font-size: 1rem;
+            margin-bottom: 5px;
         }
-
+        
+        .quick-btn .subtitle {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        /* قائمة الأشخاص */
         .people-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 15px;
-            margin-bottom: 25px;
+            margin-top: 20px;
         }
-
+        
         .person-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: white;
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-
+        
+        body.dark-mode .person-card {
+            background: var(--light);
+        }
+        
         .person-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-light);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
-
+        
         .person-avatar {
-            width: 56px;
-            height: 56px;
+            width: 50px;
+            height: 50px;
             background: var(--gradient-primary);
             border-radius: var(--radius-md);
             color: white;
-            font-size: 20px;
             font-weight: 700;
+            font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
         }
-
+        
         .person-name {
             font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 8px;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-
+        
         .person-balance {
-            font-size: 18px;
+            font-size: 1.3rem;
             font-weight: 800;
             font-family: 'Courier New', monospace;
         }
-
+        
         .balance-positive {
             color: var(--success);
         }
-
+        
         .balance-negative {
             color: var(--danger);
         }
-
+        
         /* قائمة العمليات */
         .transactions-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            margin-top: 20px;
         }
-
+        
         .transaction-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: white;
+            border: 1px solid var(--border);
             border-radius: var(--radius-md);
-            padding: 18px;
+            padding: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-
+        
+        body.dark-mode .transaction-item {
+            background: var(--light);
+        }
+        
         .transaction-item:hover {
             transform: translateX(5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-sm);
         }
-
+        
         .transaction-icon {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: var(--radius-md);
+            background: var(--primary);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            color: white;
         }
-
+        
         .transaction-details {
             flex: 1;
         }
-
+        
         .transaction-title {
             font-weight: 600;
-            font-size: 15px;
             margin-bottom: 4px;
         }
-
+        
         .transaction-info {
-            font-size: 13px;
-            color: var(--text-secondary);
+            font-size: 0.9rem;
+            color: var(--gray);
         }
-
+        
         .transaction-amount {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 1.1rem;
             font-family: 'Courier New', monospace;
         }
-
-        /* زر الإضافة العائم */
-        .fab {
-            position: fixed;
-            bottom: calc(var(--nav-height) + 20px);
-            left: 20px;
-            width: 56px;
-            height: 56px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            box-shadow: var(--shadow-lg);
-            cursor: pointer;
-            z-index: 999;
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .fab:hover {
-            transform: scale(1.1) rotate(90deg);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
-        }
-
-        /* أشكال ديكورية */
-        .decoration-circle {
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .circle-1 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
-            top: -100px;
-            right: -100px;
-        }
-
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-            bottom: 100px;
-            left: -50px;
-        }
-
-        /* النوافذ المنبثقة (Modals) */
-        .modal-overlay {
+        
+        /* النوافذ المنبثقة */
+        .modal {
             position: fixed;
             top: 0;
+            left: 0;
             right: 0;
             bottom: 0;
-            left: 0;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            z-index: 1100;
             display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
             animation: fadeIn 0.3s ease;
         }
-
+        
+        .modal.active {
+            display: flex;
+        }
+        
         .modal-content {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-card);
+            background: white;
             border-radius: var(--radius-xl);
             width: 90%;
             max-width: 500px;
             max-height: 90vh;
             overflow: hidden;
             box-shadow: var(--shadow-xl);
-            z-index: 1101;
-            display: none;
             animation: modalSlide 0.3s ease;
         }
-
+        
+        body.dark-mode .modal-content {
+            background: var(--light);
+        }
+        
         @keyframes modalSlide {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -40%);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-
+        
         .modal-header {
-            padding: 25px 25px 20px;
-            border-bottom: 1px solid var(--border-color);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
-
-        .modal-title {
-            font-size: 20px;
+        
+        .modal-header h3 {
+            font-size: 1.3rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
-
+        
         .modal-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
             width: 36px;
             height: 36px;
-            border-radius: var(--radius-full);
-            background: var(--bg-secondary);
-            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-
+        
         .modal-close:hover {
-            background: var(--accent);
-            color: white;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
         }
-
+        
         .modal-body {
-            padding: 25px;
+            padding: 20px;
             max-height: calc(90vh - 80px);
             overflow-y: auto;
         }
-
-        /* حقول الإدخال المطورة */
+        
+        /* حقول النموذج */
         .form-group {
             margin-bottom: 20px;
         }
-
+        
         .form-label {
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
-            color: var(--text-primary);
+            color: var(--dark);
         }
-
-        .form-control {
+        
+        body.dark-mode .form-label {
+            color: var(--light);
+        }
+        
+        .form-control, .form-select {
             width: 100%;
-            padding: 16px;
-            background: var(--bg-secondary);
-            border: 2px solid var(--border-color);
+            padding: 12px 15px;
+            border: 2px solid var(--border);
             border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: 16px;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+            color: var(--dark);
         }
-
-        .form-control:focus {
+        
+        body.dark-mode .form-control,
+        body.dark-mode .form-select {
+            background: var(--light);
+            color: var(--dark);
+            border-color: var(--border);
+        }
+        
+        .form-control:focus, .form-select:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
         }
-
-        .form-select {
-            width: 100%;
-            padding: 16px;
-            background: var(--bg-secondary);
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-md);
-            color: var(--text-primary);
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        /* أزرار النماذج */
-        .modal-actions {
+        
+        /* أزرار النموذج */
+        .form-actions {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin-top: 25px;
         }
-
+        
         .btn {
             flex: 1;
-            padding: 16px 24px;
+            padding: 15px;
             border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 16px;
+            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             border: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
-
+        
         .btn-primary {
             background: var(--gradient-primary);
             color: white;
         }
-
+        
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
         }
-
+        
         .btn-secondary {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
+            background: var(--border);
+            color: var(--dark);
         }
-
+        
         .btn-secondary:hover {
-            background: var(--border-color);
+            background: var(--gray);
+            color: white;
         }
-
-        /* تحسينات للشاشات الصغيرة */
+        
+        /* حالة فارغة */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray);
+        }
+        
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+        
+        .empty-state h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        body.dark-mode .empty-state h4 {
+            color: var(--light);
+        }
+        
+        /* البحث والتصفية */
+        .search-bar {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 45px 15px 15px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-full);
+            font-size: 1rem;
+            background: white;
+            color: var(--dark);
+        }
+        
+        body.dark-mode .search-input {
+            background: var(--light);
+            color: var(--dark);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        /* أزرار الفئات */
+        .category-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 10px 15px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        body.dark-mode .category-btn {
+            background: var(--light);
+        }
+        
+        .category-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .category-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+        
+        /* تحسينات للهواتف */
         @media (max-width: 768px) {
             .main-content {
-                padding: calc(var(--header-height) + 15px) 15px 15px;
+                padding: 70px 12px 90px;
             }
             
-            .welcome-card {
-                padding: 20px;
-            }
-            
-            .welcome-title {
-                font-size: 20px;
-            }
-            
-            .balance-display {
-                font-size: 28px;
+            .header h1 {
+                font-size: 1.2rem;
             }
             
             .quick-actions {
@@ -716,139 +684,173 @@
             }
             
             .people-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .modal-content {
                 width: 95%;
             }
         }
-
+        
         @media (max-width: 480px) {
-            .app-header {
-                padding: 0 15px;
-            }
-            
-            .app-name {
-                font-size: 16px;
+            .header {
+                padding: 12px 15px;
             }
             
             .people-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
             
-            .nav-label {
-                font-size: 10px;
+            .nav-item span {
+                font-size: 11px;
             }
         }
-
-        /* أزرار الفئات */
-        .category-buttons {
+        
+        /* إشعارات */
+        .notification {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 15px 20px;
+            box-shadow: var(--shadow-lg);
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 15px 0;
+            align-items: center;
+            gap: 15px;
+            z-index: 3000;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            max-width: 350px;
         }
-
-        .category-btn {
-            padding: 10px 16px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-full);
-            font-size: 14px;
-            font-weight: 600;
+        
+        body.dark-mode .notification {
+            background: var(--light);
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .notification-success .notification-icon {
+            background: var(--success);
+        }
+        
+        .notification-error .notification-icon {
+            background: var(--danger);
+        }
+        
+        .notification-info .notification-icon {
+            background: var(--info);
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .notification-message {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* تحديثات العملات */
+        .currency-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .currency-btn {
+            flex: 1;
+            padding: 12px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
-
-        .category-btn:hover {
-            transform: scale(1.05);
+        
+        body.dark-mode .currency-btn {
+            background: var(--light);
         }
-
-        .category-btn.active {
+        
+        .currency-btn.active {
             background: var(--gradient-primary);
             color: white;
-            border-color: transparent;
+            border-color: var(--primary);
         }
-
-        /* شريط البحث */
-        .search-bar {
-            position: relative;
-            margin-bottom: 20px;
+        
+        .currency-btn:hover:not(.active) {
+            border-color: var(--primary);
         }
-
-        .search-input {
-            width: 100%;
-            padding: 16px 50px 16px 16px;
-            background: var(--bg-secondary);
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-full);
-            color: var(--text-primary);
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .search-icon {
-            position: absolute;
+        
+        /* زر الإضافة العائم */
+        .fab {
+            position: fixed;
+            bottom: 80px;
             left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: all 0.3s;
+            border: none;
         }
-
-        /* رسالة حالة فارغة */
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-secondary);
-        }
-
-        .empty-state-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        .empty-state-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        /* تحسينات شاشة العرض */
-        @media (min-height: 800px) {
-            .main-content {
-                padding-bottom: 40px;
-            }
+        
+        .fab:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- الأشكال الديكورية -->
-    <div class="decoration-circle circle-1"></div>
-    <div class="decoration-circle circle-2"></div>
+    <!-- إشعارات -->
+    <div class="notification" id="notification">
+        <div class="notification-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="notification-content">
+            <div class="notification-title" id="notificationTitle">نجاح</div>
+            <div class="notification-message" id="notificationMessage">تمت العملية بنجاح</div>
+        </div>
+    </div>
     
     <!-- الهيدر -->
-    <header class="app-header">
-        <div class="header-title">
-            <div class="app-logo">
-                <i class="fas fa-crown"></i>
-            </div>
-            <div class="app-name">مدير المال الذكي</div>
-        </div>
-        <div class="header-actions">
+    <header class="header">
+        <h1>
+            <i class="fas fa-crown"></i>
+            مدير المال الذكي
+        </h1>
+        <div class="header-controls">
             <button class="theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
-            <div class="current-time" id="currentTime">--:--</div>
         </div>
     </header>
     
@@ -857,61 +859,53 @@
         <!-- قسم الحسابات -->
         <section class="section active" id="accounts-section">
             <div class="welcome-card">
-                <div class="welcome-title">مرحباً بك! 👋</div>
-                <div class="welcome-subtitle">إجمالي الأرصدة لديك</div>
-                <div class="balance-display" id="totalBalance">0 دينار</div>
+                <div class="welcome-title">مرحباً بك 👋</div>
+                <div class="welcome-subtitle">إجمالي أرصدة جميع الحسابات</div>
+                <div class="total-balance" id="totalBalance">0 دينار</div>
             </div>
             
             <div class="quick-actions">
-                <div class="quick-action-btn" id="addPersonBtn">
-                    <div class="quick-action-icon">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <div class="quick-action-text">إضافة شخص</div>
-                    <div class="quick-action-desc">سجل حساب جديد</div>
+                <div class="quick-btn" id="addPersonBtn">
+                    <i class="fas fa-user-plus"></i>
+                    <div class="title">إضافة شخص</div>
+                    <div class="subtitle">حساب جديد</div>
                 </div>
-                <div class="quick-action-btn" id="addTransactionBtn">
-                    <div class="quick-action-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <div class="quick-action-text">عملية جديدة</div>
-                    <div class="quick-action-desc">سجل عملية مالية</div>
+                <div class="quick-btn" id="addTransactionBtn">
+                    <i class="fas fa-exchange-alt"></i>
+                    <div class="title">عملية مالية</div>
+                    <div class="subtitle">إيداع أو سحب</div>
                 </div>
-                <div class="quick-action-btn" id="transferBtn">
-                    <div class="quick-action-icon">
-                        <i class="fas fa-money-bill-transfer"></i>
-                    </div>
-                    <div class="quick-action-text">تحويل أموال</div>
-                    <div class="quick-action-desc">نقل بين الحسابات</div>
+                <div class="quick-btn" id="transferBtn">
+                    <i class="fas fa-money-bill-transfer"></i>
+                    <div class="title">تحويل</div>
+                    <div class="subtitle">بين الحسابات</div>
                 </div>
-                <div class="quick-action-btn" id="reportBtn">
-                    <div class="quick-action-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <div class="quick-action-text">التقارير</div>
-                    <div class="quick-action-desc">تحليل الأداء</div>
+                <div class="quick-btn" id="reportBtn">
+                    <i class="fas fa-chart-bar"></i>
+                    <div class="title">التقارير</div>
+                    <div class="subtitle">تحليل البيانات</div>
                 </div>
             </div>
             
-            <div class="section-title">
-                <span>👥 الأشخاص والحسابات</span>
-                <span class="text-secondary" id="peopleCount">0 شخص</span>
-            </div>
+            <h2 style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                <i class="fas fa-users"></i> الأشخاص والحسابات
+                <span style="font-size: 0.9rem; color: var(--gray); margin-right: 10px;" id="peopleCount">(0)</span>
+            </h2>
             
-            <div class="people-grid" id="peopleList">
+            <div id="peopleList">
                 <!-- سيتم تعبئته ديناميكياً -->
             </div>
         </section>
         
         <!-- قسم العمليات -->
         <section class="section" id="transactions-section">
-            <div class="section-title">
-                <span>💰 السجل المالي</span>
-                <div class="text-secondary" id="transactionsCount">0 عملية</div>
-            </div>
+            <h2 style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                <i class="fas fa-exchange-alt"></i> السجل المالي
+                <span style="font-size: 0.9rem; color: var(--gray); margin-right: 10px;" id="transactionsCount">(0)</span>
+            </h2>
             
             <div class="search-bar">
-                <input type="text" class="search-input" id="searchTransactions" placeholder="ابحث في العمليات...">
+                <input type="text" class="search-input" id="searchInput" placeholder="ابحث في العمليات...">
                 <div class="search-icon">
                     <i class="fas fa-search"></i>
                 </div>
@@ -924,81 +918,68 @@
                 <button class="category-btn" data-filter="transfer">التحويلات</button>
             </div>
             
-            <div class="transactions-list" id="transactionsList">
+            <div id="transactionsList">
                 <!-- سيتم تعبئته ديناميكياً -->
             </div>
         </section>
         
         <!-- قسم التقارير -->
         <section class="section" id="reports-section">
-            <div class="section-title">
-                <span>📊 التقارير والإحصائيات</span>
+            <h2 style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                <i class="fas fa-chart-bar"></i> التقارير والإحصائيات
+            </h2>
+            
+            <div class="currency-selector" id="reportCurrencySelector">
+                <!-- سيتم تعبئته ديناميكياً -->
             </div>
             
-            <div class="card" style="padding: 20px; margin-bottom: 20px;">
-                <div class="form-group">
-                    <label class="form-label">الفترة الزمنية</label>
-                    <select class="form-select" id="reportPeriod">
-                        <option value="30">آخر 30 يوم</option>
-                        <option value="90">آخر 90 يوم</option>
-                        <option value="180">آخر 6 أشهر</option>
-                        <option value="365">آخر سنة</option>
-                    </select>
-                </div>
-                
-                <div id="reportSummary">
-                    <!-- سيتم تعبئته ديناميكياً -->
-                </div>
-            </div>
-            
-            <div id="chartsContainer">
+            <div id="reportContent">
                 <!-- سيتم تعبئته ديناميكياً -->
             </div>
         </section>
         
         <!-- قسم الإعدادات -->
         <section class="section" id="settings-section">
-            <div class="section-title">
-                <span>⚙️ الإعدادات</span>
+            <h2 style="margin-bottom: 20px; font-size: 1.3rem; font-weight: 700;">
+                <i class="fas fa-cog"></i> الإعدادات
+            </h2>
+            
+            <div class="quick-btn" id="exportDataBtn" style="margin-bottom: 15px;">
+                <i class="fas fa-download"></i>
+                <div class="title">تصدير البيانات</div>
+                <div class="subtitle">نسخة احتياطية</div>
             </div>
             
-            <div class="card" style="padding: 20px; margin-bottom: 20px;">
-                <h4 style="margin-bottom: 20px;">البيانات والمعلومات</h4>
-                
-                <div class="form-group">
-                    <label class="form-label">اسم التطبيق</label>
-                    <input type="text" class="form-control" value="مدير المال الذكي" readonly>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">إصدار التطبيق</label>
-                    <input type="text" class="form-control" value="v2.0" readonly>
-                </div>
-                
-                <div class="modal-actions">
-                    <button class="btn btn-secondary" id="exportData">
-                        <i class="fas fa-download"></i> تصدير البيانات
-                    </button>
-                    <button class="btn btn-primary" id="importData">
-                        <i class="fas fa-upload"></i> استيراد البيانات
-                    </button>
-                </div>
+            <div class="quick-btn" id="importDataBtn" style="margin-bottom: 15px;">
+                <i class="fas fa-upload"></i>
+                <div class="title">استيراد البيانات</div>
+                <div class="subtitle">استعادة نسخة</div>
             </div>
             
-            <div class="card" style="padding: 20px;">
-                <h4 style="margin-bottom: 20px;">المطور</h4>
-                <p style="margin-bottom: 15px; color: var(--text-secondary);">
-                    تم تطوير هذا التطبيق باستخدام أحدث التقنيات ليكون سهل الاستخدام وسريع الأداء.
-                </p>
-                <button class="btn btn-primary" id="resetApp">
-                    <i class="fas fa-redo"></i> إعادة تعيين التطبيق
-                </button>
+            <div class="quick-btn" id="resetDataBtn" style="margin-bottom: 25px;">
+                <i class="fas fa-redo"></i>
+                <div class="title">إعادة تعيين</div>
+                <div class="subtitle">حذف جميع البيانات</div>
+            </div>
+            
+            <div style="background: white; border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border);">
+                <h3 style="margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">معلومات التطبيق</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div style="font-weight: 600;">الإصدار</div>
+                    <div>v2.0</div>
+                    <div style="font-weight: 600;">عدد الأشخاص</div>
+                    <div id="settingsPeopleCount">0</div>
+                    <div style="font-weight: 600;">عدد العمليات</div>
+                    <div id="settingsTransactionsCount">0</div>
+                    <div style="font-weight: 600;">إجمالي الأرصدة</div>
+                    <div id="settingsTotalBalance">0</div>
+                </div>
             </div>
         </section>
     </main>
     
     <!-- زر الإضافة العائم -->
-    <button class="fab" id="mainFab">
+    <button class="fab" id="fabButton">
         <i class="fas fa-plus"></i>
     </button>
     
@@ -1006,43 +987,32 @@
     <nav class="bottom-nav">
         <a href="#" class="nav-item active" data-section="accounts">
             <div class="nav-indicator"></div>
-            <div class="nav-icon">
-                <i class="fas fa-home"></i>
-            </div>
-            <div class="nav-label">الرئيسية</div>
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
         </a>
         <a href="#" class="nav-item" data-section="transactions">
             <div class="nav-indicator"></div>
-            <div class="nav-icon">
-                <i class="fas fa-exchange-alt"></i>
-            </div>
-            <div class="nav-label">العمليات</div>
+            <i class="fas fa-exchange-alt"></i>
+            <span>العمليات</span>
         </a>
         <a href="#" class="nav-item" data-section="reports">
             <div class="nav-indicator"></div>
-            <div class="nav-icon">
-                <i class="fas fa-chart-bar"></i>
-            </div>
-            <div class="nav-label">التقارير</div>
+            <i class="fas fa-chart-bar"></i>
+            <span>التقارير</span>
         </a>
         <a href="#" class="nav-item" data-section="settings">
             <div class="nav-indicator"></div>
-            <div class="nav-icon">
-                <i class="fas fa-cog"></i>
-            </div>
-            <div class="nav-label">الإعدادات</div>
+            <i class="fas fa-cog"></i>
+            <span>الإعدادات</span>
         </a>
     </nav>
     
     <!-- نافذة إضافة شخص -->
-    <div class="modal-overlay" id="addPersonModal">
+    <div class="modal" id="addPersonModal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title">
-                    <i class="fas fa-user-plus"></i>
-                    إضافة شخص جديد
-                </div>
-                <button class="modal-close" onclick="closeModal('addPersonModal')">
+                <h3><i class="fas fa-user-plus"></i> إضافة شخص جديد</h3>
+                <button class="modal-close" id="closeAddPersonModal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -1056,15 +1026,23 @@
                     <input type="tel" class="form-control" id="personPhone" placeholder="05xxxxxxxx">
                 </div>
                 <div class="form-group">
+                    <label class="form-label">العملة الافتراضية</label>
+                    <select class="form-select" id="personCurrency">
+                        <option value="LYD">دينار ليبي (LYD)</option>
+                        <option value="EUR">يورو (EUR)</option>
+                        <option value="USD">دولار أمريكي (USD)</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="form-label">ملاحظات (اختياري)</label>
                     <textarea class="form-control" id="personNotes" rows="3" placeholder="أي معلومات إضافية..."></textarea>
                 </div>
-                <div class="modal-actions">
-                    <button class="btn btn-secondary" onclick="closeModal('addPersonModal')">
+                <div class="form-actions">
+                    <button class="btn btn-secondary" id="cancelAddPerson">
                         <i class="fas fa-times"></i> إلغاء
                     </button>
-                    <button class="btn btn-primary" id="savePersonBtn">
-                        <i class="fas fa-save"></i> حفظ الشخص
+                    <button class="btn btn-primary" id="savePerson">
+                        <i class="fas fa-save"></i> حفظ
                     </button>
                 </div>
             </div>
@@ -1072,14 +1050,11 @@
     </div>
     
     <!-- نافذة إضافة عملية -->
-    <div class="modal-overlay" id="addTransactionModal">
+    <div class="modal" id="addTransactionModal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title">
-                    <i class="fas fa-exchange-alt"></i>
-                    عملية مالية جديدة
-                </div>
-                <button class="modal-close" onclick="closeModal('addTransactionModal')">
+                <h3><i class="fas fa-exchange-alt"></i> إضافة عملية جديدة</h3>
+                <button class="modal-close" id="closeAddTransactionModal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -1089,11 +1064,8 @@
                     <select class="form-select" id="transactionType">
                         <option value="income">إيداع (أخذت منه)</option>
                         <option value="expense">سحب (دفعت له)</option>
+                        <option value="transfer">تحويل داخلي</option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">المبلغ</label>
-                    <input type="number" class="form-control" id="transactionAmount" placeholder="0.000" step="0.001">
                 </div>
                 <div class="form-group">
                     <label class="form-label">الشخص</label>
@@ -1101,61 +1073,34 @@
                         <!-- سيتم تعبئته ديناميكياً -->
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">الوصف (اختياري)</label>
-                    <textarea class="form-control" id="transactionDescription" rows="2" placeholder="وصف العملية..."></textarea>
-                </div>
-                <div class="modal-actions">
-                    <button class="btn btn-secondary" onclick="closeModal('addTransactionModal')">
-                        <i class="fas fa-times"></i> إلغاء
-                    </button>
-                    <button class="btn btn-primary" id="saveTransactionBtn">
-                        <i class="fas fa-save"></i> حفظ العملية
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- نافذة التحويل -->
-    <div class="modal-overlay" id="transferModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">
-                    <i class="fas fa-money-bill-transfer"></i>
-                    تحويل أموال
-                </div>
-                <button class="modal-close" onclick="closeModal('transferModal')">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="form-label">من الشخص</label>
-                    <select class="form-select" id="transferFrom">
-                        <!-- سيتم تعبئته ديناميكياً -->
-                    </select>
-                </div>
-                <div class="form-group">
+                <div class="form-group" id="transferToGroup" style="display: none;">
                     <label class="form-label">إلى الشخص</label>
-                    <select class="form-select" id="transferTo">
+                    <select class="form-select" id="transferToPerson">
                         <!-- سيتم تعبئته ديناميكياً -->
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-label">المبلغ</label>
-                    <input type="number" class="form-control" id="transferAmount" placeholder="0.000" step="0.001">
+                    <input type="number" class="form-control" id="transactionAmount" placeholder="0.000" step="0.001" min="0">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">ملاحظات (اختياري)</label>
-                    <textarea class="form-control" id="transferNotes" rows="2" placeholder="سبب التحويل..."></textarea>
+                    <label class="form-label">العملة</label>
+                    <select class="form-select" id="transactionCurrency">
+                        <option value="LYD">دينار ليبي (LYD)</option>
+                        <option value="EUR">يورو (EUR)</option>
+                        <option value="USD">دولار أمريكي (USD)</option>
+                    </select>
                 </div>
-                <div class="modal-actions">
-                    <button class="btn btn-secondary" onclick="closeModal('transferModal')">
+                <div class="form-group">
+                    <label class="form-label">الوصف (اختياري)</label>
+                    <textarea class="form-control" id="transactionDescription" rows="3" placeholder="وصف العملية..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-secondary" id="cancelAddTransaction">
                         <i class="fas fa-times"></i> إلغاء
                     </button>
-                    <button class="btn btn-primary" id="saveTransferBtn">
-                        <i class="fas fa-exchange-alt"></i> تنفيذ التحويل
+                    <button class="btn btn-primary" id="saveTransaction">
+                        <i class="fas fa-save"></i> حفظ
                     </button>
                 </div>
             </div>
@@ -1163,246 +1108,708 @@
     </div>
 
     <script>
-        // البيانات المخزنة (نفس نظام التخزين القديم)
-        let people = JSON.parse(localStorage.getItem('smartMoneyManager_people')) || [];
-        let transactions = JSON.parse(localStorage.getItem('smartMoneyManager_transactions')) || [];
+        // ====================
+        // نظام الذاكرة الأصلي
+        // ====================
         
-        // عناصر DOM
-        const sections = document.querySelectorAll('.section');
-        const navItems = document.querySelectorAll('.nav-item');
-        const currentTimeElement = document.getElementById('currentTime');
-        const totalBalanceElement = document.getElementById('totalBalance');
-        const peopleListElement = document.getElementById('peopleList');
-        const peopleCountElement = document.getElementById('peopleCount');
-        const transactionsListElement = document.getElementById('transactionsList');
-        const transactionsCountElement = document.getElementById('transactionsCount');
-        const themeToggle = document.getElementById('themeToggle');
-        const mainFab = document.getElementById('mainFab');
+        // مفتاح التخزين في localStorage
+        const STORAGE_KEY = 'smartMoneyManager_data';
         
-        // تهيئة التطبيق
-        document.addEventListener('DOMContentLoaded', function() {
-            // تحديث الوقت
-            updateTime();
-            setInterval(updateTime, 60000);
-            
-            // تحميل الوضع الليلي
-            if (localStorage.getItem('darkMode') === 'true') {
-                document.body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        // هيكل البيانات
+        let appData = {
+            people: [],
+            transactions: [],
+            settings: {
+                darkMode: false,
+                defaultCurrency: 'LYD'
+            },
+            version: '2.0',
+            lastUpdate: new Date().toISOString()
+        };
+        
+        // ====================
+        // نظام التخزين
+        // ====================
+        
+        // تحميل البيانات
+        function loadData() {
+            try {
+                const savedData = localStorage.getItem(STORAGE_KEY);
+                if (savedData) {
+                    const parsedData = JSON.parse(savedData);
+                    
+                    // التحقق من بنية البيانات
+                    if (parsedData.people && parsedData.transactions) {
+                        appData = parsedData;
+                        console.log('✅ تم تحميل البيانات بنجاح');
+                    } else {
+                        console.log('⚠️ البيانات غير صحيحة، سيتم استخدام البيانات الافتراضية');
+                        initSampleData();
+                    }
+                } else {
+                    console.log('📝 لا توجد بيانات سابقة، سيتم تهيئة بيانات تجريبية');
+                    initSampleData();
+                }
+            } catch (error) {
+                console.error('❌ خطأ في تحميل البيانات:', error);
+                initSampleData();
             }
             
-            // تحديث البيانات
-            updateData();
+            // تطبيق الإعدادات
+            applySettings();
             
-            // تهيئة الأحداث
-            initializeEvents();
-            
-            // تهيئة بيانات تجريبية إذا كان التطبيق جديداً
-            if (people.length === 0) {
-                initializeSampleData();
-            }
-        });
-        
-        // تحديث الوقت
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('ar-LY', {
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: true
-            });
-            currentTimeElement.textContent = timeString;
+            // تحديث العرض
+            updateUI();
         }
         
-        // تحديث جميع البيانات
-        function updateData() {
-            updateTotalBalance();
+        // حفظ البيانات
+        function saveData() {
+            try {
+                appData.lastUpdate = new Date().toISOString();
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+                console.log('💾 تم حفظ البيانات بنجاح');
+                return true;
+            } catch (error) {
+                console.error('❌ خطأ في حفظ البيانات:', error);
+                showNotification('خطأ في حفظ البيانات', 'error');
+                return false;
+            }
+        }
+        
+        // تهيئة بيانات تجريبية
+        function initSampleData() {
+            appData = {
+                people: [
+                    {
+                        id: '1',
+                        name: 'أحمد محمد',
+                        phone: '0512345678',
+                        currency: 'LYD',
+                        notes: 'شريك في العمل',
+                        createdAt: '2024-01-01',
+                        balance: 500
+                    },
+                    {
+                        id: '2',
+                        name: 'سارة علي',
+                        phone: '0523456789',
+                        currency: 'EUR',
+                        notes: 'صديقة',
+                        createdAt: '2024-01-05',
+                        balance: -200
+                    },
+                    {
+                        id: '3',
+                        name: 'خالد حسن',
+                        phone: '0534567890',
+                        currency: 'USD',
+                        notes: 'جار',
+                        createdAt: '2024-01-10',
+                        balance: 1000
+                    }
+                ],
+                transactions: [
+                    {
+                        id: '1',
+                        type: 'income',
+                        personId: '1',
+                        amount: 500,
+                        currency: 'LYD',
+                        description: 'دفعة شهر يناير',
+                        date: '2024-01-15',
+                        createdAt: '2024-01-15T10:00:00'
+                    },
+                    {
+                        id: '2',
+                        type: 'expense',
+                        personId: '2',
+                        amount: 200,
+                        currency: 'EUR',
+                        description: 'سلفة طارئة',
+                        date: '2024-01-20',
+                        createdAt: '2024-01-20T14:30:00'
+                    },
+                    {
+                        id: '3',
+                        type: 'transfer',
+                        fromPersonId: '1',
+                        toPersonId: '3',
+                        amount: 100,
+                        currency: 'USD',
+                        description: 'تحويل سداد دين',
+                        date: '2024-01-25',
+                        createdAt: '2024-01-25T09:15:00'
+                    }
+                ],
+                settings: {
+                    darkMode: false,
+                    defaultCurrency: 'LYD'
+                },
+                version: '2.0',
+                lastUpdate: new Date().toISOString()
+            };
+            
+            saveData();
+        }
+        
+        // ====================
+        // تطبيق الإعدادات
+        // ====================
+        
+        function applySettings() {
+            // تطبيق الوضع الليلي
+            if (appData.settings.darkMode) {
+                document.body.classList.add('dark-mode');
+                document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.getElementById('themeToggle').innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+        
+        // ====================
+        // تحديث واجهة المستخدم
+        // ====================
+        
+        function updateUI() {
             updatePeopleList();
             updateTransactionsList();
+            updateTotalBalance();
+            updateSettingsInfo();
+            updateReportContent();
+            updatePersonSelects();
         }
         
-        // حساب إجمالي الأرصدة
+        // تحديث إجمالي الأرصدة
         function updateTotalBalance() {
             let total = 0;
-            people.forEach(person => {
-                const balance = calculatePersonBalance(person.id);
-                total += balance;
+            appData.people.forEach(person => {
+                total += calculatePersonBalance(person.id);
             });
-            totalBalanceElement.textContent = total.toFixed(3) + ' دينار';
+            
+            const totalBalanceElement = document.getElementById('totalBalance');
+            if (totalBalanceElement) {
+                totalBalanceElement.textContent = formatCurrency(total, 'LYD');
+            }
         }
         
-        // حساب رصيد شخص معين
+        // حساب رصيد شخص
         function calculatePersonBalance(personId) {
             let balance = 0;
-            transactions.forEach(transaction => {
-                if (transaction.personId === personId) {
-                    if (transaction.type === 'income') {
-                        balance += transaction.amount;
-                    } else if (transaction.type === 'expense') {
+            
+            appData.transactions.forEach(transaction => {
+                if (transaction.type === 'income' && transaction.personId === personId) {
+                    balance += transaction.amount;
+                } else if (transaction.type === 'expense' && transaction.personId === personId) {
+                    balance -= transaction.amount;
+                } else if (transaction.type === 'transfer') {
+                    if (transaction.fromPersonId === personId) {
                         balance -= transaction.amount;
-                    } else if (transaction.type === 'transfer') {
-                        if (transaction.from === personId) {
-                            balance -= transaction.amount;
-                        }
-                        if (transaction.to === personId) {
-                            balance += transaction.amount;
-                        }
+                    }
+                    if (transaction.toPersonId === personId) {
+                        balance += transaction.amount;
                     }
                 }
             });
+            
             return balance;
         }
         
         // تحديث قائمة الأشخاص
         function updatePeopleList() {
-            peopleCountElement.textContent = people.length + ' شخص';
+            const peopleListElement = document.getElementById('peopleList');
+            const peopleCountElement = document.getElementById('peopleCount');
             
-            if (people.length === 0) {
+            if (!peopleListElement) return;
+            
+            if (appData.people.length === 0) {
                 peopleListElement.innerHTML = `
                     <div class="empty-state">
-                        <div class="empty-state-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="empty-state-title">لا توجد حسابات</div>
+                        <i class="fas fa-users"></i>
+                        <h4>لا توجد حسابات</h4>
                         <p>قم بإضافة أشخاص لبدء إدارة الحسابات</p>
                     </div>
                 `;
+                if (peopleCountElement) peopleCountElement.textContent = '(0)';
                 return;
             }
             
-            peopleListElement.innerHTML = '';
-            people.forEach(person => {
+            if (peopleCountElement) peopleCountElement.textContent = `(${appData.people.length})`;
+            
+            let html = '<div class="people-grid">';
+            
+            appData.people.forEach(person => {
                 const balance = calculatePersonBalance(person.id);
                 const balanceClass = balance >= 0 ? 'balance-positive' : 'balance-negative';
                 const balanceIcon = balance >= 0 ? 'fas fa-arrow-up' : 'fas fa-arrow-down';
                 
-                const personElement = document.createElement('div');
-                personElement.className = 'person-card';
-                personElement.innerHTML = `
-                    <div class="person-avatar">
-                        ${person.name.charAt(0)}
-                    </div>
-                    <div class="person-name">${person.name}</div>
-                    <div class="person-balance ${balanceClass}">
-                        <i class="${balanceIcon}"></i>
-                        ${Math.abs(balance).toFixed(3)} دينار
+                html += `
+                    <div class="person-card" data-id="${person.id}">
+                        <div class="person-avatar">
+                            ${person.name.charAt(0)}
+                        </div>
+                        <div class="person-name">${person.name}</div>
+                        <div class="person-balance ${balanceClass}">
+                            <i class="${balanceIcon}"></i>
+                            ${formatCurrency(Math.abs(balance), person.currency)}
+                        </div>
+                        <div style="margin-top: 10px; font-size: 0.8rem; color: var(--gray);">
+                            <i class="fas fa-phone"></i> ${person.phone || 'لا يوجد'}
+                        </div>
                     </div>
                 `;
-                personElement.addEventListener('click', () => showPersonDetails(person.id));
-                peopleListElement.appendChild(personElement);
+            });
+            
+            html += '</div>';
+            peopleListElement.innerHTML = html;
+            
+            // إضافة أحداث النقر على البطاقات
+            document.querySelectorAll('.person-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const personId = this.getAttribute('data-id');
+                    showPersonDetails(personId);
+                });
             });
         }
         
         // تحديث قائمة العمليات
         function updateTransactionsList() {
-            const filteredTransactions = transactions.slice(-20).reverse(); // آخر 20 عملية
-            transactionsCountElement.textContent = transactions.length + ' عملية';
+            const transactionsListElement = document.getElementById('transactionsList');
+            const transactionsCountElement = document.getElementById('transactionsCount');
             
-            if (filteredTransactions.length === 0) {
+            if (!transactionsListElement) return;
+            
+            if (appData.transactions.length === 0) {
                 transactionsListElement.innerHTML = `
                     <div class="empty-state">
-                        <div class="empty-state-icon">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                        <div class="empty-state-title">لا توجد عمليات</div>
+                        <i class="fas fa-exchange-alt"></i>
+                        <h4>لا توجد عمليات</h4>
                         <p>قم بإضافة عمليات مالية لبدء السجل</p>
                     </div>
                 `;
+                if (transactionsCountElement) transactionsCountElement.textContent = '(0)';
                 return;
             }
             
-            transactionsListElement.innerHTML = '';
-            filteredTransactions.forEach(transaction => {
-                const person = people.find(p => p.id === transaction.personId);
-                const personName = person ? person.name : 'غير معروف';
-                
+            if (transactionsCountElement) transactionsCountElement.textContent = `(${appData.transactions.length})`;
+            
+            let html = '<div class="transactions-list">';
+            
+            // عرض آخر 20 عملية
+            const recentTransactions = [...appData.transactions]
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 20);
+            
+            recentTransactions.forEach(transaction => {
+                let personName = '';
                 let icon = 'fas fa-exchange-alt';
-                let color = '#7C3AED';
-                let typeText = 'عملية';
+                let color = 'var(--primary)';
+                let amountPrefix = '';
                 
                 if (transaction.type === 'income') {
+                    personName = getPersonName(transaction.personId);
                     icon = 'fas fa-arrow-down';
-                    color = '#10B981';
-                    typeText = 'إيداع';
+                    color = 'var(--success)';
+                    amountPrefix = '+';
                 } else if (transaction.type === 'expense') {
+                    personName = getPersonName(transaction.personId);
                     icon = 'fas fa-arrow-up';
-                    color = '#EF4444';
-                    typeText = 'سحب';
+                    color = 'var(--danger)';
+                    amountPrefix = '-';
                 } else if (transaction.type === 'transfer') {
+                    personName = `${getPersonName(transaction.fromPersonId)} → ${getPersonName(transaction.toPersonId)}`;
                     icon = 'fas fa-money-bill-transfer';
-                    color = '#3B82F6';
-                    typeText = 'تحويل';
+                    color = 'var(--info)';
+                    amountPrefix = '↔';
                 }
                 
-                const transactionElement = document.createElement('div');
-                transactionElement.className = 'transaction-item';
-                transactionElement.innerHTML = `
-                    <div class="transaction-icon" style="background: ${color}">
-                        <i class="${icon}"></i>
-                    </div>
-                    <div class="transaction-details">
-                        <div class="transaction-title">${typeText} - ${personName}</div>
-                        <div class="transaction-info">
-                            ${transaction.description || 'لا يوجد وصف'}
+                html += `
+                    <div class="transaction-item">
+                        <div class="transaction-icon" style="background: ${color}">
+                            <i class="${icon}"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-title">${personName}</div>
+                            <div class="transaction-info">
+                                ${transaction.description || 'لا يوجد وصف'} • ${formatDate(transaction.date)}
+                            </div>
+                        </div>
+                        <div class="transaction-amount" style="color: ${color}">
+                            ${amountPrefix}${formatCurrency(transaction.amount, transaction.currency)}
                         </div>
                     </div>
-                    <div class="transaction-amount" style="color: ${color}">
-                        ${transaction.type === 'expense' ? '-' : '+'}${transaction.amount.toFixed(3)}
-                    </div>
                 `;
-                transactionsListElement.appendChild(transactionElement);
             });
+            
+            html += '</div>';
+            transactionsListElement.innerHTML = html;
         }
         
-        // تهيئة الأحداث
-        function initializeEvents() {
-            // تبديل الوضع الليلي
-            themeToggle.addEventListener('click', function() {
-                document.body.classList.toggle('dark-mode');
-                if (document.body.classList.contains('dark-mode')) {
-                    this.innerHTML = '<i class="fas fa-sun"></i>';
-                    localStorage.setItem('darkMode', 'true');
-                } else {
-                    this.innerHTML = '<i class="fas fa-moon"></i>';
-                    localStorage.setItem('darkMode', 'false');
+        // تحديث معلومات الإعدادات
+        function updateSettingsInfo() {
+            const settingsPeopleCount = document.getElementById('settingsPeopleCount');
+            const settingsTransactionsCount = document.getElementById('settingsTransactionsCount');
+            const settingsTotalBalance = document.getElementById('settingsTotalBalance');
+            
+            if (settingsPeopleCount) settingsPeopleCount.textContent = appData.people.length;
+            if (settingsTransactionsCount) settingsTransactionsCount.textContent = appData.transactions.length;
+            
+            if (settingsTotalBalance) {
+                let total = 0;
+                appData.people.forEach(person => {
+                    total += calculatePersonBalance(person.id);
+                });
+                settingsTotalBalance.textContent = formatCurrency(total, 'LYD');
+            }
+        }
+        
+        // تحديث محتوى التقرير
+        function updateReportContent() {
+            const reportContent = document.getElementById('reportContent');
+            if (!reportContent) return;
+            
+            let html = `
+                <div style="background: white; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px; border: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">ملخص الإحصائيات</h3>
+            `;
+            
+            // إحصائيات العملات
+            const currencyStats = {
+                LYD: { income: 0, expense: 0, count: 0 },
+                EUR: { income: 0, expense: 0, count: 0 },
+                USD: { income: 0, expense: 0, count: 0 }
+            };
+            
+            appData.transactions.forEach(transaction => {
+                if (currencyStats[transaction.currency]) {
+                    if (transaction.type === 'income') {
+                        currencyStats[transaction.currency].income += transaction.amount;
+                    } else if (transaction.type === 'expense') {
+                        currencyStats[transaction.currency].expense += transaction.amount;
+                    }
+                    currencyStats[transaction.currency].count++;
                 }
             });
             
+            Object.entries(currencyStats).forEach(([currency, stats]) => {
+                if (stats.count > 0) {
+                    const net = stats.income - stats.expense;
+                    html += `
+                        <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span style="font-weight: 600;">${getCurrencyName(currency)}</span>
+                                <span style="font-weight: 700; color: ${net >= 0 ? 'var(--success)' : 'var(--danger)'}">
+                                    ${formatCurrency(net, currency)}
+                                </span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
+                                <div>
+                                    <div style="color: var(--success);">الإيداعات</div>
+                                    <div>${formatCurrency(stats.income, currency)}</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--danger);">السحوبات</div>
+                                    <div>${formatCurrency(stats.expense, currency)}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            
+            html += '</div>';
+            
+            // أعلى 5 أشخاص
+            const peopleBalances = appData.people.map(person => ({
+                ...person,
+                balance: calculatePersonBalance(person.id)
+            })).sort((a, b) => Math.abs(b.balance) - Math.abs(a.balance)).slice(0, 5);
+            
+            if (peopleBalances.length > 0) {
+                html += `
+                    <div style="background: white; border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border);">
+                        <h3 style="margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">أعلى 5 أرصدة</h3>
+                `;
+                
+                peopleBalances.forEach(person => {
+                    const balanceClass = person.balance >= 0 ? 'balance-positive' : 'balance-negative';
+                    html += `
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border);">
+                            <span>${person.name}</span>
+                            <span class="${balanceClass}" style="font-weight: 700;">
+                                ${formatCurrency(Math.abs(person.balance), person.currency)}
+                            </span>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+            }
+            
+            reportContent.innerHTML = html;
+        }
+        
+        // تحديث قوائم اختيار الأشخاص
+        function updatePersonSelects() {
+            const selects = ['transactionPerson', 'transferToPerson'];
+            
+            selects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                if (select) {
+                    select.innerHTML = '<option value="">اختر الشخص</option>';
+                    appData.people.forEach(person => {
+                        const option = document.createElement('option');
+                        option.value = person.id;
+                        option.textContent = person.name;
+                        select.appendChild(option);
+                    });
+                }
+            });
+        }
+        
+        // ====================
+        // وظائف المساعدة
+        // ====================
+        
+        // الحصول على اسم الشخص
+        function getPersonName(personId) {
+            const person = appData.people.find(p => p.id === personId);
+            return person ? person.name : 'غير معروف';
+        }
+        
+        // تنسيق العملة
+        function formatCurrency(amount, currency) {
+            const formatted = new Intl.NumberFormat('ar-LY', {
+                minimumFractionDigits: 3,
+                maximumFractionDigits: 3
+            }).format(amount);
+            
+            return `${formatted} ${getCurrencySymbol(currency)}`;
+        }
+        
+        // الحصول على رمز العملة
+        function getCurrencySymbol(currency) {
+            switch(currency) {
+                case 'LYD': return 'دينار';
+                case 'EUR': return 'يورو';
+                case 'USD': return 'دولار';
+                default: return currency;
+            }
+        }
+        
+        // الحصول على اسم العملة
+        function getCurrencyName(currency) {
+            switch(currency) {
+                case 'LYD': return 'دينار ليبي';
+                case 'EUR': return 'يورو';
+                case 'USD': return 'دولار أمريكي';
+                default: return currency;
+            }
+        }
+        
+        // تنسيق التاريخ
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('ar-LY');
+        }
+        
+        // إظهار الإشعار
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const title = document.getElementById('notificationTitle');
+            const msg = document.getElementById('notificationMessage');
+            
+            if (!notification || !title || !msg) return;
+            
+            // تعيين النص
+            title.textContent = type === 'success' ? 'نجاح' : 
+                               type === 'error' ? 'خطأ' : 'معلومة';
+            msg.textContent = message;
+            
+            // تعيين النوع
+            notification.className = `notification notification-${type}`;
+            
+            // إظهار الإشعار
+            notification.classList.add('show');
+            
+            // إخفاء الإشعار بعد 3 ثوانٍ
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // إظهار تفاصيل الشخص
+        function showPersonDetails(personId) {
+            const person = appData.people.find(p => p.id === personId);
+            if (!person) return;
+            
+            const balance = calculatePersonBalance(personId);
+            const personTransactions = appData.transactions.filter(t => 
+                t.personId === personId || t.fromPersonId === personId || t.toPersonId === personId
+            );
+            
+            let details = `
+                <div style="background: white; border-radius: var(--radius-lg); padding: 20px; border: 1px solid var(--border);">
+                    <h3 style="margin-bottom: 15px; font-size: 1.2rem; font-weight: 700; color: var(--primary);">
+                        <i class="fas fa-user"></i> ${person.name}
+                    </h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                            <div style="font-weight: 600;">رقم الهاتف</div>
+                            <div>${person.phone || 'لا يوجد'}</div>
+                            <div style="font-weight: 600;">العملة</div>
+                            <div>${getCurrencyName(person.currency)}</div>
+                            <div style="font-weight: 600;">الرصيد</div>
+                            <div style="font-weight: 700; color: ${balance >= 0 ? 'var(--success)' : 'var(--danger)'}">
+                                ${formatCurrency(Math.abs(balance), person.currency)}
+                            </div>
+                        </div>
+                    </div>
+            `;
+            
+            if (person.notes) {
+                details += `
+                    <div style="margin-bottom: 15px; padding: 10px; background: var(--light); border-radius: var(--radius-md);">
+                        <div style="font-weight: 600; margin-bottom: 5px;">ملاحظات:</div>
+                        <div>${person.notes}</div>
+                    </div>
+                `;
+            }
+            
+            if (personTransactions.length > 0) {
+                details += `
+                    <div style="margin-top: 20px;">
+                        <div style="font-weight: 600; margin-bottom: 10px;">آخر العمليات (${personTransactions.length})</div>
+                `;
+                
+                const recentTransactions = personTransactions.slice(-5).reverse();
+                
+                recentTransactions.forEach(transaction => {
+                    let typeText = '';
+                    let amountColor = '';
+                    
+                    if (transaction.type === 'income') {
+                        typeText = 'إيداع';
+                        amountColor = 'var(--success)';
+                    } else if (transaction.type === 'expense') {
+                        typeText = 'سحب';
+                        amountColor = 'var(--danger)';
+                    } else if (transaction.type === 'transfer') {
+                        if (transaction.fromPersonId === personId) {
+                            typeText = 'تحويل إلى ' + getPersonName(transaction.toPersonId);
+                            amountColor = 'var(--info)';
+                        } else {
+                            typeText = 'تحويل من ' + getPersonName(transaction.fromPersonId);
+                            amountColor = 'var(--success)';
+                        }
+                    }
+                    
+                    details += `
+                        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border);">
+                            <div>
+                                <div style="font-weight: 600;">${typeText}</div>
+                                <div style="font-size: 0.9rem; color: var(--gray);">
+                                    ${transaction.description || 'لا يوجد وصف'} • ${formatDate(transaction.date)}
+                                </div>
+                            </div>
+                            <div style="font-weight: 700; color: ${amountColor}">
+                                ${formatCurrency(transaction.amount, transaction.currency)}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                details += '</div>';
+            }
+            
+            details += '</div>';
+            
+            // فتح نافذة منبثقة لعرض التفاصيل
+            const modal = document.createElement('div');
+            modal.className = 'modal active';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-info-circle"></i> تفاصيل الشخص</h3>
+                        <button class="modal-close" onclick="this.closest('.modal').remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ${details}
+                        <div class="form-actions" style="margin-top: 20px;">
+                            <button class="btn btn-secondary" onclick="this.closest('.modal').remove()">
+                                <i class="fas fa-times"></i> إغلاق
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // إغلاق النافذة عند النقر خارجها
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.remove();
+                }
+            });
+        }
+        
+        // ====================
+        // إدارة الأحداث
+        // ====================
+        
+        function initializeEvents() {
+            // تبديل الوضع الليلي
+            document.getElementById('themeToggle').addEventListener('click', function() {
+                appData.settings.darkMode = !appData.settings.darkMode;
+                applySettings();
+                saveData();
+                showNotification(appData.settings.darkMode ? 'تم تفعيل الوضع الليلي' : 'تم تفعيل الوضع النهاري', 'success');
+            });
+            
             // التنقل بين الأقسام
-            navItems.forEach(item => {
+            document.querySelectorAll('.nav-item').forEach(item => {
                 item.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const sectionId = this.getAttribute('data-section') + '-section';
+                    
+                    const section = this.getAttribute('data-section');
                     
                     // تحديث التنشيط
-                    navItems.forEach(nav => nav.classList.remove('active'));
+                    document.querySelectorAll('.nav-item').forEach(nav => {
+                        nav.classList.remove('active');
+                    });
                     this.classList.add('active');
                     
                     // إظهار القسم المطلوب
-                    sections.forEach(section => section.classList.remove('active'));
-                    document.getElementById(sectionId).classList.add('active');
+                    document.querySelectorAll('.section').forEach(sec => {
+                        sec.classList.remove('active');
+                    });
+                    document.getElementById(`${section}-section`).classList.add('active');
                     
                     // تحديث زر FAB
-                    updateFabAction(sectionId);
+                    updateFabAction(section);
                 });
             });
             
             // زر الإضافة العائم
-            mainFab.addEventListener('click', function() {
-                const activeSection = document.querySelector('.section.active').id;
+            document.getElementById('fabButton').addEventListener('click', function() {
+                const activeSection = document.querySelector('.section.active').id.replace('-section', '');
                 
                 switch(activeSection) {
-                    case 'accounts-section':
+                    case 'accounts':
                         openModal('addPersonModal');
                         break;
-                    case 'transactions-section':
+                    case 'transactions':
                         openModal('addTransactionModal');
                         break;
-                    case 'reports-section':
+                    case 'reports':
                         generateReport();
                         break;
-                    case 'settings-section':
-                        openSettings();
+                    case 'settings':
+                        showSettingsActions();
                         break;
                 }
             });
@@ -1410,23 +1817,45 @@
             // أزرار الإجراءات السريعة
             document.getElementById('addPersonBtn').addEventListener('click', () => openModal('addPersonModal'));
             document.getElementById('addTransactionBtn').addEventListener('click', () => openModal('addTransactionModal'));
-            document.getElementById('transferBtn').addEventListener('click', () => openModal('transferModal'));
-            document.getElementById('reportBtn').addEventListener('click', () => switchSection('reports'));
+            document.getElementById('transferBtn').addEventListener('click', () => {
+                document.getElementById('transactionType').value = 'transfer';
+                openModal('addTransactionModal');
+            });
+            document.getElementById('reportBtn').addEventListener('click', () => {
+                document.querySelector('[data-section="reports"]').click();
+            });
             
-            // حفظ الشخص الجديد
-            document.getElementById('savePersonBtn').addEventListener('click', savePerson);
+            // تصدير البيانات
+            document.getElementById('exportDataBtn').addEventListener('click', exportData);
             
-            // حفظ العملية الجديدة
-            document.getElementById('saveTransactionBtn').addEventListener('click', saveTransaction);
+            // استيراد البيانات
+            document.getElementById('importDataBtn').addEventListener('click', importData);
             
-            // حفظ التحويل
-            document.getElementById('saveTransferBtn').addEventListener('click', saveTransfer);
+            // إعادة تعيين البيانات
+            document.getElementById('resetDataBtn').addEventListener('click', resetData);
             
-            // تحميل قوائم الأشخاص في النماذج
-            updatePersonSelects();
+            // إضافة شخص
+            document.getElementById('savePerson').addEventListener('click', addNewPerson);
+            document.getElementById('cancelAddPerson').addEventListener('click', () => closeModal('addPersonModal'));
+            document.getElementById('closeAddPersonModal').addEventListener('click', () => closeModal('addPersonModal'));
+            
+            // إضافة عملية
+            document.getElementById('saveTransaction').addEventListener('click', addNewTransaction);
+            document.getElementById('cancelAddTransaction').addEventListener('click', () => closeModal('addTransactionModal'));
+            document.getElementById('closeAddTransactionModal').addEventListener('click', () => closeModal('addTransactionModal'));
+            
+            // تغيير نوع العملية
+            document.getElementById('transactionType').addEventListener('change', function() {
+                const transferGroup = document.getElementById('transferToGroup');
+                if (this.value === 'transfer') {
+                    transferGroup.style.display = 'block';
+                } else {
+                    transferGroup.style.display = 'none';
+                }
+            });
             
             // البحث في العمليات
-            document.getElementById('searchTransactions').addEventListener('input', searchTransactions);
+            document.getElementById('searchInput').addEventListener('input', searchTransactions);
             
             // تصفية العمليات
             document.querySelectorAll('.category-btn').forEach(btn => {
@@ -1439,55 +1868,70 @@
             });
         }
         
-        // تحديث إجراء زر FAB حسب القسم النشط
-        function updateFabAction(sectionId) {
-            switch(sectionId) {
-                case 'accounts-section':
-                    mainFab.innerHTML = '<i class="fas fa-user-plus"></i>';
+        // تحديث إجراء زر FAB
+        function updateFabAction(section) {
+            const fab = document.getElementById('fabButton');
+            if (!fab) return;
+            
+            switch(section) {
+                case 'accounts':
+                    fab.innerHTML = '<i class="fas fa-user-plus"></i>';
                     break;
-                case 'transactions-section':
-                    mainFab.innerHTML = '<i class="fas fa-exchange-alt"></i>';
+                case 'transactions':
+                    fab.innerHTML = '<i class="fas fa-exchange-alt"></i>';
                     break;
-                case 'reports-section':
-                    mainFab.innerHTML = '<i class="fas fa-chart-bar"></i>';
+                case 'reports':
+                    fab.innerHTML = '<i class="fas fa-chart-bar"></i>';
                     break;
-                case 'settings-section':
-                    mainFab.innerHTML = '<i class="fas fa-cog"></i>';
+                case 'settings':
+                    fab.innerHTML = '<i class="fas fa-cog"></i>';
                     break;
             }
         }
         
         // فتح النافذة المنبثقة
         function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-            setTimeout(() => {
-                document.getElementById(modalId).style.opacity = '1';
-            }, 10);
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                
+                // التركيز على أول حقل إدخال
+                const firstInput = modal.querySelector('input, select, textarea');
+                if (firstInput) {
+                    setTimeout(() => firstInput.focus(), 100);
+                }
+            }
         }
         
         // إغلاق النافذة المنبثقة
         function closeModal(modalId) {
-            document.getElementById(modalId).style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById(modalId).style.display = 'none';
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                
                 // مسح حقول النموذج
-                const modal = document.getElementById(modalId);
-                modal.querySelectorAll('input, textarea, select').forEach(field => {
-                    if (field.id !== 'transactionType') {
-                        field.value = '';
-                    }
+                modal.querySelectorAll('input, textarea').forEach(field => {
+                    field.value = '';
                 });
-            }, 300);
+                
+                // إعادة تعيين القيم الافتراضية
+                if (modalId === 'addTransactionModal') {
+                    document.getElementById('transactionType').value = 'income';
+                    document.getElementById('transferToGroup').style.display = 'none';
+                }
+            }
         }
         
-        // حفظ شخص جديد
-        function savePerson() {
+        // إضافة شخص جديد
+        function addNewPerson() {
             const name = document.getElementById('personName').value.trim();
             const phone = document.getElementById('personPhone').value.trim();
+            const currency = document.getElementById('personCurrency').value;
             const notes = document.getElementById('personNotes').value.trim();
             
             if (!name) {
-                alert('الرجاء إدخال اسم الشخص');
+                showNotification('الرجاء إدخال اسم الشخص', 'error');
+                document.getElementById('personName').focus();
                 return;
             }
             
@@ -1495,33 +1939,50 @@
                 id: Date.now().toString(),
                 name: name,
                 phone: phone,
+                currency: currency,
                 notes: notes,
-                createdAt: new Date().toISOString()
+                createdAt: new Date().toISOString().split('T')[0]
             };
             
-            people.push(newPerson);
-            saveToLocalStorage();
-            updateData();
-            updatePersonSelects();
-            closeModal('addPersonModal');
+            appData.people.push(newPerson);
             
-            showNotification('تم إضافة الشخص بنجاح!', 'success');
+            if (saveData()) {
+                updateUI();
+                closeModal('addPersonModal');
+                showNotification('تم إضافة الشخص بنجاح', 'success');
+            }
         }
         
-        // حفظ عملية جديدة
-        function saveTransaction() {
+        // إضافة عملية جديدة
+        function addNewTransaction() {
             const type = document.getElementById('transactionType').value;
-            const amount = parseFloat(document.getElementById('transactionAmount').value);
             const personId = document.getElementById('transactionPerson').value;
+            const transferToId = document.getElementById('transferToPerson').value;
+            const amount = parseFloat(document.getElementById('transactionAmount').value);
+            const currency = document.getElementById('transactionCurrency').value;
             const description = document.getElementById('transactionDescription').value.trim();
             
+            // التحقق من صحة البيانات
             if (!amount || amount <= 0) {
-                alert('الرجاء إدخال مبلغ صحيح');
+                showNotification('الرجاء إدخال مبلغ صحيح', 'error');
+                document.getElementById('transactionAmount').focus();
                 return;
             }
             
             if (!personId) {
-                alert('الرجاء اختيار الشخص');
+                showNotification('الرجاء اختيار الشخص', 'error');
+                document.getElementById('transactionPerson').focus();
+                return;
+            }
+            
+            if (type === 'transfer' && !transferToId) {
+                showNotification('الرجاء اختيار الشخص المراد التحويل إليه', 'error');
+                document.getElementById('transferToPerson').focus();
+                return;
+            }
+            
+            if (type === 'transfer' && personId === transferToId) {
+                showNotification('لا يمكن التحويل لنفس الشخص', 'error');
                 return;
             }
             
@@ -1529,246 +1990,305 @@
                 id: Date.now().toString(),
                 type: type,
                 amount: amount,
-                personId: personId,
+                currency: currency,
                 description: description,
-                date: new Date().toISOString()
+                date: new Date().toISOString().split('T')[0],
+                createdAt: new Date().toISOString()
             };
             
-            transactions.push(newTransaction);
-            saveToLocalStorage();
-            updateData();
-            closeModal('addTransactionModal');
+            if (type === 'income' || type === 'expense') {
+                newTransaction.personId = personId;
+            } else if (type === 'transfer') {
+                newTransaction.fromPersonId = personId;
+                newTransaction.toPersonId = transferToId;
+            }
             
-            showNotification('تم إضافة العملية بنجاح!', 'success');
+            appData.transactions.push(newTransaction);
+            
+            if (saveData()) {
+                updateUI();
+                closeModal('addTransactionModal');
+                showNotification('تم إضافة العملية بنجاح', 'success');
+            }
         }
         
-        // حفظ تحويل
-        function saveTransfer() {
-            const fromId = document.getElementById('transferFrom').value;
-            const toId = document.getElementById('transferTo').value;
-            const amount = parseFloat(document.getElementById('transferAmount').value);
-            const notes = document.getElementById('transferNotes').value.trim();
+        // تصدير البيانات
+        function exportData() {
+            const dataStr = JSON.stringify(appData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
             
-            if (!fromId || !toId) {
-                alert('الرجاء اختيار الشخصين للتحويل');
-                return;
-            }
+            const exportFileDefaultName = `smart-money-manager-backup-${new Date().toISOString().split('T')[0]}.json`;
             
-            if (fromId === toId) {
-                alert('لا يمكن التحويل لنفس الشخص');
-                return;
-            }
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
             
-            if (!amount || amount <= 0) {
-                alert('الرجاء إدخال مبلغ صحيح');
-                return;
-            }
+            showNotification('تم تصدير البيانات بنجاح', 'success');
+        }
+        
+        // استيراد البيانات
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
             
-            const newTransaction = {
-                id: Date.now().toString(),
-                type: 'transfer',
-                amount: amount,
-                from: fromId,
-                to: toId,
-                description: notes,
-                date: new Date().toISOString()
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const importedData = JSON.parse(e.target.result);
+                        
+                        // التحقق من بنية البيانات
+                        if (importedData.people && importedData.transactions) {
+                            if (confirm('هل أنت متأكد من استيراد البيانات؟ سيتم استبدال جميع البيانات الحالية.')) {
+                                appData = importedData;
+                                saveData();
+                                updateUI();
+                                applySettings();
+                                showNotification('تم استيراد البيانات بنجاح', 'success');
+                            }
+                        } else {
+                            showNotification('ملف غير صالح', 'error');
+                        }
+                    } catch (error) {
+                        showNotification('خطأ في قراءة الملف', 'error');
+                    }
+                };
+                reader.readAsText(file);
             };
             
-            transactions.push(newTransaction);
-            saveToLocalStorage();
-            updateData();
-            closeModal('transferModal');
-            
-            showNotification('تم تنفيذ التحويل بنجاح!', 'success');
+            input.click();
         }
         
-        // تحديث قوائم اختيار الأشخاص
-        function updatePersonSelects() {
-            const selects = ['transactionPerson', 'transferFrom', 'transferTo'];
-            
-            selects.forEach(selectId => {
-                const select = document.getElementById(selectId);
-                if (select) {
-                    select.innerHTML = '<option value="">اختر الشخص</option>';
-                    people.forEach(person => {
-                        const option = document.createElement('option');
-                        option.value = person.id;
-                        option.textContent = person.name;
-                        select.appendChild(option);
-                    });
+        // إعادة تعيين البيانات
+        function resetData() {
+            if (confirm('⚠️ هل أنت متأكد من إعادة تعيين جميع البيانات؟ هذا الإجراء لا يمكن التراجع عنه.')) {
+                if (confirm('❌ تأكيد نهائي: سيتم حذف جميع الأشخاص والعمليات.')) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    appData = {
+                        people: [],
+                        transactions: [],
+                        settings: {
+                            darkMode: false,
+                            defaultCurrency: 'LYD'
+                        },
+                        version: '2.0',
+                        lastUpdate: new Date().toISOString()
+                    };
+                    saveData();
+                    updateUI();
+                    showNotification('تم إعادة تعيين جميع البيانات', 'success');
                 }
-            });
+            }
         }
         
         // البحث في العمليات
         function searchTransactions() {
-            const query = document.getElementById('searchTransactions').value.toLowerCase();
-            // سيتم تطوير هذا في الإصدارات القادمة
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const transactionsList = document.getElementById('transactionsList');
+            
+            if (!query.trim()) {
+                updateTransactionsList();
+                return;
+            }
+            
+            const filteredTransactions = appData.transactions.filter(transaction => {
+                // البحث في الأسماء
+                let personName = '';
+                if (transaction.type === 'income' || transaction.type === 'expense') {
+                    personName = getPersonName(transaction.personId);
+                } else if (transaction.type === 'transfer') {
+                    personName = `${getPersonName(transaction.fromPersonId)} → ${getPersonName(transaction.toPersonId)}`;
+                }
+                
+                // البحث في الوصف
+                const description = transaction.description || '';
+                
+                // البحث في المبلغ
+                const amount = transaction.amount.toString();
+                
+                // البحث في التاريخ
+                const date = transaction.date;
+                
+                return personName.toLowerCase().includes(query) ||
+                       description.toLowerCase().includes(query) ||
+                       amount.includes(query) ||
+                       date.includes(query);
+            });
+            
+            // عرض النتائج
+            if (filteredTransactions.length === 0) {
+                transactionsList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <h4>لا توجد نتائج</h4>
+                        <p>لم يتم العثور على عمليات تطابق البحث</p>
+                    </div>
+                `;
+            } else {
+                let html = '<div class="transactions-list">';
+                
+                filteredTransactions.slice().reverse().forEach(transaction => {
+                    let personName = '';
+                    let icon = 'fas fa-exchange-alt';
+                    let color = 'var(--primary)';
+                    let amountPrefix = '';
+                    
+                    if (transaction.type === 'income') {
+                        personName = getPersonName(transaction.personId);
+                        icon = 'fas fa-arrow-down';
+                        color = 'var(--success)';
+                        amountPrefix = '+';
+                    } else if (transaction.type === 'expense') {
+                        personName = getPersonName(transaction.personId);
+                        icon = 'fas fa-arrow-up';
+                        color = 'var(--danger)';
+                        amountPrefix = '-';
+                    } else if (transaction.type === 'transfer') {
+                        personName = `${getPersonName(transaction.fromPersonId)} → ${getPersonName(transaction.toPersonId)}`;
+                        icon = 'fas fa-money-bill-transfer';
+                        color = 'var(--info)';
+                        amountPrefix = '↔';
+                    }
+                    
+                    html += `
+                        <div class="transaction-item">
+                            <div class="transaction-icon" style="background: ${color}">
+                                <i class="${icon}"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">${personName}</div>
+                                <div class="transaction-info">
+                                    ${transaction.description || 'لا يوجد وصف'} • ${formatDate(transaction.date)}
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: ${color}">
+                                ${amountPrefix}${formatCurrency(transaction.amount, transaction.currency)}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                transactionsList.innerHTML = html;
+            }
         }
         
         // تصفية العمليات
         function filterTransactions(filter) {
-            // سيتم تطوير هذا في الإصدارات القادمة
-        }
-        
-        // عرض تفاصيل الشخص
-        function showPersonDetails(personId) {
-            const person = people.find(p => p.id === personId);
-            if (!person) return;
+            const transactionsList = document.getElementById('transactionsList');
             
-            const balance = calculatePersonBalance(personId);
-            const personTransactions = transactions.filter(t => 
-                t.personId === personId || t.from === personId || t.to === personId
-            );
+            let filteredTransactions = appData.transactions;
             
-            // سيتم تطوير هذا في الإصدارات القادمة
-            alert(`تفاصيل ${person.name}\nالرصيد: ${balance.toFixed(3)} دينار\nعدد العمليات: ${personTransactions.length}`);
+            if (filter !== 'all') {
+                filteredTransactions = appData.transactions.filter(t => t.type === filter);
+            }
+            
+            // عرض النتائج
+            if (filteredTransactions.length === 0) {
+                transactionsList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-filter"></i>
+                        <h4>لا توجد عمليات</h4>
+                        <p>لا توجد عمليات من النوع المحدد</p>
+                    </div>
+                `;
+            } else {
+                let html = '<div class="transactions-list">';
+                
+                filteredTransactions.slice().reverse().slice(0, 20).forEach(transaction => {
+                    let personName = '';
+                    let icon = 'fas fa-exchange-alt';
+                    let color = 'var(--primary)';
+                    let amountPrefix = '';
+                    
+                    if (transaction.type === 'income') {
+                        personName = getPersonName(transaction.personId);
+                        icon = 'fas fa-arrow-down';
+                        color = 'var(--success)';
+                        amountPrefix = '+';
+                    } else if (transaction.type === 'expense') {
+                        personName = getPersonName(transaction.personId);
+                        icon = 'fas fa-arrow-up';
+                        color = 'var(--danger)';
+                        amountPrefix = '-';
+                    } else if (transaction.type === 'transfer') {
+                        personName = `${getPersonName(transaction.fromPersonId)} → ${getPersonName(transaction.toPersonId)}`;
+                        icon = 'fas fa-money-bill-transfer';
+                        color = 'var(--info)';
+                        amountPrefix = '↔';
+                    }
+                    
+                    html += `
+                        <div class="transaction-item">
+                            <div class="transaction-icon" style="background: ${color}">
+                                <i class="${icon}"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-title">${personName}</div>
+                                <div class="transaction-info">
+                                    ${transaction.description || 'لا يوجد وصف'} • ${formatDate(transaction.date)}
+                                </div>
+                            </div>
+                            <div class="transaction-amount" style="color: ${color}">
+                                ${amountPrefix}${formatCurrency(transaction.amount, transaction.currency)}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                transactionsList.innerHTML = html;
+            }
         }
         
         // توليد التقرير
         function generateReport() {
-            const period = parseInt(document.getElementById('reportPeriod').value);
-            const now = new Date();
-            const startDate = new Date();
-            startDate.setDate(now.getDate() - period);
+            // سيتم تطوير هذه الوظيفة في المستقبل
+            showNotification('جاري توليد التقرير...', 'info');
+        }
+        
+        // إظهار إجراءات الإعدادات
+        function showSettingsActions() {
+            // سيتم تطوير هذه الوظيفة في المستقبل
+            showNotification('فتح إعدادات متقدمة', 'info');
+        }
+        
+        // ====================
+        // تهيئة التطبيق
+        // ====================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحميل البيانات
+            loadData();
             
-            const recentTransactions = transactions.filter(t => {
-                const transactionDate = new Date(t.date);
-                return transactionDate >= startDate;
+            // تهيئة الأحداث
+            initializeEvents();
+            
+            // إغلاق النوافذ عند النقر خارجها
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('active');
+                    }
+                });
             });
             
-            let totalIncome = 0;
-            let totalExpense = 0;
-            let totalTransfer = 0;
-            
-            recentTransactions.forEach(t => {
-                if (t.type === 'income') totalIncome += t.amount;
-                else if (t.type === 'expense') totalExpense += t.amount;
-                else if (t.type === 'transfer') totalTransfer += t.amount;
-            });
-            
-            const reportSummary = document.getElementById('reportSummary');
-            reportSummary.innerHTML = `
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;">
-                    <div style="background: var(--success); color: white; padding: 15px; border-radius: var(--radius-md);">
-                        <div style="font-size: 12px;">الإيداعات</div>
-                        <div style="font-size: 20px; font-weight: 700;">${totalIncome.toFixed(3)}</div>
-                    </div>
-                    <div style="background: var(--danger); color: white; padding: 15px; border-radius: var(--radius-md);">
-                        <div style="font-size: 12px;">السحوبات</div>
-                        <div style="font-size: 20px; font-weight: 700;">${totalExpense.toFixed(3)}</div>
-                    </div>
-                </div>
-                <div style="margin-top: 15px; padding: 15px; background: var(--bg-secondary); border-radius: var(--radius-md);">
-                    <div style="font-weight: 600; margin-bottom: 5px;">صافي الربح</div>
-                    <div style="font-size: 24px; font-weight: 700; color: ${(totalIncome - totalExpense) >= 0 ? 'var(--success)' : 'var(--danger)'}">
-                        ${(totalIncome - totalExpense).toFixed(3)} دينار
-                    </div>
-                </div>
-            `;
-            
-            showNotification('تم توليد التقرير!', 'info');
-        }
-        
-        // فتح الإعدادات
-        function openSettings() {
-            // سيتم تطوير هذا في الإصدارات القادمة
-        }
-        
-        // تبديل الأقسام
-        function switchSection(sectionName) {
-            navItems.forEach(nav => nav.classList.remove('active'));
-            sections.forEach(section => section.classList.remove('active'));
-            
-            document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
-            document.getElementById(`${sectionName}-section`).classList.add('active');
-            
-            updateFabAction(`${sectionName}-section`);
-        }
-        
-        // عرض الإشعارات
-        function showNotification(message, type = 'info') {
-            // سيتم تطوير هذا في الإصدارات القادمة
-            alert(message);
-        }
-        
-        // حفظ البيانات في localStorage
-        function saveToLocalStorage() {
-            localStorage.setItem('smartMoneyManager_people', JSON.stringify(people));
-            localStorage.setItem('smartMoneyManager_transactions', JSON.stringify(transactions));
-        }
-        
-        // تهيئة بيانات تجريبية
-        function initializeSampleData() {
-            people = [
-                {
-                    id: '1',
-                    name: 'أحمد محمد',
-                    phone: '0512345678',
-                    notes: 'شريك في العمل',
-                    createdAt: new Date().toISOString()
-                },
-                {
-                    id: '2',
-                    name: 'سارة علي',
-                    phone: '0523456789',
-                    notes: 'صديقة',
-                    createdAt: new Date().toISOString()
-                },
-                {
-                    id: '3',
-                    name: 'خالد حسن',
-                    phone: '0534567890',
-                    notes: 'جار',
-                    createdAt: new Date().toISOString()
-                }
-            ];
-            
-            transactions = [
-                {
-                    id: '1',
-                    type: 'income',
-                    amount: 500,
-                    personId: '1',
-                    description: 'دفعة شهر أكتوبر',
-                    date: new Date('2024-01-15').toISOString()
-                },
-                {
-                    id: '2',
-                    type: 'expense',
-                    amount: 200,
-                    personId: '2',
-                    description: 'سلفة طارئة',
-                    date: new Date('2024-01-20').toISOString()
-                },
-                {
-                    id: '3',
-                    type: 'transfer',
-                    amount: 100,
-                    from: '1',
-                    to: '3',
-                    description: 'سداد دين',
-                    date: new Date('2024-01-25').toISOString()
-                }
-            ];
-            
-            saveToLocalStorage();
-            updateData();
-            updatePersonSelects();
-        }
-        
-        // إغلاق النوافذ عند النقر خارجها
-        window.addEventListener('click', function(event) {
-            const modals = document.querySelectorAll('.modal-overlay');
-            modals.forEach(modal => {
-                if (event.target === modal) {
-                    closeModal(modal.id);
+            // إغلاق النوافذ بمفتاح ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal.active').forEach(modal => {
+                        modal.classList.remove('active');
+                    });
                 }
             });
+            
+            console.log('🚀 التطبيق جاهز للاستخدام');
         });
-        
-        // تحسينات للهواتف
-        document.addEventListener('touchstart', function() {}, {passive: true});
     </script>
 </body>
 </html>
